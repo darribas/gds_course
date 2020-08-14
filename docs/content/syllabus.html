@@ -1,0 +1,410 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syllabus &#8212; A course on Geographic Data Science</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bibliography" href="bibliography.html" />
+    <link rel="prev" title="Overview" href="overview.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">A course on Geographic Data Science</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="home.html">
+   ENVS363/563
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Details
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Block A
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bA/landing_A.html">
+   Lecture
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bA/landing_A.html#lab">
+   Lab
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bA/lab_A.html">
+   Geographic Data Science - Lab 01
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bA/lab_A.html#data-munging">
+   Data “munging”
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/content/syllabus.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-1-introduction">
+   Week 1: Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-2-modern-computational-environments">
+   Week 2: Modern Computational Environments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-3-spatial-data">
+   Week 3: Spatial Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-4-geo-visualization-choropleths">
+   Week 4: (Geo)Visualization + Choropleths
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-5-spatial-weights">
+   Week 5: Spatial Weights
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-6-esda">
+   Week 6: ESDA
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-7-clustering">
+   Week 7: Clustering
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-8-point-data">
+   Week 8: Point Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-9">
+   Week 9
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-10-spatial-causal-inference">
+   Week 10: (Spatial) causal inference
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-11-geographic-data-science-in-action">
+   Week 11: Geographic Data Science in Action
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="syllabus">
+<h1>Syllabus<a class="headerlink" href="#syllabus" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="week-1-introduction">
+<h2>Week 1: Introduction<a class="headerlink" href="#week-1-introduction" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Lecture: <span class="xref myst">Geographic Data Science</span>.</p></li>
+<li><p>Tutorial: <span class="xref myst">Tools</span> + <span class="xref myst">Manipulating data in Python - Tidy Data</span>.</p></li>
+</ul>
+</div>
+<div class="section" id="week-2-modern-computational-environments">
+<h2>Week 2: Modern Computational Environments<a class="headerlink" href="#week-2-modern-computational-environments" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Lecture: <span class="xref myst">Modern Computational Environments</span>.</p></li>
+<li><p>Tutorial: <span class="xref myst">Manipulating data in Python - Advanced Tricks</span>.</p></li>
+</ul>
+</div>
+<div class="section" id="week-3-spatial-data">
+<h2>Week 3: Spatial Data<a class="headerlink" href="#week-3-spatial-data" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Lecture: <span class="xref myst">Spatial Data</span>.</p></li>
+<li><p>Tutorial: <span class="xref myst">Manipulating geospatial data in Python</span>.</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="week-4-geo-visualization-choropleths">
+<h2>Week 4: (Geo)Visualization + Choropleths<a class="headerlink" href="#week-4-geo-visualization-choropleths" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Lecture: <span class="xref myst">(Geo)Visualization + Choropleths</span>.</p></li>
+<li><p>Tutorial: <span class="xref myst">Mapping deprivation</span>.</p></li>
+</ul>
+</div>
+<div class="section" id="week-5-spatial-weights">
+<h2>Week 5: Spatial Weights<a class="headerlink" href="#week-5-spatial-weights" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Lecture: <span class="xref myst">Spatial Weights</span>.</p></li>
+<li><p>Tutorial:</p>
+<ul>
+<li><p><a class="reference external" href="assignments.html#task_01"><strong>TEST 1</strong></a> (1h): Thursday Oct. 24th</p></li>
+<li><p><span class="xref myst">Spatial Weights with PySAL</span>.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="week-6-esda">
+<h2>Week 6: ESDA<a class="headerlink" href="#week-6-esda" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Lecture: <span class="xref myst">Exploratory Spatial Data Analysis (ESDA)</span>.</p></li>
+<li><p>Tutorial: <span class="xref myst">ESDA in Python</span>.</p></li>
+</ul>
+</div>
+<div class="section" id="week-7-clustering">
+<h2>Week 7: Clustering<a class="headerlink" href="#week-7-clustering" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Lecture: <span class="xref myst">Clustering</span>.</p></li>
+<li><p>Tutorial: <span class="xref myst">Geodemographic analysis</span>.</p></li>
+</ul>
+</div>
+<div class="section" id="week-8-point-data">
+<h2>Week 8: Point Data<a class="headerlink" href="#week-8-point-data" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Lecture: <span class="xref myst">Point Data</span>.</p></li>
+<li><p>Tutorial: <span class="xref myst">Exploring Twitter patterns</span>.</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="week-9">
+<h2>Week 9<a class="headerlink" href="#week-9" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Lecture: <span class="xref myst">Assignment preparation</span>.</p></li>
+<li><p>Tutorial:</p>
+<ul>
+<li><p><a class="reference external" href="assignments.html#task_02"><strong>TEST 2</strong></a> (1h): Thursday Nov. 21st</p></li>
+<li><p>Assignment Clinic</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="week-10-spatial-causal-inference">
+<h2>Week 10: (Spatial) causal inference<a class="headerlink" href="#week-10-spatial-causal-inference" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Lecture: <span class="xref myst">Spatial causal inference</span>.</p></li>
+<li><p>Tutorial: Assignment Clinic.</p></li>
+</ul>
+</div>
+<div class="section" id="week-11-geographic-data-science-in-action">
+<h2>Week 11: Geographic Data Science in Action<a class="headerlink" href="#week-11-geographic-data-science-in-action" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Lecture: Geographic Data Science <em>in the wild</em>.</p></li>
+<li><p>Tutorial: Assignment Clinic.</p></li>
+</ul>
+<p><a class="reference external" href="assignments.html#task_03"><strong>ASSIGNMENT</strong></a> due on Thursday, December
+5th-2019.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="overview.html" title="previous page">Overview</a>
+    <a class='right-next' id="next-link" href="bibliography.html" title="next page">Bibliography</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Dani Arribas-Bel<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

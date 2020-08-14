@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture &#8212; A course on Geographic Data Science</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Geographic Data Science - Lab 01" href="lab_A.html" />
+    <link rel="prev" title="Bibliography" href="../bibliography.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">A course on Geographic Data Science</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../home.html">
+   ENVS363/563
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Details
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Block A
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Lecture
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#lab">
+   Lab
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab_A.html">
+   Geographic Data Science - Lab 01
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab_A.html#data-munging">
+   Data “munging”
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/bA/landing_A.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slides">
+   Slides
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#to-do-before-class">
+   To do before class
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-readings">
+   Additional readings
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="lecture">
+<h1>Lecture<a class="headerlink" href="#lecture" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="slides">
+<h2>Slides<a class="headerlink" href="#slides" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><span class="xref myst">html</span></p></li>
+<li><p><span class="xref myst">pdf</span></p></li>
+</ul>
+</div>
+<div class="section" id="to-do-before-class">
+<h2>To do before class<a class="headerlink" href="#to-do-before-class" title="Permalink to this headline">¶</a></h2>
+<p>As a way to wet your apetite about the content of the first class, I recommend you:</p>
+<ul class="simple">
+<li><p>Listen to <a class="reference external" href="http://www.sciencefriday.com/segments/solving-lifes-everyday-problems-with-data/">this interview</a> with Hilary Mason, Max Shron, and Alex Pentland about the power of data.</p></li>
+<li><p>Watch <a class="reference external" href="https://www.youtube.com/watch?v=h1ImEQKSkUQ">this video</a> by Mike Flowers, Chief Analytics Officer, at the City of New York about how data is used to influence policy decisions.</p></li>
+</ul>
+</div>
+<div class="section" id="additional-readings">
+<h2>Additional readings<a class="headerlink" href="#additional-readings" title="Permalink to this headline">¶</a></h2>
+<p>The contents of this lecture are loosely based on, and explored into further detail, in the following three references :</p>
+<ul class="simple">
+<li><p><strong>[Recommended]</strong> “Chapter 1: Introduction” <a class="bibtex reference internal" href="../bibliography.html#schutt2013doing" id="id1">[SONeil13]</a>. Free sampler of the book containing the chapter available online (<a class="reference external" href="http://shop.oreilly.com/product/0636920028529.do">html</a>, <a class="reference external" href="http://cdn.oreillystatic.com/oreilly/booksamplers/9781449358655_sampler.pdf">pdf</a>).</p></li>
+<li><p>Excellent overview of Data Science <a class="bibtex reference internal" href="../bibliography.html#donoho201750" id="id2">[Don17]</a>.</p></li>
+<li><p>A Geographic take on Data Science, proposing a new field <span class="bibtex" id="id3">[ singleton2019geographic]</span>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="lab">
+<h1>Lab<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="notebook">
+<h2>Notebook<a class="headerlink" href="#notebook" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p><strong>TIP</strong>: Here you can find a step-by-step tutorial about how to start up the notebook, download files, and access them through the notebook:</p>
+<blockquote>
+<div><p>[<span class="xref myst">HTML</span>]</p>
+</div></blockquote>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><span class="xref myst">ipynb</span></p></li>
+<li><p><span class="xref myst">html</span></p></li>
+<li><p><span class="xref myst">pdf</span></p></li>
+</ul>
+</div>
+<div class="section" id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<p>This session uses the <strong>“Census socio-demographics”</strong> datasets. Go to the <span class="xref myst">Datasets</span> tab to find out more information as well as instructions to download it.</p>
+</div>
+<div class="section" id="additional-materials">
+<h2>Additional materials<a class="headerlink" href="#additional-materials" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>A good extension of this session is <a class="bibtex reference internal" href="../bibliography.html#wickham-2014-jssobk-v59i10" id="id4">[Wic14]</a>. The paper is published under an Open Access license so it is freely available on the journal’s site, but the author has also made available a public <a class="reference external" href="https://github.com/hadley/tidy-data">repository</a> with the data and code used in the paper. Keep in mind the paper and the code that comes with it are based on R, not on Python.</p></li>
+<li><p><strong>[Visualization]</strong> Python library <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> <a class="reference external" href="http://stanford.edu/~mwaskom/software/seaborn/tutorial.html">tutorial</a>.</p></li>
+<li><p><strong>[Recommended]</strong> <a class="bibtex reference internal" href="../bibliography.html#mckinney2012python" id="id5">[McK12]</a>: excellent introduction to Python for data analysis, with plenty of examples and code snippets (Publisher’s page <a class="reference external" href="http://shop.oreilly.com/product/0636920023784.do">link</a>).</p></li>
+<li><p><a class="reference external" href="http://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html?_r=0">NY Times article</a> about the importance of cleaning data.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/bA"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../bibliography.html" title="previous page">Bibliography</a>
+    <a class='right-next' id="next-link" href="lab_A.html" title="next page">Geographic Data Science - Lab 01</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Dani Arribas-Bel<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

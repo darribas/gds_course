@@ -1,0 +1,13 @@
+- file: content/home
+
+- chapter: Information
+  sections:
+    - file: content/overview
+    - file: content/syllabus
+    - file: content/bibliography
+
+- chapter: Block A
+  sections:
+    - file: content/bA/landing_A
+    - file: content/bA/lab_A
+

@@ -1,0 +1,11 @@
+# Book settings
+title: A course on Geographic Data Science
+author: Dani Arribas-Bel
+#logo: logo.jpeg
+
+execute:
+  execute_notebooks: "off"
+repository:
+  url: https://github.com/darribas/gds_course
+launch_buttons:
+  binderhub_url: https://mybinder.org

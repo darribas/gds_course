@@ -1,0 +1,10 @@
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+*.swp
+*/*.swp
+*~
+*/*~
+*.*~
+*/*.*~
+website/content/
+website/_build/
