@@ -16,6 +16,9 @@ website:
 	# Copy built site to docs
 	cp -r website/_build/html docs
 	rm -r website/_build
+	# Move slides to built website
+	rm -rf docs/content/slides
+	mv website/content/slides docs/content
 	# Remove copied folders
 	rm -rf website/content
 	# No Jekyll on remote server
