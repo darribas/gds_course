@@ -8,8 +8,6 @@ Let us start from the beginning, here is a snapshot of what this course is about
 
 The slides used are available at:
 
-- {doc}`PDF <block_A_i.pdf>` 
-- [HTML](content/slides/html/block_A_i.html)
 - {download}`HTML <../slides/html/block_A_i.html>`
 - {download}`PDF <../slides/pdf/block_A_i.pdf>`
 
