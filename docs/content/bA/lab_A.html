@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Lab - Data “munging” &#8212; A course on Geographic Data Science</title>
+    <title>Hands-on &#8212; A course on Geographic Data Science</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -38,6 +38,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Do-It-Yourself" href="diy_A.html" />
     <link rel="prev" title="Concepts" href="concepts_A.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -69,14 +70,7 @@
 </form>
 
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../home.html">
-   ENVS363/563
-  </a>
- </li>
-</ul>
-<p class="caption">
+  <p class="caption">
  <span class="caption-text">
   Information
  </span>
@@ -111,7 +105,12 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Lab - Data “munging”
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="diy_A.html">
+   Do-It-Yourself
   </a>
  </li>
 </ul>
@@ -119,10 +118,6 @@
 </nav>
 
  <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
 
 </div>
 
@@ -202,6 +197,21 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data">
+   Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-materials">
+   Additional materials
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-munging">
+   Data munging
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#dataset">
    Dataset
   </a>
@@ -228,11 +238,6 @@
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#if-you-finish-early">
-   If you finish early…
-  </a>
- </li>
 </ul>
 
         </nav>
@@ -243,8 +248,33 @@
         
               <div>
                 
-  <div class="section" id="lab-data-munging">
-<h1>Lab - Data “munging”<a class="headerlink" href="#lab-data-munging" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="hands-on">
+<h1>Hands-on<a class="headerlink" href="#hands-on" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This cell is copied from legacy content, needs amending</p>
+</div>
+<hr class="docutils" />
+<p><strong>TIP</strong>: Here you can find a step-by-step tutorial about how to start up the notebook, download files, and access them through the notebook:</p>
+<blockquote>
+<div><p>[<span class="xref myst">HTML</span>]</p>
+</div></blockquote>
+<hr class="docutils" />
+<div class="section" id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<p>This session uses the <strong>“Census socio-demographics”</strong> datasets. Go to the <span class="xref myst">Datasets</span> tab to find out more information as well as instructions to download it.</p>
+</div>
+<div class="section" id="additional-materials">
+<h2>Additional materials<a class="headerlink" href="#additional-materials" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>A good extension of this session is <a class="bibtex reference internal" href="../bibliography.html#wickham-2014-jssobk-v59i10" id="id1">[Wic14]</a>. The paper is published under an Open Access license so it is freely available on the journal’s site, but the author has also made available a public <a class="reference external" href="https://github.com/hadley/tidy-data">repository</a> with the data and code used in the paper. Keep in mind the paper and the code that comes with it are based on R, not on Python.</p></li>
+<li><p><strong>[Visualization]</strong> Python library <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> <a class="reference external" href="http://stanford.edu/~mwaskom/software/seaborn/tutorial.html">tutorial</a>.</p></li>
+<li><p><strong>[Recommended]</strong> <a class="bibtex reference internal" href="../bibliography.html#mckinney2012python" id="id2">[McK12]</a>: excellent introduction to Python for data analysis, with plenty of examples and code snippets (Publisher’s page <a class="reference external" href="http://shop.oreilly.com/product/0636920023784.do">link</a>).</p></li>
+<li><p><a class="reference external" href="http://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html?_r=0">NY Times article</a> about the importance of cleaning data.</p></li>
+</ul>
+</div>
+<div class="section" id="data-munging">
+<h2>Data munging<a class="headerlink" href="#data-munging" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://darribas.org">Dani Arribas-Bel</a></p>
 <p>Real world datasets are messy. There is no way around it: datasets have “holes” (missing data), the amount of formats in which data can be stored is endless, and the best structure to share data is not always the optimum to analyze them, hence the need to <a class="reference external" href="http://dictionary.reference.com/browse/munge">munge</a> them. As has been correctly pointed out in many outlets (<a class="reference external" href="http://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html?_r=0">e.g.</a>), much of the time <a class="reference external" href="https://twitter.com/BigDataBorat/status/306596352991830016">spent</a> in what is called (Geo-)Data Science is related not only to sophisticated modeling and insight, but has to do with much more basic and less exotic tasks such as obtaining data, processing, turning them into a shape that makes analysis possible, and exploring it to get to know their basic properties.</p>
 <p>For how labor intensive and relevant this aspect is, there is surprisingly very little published on patterns, techniques, and best practices for quick and efficient data cleaning, manipulation, and transformation. In this session, you will use a few real world datasets and learn how to process them into Python so they can be transformed and manipulated, if necessary, and analyzed. For this, we will introduce some of the bread and butter of data analysis and scientific computing in Python. These are fundamental tools that are constantly used in almost any task relating to data analysis.</p>
@@ -260,6 +290,7 @@
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>    <span class="c1"># This is the workhorse of data munging in Python</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>  <span class="c1"># This allows us to efficiently and beautifully plot</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1750,7 +1781,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_A_51_0.png" src="../../_images/lab_A_51_0.png" />
+<img alt="../../_images/lab_A_52_0.png" src="../../_images/lab_A_52_0.png" />
 </div>
 </div>
 <p>Note we are using <code class="docutils literal notranslate"><span class="pre">sns</span></code> instead of <code class="docutils literal notranslate"><span class="pre">pd</span></code>, as the function belongs to <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> instead of <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
@@ -1763,7 +1794,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_A_53_0.png" src="../../_images/lab_A_53_0.png" />
+<img alt="../../_images/lab_A_54_0.png" src="../../_images/lab_A_54_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1777,7 +1808,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_A_55_0.png" src="../../_images/lab_A_55_0.png" />
+<img alt="../../_images/lab_A_56_0.png" src="../../_images/lab_A_56_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1791,7 +1822,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_A_57_0.png" src="../../_images/lab_A_57_0.png" />
+<img alt="../../_images/lab_A_58_0.png" src="../../_images/lab_A_58_0.png" />
 </div>
 </div>
 <p>For a bar plot all we need to do is to change an argument of the call:</p>
@@ -1802,7 +1833,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_A_59_0.png" src="../../_images/lab_A_59_0.png" />
+<img alt="../../_images/lab_A_60_0.png" src="../../_images/lab_A_60_0.png" />
 </div>
 </div>
 <p>Note that the large number of areas makes the horizontal axis unreadable. We can try to turn the plot around by displaying the bars horizontally (see how it’s just changing <code class="docutils literal notranslate"><span class="pre">bar</span></code> for <code class="docutils literal notranslate"><span class="pre">barh</span></code>). To make it readable, let us expand the plot’s height:</p>
@@ -1813,7 +1844,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_A_61_0.png" src="../../_images/lab_A_61_0.png" />
+<img alt="../../_images/lab_A_62_0.png" src="../../_images/lab_A_62_0.png" />
 </div>
 </div>
 </div>
@@ -2454,47 +2485,6 @@ dtype: int64
 <p>We will not get into it today as it goes beyond the basics we want to conver, but keep in mind that <code class="docutils literal notranslate"><span class="pre">groupby</span></code> allows you to not only call generic functions (like <code class="docutils literal notranslate"><span class="pre">sum</span></code> or <code class="docutils literal notranslate"><span class="pre">describe</span></code>), but also your own functions. This opens the door for virtually any kind of transformation and aggregation possible.</p>
 </div>
 </div>
-<hr class="docutils" />
-<div class="section" id="if-you-finish-early">
-<h2>If you finish early…<a class="headerlink" href="#if-you-finish-early" title="Permalink to this headline">¶</a></h2>
-<p>Practice your data tidying skills with a different dataset. For example, you can have a look at the Guardian’s version of <a class="reference external" href="http://www.theguardian.com/news/datablog/2010/jul/27/wikileaks-afghanistan-data-datajournalism">Wikileaks’ Afghanistan war logs</a>. The table is stored on a GoogleDoc on the following address:</p>
-<blockquote>
-<div><p><a class="reference external" href="https://docs.google.com/spreadsheets/d/1EAx8_ksSCmoWW_SlhFyq2QrRn0FNNhcg1TtDFJzZRgc/edit?hl=en#gid=1">https://docs.google.com/spreadsheets/d/1EAx8_ksSCmoWW_SlhFyq2QrRn0FNNhcg1TtDFJzZRgc/edit?hl=en#gid=1</a></p>
-</div></blockquote>
-<p>And its structure is as follows:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://docs.google.com/spreadsheets/d/1EAx8_ksSCmoWW_SlhFyq2QrRn0FNNhcg1TtDFJzZRgc/edit?hl=en#gid=1&#39;</span>
-<span class="n">IFrame</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="700"
-    height="400"
-    src="https://docs.google.com/spreadsheets/d/1EAx8_ksSCmoWW_SlhFyq2QrRn0FNNhcg1TtDFJzZRgc/edit?hl=en#gid=1"
-    frameborder="0"
-    allowfullscreen
-></iframe>
-</div></div>
-</div>
-<p>Follow these steps:</p>
-<ul class="simple">
-<li><p>Download the table as a <code class="docutils literal notranslate"><span class="pre">csv</span></code> file (File –&gt; Download as –&gt; .csv, current sheet).</p></li>
-<li><p>Read it into Python.</p></li>
-<li><p>Explore it by creating a few plots.</p></li>
-<li><p>Examine its level of tidiness and turn it into a fully tidy dataset.</p></li>
-<li><p>Obtain a monthly total count of casualties and create a line or a bar plot of them.</p></li>
-</ul>
-<hr class="docutils" />
-<p><a rel="repo" href="https://github.com/darribas/gds19"><img alt="darribas/gds19" style="border-width:0" src="../../GitHub-Mark.png" /></a></p>
-<p>This notebook, as well as the entire set of materials, code, and data included
-in this course are available as an open Github repository available at: <a class="reference external" href="https://github.com/darribas/gds19"><code class="docutils literal notranslate"><span class="pre">https://github.com/darribas/gds19</span></code></a></p>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Geographic Data Science’19</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -2526,6 +2516,7 @@ in this course are available as an open Github repository available at: <a class
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="concepts_A.html" title="previous page">Concepts</a>
+    <a class='right-next' id="next-link" href="diy_A.html" title="next page">Do-It-Yourself</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
@@ -2534,7 +2525,10 @@ in this course are available as an open Github repository available at: <a class
         
           By Dani Arribas-Bel<br/>
         
-            &copy; Copyright 2020.<br/>
+          <div class="extra_footer">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+          </div>
       </p>
     </div>
   </footer>
