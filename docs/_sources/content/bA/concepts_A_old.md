@@ -8,8 +8,8 @@ Let us start from the beginning, here is a snapshot of what this course is about
 
 The slides used are available at:
 
-- <a href="../slides/html/block_A_i.html" > HTML </a>
-- <a href="../slides/pdf/block_A_i.pdf" > PDF </a>
+- {download}`HTML <../slides/html/block_A_i.html>`
+- {download}`PDF <../slides/pdf/block_A_i.pdf>`
 
 
 
