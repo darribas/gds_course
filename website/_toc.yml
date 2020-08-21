@@ -6,8 +6,8 @@
     - file: content/syllabus
     - file: content/bibliography
 
-- chapter: Block A
+- chapter: A - Introduction
   sections:
-    - file: content/bA/landing_A
+    - file: content/bA/concepts_A
     - file: content/bA/lab_A
 

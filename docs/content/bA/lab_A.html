@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geographic Data Science - Lab 01 &#8212; A course on Geographic Data Science</title>
+    <title>Lab - Data “munging” &#8212; A course on Geographic Data Science</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -39,7 +39,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Lecture" href="landing_A.html" />
+    <link rel="prev" title="Concepts" href="concepts_A.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -101,28 +101,18 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Block A
+  A - Introduction
  </span>
 </p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="landing_A.html">
-   Lecture
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="landing_A.html#lab">
-   Lab
+  <a class="reference internal" href="concepts_A.html">
+   Concepts
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Geographic Data Science - Lab 01
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#data-munging">
-   Data “munging”
+   Lab - Data “munging”
   </a>
  </li>
 </ul>
@@ -211,7 +201,41 @@
             <i class="fas fa-list"></i> On this page
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset">
+   Dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-sliced-and-diced">
+   Data, sliced and diced
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visual-exploration">
+   Visual exploration
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#un-tidy-data">
+   Un/tidy data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grouping-transforming-aggregating">
+     Grouping, transforming, aggregating
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if-you-finish-early">
+   If you finish early…
+  </a>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -220,12 +244,9 @@
         
               <div>
                 
-  <div class="section" id="geographic-data-science-lab-01">
-<h1>Geographic Data Science - Lab 01<a class="headerlink" href="#geographic-data-science-lab-01" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="lab-data-munging">
+<h1>Lab - Data “munging”<a class="headerlink" href="#lab-data-munging" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="http://darribas.org">Dani Arribas-Bel</a></p>
-</div>
-<div class="section" id="data-munging">
-<h1>Data “munging”<a class="headerlink" href="#data-munging" title="Permalink to this headline">¶</a></h1>
 <p>Real world datasets are messy. There is no way around it: datasets have “holes” (missing data), the amount of formats in which data can be stored is endless, and the best structure to share data is not always the optimum to analyze them, hence the need to <a class="reference external" href="http://dictionary.reference.com/browse/munge">munge</a> them. As has been correctly pointed out in many outlets (<a class="reference external" href="http://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html?_r=0">e.g.</a>), much of the time <a class="reference external" href="https://twitter.com/BigDataBorat/status/306596352991830016">spent</a> in what is called (Geo-)Data Science is related not only to sophisticated modeling and insight, but has to do with much more basic and less exotic tasks such as obtaining data, processing, turning them into a shape that makes analysis possible, and exploring it to get to know their basic properties.</p>
 <p>For how labor intensive and relevant this aspect is, there is surprisingly very little published on patterns, techniques, and best practices for quick and efficient data cleaning, manipulation, and transformation. In this session, you will use a few real world datasets and learn how to process them into Python so they can be transformed and manipulated, if necessary, and analyzed. For this, we will introduce some of the bread and butter of data analysis and scientific computing in Python. These are fundamental tools that are constantly used in almost any task relating to data analysis.</p>
 <p>This notebook covers the basic and the content that is expected to be learnt by every student. We use a prepared dataset that saves us much of the more intricate processing that goes beyond the introductory level the session is aimed at. As a companion to this introduction, there is an additional notebook (see link on the website page for Lab 01) that covers how the dataset used here was prepared from raw data downloaded from the internet, and includes some additional exercises you can do if you want dig deeper into the content of this lab.</p>
@@ -1796,8 +1817,9 @@ dtype: int64
 <img alt="../../_images/lab_A_61_0.png" src="../../_images/lab_A_61_0.png" />
 </div>
 </div>
+</div>
 <div class="section" id="un-tidy-data">
-<h3>Un/tidy data<a class="headerlink" href="#un-tidy-data" title="Permalink to this headline">¶</a></h3>
+<h2>Un/tidy data<a class="headerlink" href="#un-tidy-data" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p><em>Happy families are all alike; every
 unhappy family is unhappy in its own
@@ -2235,7 +2257,6 @@ dtype: int64
 </div></div></div>
 </div>
 <p>Now our table is fully tidied up!</p>
-</div>
 <div class="section" id="grouping-transforming-aggregating">
 <h3>Grouping, transforming, aggregating<a class="headerlink" href="#grouping-transforming-aggregating" title="Permalink to this headline">¶</a></h3>
 <p>One of the advantage of tidy datasets is they allow to perform advanced transformations in a more direct way. One of the most common ones is what is called “group-by” operations. Originated in the world of databases, these operations allow you to group observations in a table by one of its labels, index, or category, and apply operations on the data group by group.</p>
@@ -2505,7 +2526,7 @@ in this course are available as an open Github repository available at: <a class
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="landing_A.html" title="previous page">Lecture</a>
+    <a class='left-prev' id="prev-link" href="concepts_A.html" title="previous page">Concepts</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
