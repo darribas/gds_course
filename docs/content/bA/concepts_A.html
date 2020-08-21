@@ -39,7 +39,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Lab - Data “munging”" href="lab_A.html" />
+    <link rel="next" title="Hands-on" href="lab_A.html" />
     <link rel="prev" title="Bibliography" href="../bibliography.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -71,14 +71,7 @@
 </form>
 
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../home.html">
-   ENVS363/563
-  </a>
- </li>
-</ul>
-<p class="caption">
+  <p class="caption">
  <span class="caption-text">
   Information
  </span>
@@ -113,7 +106,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lab_A.html">
-   Lab - Data “munging”
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="diy_A.html">
+   Do-It-Yourself
   </a>
  </li>
 </ul>
@@ -121,10 +119,6 @@
 </nav>
 
  <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
 
 </div>
 
@@ -158,9 +152,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/bA/concepts_A.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/bA/concepts_A.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -177,6 +171,23 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/darribas/gds_course/master?urlpath=tree/content/bA/concepts_A.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -192,48 +203,9 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lecture">
-   Lecture
+  <a class="reference internal nav-link" href="#the-geo-data-revolution">
+   The (Geo-)Data Revolution
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#slides">
-     Slides
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#to-do-before-class">
-     To do before class
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#additional-readings">
-     Additional readings
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lab">
-   Lab
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#notebook">
-     Notebook
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data">
-     Data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#additional-materials">
-     Additional materials
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -249,72 +221,61 @@
 <h1>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="this-course">
 <h2>This course<a class="headerlink" href="#this-course" title="Permalink to this headline">¶</a></h2>
-<p>Let us start from the beginning, here is a snapshot of what this course is about!</p>
-<p>[Insert video here]</p>
-<p>The slides used are available at:</p>
+<p>Let us start from the beginning, here is a snapshot of what this course is about! In the following clip, you will find out about the philosophy behind the course, how the content is structured, and why this is all designed like this. And, also, a little bit about the assessment…</p>
+<div class="sidebar">
+<p class="sidebar-title">Slides</p>
+<p>The slides used in the clip are available at:</p>
 <ul class="simple">
-<li><p><span class="xref std std-doc">PDF</span></p></li>
-<li><p><span class="xref myst">HTML</span></p></li>
-<li><p><a class="reference download internal" download="" href="../../_downloads/9935a9f3213974d4086eb066a23575da/block_A_i.html"><code class="xref download docutils literal notranslate"><span class="pre">HTML</span></code></a></p></li>
-<li><p><a class="reference download internal" download="" href="../../_downloads/ef46d3d73f2ba758d1b68e344e54f851/block_A_i.pdf"><code class="xref download docutils literal notranslate"><span class="pre">PDF</span></code></a></p></li>
+<li><p><a href="../slides/html/block_A_i.html"> <code class="docutils literal notranslate"><span class="pre">[HTML]</span></code> </a></p></li>
+<li><p><a href="../slides/pdf/block_A_i.pdf"> <code class="docutils literal notranslate"><span class="pre">[PDF]</span></code> </a></p></li>
 </ul>
 </div>
-<div class="section" id="lecture">
-<h2>Lecture<a class="headerlink" href="#lecture" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="slides">
-<h3>Slides<a class="headerlink" href="#slides" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="500"
+    height="300"
+    src="https://www.youtube.com/embed/TY4QWnnd4jY"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</div>
+<div class="section" id="the-geo-data-revolution">
+<h2>The (Geo-)Data Revolution<a class="headerlink" href="#the-geo-data-revolution" title="Permalink to this headline">¶</a></h2>
+<p>Once it is clearer how this course is going to run, let’s dive right into why this course is necessary. In the following clip, you will learn about the background and context, which will hopefully help you understand a bit better what the course aims to accomplish.</p>
+<div class="sidebar">
+<p class="sidebar-title">Slides</p>
+<p>The slides used in the clip are available at:</p>
 <ul class="simple">
-<li><p><span class="xref myst">html</span></p></li>
-<li><p><span class="xref myst">pdf</span></p></li>
+<li><p><a href="../slides/html/block_A_ii.html"> <code class="docutils literal notranslate"><span class="pre">[HTML]</span></code> </a></p></li>
+<li><p><a href="../slides/pdf/block_A_ii.pdf"> <code class="docutils literal notranslate"><span class="pre">[PDF]</span></code> </a></p></li>
 </ul>
 </div>
-<div class="section" id="to-do-before-class">
-<h3>To do before class<a class="headerlink" href="#to-do-before-class" title="Permalink to this headline">¶</a></h3>
-<p>As a way to wet your apetite about the content of the first class, I recommend you:</p>
-<ul class="simple">
-<li><p>Listen to <a class="reference external" href="http://www.sciencefriday.com/segments/solving-lifes-everyday-problems-with-data/">this interview</a> with Hilary Mason, Max Shron, and Alex Pentland about the power of data.</p></li>
-<li><p>Watch <a class="reference external" href="https://www.youtube.com/watch?v=h1ImEQKSkUQ">this video</a> by Mike Flowers, Chief Analytics Officer, at the City of New York about how data is used to influence policy decisions.</p></li>
-</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="500"
+    height="300"
+    src="https://www.youtube.com/embed/TY4QWnnd4jY"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
 </div>
-<div class="section" id="additional-readings">
-<h3>Additional readings<a class="headerlink" href="#additional-readings" title="Permalink to this headline">¶</a></h3>
-<p>The contents of this lecture are loosely based on, and explored into further detail, in the following three references :</p>
-<ul class="simple">
-<li><p><strong>[Recommended]</strong> “Chapter 1: Introduction” <a class="bibtex reference internal" href="../bibliography.html#schutt2013doing" id="id1">[SONeil13]</a>. Free sampler of the book containing the chapter available online (<a class="reference external" href="http://shop.oreilly.com/product/0636920028529.do">html</a>, <a class="reference external" href="http://cdn.oreillystatic.com/oreilly/booksamplers/9781449358655_sampler.pdf">pdf</a>).</p></li>
-<li><p>Excellent overview of Data Science <a class="bibtex reference internal" href="../bibliography.html#donoho201750" id="id2">[Don17]</a>.</p></li>
-<li><p>A Geographic take on Data Science, proposing a new field <span class="bibtex" id="id3">[ singleton2019geographic]</span>.</p></li>
-</ul>
+<p>To get a better picture, complement the clip above with the following readings:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">Bonus</p>
+<p>The chapter is available free online <a class="reference external" href="http://shop.oreilly.com/product/0636920028529.do"><code class="docutils literal notranslate"><span class="pre">HTML</span></code></a> | <a class="reference external" href="http://cdn.oreillystatic.com/oreilly/booksamplers/9781449358655_sampler.pdf"><code class="docutils literal notranslate"><span class="pre">PDF</span></code></a></p>
 </div>
-</div>
-<div class="section" id="lab">
-<h2>Lab<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="notebook">
-<h3>Notebook<a class="headerlink" href="#notebook" title="Permalink to this headline">¶</a></h3>
-<hr class="docutils" />
-<p><strong>TIP</strong>: Here you can find a step-by-step tutorial about how to start up the notebook, download files, and access them through the notebook:</p>
-<blockquote>
-<div><p>[<span class="xref myst">HTML</span>]</p>
-</div></blockquote>
-<hr class="docutils" />
-<ul class="simple">
-<li><p><span class="xref myst">ipynb</span></p></li>
-<li><p><span class="xref myst">html</span></p></li>
-<li><p><span class="xref myst">pdf</span></p></li>
-</ul>
-</div>
-<div class="section" id="data">
-<h3>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h3>
-<p>This session uses the <strong>“Census socio-demographics”</strong> datasets. Go to the <span class="xref myst">Datasets</span> tab to find out more information as well as instructions to download it.</p>
-</div>
-<div class="section" id="additional-materials">
-<h3>Additional materials<a class="headerlink" href="#additional-materials" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>A good extension of this session is <a class="bibtex reference internal" href="../bibliography.html#wickham-2014-jssobk-v59i10" id="id4">[Wic14]</a>. The paper is published under an Open Access license so it is freely available on the journal’s site, but the author has also made available a public <a class="reference external" href="https://github.com/hadley/tidy-data">repository</a> with the data and code used in the paper. Keep in mind the paper and the code that comes with it are based on R, not on Python.</p></li>
-<li><p><strong>[Visualization]</strong> Python library <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> <a class="reference external" href="http://stanford.edu/~mwaskom/software/seaborn/tutorial.html">tutorial</a>.</p></li>
-<li><p><strong>[Recommended]</strong> <a class="bibtex reference internal" href="../bibliography.html#mckinney2012python" id="id5">[McK12]</a>: excellent introduction to Python for data analysis, with plenty of examples and code snippets (Publisher’s page <a class="reference external" href="http://shop.oreilly.com/product/0636920023784.do">link</a>).</p></li>
-<li><p><a class="reference external" href="http://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html?_r=0">NY Times article</a> about the importance of cleaning data.</p></li>
-</ul>
-</div>
+<ol class="simple">
+<li><p>The introductory chapter to “Doing Data Science” <a class="bibtex reference internal" href="../bibliography.html#schutt2013doing" id="id1">[SONeil13]</a>, by Cathy O’Neil and Rachel Schutt is general overview of why we needed Data Science and where if came from.</p></li>
+<li><p>A slightly more technical historical perspective on where Data Science came from and where it might go can be found in David Donoho’s recent overview <a class="bibtex reference internal" href="../bibliography.html#donoho201750" id="id2">[Don17]</a>.</p></li>
+<li><p>A geographic take on Data Science, proposing more interaction between Geography and Data Science <a class="bibtex reference internal" href="../bibliography.html#singleton2019geographic" id="id3">[SAB19]</a>.</p></li>
+</ol>
 </div>
 </div>
 
@@ -347,7 +308,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../bibliography.html" title="previous page">Bibliography</a>
-    <a class='right-next' id="next-link" href="lab_A.html" title="next page">Lab - Data “munging”</a>
+    <a class='right-next' id="next-link" href="lab_A.html" title="next page">Hands-on</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
@@ -356,7 +317,10 @@
         
           By Dani Arribas-Bel<br/>
         
-            &copy; Copyright 2020.<br/>
+          <div class="extra_footer">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+          </div>
       </p>
     </div>
   </footer>
