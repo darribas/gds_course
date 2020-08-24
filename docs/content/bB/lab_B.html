@@ -1,0 +1,2550 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands-on &#8212; A course on Geographic Data Science</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Do-It-Yourself" href="diy_B.html" />
+    <link rel="prev" title="Concepts" href="concepts_B.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">A course on Geographic Data Science</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Information
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  A - Introduction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bA/concepts_A.html">
+   Concepts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bA/lab_A.html">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bA/diy_A.html">
+   Do-It-Yourself
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  B - Open Science
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="concepts_B.html">
+   Concepts
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="diy_B.html">
+   Do-It-Yourself
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/bB/lab_B.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/darribas/gds_course/master?urlpath=tree/content/bB/lab_B.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-munging">
+   Data munging
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset">
+   Dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-sliced-and-diced">
+   Data, sliced and diced
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visual-exploration">
+   Visual exploration
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#un-tidy-data">
+   Un/tidy data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grouping-transforming-aggregating">
+     Grouping, transforming, aggregating
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-lab-materials">
+   Additional lab materials
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="hands-on">
+<h1>Hands-on<a class="headerlink" href="#hands-on" title="Permalink to this headline">¶</a></h1>
+<p>This section introduces you to using Python for manipulating tabular data. Please read through it carefully and pay attention to how ideas about manipulating data are translated into Python code that “does stuff”. For this part, you can read through directly, although it is recommended you follow the section interactively.</p>
+<p>Once you have read through and have a bit of a sense of how things work, jump on the <a class="reference internal" href="diy_B.html"><span class="doc std std-doc">Do-It-Yourself section</span></a>, which will provide you with a challenge to complete it on your own, and will allow you to put what you have already learnt to good use. Happy hacking!</p>
+<div class="section" id="data-munging">
+<span id="lab-a-data-munging"></span><h2>Data munging<a class="headerlink" href="#data-munging" title="Permalink to this headline">¶</a></h2>
+<p>Real world datasets are messy. There is no way around it: datasets have “holes” (missing data), the amount of formats in which data can be stored is endless, and the best structure to share data is not always the optimum to analyze them, hence the need to <a class="reference external" href="http://dictionary.reference.com/browse/munge">munge</a> them. As has been correctly pointed out in many outlets (<a class="reference external" href="http://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html?_r=0">e.g.</a>), much of the time <a class="reference external" href="https://twitter.com/BigDataBorat/status/306596352991830016">spent</a> in what is called (Geo-)Data Science is related not only to sophisticated modeling and insight, but has to do with much more basic and less exotic tasks such as obtaining data, processing, turning them into a shape that makes analysis possible, and exploring it to get to know their basic properties.</p>
+<p>For how labor intensive and relevant this aspect is, there is surprisingly very little published on patterns, techniques, and best practices for quick and efficient data cleaning, manipulation, and transformation. In this session, you will use a few real world datasets and learn how to process them into Python so they can be transformed and manipulated, if necessary, and analyzed. For this, we will introduce some of the bread and butter of data analysis and scientific computing in Python. These are fundamental tools that are constantly used in almost any task relating to data analysis.</p>
+<p>This notebook covers the basic and the content that is expected to be learnt by every student. We use a prepared dataset that saves us much of the more intricate processing that goes beyond the introductory level the session is aimed at. As a companion to this introduction, there is an additional notebook (see link on the website page for Lab 01) that covers how the dataset used here was prepared from raw data downloaded from the internet, and includes some additional exercises you can do if you want dig deeper into the content of this lab.</p>
+<p>In this notebook, we discuss several patterns to clean and structure data properly, including tidying, subsetting, and aggregating; and we finish with some basic visualization. An additional extension presents more advanced tricks to manipulate tabular data.</p>
+<p>Before we get our hands data-dirty, let us import all the additional libraries we will need, so we can get that out of the way and focus on the task at hand:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># This ensures visualizations are plotted inside the notebook</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="kn">import</span> <span class="nn">os</span>              <span class="c1"># This provides several system utilities</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>    <span class="c1"># This is the workhorse of data munging in Python</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>  <span class="c1"># This allows us to efficiently and beautifully plot</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h2>
+<p>We will be exploring some of the characteristics of the population in Liverpool. To do that, we will use a dataset that contains population counts, split by ethnic origin. These counts are aggregated at the <a class="reference external" href="http://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeography#output-area-oa">Lower Layer Super Output Area</a> (LSOA from now on). LSOAs are an official Census geography defined by the Office of National Statistics that is small enough to create variation within cities, but large enough also to preserve privacy. For that reason, many data products (Census, deprivation indices, etc.) use LSOAs as one of their main geographies.</p>
+<p>Let us first set the path to the file where we store the data we will use:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Important! You need to specify the path to the data in *your* machine</span>
+<span class="c1"># If you have placed the data folder in the same directory as this notebook,</span>
+<span class="c1"># you would do:</span>
+<span class="c1"># f = &#39;liv_pop.csv&#39;</span>
+<span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;data/liv_pop.csv&#39;</span>                            <span class="c1"># Path to file containing the table</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>IMPORTANT</strong>: the path above might have look different in your computer. See <span class="xref myst">this introductory notebook</span> for more details about how to set your paths.</p>
+<p>Alternatively, you can read this file from its web location too (do not run the following cell if you want to read the data locally or are currently offline):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;http://darribas.org/gds19/content/labs/data/liv_pop.csv&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To read a “comma separated values” (<code class="docutils literal notranslate"><span class="pre">.csv</span></code>) file, we can run:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;GeographyCode&#39;</span><span class="p">)</span>    <span class="c1"># Read the table in</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let us stop for a minute to learn how we have read the file. Here are the main aspects to keep in mind:</p>
+<ul class="simple">
+<li><p>We are using the method <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> from the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library, which we have imported with the alias <code class="docutils literal notranslate"><span class="pre">pd</span></code>.</p></li>
+<li><p>In this form, all that is required is to pass the path to the file we want to read, which in this case we have created by concatenating two strings. We can see the full path we have used:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;http://darribas.org/gds19/content/labs/data/liv_pop.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The argument <code class="docutils literal notranslate"><span class="pre">index_col</span></code> is not strictly necessary but allows us to choose one of the columns as the index of the table. More on indices below.</p></li>
+<li><p>We are using <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> because the file we want to read is in the <code class="docutils literal notranslate"><span class="pre">csv</span></code> format. However, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> allows for many more formats to be read (and written, just replace <code class="docutils literal notranslate"><span class="pre">read</span></code> by <code class="docutils literal notranslate"><span class="pre">to</span></code>! For example, <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> reads in, <code class="docutils literal notranslate"><span class="pre">to_csv</span></code> writes out). A full list of formats supported may be found <a class="reference external" href="http://pandas.pydata.org/pandas-docs/version/0.18.1/io.html">here</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="data-sliced-and-diced">
+<h2>Data, sliced and diced<a class="headerlink" href="#data-sliced-and-diced" title="Permalink to this headline">¶</a></h2>
+<p>Now we are ready to start playing and interrogating the dataset! What we have at our fingertips is a table that summarizes, for each of the LSOAs in Liverpool, how many people live in each, by the region of the world where they were born. Now, let us learn a few cool tricks built into <code class="docutils literal notranslate"><span class="pre">pandas</span></code> that work out-of-the box with a table like ours.</p>
+<ul class="simple">
+<li><p>Inspecting what it looks like. We can check the top (bottom) X lines of the table by passing X to the method <code class="docutils literal notranslate"><span class="pre">head</span></code> (<code class="docutils literal notranslate"><span class="pre">tail</span></code>). For example, for the top/bottom five lines:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Europe</th>
+      <th>Africa</th>
+      <th>Middle East and Asia</th>
+      <th>The Americas and the Caribbean</th>
+      <th>Antarctica and Oceania</th>
+    </tr>
+    <tr>
+      <th>GeographyCode</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E01006512</th>
+      <td>910</td>
+      <td>106</td>
+      <td>840</td>
+      <td>24</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>E01006513</th>
+      <td>2225</td>
+      <td>61</td>
+      <td>595</td>
+      <td>53</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>E01006514</th>
+      <td>1786</td>
+      <td>63</td>
+      <td>193</td>
+      <td>61</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>E01006515</th>
+      <td>974</td>
+      <td>29</td>
+      <td>185</td>
+      <td>18</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E01006518</th>
+      <td>1531</td>
+      <td>69</td>
+      <td>73</td>
+      <td>19</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Europe</th>
+      <th>Africa</th>
+      <th>Middle East and Asia</th>
+      <th>The Americas and the Caribbean</th>
+      <th>Antarctica and Oceania</th>
+    </tr>
+    <tr>
+      <th>GeographyCode</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E01033764</th>
+      <td>2106</td>
+      <td>32</td>
+      <td>49</td>
+      <td>15</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>E01033765</th>
+      <td>1277</td>
+      <td>21</td>
+      <td>33</td>
+      <td>17</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>E01033766</th>
+      <td>1028</td>
+      <td>12</td>
+      <td>20</td>
+      <td>8</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>E01033767</th>
+      <td>1003</td>
+      <td>29</td>
+      <td>29</td>
+      <td>5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>E01033768</th>
+      <td>1016</td>
+      <td>69</td>
+      <td>111</td>
+      <td>21</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ul class="simple">
+<li><p>Getting an overview of the table:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Index: 298 entries, E01006512 to E01033768
+Data columns (total 5 columns):
+Europe                            298 non-null int64
+Africa                            298 non-null int64
+Middle East and Asia              298 non-null int64
+The Americas and the Caribbean    298 non-null int64
+Antarctica and Oceania            298 non-null int64
+dtypes: int64(5)
+memory usage: 14.0+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Getting an overview of the <em>values</em> of the table:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Europe</th>
+      <th>Africa</th>
+      <th>Middle East and Asia</th>
+      <th>The Americas and the Caribbean</th>
+      <th>Antarctica and Oceania</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>298.00000</td>
+      <td>298.000000</td>
+      <td>298.000000</td>
+      <td>298.000000</td>
+      <td>298.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>1462.38255</td>
+      <td>29.818792</td>
+      <td>62.909396</td>
+      <td>8.087248</td>
+      <td>1.949664</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>248.67329</td>
+      <td>51.606065</td>
+      <td>102.519614</td>
+      <td>9.397638</td>
+      <td>2.168216</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>731.00000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1331.25000</td>
+      <td>7.000000</td>
+      <td>16.000000</td>
+      <td>2.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1446.00000</td>
+      <td>14.000000</td>
+      <td>33.500000</td>
+      <td>5.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1579.75000</td>
+      <td>30.000000</td>
+      <td>62.750000</td>
+      <td>10.000000</td>
+      <td>3.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2551.00000</td>
+      <td>484.000000</td>
+      <td>840.000000</td>
+      <td>61.000000</td>
+      <td>11.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Note how the output is also a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object, so you can do with it the same things you would with the original table (e.g. writing it to a file).</p>
+<p>In this case, the summary might be better presented if the table is “transposed”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Europe</th>
+      <td>298.0</td>
+      <td>1462.382550</td>
+      <td>248.673290</td>
+      <td>731.0</td>
+      <td>1331.25</td>
+      <td>1446.0</td>
+      <td>1579.75</td>
+      <td>2551.0</td>
+    </tr>
+    <tr>
+      <th>Africa</th>
+      <td>298.0</td>
+      <td>29.818792</td>
+      <td>51.606065</td>
+      <td>0.0</td>
+      <td>7.00</td>
+      <td>14.0</td>
+      <td>30.00</td>
+      <td>484.0</td>
+    </tr>
+    <tr>
+      <th>Middle East and Asia</th>
+      <td>298.0</td>
+      <td>62.909396</td>
+      <td>102.519614</td>
+      <td>1.0</td>
+      <td>16.00</td>
+      <td>33.5</td>
+      <td>62.75</td>
+      <td>840.0</td>
+    </tr>
+    <tr>
+      <th>The Americas and the Caribbean</th>
+      <td>298.0</td>
+      <td>8.087248</td>
+      <td>9.397638</td>
+      <td>0.0</td>
+      <td>2.00</td>
+      <td>5.0</td>
+      <td>10.00</td>
+      <td>61.0</td>
+    </tr>
+    <tr>
+      <th>Antarctica and Oceania</th>
+      <td>298.0</td>
+      <td>1.949664</td>
+      <td>2.168216</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>1.0</td>
+      <td>3.00</td>
+      <td>11.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ul class="simple">
+<li><p>Equally, common descriptive statistics are also available:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain minimum values for each table</span>
+<span class="n">db</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Europe                            731
+Africa                              0
+Middle East and Asia                1
+The Americas and the Caribbean      0
+Antarctica and Oceania              0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain minimum value for the column `Europe`</span>
+<span class="n">db</span><span class="p">[</span><span class="s1">&#39;Europe&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>731
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note here how we have restricted the calculation of the maximum value to one column only.</p>
+<p>Similarly, we can restrict the calculations to a single row:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain standard deviation for the row `E01006512`, </span>
+<span class="c1"># which represents a particular LSOA</span>
+<span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;E01006512&#39;</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>457.8842648530303
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Creation of new variables: we can generate new variables by applying operations on existing ones. For example, we can calculate the total population by area. Here is a couple of ways to do it:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Longer, hardcoded</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;Europe&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;Africa&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;Middle East and Asia&#39;</span><span class="p">]</span> <span class="o">+</span> \
+        <span class="n">db</span><span class="p">[</span><span class="s1">&#39;The Americas and the Caribbean&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;Antarctica and Oceania&#39;</span><span class="p">]</span>
+<span class="c1"># Print the top of the variable</span>
+<span class="n">total</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>GeographyCode
+E01006512    1880
+E01006513    2941
+E01006514    2108
+E01006515    1208
+E01006518    1696
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># One shot</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Print the top of the variable</span>
+<span class="n">total</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>GeographyCode
+E01006512    1880
+E01006513    2941
+E01006514    2108
+E01006515    1208
+E01006518    1696
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note how we are using the command <code class="docutils literal notranslate"><span class="pre">sum</span></code>, just like we did with <code class="docutils literal notranslate"><span class="pre">max</span></code> or <code class="docutils literal notranslate"><span class="pre">min</span></code> before but, in this case, we are not applying it over columns (e.g. the max of each column), but over rows, so we get the total sum of populations by areas.</p>
+<p>Once we have created the variable, we can make it part of the table:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">total</span>
+<span class="n">db</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Europe</th>
+      <th>Africa</th>
+      <th>Middle East and Asia</th>
+      <th>The Americas and the Caribbean</th>
+      <th>Antarctica and Oceania</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <th>GeographyCode</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E01006512</th>
+      <td>910</td>
+      <td>106</td>
+      <td>840</td>
+      <td>24</td>
+      <td>0</td>
+      <td>1880</td>
+    </tr>
+    <tr>
+      <th>E01006513</th>
+      <td>2225</td>
+      <td>61</td>
+      <td>595</td>
+      <td>53</td>
+      <td>7</td>
+      <td>2941</td>
+    </tr>
+    <tr>
+      <th>E01006514</th>
+      <td>1786</td>
+      <td>63</td>
+      <td>193</td>
+      <td>61</td>
+      <td>5</td>
+      <td>2108</td>
+    </tr>
+    <tr>
+      <th>E01006515</th>
+      <td>974</td>
+      <td>29</td>
+      <td>185</td>
+      <td>18</td>
+      <td>2</td>
+      <td>1208</td>
+    </tr>
+    <tr>
+      <th>E01006518</th>
+      <td>1531</td>
+      <td>69</td>
+      <td>73</td>
+      <td>19</td>
+      <td>4</td>
+      <td>1696</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ul class="simple">
+<li><p>Assigning new values: we can easily generate new variables with scalars, and modify those.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># New variable with all ones</span>
+<span class="n">db</span><span class="p">[</span><span class="s1">&#39;ones&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">db</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Europe</th>
+      <th>Africa</th>
+      <th>Middle East and Asia</th>
+      <th>The Americas and the Caribbean</th>
+      <th>Antarctica and Oceania</th>
+      <th>Total</th>
+      <th>ones</th>
+    </tr>
+    <tr>
+      <th>GeographyCode</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E01006512</th>
+      <td>910</td>
+      <td>106</td>
+      <td>840</td>
+      <td>24</td>
+      <td>0</td>
+      <td>1880</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>E01006513</th>
+      <td>2225</td>
+      <td>61</td>
+      <td>595</td>
+      <td>53</td>
+      <td>7</td>
+      <td>2941</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>E01006514</th>
+      <td>1786</td>
+      <td>63</td>
+      <td>193</td>
+      <td>61</td>
+      <td>5</td>
+      <td>2108</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>E01006515</th>
+      <td>974</td>
+      <td>29</td>
+      <td>185</td>
+      <td>18</td>
+      <td>2</td>
+      <td>1208</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>E01006518</th>
+      <td>1531</td>
+      <td>69</td>
+      <td>73</td>
+      <td>19</td>
+      <td>4</td>
+      <td>1696</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>And we can modify specific values too:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;E01006512&#39;</span><span class="p">,</span> <span class="s1">&#39;ones&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">db</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Europe</th>
+      <th>Africa</th>
+      <th>Middle East and Asia</th>
+      <th>The Americas and the Caribbean</th>
+      <th>Antarctica and Oceania</th>
+      <th>Total</th>
+      <th>ones</th>
+    </tr>
+    <tr>
+      <th>GeographyCode</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E01006512</th>
+      <td>910</td>
+      <td>106</td>
+      <td>840</td>
+      <td>24</td>
+      <td>0</td>
+      <td>1880</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>E01006513</th>
+      <td>2225</td>
+      <td>61</td>
+      <td>595</td>
+      <td>53</td>
+      <td>7</td>
+      <td>2941</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>E01006514</th>
+      <td>1786</td>
+      <td>63</td>
+      <td>193</td>
+      <td>61</td>
+      <td>5</td>
+      <td>2108</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>E01006515</th>
+      <td>974</td>
+      <td>29</td>
+      <td>185</td>
+      <td>18</td>
+      <td>2</td>
+      <td>1208</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>E01006518</th>
+      <td>1531</td>
+      <td>69</td>
+      <td>73</td>
+      <td>19</td>
+      <td>4</td>
+      <td>1696</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ul class="simple">
+<li><p>Permanently deleting variables is also within reach of one command:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;ones&#39;</span><span class="p">]</span>
+<span class="n">db</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Europe</th>
+      <th>Africa</th>
+      <th>Middle East and Asia</th>
+      <th>The Americas and the Caribbean</th>
+      <th>Antarctica and Oceania</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <th>GeographyCode</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E01006512</th>
+      <td>910</td>
+      <td>106</td>
+      <td>840</td>
+      <td>24</td>
+      <td>0</td>
+      <td>1880</td>
+    </tr>
+    <tr>
+      <th>E01006513</th>
+      <td>2225</td>
+      <td>61</td>
+      <td>595</td>
+      <td>53</td>
+      <td>7</td>
+      <td>2941</td>
+    </tr>
+    <tr>
+      <th>E01006514</th>
+      <td>1786</td>
+      <td>63</td>
+      <td>193</td>
+      <td>61</td>
+      <td>5</td>
+      <td>2108</td>
+    </tr>
+    <tr>
+      <th>E01006515</th>
+      <td>974</td>
+      <td>29</td>
+      <td>185</td>
+      <td>18</td>
+      <td>2</td>
+      <td>1208</td>
+    </tr>
+    <tr>
+      <th>E01006518</th>
+      <td>1531</td>
+      <td>69</td>
+      <td>73</td>
+      <td>19</td>
+      <td>4</td>
+      <td>1696</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ul class="simple">
+<li><p>Index-based querying.</p></li>
+</ul>
+<p>We have already seen how to subset parts of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> if we know exactly which bits we want. For example, if we want to extract the total and European population of the first four areas in the table, we use <code class="docutils literal notranslate"><span class="pre">loc</span></code> with lists:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eu_tot_first4</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;E01006512&#39;</span><span class="p">,</span> <span class="s1">&#39;E01006513&#39;</span><span class="p">,</span> <span class="s1">&#39;E01006514&#39;</span><span class="p">,</span> <span class="s1">&#39;E01006515&#39;</span><span class="p">],</span> \
+                      <span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">,</span> <span class="s1">&#39;Europe&#39;</span><span class="p">]]</span>
+<span class="n">eu_tot_first4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Total</th>
+      <th>Europe</th>
+    </tr>
+    <tr>
+      <th>GeographyCode</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E01006512</th>
+      <td>1880</td>
+      <td>910</td>
+    </tr>
+    <tr>
+      <th>E01006513</th>
+      <td>2941</td>
+      <td>2225</td>
+    </tr>
+    <tr>
+      <th>E01006514</th>
+      <td>2108</td>
+      <td>1786</td>
+    </tr>
+    <tr>
+      <th>E01006515</th>
+      <td>1208</td>
+      <td>974</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ul class="simple">
+<li><p>Querying based on conditions.</p></li>
+</ul>
+<p>However, sometimes, we do not know exactly which observations we want, but we do know what conditions they need to satisfy (e.g. areas with more than 2,000 inhabitants). For these cases, <code class="docutils literal notranslate"><span class="pre">DataFrames</span></code> support selection based on conditions. Let us see a few examples. Suppose we want to select…</p>
+<p><em>… areas with more than 2,500 people in Total</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">m5k</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2500</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">m5k</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Europe</th>
+      <th>Africa</th>
+      <th>Middle East and Asia</th>
+      <th>The Americas and the Caribbean</th>
+      <th>Antarctica and Oceania</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <th>GeographyCode</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E01006513</th>
+      <td>2225</td>
+      <td>61</td>
+      <td>595</td>
+      <td>53</td>
+      <td>7</td>
+      <td>2941</td>
+    </tr>
+    <tr>
+      <th>E01006747</th>
+      <td>2551</td>
+      <td>163</td>
+      <td>812</td>
+      <td>24</td>
+      <td>2</td>
+      <td>3552</td>
+    </tr>
+    <tr>
+      <th>E01006751</th>
+      <td>1843</td>
+      <td>139</td>
+      <td>568</td>
+      <td>21</td>
+      <td>1</td>
+      <td>2572</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><em>… areas where there are no more than 750 Europeans</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nm5ke</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Europe&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">750</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">nm5ke</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Europe</th>
+      <th>Africa</th>
+      <th>Middle East and Asia</th>
+      <th>The Americas and the Caribbean</th>
+      <th>Antarctica and Oceania</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <th>GeographyCode</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E01033757</th>
+      <td>731</td>
+      <td>39</td>
+      <td>223</td>
+      <td>29</td>
+      <td>3</td>
+      <td>1025</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><em>… areas with exactly ten person from Antarctica and Oceania</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oneOA</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Antarctica and Oceania&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">10</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">oneOA</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Europe</th>
+      <th>Africa</th>
+      <th>Middle East and Asia</th>
+      <th>The Americas and the Caribbean</th>
+      <th>Antarctica and Oceania</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <th>GeographyCode</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E01006679</th>
+      <td>1353</td>
+      <td>484</td>
+      <td>354</td>
+      <td>31</td>
+      <td>10</td>
+      <td>2232</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Pro-tip</strong>: these queries can grow in sophistication with almost no limits. For example, here is a case where we want to find out the areas where European population is less than half the population:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eu_lth</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Europe&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">100.</span> <span class="o">/</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">eu_lth</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Europe</th>
+      <th>Africa</th>
+      <th>Middle East and Asia</th>
+      <th>The Americas and the Caribbean</th>
+      <th>Antarctica and Oceania</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <th>GeographyCode</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E01006512</th>
+      <td>910</td>
+      <td>106</td>
+      <td>840</td>
+      <td>24</td>
+      <td>0</td>
+      <td>1880</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ul class="simple">
+<li><p>Combining queries.</p></li>
+</ul>
+<p>Now all of these queries can be combined with each other, for further flexibility. For example, imagine we want areas with more than 25 people from the Americas and Caribbean, but less than 1,500 in total:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ac25_l500</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;The Americas and the Caribbean&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">)</span> <span class="o">&amp;</span> \
+                   <span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">1500</span><span class="p">),</span> <span class="p">:]</span>
+<span class="n">ac25_l500</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Europe</th>
+      <th>Africa</th>
+      <th>Middle East and Asia</th>
+      <th>The Americas and the Caribbean</th>
+      <th>Antarctica and Oceania</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <th>GeographyCode</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E01033750</th>
+      <td>1235</td>
+      <td>53</td>
+      <td>129</td>
+      <td>26</td>
+      <td>5</td>
+      <td>1448</td>
+    </tr>
+    <tr>
+      <th>E01033752</th>
+      <td>1024</td>
+      <td>19</td>
+      <td>114</td>
+      <td>33</td>
+      <td>6</td>
+      <td>1196</td>
+    </tr>
+    <tr>
+      <th>E01033754</th>
+      <td>1262</td>
+      <td>37</td>
+      <td>112</td>
+      <td>32</td>
+      <td>9</td>
+      <td>1452</td>
+    </tr>
+    <tr>
+      <th>E01033756</th>
+      <td>886</td>
+      <td>31</td>
+      <td>221</td>
+      <td>42</td>
+      <td>5</td>
+      <td>1185</td>
+    </tr>
+    <tr>
+      <th>E01033757</th>
+      <td>731</td>
+      <td>39</td>
+      <td>223</td>
+      <td>29</td>
+      <td>3</td>
+      <td>1025</td>
+    </tr>
+    <tr>
+      <th>E01033761</th>
+      <td>1138</td>
+      <td>52</td>
+      <td>138</td>
+      <td>33</td>
+      <td>11</td>
+      <td>1372</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ul class="simple">
+<li><p>Sorting.</p></li>
+</ul>
+<p>Among the many operations <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> objects support, one of the most useful ones is to sort a table based on a given column. For example, imagine we want to sort the table by total population:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db_pop_sorted</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Total&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">db_pop_sorted</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Europe</th>
+      <th>Africa</th>
+      <th>Middle East and Asia</th>
+      <th>The Americas and the Caribbean</th>
+      <th>Antarctica and Oceania</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <th>GeographyCode</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E01006747</th>
+      <td>2551</td>
+      <td>163</td>
+      <td>812</td>
+      <td>24</td>
+      <td>2</td>
+      <td>3552</td>
+    </tr>
+    <tr>
+      <th>E01006513</th>
+      <td>2225</td>
+      <td>61</td>
+      <td>595</td>
+      <td>53</td>
+      <td>7</td>
+      <td>2941</td>
+    </tr>
+    <tr>
+      <th>E01006751</th>
+      <td>1843</td>
+      <td>139</td>
+      <td>568</td>
+      <td>21</td>
+      <td>1</td>
+      <td>2572</td>
+    </tr>
+    <tr>
+      <th>E01006524</th>
+      <td>2235</td>
+      <td>36</td>
+      <td>125</td>
+      <td>24</td>
+      <td>11</td>
+      <td>2431</td>
+    </tr>
+    <tr>
+      <th>E01006787</th>
+      <td>2187</td>
+      <td>53</td>
+      <td>75</td>
+      <td>13</td>
+      <td>2</td>
+      <td>2330</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>If you inspect the help of <code class="docutils literal notranslate"><span class="pre">db.sort_values</span></code>, you will find that you can pass more than one column to sort the table by. This allows you to do so-called hiearchical sorting: sort first based on one column, if equal then based on another column, etc.</p>
+</div>
+<div class="section" id="visual-exploration">
+<h2>Visual exploration<a class="headerlink" href="#visual-exploration" title="Permalink to this headline">¶</a></h2>
+<p>The next step to continue exploring a dataset is to get a feel for what it looks like, visually. We have already learnt how to unconver and inspect specific parts of the data, to check for particular cases we might be intersted in. Now we will see how to plot the data to get a sense of the overall distribution of values. For that, we will be using the Python library <a class="reference external" href="http://stanford.edu/~mwaskom/software/seaborn/index.html"><code class="docutils literal notranslate"><span class="pre">seaborn</span></code></a>.</p>
+<ul class="simple">
+<li><p>Histograms.</p></li>
+</ul>
+<p>One of the most common graphical devices to display the distribution of values in a variable is a histogram. Values are assigned into groups of equal intervals, and the groups are plotted as bars rising as high as the number of values into the group.</p>
+<p>A histogram is easily created with the following command. In this case, let us have a look at the shape of the overall population:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">],</span> <span class="n">kde</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab_B_52_0.png" src="../../_images/lab_B_52_0.png" />
+</div>
+</div>
+<p>Note we are using <code class="docutils literal notranslate"><span class="pre">sns</span></code> instead of <code class="docutils literal notranslate"><span class="pre">pd</span></code>, as the function belongs to <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> instead of <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
+<p>We can quickly see most of the areas contain somewhere between 1,200 and 1,700 people, approx. However, there are a few areas that have many more, even up to 3,500 people.</p>
+<p>An additional feature to visualize the density of values is called <code class="docutils literal notranslate"><span class="pre">rug</span></code>, and adds a little tick for each value on the horizontal axis:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">],</span> <span class="n">kde</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">rug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab_B_54_0.png" src="../../_images/lab_B_54_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Kernel Density Plots</p></li>
+</ul>
+<p>Histograms are useful, but they are artificial in the sense that a continuous variable is made discrete by turning the values into discrete groups. An alternative is kernel density estimation (KDE), which produces an empirical density function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">],</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab_B_56_0.png" src="../../_images/lab_B_56_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Line and bar plots</p></li>
+</ul>
+<p>Another very common way of visually displaying a variable is with a line or a bar chart. For example, if we want to generate a line plot of the (sorted) total population by area:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab_B_58_0.png" src="../../_images/lab_B_58_0.png" />
+</div>
+</div>
+<p>For a bar plot all we need to do is to change an argument of the call:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab_B_60_0.png" src="../../_images/lab_B_60_0.png" />
+</div>
+</div>
+<p>Note that the large number of areas makes the horizontal axis unreadable. We can try to turn the plot around by displaying the bars horizontally (see how it’s just changing <code class="docutils literal notranslate"><span class="pre">bar</span></code> for <code class="docutils literal notranslate"><span class="pre">barh</span></code>). To make it readable, let us expand the plot’s height:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab_B_62_0.png" src="../../_images/lab_B_62_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="un-tidy-data">
+<h2>Un/tidy data<a class="headerlink" href="#un-tidy-data" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><em>Happy families are all alike; every
+unhappy family is unhappy in its own
+way.</em></p>
+</div></blockquote>
+<blockquote>
+<div><p>Leo Tolstoy.</p>
+</div></blockquote>
+<p>Once you can read your data in, explore specific cases, and have a first visual approach to the entire set, the next step can be preparing it for more sophisticated analysis. Maybe you are thinking of modeling it through regression, or on creating subgroups in the dataset with particular characteristics, or maybe you simply need to present summary measures that relate to a slightly different arrangement of the data than you have been presented with.</p>
+<p>For all these cases, you first need what statistician, and general R wizard, Hadley Wickham calls <em>“tidy data”</em>. The general idea to “tidy” your data is to convert them from whatever structure they were handed in to you into one that allows convenient and standardized manipulation, and that supports directly inputting the data into what he calls “<em>tidy</em>” analysis tools. But, at a more practical level, what is exactly <em>“tidy data”</em>? In Wickham’s own words:</p>
+<blockquote>
+<div><p><em>Tidy data is a standard way of mapping the meaning of a dataset to its structure. A dataset is
+messy or tidy depending on how rows, columns and tables are matched up with observations,
+variables and types.</em></p>
+</div></blockquote>
+<p>He then goes on to list the three fundamental characteristics of <em>“tidy data”</em>:</p>
+<ol class="simple">
+<li><p>Each variable forms a column.</p></li>
+<li><p>Each observation forms a row.</p></li>
+<li><p>Each type of observational unit forms a table.</p></li>
+</ol>
+<p>If you are further interested in the concept of <em>“tidy data”</em>, I recommend you check out the <a class="reference external" href="http://www.jstatsoft.org/v59/i10/">original paper</a> (open access) and the <a class="reference external" href="https://github.com/hadley/tidy-data">public repository</a> associated with it.</p>
+<p>Let us bring in the concept of “<em>tidy data</em>” to our own Liverpool dataset. First, remember its structure:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Europe</th>
+      <th>Africa</th>
+      <th>Middle East and Asia</th>
+      <th>The Americas and the Caribbean</th>
+      <th>Antarctica and Oceania</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <th>GeographyCode</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E01006512</th>
+      <td>910</td>
+      <td>106</td>
+      <td>840</td>
+      <td>24</td>
+      <td>0</td>
+      <td>1880</td>
+    </tr>
+    <tr>
+      <th>E01006513</th>
+      <td>2225</td>
+      <td>61</td>
+      <td>595</td>
+      <td>53</td>
+      <td>7</td>
+      <td>2941</td>
+    </tr>
+    <tr>
+      <th>E01006514</th>
+      <td>1786</td>
+      <td>63</td>
+      <td>193</td>
+      <td>61</td>
+      <td>5</td>
+      <td>2108</td>
+    </tr>
+    <tr>
+      <th>E01006515</th>
+      <td>974</td>
+      <td>29</td>
+      <td>185</td>
+      <td>18</td>
+      <td>2</td>
+      <td>1208</td>
+    </tr>
+    <tr>
+      <th>E01006518</th>
+      <td>1531</td>
+      <td>69</td>
+      <td>73</td>
+      <td>19</td>
+      <td>4</td>
+      <td>1696</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Thinking through <em>tidy</em> lenses, this is not a tidy dataset. It is not so for each of the three conditions:</p>
+<ul class="simple">
+<li><p>Starting by the last one (<em>each type of observational unit forms a table</em>), this dataset actually contains not one but two observational units: the different areas of Liverpool, captured by <code class="docutils literal notranslate"><span class="pre">GeographyCode</span></code>; <em>and</em> subgroups of an area. To <em>tidy</em> up this aspect, we can create two different tables:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assign column `Total` into its own as a single-column table</span>
+<span class="n">db_totals</span> <span class="o">=</span> <span class="n">db</span><span class="p">[[</span><span class="s1">&#39;Total&#39;</span><span class="p">]]</span>
+<span class="n">db_totals</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <th>GeographyCode</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E01006512</th>
+      <td>1880</td>
+    </tr>
+    <tr>
+      <th>E01006513</th>
+      <td>2941</td>
+    </tr>
+    <tr>
+      <th>E01006514</th>
+      <td>2108</td>
+    </tr>
+    <tr>
+      <th>E01006515</th>
+      <td>1208</td>
+    </tr>
+    <tr>
+      <th>E01006518</th>
+      <td>1696</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a table `db_subgroups` that contains every column in `db` without `Total`</span>
+<span class="n">db_subgroups</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Total&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">db_subgroups</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Europe</th>
+      <th>Africa</th>
+      <th>Middle East and Asia</th>
+      <th>The Americas and the Caribbean</th>
+      <th>Antarctica and Oceania</th>
+    </tr>
+    <tr>
+      <th>GeographyCode</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E01006512</th>
+      <td>910</td>
+      <td>106</td>
+      <td>840</td>
+      <td>24</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>E01006513</th>
+      <td>2225</td>
+      <td>61</td>
+      <td>595</td>
+      <td>53</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>E01006514</th>
+      <td>1786</td>
+      <td>63</td>
+      <td>193</td>
+      <td>61</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>E01006515</th>
+      <td>974</td>
+      <td>29</td>
+      <td>185</td>
+      <td>18</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E01006518</th>
+      <td>1531</td>
+      <td>69</td>
+      <td>73</td>
+      <td>19</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Note we use <code class="docutils literal notranslate"><span class="pre">drop</span></code> to exclude “Total”, but we could also use a list with the names of all the columns to keep. Additionally, notice how, in this case, the use of <code class="docutils literal notranslate"><span class="pre">drop</span></code> (which leaves <code class="docutils literal notranslate"><span class="pre">db</span></code> untouched) is preferred to that of <code class="docutils literal notranslate"><span class="pre">del</span></code> (which permanently removes the column from <code class="docutils literal notranslate"><span class="pre">db</span></code>).</p>
+<p>At this point, the table <code class="docutils literal notranslate"><span class="pre">db_totals</span></code> is tidy: every row is an observation, every table is a variable, and there is only one observational unit in the table.</p>
+<p>The other table (<code class="docutils literal notranslate"><span class="pre">db_subgroups</span></code>), however, is not entirely tidied up yet: there is only one observational unit in the table, true; but every row is not an observation, and there are variable values as the names of columns (in other words, every column is not a variable). To obtain a fully tidy version of the table, we need to re-arrange it in a way that every row is a population subgroup in an area, and there are three variables: <code class="docutils literal notranslate"><span class="pre">GeographyCode</span></code>, population subgroup, and population count (or frequency).</p>
+<p>Because this is actually a fairly common pattern, there is a direct way to solve it in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tidy_subgroups</span> <span class="o">=</span> <span class="n">db_subgroups</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
+<span class="n">tidy_subgroups</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>GeographyCode                                
+E01006512      Europe                            910
+               Africa                            106
+               Middle East and Asia              840
+               The Americas and the Caribbean     24
+               Antarctica and Oceania              0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>The method <code class="docutils literal notranslate"><span class="pre">stack</span></code>, well, “stacks” the different columns into rows. This fixes our “tidiness” problems but the type of object that is returning is not a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">tidy_subgroups</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is a <code class="docutils literal notranslate"><span class="pre">Series</span></code>, which really is like a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, but with only one column. The additional information (<code class="docutils literal notranslate"><span class="pre">GeographyCode</span></code> and population group) are stored in what is called an multi-index. We will skip these for now, so we would really just want to get a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> as we know it out of the <code class="docutils literal notranslate"><span class="pre">Series</span></code>. This is also one line of code away:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Unfold the multi-index into different, new columns</span>
+<span class="n">tidy_subgroupsDF</span> <span class="o">=</span> <span class="n">tidy_subgroups</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">tidy_subgroupsDF</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>GeographyCode</th>
+      <th>level_1</th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>E01006512</td>
+      <td>Europe</td>
+      <td>910</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>E01006512</td>
+      <td>Africa</td>
+      <td>106</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>E01006512</td>
+      <td>Middle East and Asia</td>
+      <td>840</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>E01006512</td>
+      <td>The Americas and the Caribbean</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>E01006512</td>
+      <td>Antarctica and Oceania</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>To which we can apply to renaming to make it look better:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tidy_subgroupsDF</span> <span class="o">=</span> <span class="n">tidy_subgroupsDF</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;level_1&#39;</span><span class="p">:</span> <span class="s1">&#39;Subgroup&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;Freq&#39;</span><span class="p">})</span>
+<span class="n">tidy_subgroupsDF</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>GeographyCode</th>
+      <th>Subgroup</th>
+      <th>Freq</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>E01006512</td>
+      <td>Europe</td>
+      <td>910</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>E01006512</td>
+      <td>Africa</td>
+      <td>106</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>E01006512</td>
+      <td>Middle East and Asia</td>
+      <td>840</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>E01006512</td>
+      <td>The Americas and the Caribbean</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>E01006512</td>
+      <td>Antarctica and Oceania</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Now our table is fully tidied up!</p>
+<div class="section" id="grouping-transforming-aggregating">
+<h3>Grouping, transforming, aggregating<a class="headerlink" href="#grouping-transforming-aggregating" title="Permalink to this headline">¶</a></h3>
+<p>One of the advantage of tidy datasets is they allow to perform advanced transformations in a more direct way. One of the most common ones is what is called “group-by” operations. Originated in the world of databases, these operations allow you to group observations in a table by one of its labels, index, or category, and apply operations on the data group by group.</p>
+<p>For example, given our tidy table with population subgroups, we might want to compute the total sum of population by each group. This task can be split into two different ones:</p>
+<ul class="simple">
+<li><p>Group the table in each of the different subgroups.</p></li>
+<li><p>Compute the sum of <code class="docutils literal notranslate"><span class="pre">Freq</span></code> for each of them.</p></li>
+</ul>
+<p>To do this in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, meet one of its workhorses, and also one of the reasons why the library has become so popular: the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> operator.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pop_grouped</span> <span class="o">=</span> <span class="n">tidy_subgroupsDF</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Subgroup&#39;</span><span class="p">)</span>
+<span class="n">pop_grouped</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f8c9401cc88&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The object <code class="docutils literal notranslate"><span class="pre">pop_grouped</span></code> still hasn’t computed anything, it is only a convenient way of specifying the grouping. But this allows us then to perform a multitude of operations on it. For our example, the sum is calculated as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pop_grouped</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Freq</th>
+    </tr>
+    <tr>
+      <th>Subgroup</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Africa</th>
+      <td>8886</td>
+    </tr>
+    <tr>
+      <th>Antarctica and Oceania</th>
+      <td>581</td>
+    </tr>
+    <tr>
+      <th>Europe</th>
+      <td>435790</td>
+    </tr>
+    <tr>
+      <th>Middle East and Asia</th>
+      <td>18747</td>
+    </tr>
+    <tr>
+      <th>The Americas and the Caribbean</th>
+      <td>2410</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Similarly, you can also obtain a summary of each group:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pop_grouped</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="8" halign="left">Freq</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>Subgroup</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Africa</th>
+      <td>298.0</td>
+      <td>29.818792</td>
+      <td>51.606065</td>
+      <td>0.0</td>
+      <td>7.00</td>
+      <td>14.0</td>
+      <td>30.00</td>
+      <td>484.0</td>
+    </tr>
+    <tr>
+      <th>Antarctica and Oceania</th>
+      <td>298.0</td>
+      <td>1.949664</td>
+      <td>2.168216</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>1.0</td>
+      <td>3.00</td>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <th>Europe</th>
+      <td>298.0</td>
+      <td>1462.382550</td>
+      <td>248.673290</td>
+      <td>731.0</td>
+      <td>1331.25</td>
+      <td>1446.0</td>
+      <td>1579.75</td>
+      <td>2551.0</td>
+    </tr>
+    <tr>
+      <th>Middle East and Asia</th>
+      <td>298.0</td>
+      <td>62.909396</td>
+      <td>102.519614</td>
+      <td>1.0</td>
+      <td>16.00</td>
+      <td>33.5</td>
+      <td>62.75</td>
+      <td>840.0</td>
+    </tr>
+    <tr>
+      <th>The Americas and the Caribbean</th>
+      <td>298.0</td>
+      <td>8.087248</td>
+      <td>9.397638</td>
+      <td>0.0</td>
+      <td>2.00</td>
+      <td>5.0</td>
+      <td>10.00</td>
+      <td>61.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We will not get into it today as it goes beyond the basics we want to conver, but keep in mind that <code class="docutils literal notranslate"><span class="pre">groupby</span></code> allows you to not only call generic functions (like <code class="docutils literal notranslate"><span class="pre">sum</span></code> or <code class="docutils literal notranslate"><span class="pre">describe</span></code>), but also your own functions. This opens the door for virtually any kind of transformation and aggregation possible.</p>
+</div>
+</div>
+<div class="section" id="additional-lab-materials">
+<h2>Additional lab materials<a class="headerlink" href="#additional-lab-materials" title="Permalink to this headline">¶</a></h2>
+<p>The following provide a good “next step” from some of the concepts and tools covered in the <a class="reference internal" href="#"><span class="doc std std-doc">lab</span></a> and <a class="reference internal" href="diy_B.html"><span class="doc std std-doc">DIY</span></a> sections of this block:</p>
+<ul class="simple">
+<li><p>This <a class="reference external" href="http://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html?_r=0">NY Times article</a> does a good job at conveying the relevance of data “cleaning” and <a class="reference internal" href="#lab-a-data-munging"><span class="std std-ref">munging</span></a>.</p></li>
+<li><p>A good introduction to data manipulation in Python is Wes McKinney’s “Python for Data Analysis” <a class="bibtex reference internal" href="../bibliography.html#mckinney2012python" id="id1">[McK12]</a>.</p></li>
+<li><p>To explore further some of the visualization capabilities in at your fingertips, the Python library <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> is an excellent choice. Its online <a class="reference external" href="http://stanford.edu/~mwaskom/software/seaborn/tutorial.html">tutorial</a> is a fantastic place to start.</p></li>
+<li><p>A good extension is Hadley Wickham’ “Tidy data” paper <a class="bibtex reference internal" href="../bibliography.html#wickham-2014-jssobk-v59i10" id="id2">[Wic14]</a>, which presents a very popular way of organising tabular data for efficient manipulation.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/bB"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="concepts_B.html" title="previous page">Concepts</a>
+    <a class='right-next' id="next-link" href="diy_B.html" title="next page">Do-It-Yourself</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Dani Arribas-Bel<br/>
+        
+          <div class="extra_footer">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
