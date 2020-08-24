@@ -2,9 +2,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ENVS363/563 &#8212; A course on Geographic Data Science</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
@@ -14,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
@@ -24,6 +26,7 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -195,7 +198,7 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i> On this page
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -204,11 +207,6 @@
    Geographic Data Science
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#locations">
-     Locations
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#contact">
      Contact
@@ -233,26 +231,21 @@
 <div class="section" id="geographic-data-science">
 <h2>Geographic Data Science<a class="headerlink" href="#geographic-data-science" title="Permalink to this headline">¶</a></h2>
 <p>Welcome to Geographic Data Science, a course taught by Dr. Dani Arribas-Bel in the Autumn of 2020 at the University of Liverpool.</p>
-<p>The timetable for the course is:</p>
-<ul class="simple">
-<li><p><strong>Lectures</strong>: TBA</p></li>
-<li><p><strong>Computer Labs</strong>: TBA</p></li>
-</ul>
-<div class="section" id="locations">
-<h3>Locations<a class="headerlink" href="#locations" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">ERB-ERT</span></code>: Eleanor Rathbone Building - Eleanor Rathbone Theatre [<a class="reference external" href="https://www.liverpool.ac.uk/intranet/timetabling/online-room-catalogue/eleanor-rathbone/eleanorrathbonetheatre/">URL</a>]</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CTL-6-PCTC</span></code>: Central Teaching Labs, PC Teaching Centre (Red, Green, Blue) [<a class="reference external" href="https://www.liverpool.ac.uk/intranet/timetabling/online-room-catalogue/ctl-building/ctl-pctc-blue/">URL</a>]</p></li>
-</ul>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A PDF version of this course is available for download <a class="reference download internal" download="" href="../_downloads/171092cdb8bbcff70e13eaad5973d3b7/gds_course.pdf"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a></p>
+</div>
 </div>
 <div class="section" id="contact">
 <h3>Contact<a class="headerlink" href="#contact" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><p>Dani Arribas-Bel - <code class="docutils literal notranslate"><span class="pre">D.Arribas-Bel</span> <span class="pre">[at]</span> <span class="pre">liverpool.ac.uk</span></code> \
-Lecturer in Geographic Data Science \
-Office 508, Roxby Building,  \
-University of Liverpool - 74 Bedford St S,  \
-Liverpool, L69 7ZT, \
+<div><p>Dani Arribas-Bel - <code class="docutils literal notranslate"><span class="pre">D.Arribas-Bel</span> <span class="pre">[at]</span> <span class="pre">liverpool.ac.uk</span></code><br />
+Lecturer in Geographic Data Science<br />
+Office 508, Roxby Building,<br />
+University of Liverpool - 74 Bedford St S,<br />
+Liverpool, L69 7ZT,<br />
 United Kingdom.</p>
 </div></blockquote>
 <div class="toctree-wrapper compound">
