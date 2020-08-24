@@ -12,3 +12,9 @@
     - file: content/bA/lab_A
     - file: content/bA/diy_A
 
+- chapter: B - Open Science
+  sections:
+    - file: content/bB/concepts_B
+    - file: content/bB/lab_B
+    - file: content/bB/diy_B
+

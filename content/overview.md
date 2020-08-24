@@ -32,7 +32,9 @@ The student will receive feedback through the following channels:
 
 Access to materials, including lecture slides and lab notebooks, is centralized through the 
 use of a course website available in the following url:
-[`http://darribas.org/gds19`](http://darribas.org/gds19)
 
-Specific readings, videos, and/or podcasts, as well as academic references will be provided for each lecture and lab, and can be accessed through the course website.
+> [`https://darribas.org/gds_course`](https://darribas.org/gds_course)
 
+Specific videos, (computational) notebooks, and other resources, as well as academic references are provided for each learning block.
+
+In addition, the currently-in-progress book [*"Geographic Data Science with PySAL and the PyData stack*"](https://geographicdata.science/book) provides and additional resource for more in-depth coverage of similar content.
