@@ -1,17 +1,12 @@
 @import url(et-book.css);
 
-/***************************************************
+/***************************************************/
 body {
   width: 87.5%;
   margin-left: auto;
   margin-right: auto;
   max-width: 1400px;
   counter-reset: sidenote-counter; }
-
-code {
-  color: #f6f4f2;
-  background-color: #c6ad8f;
-}
 
 .reveal a {
   line-height: 1.3em; }
@@ -247,14 +242,14 @@ body {
  * LINKS
  *********************************************/
 .reveal a {
-  color: #000000;
+  color: #66CDAA;
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
   transition: color .15s ease; }
 
 .reveal a:hover {
-  color: #000000;
+  color: #66CDAA;
   text-shadow: none;
   border: none; }
 
@@ -289,7 +284,7 @@ body {
  * NAVIGATION CONTROLS
  *********************************************/
 .reveal .controls {
-  color: #000000; }
+  color: #66CDAA; }
 
 /*********************************************
  * PROGRESS BAR
@@ -298,7 +293,7 @@ body {
   background: rgba(0, 0, 0, 0.2); }
 
 .reveal .progress span {
-  background: #000000;
+  background: #66CDAA;
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }

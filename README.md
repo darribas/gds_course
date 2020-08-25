@@ -1,5 +1,7 @@
 # Geographic Data Science, the course
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/darribas/gds_course/master)
+
 This is an up-to-date version of the GDS course. Previous versions are available at:
 
 - [`GDS19`](https://github.com/darribas/gds19)

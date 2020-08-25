@@ -1,209 +1,178 @@
-<!-- Copied from https://gist.github.com/aaronwolen/5017084#file-template-revealjs-html -->
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
- 
-<title>Geographic Data Science</title>
- 
-<meta name="description" content="Geographic Data Science">    
- 
-  <meta name="author" content="The (Geo-)Data Revolution" />
- 
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
- 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
- 
-<link rel="stylesheet" href="css/reveal.min.css">
-  <link rel="stylesheet" href="css/theme/journal.css" id="theme">
- 
- 
-<!-- For syntax highlighting -->
-  <link rel="stylesheet" href="lib/css/zenburn.css">
- 
- 
-<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-<script>
-  document.write( '<link rel="stylesheet" href="css/print/' +
-    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + 
-    '.css" type="text/css" media="print">' );
-</script>
- 
-<!--[if lt IE 9]>
-<script src="lib/js/html5shiv.js"></script>
-<![endif]-->
-</head>
- 
-<body>
- 
-<div class="reveal">
- 
-<!-- Any section element inside of this container is displayed as a slide -->
-<div class="slides">
- 
-<section>
-<h1>Geographic Data Science</h1>
-<h3>The (Geo-)Data Revolution</h3>
-<p>
-<h4><a href="http://darribas.org">Dani Arribas-Bel</a></h4>
-</p>
-</section>  
- 
- 
-<section id="section" class="level1">
-<h1></h1>
-<section id="the-geo-data-revolution" class="level2">
-<h2>The (geo-)data revolution</h2>
-</section>
-<section id="the-geo-data-revolution-1" class="level2">
-<h2>The (geo-)data revolution</h2>
-<p>Exciting times to be a:</p>
-<ul>
-<li>Geographer</li>
-<li>Map fan</li>
-<li>Data fan</li>
-</ul>
-<p>The world is being <strong>“datafied”</strong>…</p>
-</section>
-<section id="datafication" class="level2">
-<h2>“Datafication”</h2>
-<p><em>Quantification of phenomena through the systematic recording of data</em>, <em>“taking all aspects of life and turning them into data”</em> <a href="https://www.foreignaffairs.com/articles/2013-04-03/rise-big-data"><small style="vertical-align: middle;">(Cukier &amp; Mayer-Schoenberg)</a></small></p>
-<p><strong>Examples</strong>: credit transactions, public transit, tweets, facebook likes, spotify songs, etc.</p>
-</section>
-<section id="datafication-1" class="level2">
-<h2>“Datafication”</h2>
-<p>Many <strong>implications</strong>:</p>
-<ul>
-<li><strong>Window</strong> into human <strong>behaviour</strong> (this course)</li>
-<li>Opportunities for optimization of systems (Industrial IoT, planning systems…)</li>
-<li>Issues with <strong>intentionality</strong> and <strong>privacy</strong></li>
-<li>…</li>
-</ul>
-</section>
-<section id="why-now" class="level2">
-<h2><em>Why now?</em></h2>
-<div class="fragment">
-<p>Advances in:</p>
-<ul>
-<li>Computing power and storage</li>
-<li>Connectivity</li>
-<li>Geospatial technology</li>
-</ul>
-</div>
-</section>
-<section id="the-geo-data-revolution-2" class="level2">
-<h2>The (geo-)data revolution</h2>
-<p>The confluence of the three (computing, communication and geospatial) is creating large amounts of data.</p>
-<p>Now, <strong>data in itself is not very valuable</strong>:</p>
-<ul>
-<li>Data –&gt; Information –&gt; Knowledge –&gt; Action</li>
-</ul>
-</section>
-</section>
-<section id="section-1" class="level1">
-<h1></h1>
-<section id="data-science" class="level2">
-<h2>Data Science</h2>
-</section>
-<section id="section-2" class="level2">
-<h2></h2>
-<div data-text-align="center" data-markdown="1">
-<p><em>Methods, tools and techniques to turn data into <strong>actionable knowledge</strong> </em></p>
-</div>
-</section>
-<section id="data-science-1" class="level2">
-<h2>Data Science</h2>
-<p><strong>Statistics</strong> + …</p>
-</ul>
-<li class="fragment">
-<strong>Computational tools</strong> –&gt; Programming (hence this course’s <strong>tutorials</strong>!)
-</li>
-<li class="fragment">
-<strong>Comunication skills</strong> –&gt; “Story telling” (hence this course’s <strong>assignments</strong>)
-</li>
-<li class="fragment">
-<strong>Domain expertise</strong> –&gt; Theories about why the data are the way they are (hence the rest of your <strong>degree</strong>)
-</li>
-</ul>
-<p><span class="fragment"> Some examples… </span></p>
-</section>
-<section id="section-3" class="level2" data-background="../figs/l01_chocolate.png" data-background-size="contain">
-<h2 data-background="../figs/l01_chocolate.png" data-background-size="contain"></h2>
-</section>
-<section id="section-4" class="level2" data-background="../figs/l01_okcupid.png" data-background-size="contain">
-<h2 data-background="../figs/l01_okcupid.png" data-background-size="contain"></h2>
-</section>
-</section>
-<section id="section-5" class="level1">
-<h1></h1>
-<section id="geo-data-science" class="level2">
-<h2><strong>Geo</strong>-Data Science</h2>
-</section>
-<section id="section-6" class="level2" data-background="../figs/l01_batman.png" data-background-size="contain">
-<h2 data-background="../figs/l01_batman.png" data-background-size="contain"></h2>
-</section>
-<section id="geo-data-science-1" class="level2">
-<h2><strong>Geo</strong>-Data Science</h2>
-<ul>
-<li>A (very) large portion of all these new data are inherently <strong>geographic</strong> or can be traced back to some location over space.</li>
-<li>Spatial is special.</li>
-<li>Some of the methods require an explicitly spatial treatment –&gt; (Geo-)Data Science</li>
-</ul>
-<p>Some examples…</p>
-</section>
-<section id="section-7" class="level2" data-background="../figs/l01_uber.png" data-background-size="contain">
-<h2 data-background="../figs/l01_uber.png" data-background-size="contain"></h2>
-</section>
-<section id="section-8" class="level2" data-background="../figs/l01_jsnow.jpg" data-background-size="contain">
-<h2 data-background="../figs/l01_jsnow.jpg" data-background-size="contain"></h2>
-</section>
-</section>
-<section id="section-9" class="level1">
-<h1></h1>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A Course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
-</section>
-</div>
- 
-<script src="lib/js/head.min.js"></script>
-<script src="js/reveal.min.js"></script>
- 
-<script>
-  // Full list of configuration options available here:
-  // https://github.com/hakimel/reveal.js#configuration
-  Reveal.initialize({
-    controls: true,
-    progress: true,
-    history: true,
-    center: true,
-    transition: 'linear',
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-        math: {
-            // mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
-            config: 'TeX-AMS_HTML-full'
-        },
+		<title></title>
 
-  // available themes are in /css/theme
-      theme: Reveal.getQueryHash().theme || 'journal', 
-   
-  // default/cube/page/concave/zoom/linear/fade/none
-      transition: Reveal.getQueryHash().transition || 'linear',
-   
-  // Optional libraries used to extend on reveal.js
-  dependencies: [
-    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
-    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
-    // { src: '../../lib/js/classList.js' },
-    { src: 'plugin/math/math.js', async: true }
-  ]
-  });
- 
-</script>
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/journal.css">
 
-</body>
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+        <!-- BODY -->
+		<div class="reveal">
+			<div class="slides">
+
+                                 
+                <section id="section" class="level1">
+                <h1></h1>
+                <section id="geographic-data-science" class="level2">
+                <h2>Geographic Data Science</h2>
+                <CENTER>
+                The (Geo-)Data Revolution
+                </CENTER>
+                <CENTER>
+                <a href="http://darribas.org">Dani Arribas-Bel</a>
+                </CENTER>
+                </section>
+                </section>
+                <section id="section-1" class="level1">
+                <h1></h1>
+                <section id="the-geo-data-revolution" class="level2">
+                <h2>The (geo-)data revolution</h2>
+                </section>
+                <section id="the-geo-data-revolution-1" class="level2">
+                <h2>The (geo-)data revolution</h2>
+                <p>Exciting times to be a:</p>
+                <ul>
+                <li>Geographer</li>
+                <li>Map fan</li>
+                <li>Data fan</li>
+                </ul>
+                <p>The world is being <strong>“datafied”</strong>…</p>
+                </section>
+                <section id="datafication" class="level2">
+                <h2>“Datafication”</h2>
+                <p><em>Quantification of phenomena through the systematic recording of data</em>, <em>“taking all aspects of life and turning them into data”</em> <a href="https://www.foreignaffairs.com/articles/2013-04-03/rise-big-data"><small style="vertical-align: middle;">(Cukier &amp; Mayer-Schoenberg)</a></small></p>
+                <p><strong>Examples</strong>: credit transactions, public transit, tweets, facebook likes, spotify songs, etc.</p>
+                </section>
+                <section id="datafication-1" class="level2">
+                <h2>“Datafication”</h2>
+                <p>Many <strong>implications</strong>:</p>
+                <ul>
+                <li><strong>Window</strong> into human <strong>behaviour</strong> (this course)</li>
+                <li>Opportunities for optimization of systems (Industrial IoT, planning systems…)</li>
+                <li>Issues with <strong>intentionality</strong> and <strong>privacy</strong></li>
+                <li>…</li>
+                </ul>
+                </section>
+                <section id="why-now" class="level2">
+                <h2><em>Why now?</em></h2>
+                <div class="fragment">
+                <p>Advances in:</p>
+                <ul>
+                <li>Computing power and storage</li>
+                <li>Connectivity</li>
+                <li>Geospatial technology</li>
+                </ul>
+                </div>
+                </section>
+                <section id="the-geo-data-revolution-2" class="level2">
+                <h2>The (geo-)data revolution</h2>
+                <p>The confluence of the three (computing, communication and geospatial) is creating large amounts of data.</p>
+                <p>Now, <strong>data in itself is not very valuable</strong>:</p>
+                <ul>
+                <li>Data –&gt; Information –&gt; Knowledge –&gt; Action</li>
+                </ul>
+                </section>
+                </section>
+                <section id="section-2" class="level1">
+                <h1></h1>
+                <section id="data-science" class="level2">
+                <h2>Data Science</h2>
+                </section>
+                <section id="section-3" class="level2">
+                <h2></h2>
+                <div data-text-align="center" data-markdown="1">
+                <p><em>Methods, tools and techniques to turn data into <strong>actionable knowledge</strong> </em></p>
+                </div>
+                </section>
+                <section id="data-science-1" class="level2">
+                <h2>Data Science</h2>
+                <p><strong>Statistics</strong> + …</p>
+                </ul>
+                <li class="fragment">
+                <strong>Computational tools</strong> –&gt; Programming (hence this course’s <strong>tutorials</strong>!)
+                </li>
+                <li class="fragment">
+                <strong>Comunication skills</strong> –&gt; “Story telling” (hence this course’s <strong>assignments</strong>)
+                </li>
+                <li class="fragment">
+                <strong>Domain expertise</strong> –&gt; Theories about why the data are the way they are (hence the rest of your <strong>degree</strong>)
+                </li>
+                </ul>
+                <p><span class="fragment"> Some examples… </span></p>
+                </section>
+                <section id="section-4" class="level2" data-background="../figs/l01_chocolate.png" data-background-size="contain">
+                <h2 data-background="../figs/l01_chocolate.png" data-background-size="contain"></h2>
+                </section>
+                <section id="section-5" class="level2" data-background="../figs/l01_okcupid.png" data-background-size="contain">
+                <h2 data-background="../figs/l01_okcupid.png" data-background-size="contain"></h2>
+                </section>
+                </section>
+                <section id="section-6" class="level1">
+                <h1></h1>
+                <section id="geo-data-science" class="level2">
+                <h2><strong>Geo</strong>-Data Science</h2>
+                </section>
+                <section id="section-7" class="level2" data-background="../figs/l01_batman.png" data-background-size="contain">
+                <h2 data-background="../figs/l01_batman.png" data-background-size="contain"></h2>
+                </section>
+                <section id="geo-data-science-1" class="level2">
+                <h2><strong>Geo</strong>-Data Science</h2>
+                <ul>
+                <li>A (very) large portion of all these new data are inherently <strong>geographic</strong> or can be traced back to some location over space.</li>
+                <li>Spatial is special.</li>
+                <li>Some of the methods require an explicitly spatial treatment –&gt; (Geo-)Data Science</li>
+                </ul>
+                <p>Some examples…</p>
+                </section>
+                <section id="section-8" class="level2" data-background="../figs/l01_uber.png" data-background-size="contain">
+                <h2 data-background="../figs/l01_uber.png" data-background-size="contain"></h2>
+                </section>
+                <section id="section-9" class="level2" data-background="../figs/l01_jsnow.jpg" data-background-size="contain">
+                <h2 data-background="../figs/l01_jsnow.jpg" data-background-size="contain"></h2>
+                </section>
+                </section>
+                <section id="section-10" class="level1">
+                <h1></h1>
+                <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A Course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+                </section>
+			</div>
+		</div>
+
+        <!-- DEPENDENCIES -->
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                controlsTutorial: false,
+                history: false,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+        <!-- END of BODY -->
+	</body>
 </html>
