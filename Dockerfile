@@ -9,6 +9,6 @@ COPY ./content ${HOME}/content
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 RUN rm -rf ${HOME}/content/slides/html \
- && rm ${HOME}/content/bibliography.* \
+ && rm ${HOME}/content/bibliography.bib \
        ${HOME}/content/*.md
 USER ${NB_USER}
