@@ -1,6 +1,13 @@
-% Geographic Data Science
-% The (Geo-)Data Revolution
-%[Dani Arribas-Bel](http://darribas.org)
+#
+## Geographic Data Science
+
+<CENTER>
+The (Geo-)Data Revolution
+</CENTER>
+
+<CENTER>
+[Dani Arribas-Bel](http://darribas.org)
+</CENTER>
 
 
 #
