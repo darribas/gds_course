@@ -4,3 +4,8 @@ body {
     font-family: et-book;
     font-size: 20px;
 }
+
+code {
+  color: #66CDAA;
+  background-color: #f2f9f8;
+}
