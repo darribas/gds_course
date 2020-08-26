@@ -1,6 +1,13 @@
-% Geographic Data Science
-% This Course
-%[Dani Arribas-Bel](http://darribas.org)
+#
+## Geographic Data Science
+
+<CENTER>
+Introduction
+</CENTER>
+
+<CENTER>
+[Dani Arribas-Bel](http://darribas.org)
+</CENTER>
 
 #
 ## This course
