@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title> &#8212; A course on Geographic Data Science</title>
+    <title>Spatial Data Science &#8212; A course on Geographic Data Science</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -29,6 +29,8 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -198,14 +200,7 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#geographic-data-science">
-   Geographic Data Science
-  </a>
- </li>
-</ul>
-
+            
         </nav>
     </div>
 </div>
@@ -214,129 +209,204 @@
         
               <div>
                 
-  <div class="section" id="id1">
+  <div class="section" id="spatial-data-science">
+<h1><code class="docutils literal notranslate"><span class="pre">Spatial</span> <span class="pre">Data</span> <span class="pre">Science</span></code><a class="headerlink" href="#spatial-data-science" title="Permalink to this headline">¶</a></h1>
+<CENTER>
+Keynote Response
+</CENTER>
+<CENTER>
+[**Dani Arribas-Bel**](http://darribas.org) [[`@darribas`]](http://twitter/com/darribas)
+</CENTER>
+<table>
+<col width="50%">
+<col width="50%">
+<tr>
+<td>
+<img src="../../figs/logo.png" style="width:300px">
+</td>
+<td>
+<img src="../../figs/gdsl.png" style="width:300px">
+</td>
+</tr>
+</table>
+</div>
+<div class="section" id="id1">
 <h1><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="geographic-data-science">
-<h2>Geographic Data Science<a class="headerlink" href="#geographic-data-science" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-rise-of-data-science">
+<h2>The Rise of Data Science<a class="headerlink" href="#the-rise-of-data-science" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-data-data">
+<h2>Data, Data, Data<a class="headerlink" href="#data-data-data" title="Permalink to this headline">¶</a></h2>
+<p>Every-<em>thing</em> produces <strong>data</strong></p>
+<p><span class='fragment'><em>New</em>, <em>dense</em>, <em>quantitative</em> <strong>representations</strong> of the world</span></p>
+<p><span class='fragment'>But <strong>data</strong> is not useful, <strong>insights</strong> are</span></p>
 <CENTER>
-The (Geo-)Data Revolution
+<span class='fragment'><span class='hlg'>Data Science</span></span>
 </CENTER>
+</div>
+<div class="section" id="data-science">
+<h2>Data Science<a class="headerlink" href="#data-science" title="Permalink to this headline">¶</a></h2>
 <CENTER>
-[Dani Arribas-Bel](http://darribas.org)
+*“<span class='hlg'>gathering</span> data, <span class='hlg'>massaging</span> it into a tractable form, making it tell its <span class='hlg'>story</span>, and <span class='hlg'>presenting</span> that story to others.”*
 </CENTER>
+<small>
+Loukides (2011)
+</small>
+</div>
+<div class="section" id="hold-on">
+<h2>Hold on…<a class="headerlink" href="#hold-on" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li class='fragment'> A lot of the *new* data is *spatial* data</li>
+<li class='fragment'> Spatial *is* special</li>
+<li class='fragment'> We don't want to reinvent the (GISc) wheel</li>
+</ul>
+<CENTER class='fragment'>
+<span class='hlg'>*How can we bring the best of both worlds together?*</span>
+</CENTER>
+</div>
+<div class="section" id="data-background-figs-l01-batman-png-data-background-size-contain-data-transition-none">
+<h2>{data-background=../../figs/l01_batman.png data-background-size=contain data-transition=none}<a class="headerlink" href="#data-background-figs-l01-batman-png-data-background-size-contain-data-transition-none" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 <div class="section" id="id2">
 <h1><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="the-geo-data-revolution">
-<h2>The (geo-)data revolution<a class="headerlink" href="#the-geo-data-revolution" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="geo-spatial-data-science">
+<h2>Geo/Spatial Data Science<a class="headerlink" href="#geo-spatial-data-science" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="id3">
-<h2>The (geo-)data revolution<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<p>Exciting times to be a:</p>
+<div class="section" id="why">
+<h2>Why?<a class="headerlink" href="#why" title="Permalink to this headline">¶</a></h2>
+<p>Fully tap into the <strong>new data revolution</strong></p>
+<div class='fragment'>
+* Data are different <span class='fragment'>(*"half-baked"*)</span>
+* New data allow more flexibility <span class='fragment'>(+ data, - structure)</span>
+</div>
+<span class='fragment'>
+"Business-as-usual" best approach?</span>
+</div>
+<div class="section" id="a-rough-sketch">
+<h2>A (rough) sketch<a class="headerlink" href="#a-rough-sketch" title="Permalink to this headline">¶</a></h2>
+<div align='left' class='fragment current-visible'>
+**`What`**
 <ul class="simple">
-<li><p>Geographer</p></li>
-<li><p>Map fan</p></li>
-<li><p>Data fan</p></li>
+<li><p>Systems engineering <small style="vertical-align:middle">[Geo-infrastructure]</small></p></li>
+<li><p>Methods <small style="vertical-align:middle">[Explicitly spatial ML/Stats]</small></p></li>
+<li><p>Epistemology <small style="vertical-align:middle">[Adequate conceptualization]</small></p></li>
 </ul>
-<p>The world is being <strong>“datafied”</strong>…</p>
 </div>
-<div class="section" id="datafication">
-<h2>“Datafication”<a class="headerlink" href="#datafication" title="Permalink to this headline">¶</a></h2>
-<p><em>Quantification of phenomena through the systematic recording of data</em>, <em>“taking all aspects of life and turning them into data”</em> <a class="reference external" href="https://www.foreignaffairs.com/articles/2013-04-03/rise-big-data"><small style="vertical-align: middle;">(Cukier &amp;
-Mayer-Schoenberg)</a></small></p>
-<p><strong>Examples</strong>: credit transactions, public transit, tweets, facebook likes, spotify songs, etc.</p>
-</div>
-<div class="section" id="id4">
-<h2>“Datafication”<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
-<p>Many <strong>implications</strong>:</p>
+<div align='left' class='fragment current-visible'>
+**`How`**
 <ul class="simple">
-<li><p><strong>Window</strong> into human <strong>behaviour</strong> (this course)</p></li>
-<li><p>Opportunities for optimization of systems (Industrial IoT, planning
-systems…)</p></li>
-<li><p>Issues with <strong>intentionality</strong> and <strong>privacy</strong></p></li>
+<li><p>Coupling <small style="vertical-align:middle">[Linking Platforms]</small></p></li>
+<li><p>Assimilation <small style="vertical-align:middle">[space fully embedded in DS]</small></p></li>
+<li><p>Full Integration <small style="vertical-align:middle">[Co-Proudction]</small></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="potential-benefits">
+<h2>Potential Benefits<a class="headerlink" href="#potential-benefits" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><span class='fragment highlight-current-blue'>Fully leverage the new data revolution</span></p></li>
+<li><p><span class='fragment highlight-current-blue'>Do not reinvent the wheel</span></p></li>
+<li><p><span class='fragment highlight-current-blue'>New answers to old questions (e.g. MAUP)</span></p></li>
+<li><p><span class='fragment highlight-current-blue'>Old answers in new contexts</span></p></li>
+<li><p><span class='fragment highlight-current-blue'>New questions to answer (new methods?)</span></p></li>
 <li><p>…</p></li>
 </ul>
 </div>
-<div class="section" id="why-now">
-<h2><em>Why now?</em><a class="headerlink" href="#why-now" title="Permalink to this headline">¶</a></h2>
-<div class="fragment">
-Advances in:
+</div>
+<div class="section" id="id3">
+<h1><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="getting-everyone-behind-g-sds">
+<h2>Getting <em>everyone</em> behind G/SDS<a class="headerlink" href="#getting-everyone-behind-g-sds" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="g-sds-is-for-all">
+<h2>G/SDS is for <em>all</em><a class="headerlink" href="#g-sds-is-for-all" title="Permalink to this headline">¶</a></h2>
+<p>Industry <em>&amp;</em> Academia</p>
 <ul class="simple">
-<li><p>Computing power and storage</p></li>
-<li><p>Connectivity</p></li>
-<li><p>Geospatial technology</p></li>
+<li><p>Shared <strong>problems</strong></p></li>
+</ul>
+<ul style='font-size:x-large;' class='fragment current-visible'>
+<li> Access to (/*baking* of) data</li>
+<li> Similar questions in different contexts</li>
+</ul>
+* Complementary **resources**
+<ul style='font-size:x-large;' class='fragment current-visible'>
+<li> **`[A]`** Training muscle, space to experiment</li>
+<li> **`[I]`** Funding muscle, production-ready tooling</li>
+</ul>
+<p><span class='fragment'><span class='hlg'>Clear synergies</span></span></p>
+</div>
+<div class="section" id="challenges">
+<h2>Challenges<a class="headerlink" href="#challenges" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Communication <span class='fragment'><span class="math notranslate nohighlight">\(\rightarrow\)</span><em>what’s needed/valued?</em></span></p></li>
+<li><p>Interaction <span class='fragment'><span class="math notranslate nohighlight">\(\rightarrow\)</span><em>how?</em></span></p></li>
+<li><p>Credit <span class='fragment'><span class="math notranslate nohighlight">\(\rightarrow\)</span><em>Fame-sharing</em></span></p></li>
 </ul>
 </div>
+<div class="section" id="for-example-data-transition-none">
+<h2>For example… {data-transition=none}<a class="headerlink" href="#for-example-data-transition-none" title="Permalink to this headline">¶</a></h2>
+<div class='fragment'>
+* Teach relevant G/SDS skills
+* Provide close interaction w/ industry in training
+* Build platforms that enabling data sharing/access
+</div>
+</div>
+<div class="section" id="id4">
+<h2>For example… {data-transition=none}<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div>
+* <span class='hlg'>Teach relevant G/SDS skills</span>
+* Provide close interaction w/ industry in training
+* Build platforms that enabling data sharing/access
+</div>
+</div>
+<div class="section" id="data-background-figs-msc-png-data-background-size-contain-data-transition-none">
+<h2>{data-background=../../figs/msc.png data-background-size=contain data-transition=none}<a class="headerlink" href="#data-background-figs-msc-png-data-background-size-contain-data-transition-none" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="id5">
-<h2>The (geo-)data revolution<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
-<p>The confluence of the three (computing, communication and geospatial) is
-creating large amounts of data.</p>
-<p>Now, <strong>data in itself is not very valuable</strong>:</p>
-<ul class="simple">
-<li><p>Data –&gt; Information –&gt; Knowledge –&gt; Action</p></li>
-</ul>
+<h2>For example… {data-transition=none}<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div>
+* Teach relevant G/SDS skills
+* <span class='hlg'>Provide close interaction w/ industry in training</span>
+* Build platforms that enabling data sharing/access
 </div>
+</div>
+<div class="section" id="data-background-figs-cdt1-png-data-background-size-contain-data-transition-none">
+<h2>{data-background=../../figs/cdt1.png data-background-size=contain data-transition=none}<a class="headerlink" href="#data-background-figs-cdt1-png-data-background-size-contain-data-transition-none" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="id6">
-<h1><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="data-science">
-<h2>Data Science<a class="headerlink" href="#data-science" title="Permalink to this headline">¶</a></h2>
+<h2>For example… {data-transition=none}<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div>
+* Teach relevant G/SDS skills
+* Provide close interaction w/ industry in training
+* <span class='hlg'>Build platforms that enabling data sharing/access</span>
+</div>
+</div>
+<div class="section" id="data-background-figs-cdrc-png-data-background-size-contain-data-transition-none">
+<h2>{data-background=../../figs/cdrc.png data-background-size=contain data-transition=none}<a class="headerlink" href="#data-background-figs-cdrc-png-data-background-size-contain-data-transition-none" title="Permalink to this headline">¶</a></h2>
+<!-- END -->
+</div>
 </div>
 <div class="section" id="id7">
-<h2><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
-<div text-align="center" markdown="1">
-*Methods, tools and techniques to turn data into **actionable
-knowledge** *
-</div>
-</div>
-<div class="section" id="id8">
-<h2>Data Science<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
-<p><strong>Statistics</strong> + …</p>
-</ul>
-<li class='fragment'> **Computational tools** --> Programming (hence this course's **tutorials**!) </li>
-<li class='fragment'> **Comunication skills** --> "Story telling" (hence this course's **assignments**) </li>
-<li class='fragment'> **Domain expertise** --> Theories about why the data are the way they are (hence
-  the rest of your **degree**) </li>
-</ul>
-<p><span class='fragment'> Some examples… </span></p>
-</div>
-<div class="section" id="data-background-figs-l01-chocolate-png-data-background-size-contain">
-<h2>{data-background=../figs/l01_chocolate.png data-background-size=contain}<a class="headerlink" href="#data-background-figs-l01-chocolate-png-data-background-size-contain" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="data-background-figs-l01-okcupid-png-data-background-size-contain">
-<h2>{data-background=../figs/l01_okcupid.png data-background-size=contain}<a class="headerlink" href="#data-background-figs-l01-okcupid-png-data-background-size-contain" title="Permalink to this headline">¶</a></h2>
-</div>
-</div>
-<div class="section" id="id9">
-<h1><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="geo-data-science">
-<h2><strong>Geo</strong>-Data Science<a class="headerlink" href="#geo-data-science" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="data-background-figs-l01-batman-png-data-background-size-contain">
-<h2>{data-background=../figs/l01_batman.png data-background-size=contain}<a class="headerlink" href="#data-background-figs-l01-batman-png-data-background-size-contain" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="id10">
-<h2><strong>Geo</strong>-Data Science<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>A (very) large portion of all these new data are inherently <strong>geographic</strong> or can be traced back to some location over space.</p></li>
-<li><p>Spatial is special.</p></li>
-<li><p>Some of the methods require an explicitly spatial treatment –&gt; (Geo-)Data
-Science</p></li>
-</ul>
-<p>Some examples…</p>
-</div>
-<div class="section" id="data-background-figs-l01-uber-png-data-background-size-contain">
-<h2>{data-background=../figs/l01_uber.png data-background-size=contain}<a class="headerlink" href="#data-background-figs-l01-uber-png-data-background-size-contain" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="data-background-figs-l01-jsnow-jpg-data-background-size-contain">
-<h2>{data-background=../figs/l01_jsnow.jpg data-background-size=contain}<a class="headerlink" href="#data-background-figs-l01-jsnow-jpg-data-background-size-contain" title="Permalink to this headline">¶</a></h2>
-</div>
-</div>
-<div class="section" id="id11">
-<h1><a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h1>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A Course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+<h1><code class="docutils literal notranslate"><span class="pre">Spatial</span> <span class="pre">Data</span> <span class="pre">Science</span></code><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h1>
+<CENTER>
+Keynote Response
+</CENTER>
+<CENTER>
+[**Dani Arribas-Bel**](http://darribas.org) [[`@darribas`]](http://twitter/com/darribas)
+</CENTER>
+<table>
+<col width="50%">
+<col width="50%">
+<tr>
+<td>
+<img src="../../figs/logo.png" style="width:300px">
+</td>
+<td>
+<img src="../../figs/gdsl.png" style="width:300px">
+</td>
+</tr>
+</table>
 </div>
 
     <script type="text/x-thebe-config">
