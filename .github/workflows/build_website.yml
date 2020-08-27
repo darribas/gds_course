@@ -23,10 +23,16 @@ jobs:
           environment-file: environment.yml
           activate-environment: book
 
-      - name: Build Jupyter book
+      - name: Build HTML
         shell: bash -l {0}
         run: |
-          make pack
+          make html
+          continue-on-error: true
+      - name: Build PDF
+        shell: bash -l {0}
+        continue-on-error: true
+        run: |
+          make pdf
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
