@@ -25,9 +25,9 @@ jobs:
 
       - name: Build HTML
         shell: bash -l {0}
+        continue-on-error: true
         run: |
           make html
-          continue-on-error: true
       - name: Build PDF
         shell: bash -l {0}
         continue-on-error: true
