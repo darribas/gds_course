@@ -20,6 +20,9 @@ html:
 	# Move slides to built website
 	rm -rf docs/content/slides
 	mv website/content/slides docs/content
+	# Move figs to built website
+	rm -rf docs/content/figs
+	mv website/content/figs docs/content
 	# Remove copied folders
 	rm -rf website/content
 	# No Jekyll on remote server
