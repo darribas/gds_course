@@ -1,0 +1,274 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title></title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/journal.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+        <!-- BODY -->
+		<div class="reveal">
+			<div class="slides">
+
+                                 
+                <section id="spatial-data-science" class="level1">
+                <h1><code>Spatial Data Science</code></h1>
+                <CENTER>
+                Keynote Response
+                </CENTER>
+                <CENTER>
+                <a href="http://darribas.org"><strong>Dani Arribas-Bel</strong></a> <a href="http://twitter/com/darribas">[<code>@darribas</code>]</a>
+                </CENTER>
+                <table>
+                <col width="50%">
+                <col width="50%">
+                <tr>
+                <td>
+                <img src="../figs/logo.png" style="width:300px">
+                </td>
+                <td>
+                <img src="../figs/gdsl.png" style="width:300px">
+                </td>
+                </tr>
+                </table>
+                </section>
+                <section id="section" class="level1">
+                <h1></h1>
+                <section id="the-rise-of-data-science" class="level2">
+                <h2>The Rise of Data Science</h2>
+                </section>
+                <section id="data-data-data" class="level2">
+                <h2>Data, Data, Data</h2>
+                <p>Every-<em>thing</em> produces <strong>data</strong></p>
+                <p><span class="fragment"><em>New</em>, <em>dense</em>, <em>quantitative</em> <strong>representations</strong> of the world</span></p>
+                <p><span class="fragment">But <strong>data</strong> is not useful, <strong>insights</strong> are</span></p>
+                <CENTER>
+                <span class="fragment"><span class="hlg">Data Science</span></span>
+                </CENTER>
+                </section>
+                <section id="data-science" class="level2">
+                <h2>Data Science</h2>
+                <CENTER>
+                <em>“<span class="hlg">gathering</span> data, <span class="hlg">massaging</span> it into a tractable form, making it tell its <span class="hlg">story</span>, and <span class="hlg">presenting</span> that story to others.”</em>
+                </CENTER>
+                <p><small> Loukides (2011) </small></p>
+                </section>
+                <section id="hold-on" class="level2">
+                <h2>Hold on…</h2>
+                <ul>
+                <li class="fragment">
+                A lot of the <em>new</em> data is <em>spatial</em> data
+                </li>
+                <li class="fragment">
+                Spatial <em>is</em> special
+                </li>
+                <li class="fragment">
+                We don’t want to reinvent the (GISc) wheel
+                </li>
+                </ul>
+                <CENTER class="fragment">
+                <span class="hlg"><em>How can we bring the best of both worlds together?</em></span>
+                </CENTER>
+                </section>
+                <section id="section-1" class="level2" data-background="../figs/l01_batman.png" data-background-size="contain" data-transition="none">
+                <h2 data-background="../figs/l01_batman.png" data-background-size="contain" data-transition="none"></h2>
+                </section>
+                </section>
+                <section id="section-2" class="level1">
+                <h1></h1>
+                <section id="geospatial-data-science" class="level2">
+                <h2>Geo/Spatial Data Science</h2>
+                </section>
+                <section id="why" class="level2">
+                <h2>Why?</h2>
+                <p>Fully tap into the <strong>new data revolution</strong></p>
+                <div class="fragment">
+                <ul>
+                <li>Data are different <span class="fragment">(<em>“half-baked”</em>)</span></li>
+                <li>New data allow more flexibility <span class="fragment">(+ data, - structure)</span></li>
+                </ul>
+                </div>
+                <p><span class="fragment"> “Business-as-usual” best approach?</span></p>
+                </section>
+                <section id="a-rough-sketch" class="level2">
+                <h2>A (rough) sketch</h2>
+                <div class="fragment current-visible" data-align="left">
+                <p><strong><code>What</code></strong></p>
+                <ul>
+                <li>Systems engineering <small style="vertical-align:middle">[Geo-infrastructure]</small></li>
+                <li>Methods <small style="vertical-align:middle">[Explicitly spatial ML/Stats]</small></li>
+                <li>Epistemology <small style="vertical-align:middle">[Adequate conceptualization]</small></li>
+                </ul>
+                </div>
+                <div class="fragment current-visible" data-align="left">
+                <p><strong><code>How</code></strong></p>
+                <ul>
+                <li>Coupling <small style="vertical-align:middle">[Linking Platforms]</small></li>
+                <li>Assimilation <small style="vertical-align:middle">[space fully embedded in DS]</small></li>
+                <li>Full Integration <small style="vertical-align:middle">[Co-Proudction]</small></li>
+                </ul>
+                </div>
+                </section>
+                <section id="potential-benefits" class="level2">
+                <h2>Potential Benefits</h2>
+                <ul>
+                <li><span class="fragment highlight-current-blue">Fully leverage the new data revolution</span></li>
+                <li><span class="fragment highlight-current-blue">Do not reinvent the wheel</span></li>
+                <li><span class="fragment highlight-current-blue">New answers to old questions (e.g. MAUP)</span></li>
+                <li><span class="fragment highlight-current-blue">Old answers in new contexts</span></li>
+                <li><span class="fragment highlight-current-blue">New questions to answer (new methods?)</span></li>
+                <li>…</li>
+                </ul>
+                </section>
+                </section>
+                <section id="section-3" class="level1">
+                <h1></h1>
+                <section id="getting-everyone-behind-gsds" class="level2">
+                <h2>Getting <em>everyone</em> behind G/SDS</h2>
+                </section>
+                <section id="gsds-is-for-all" class="level2">
+                <h2>G/SDS is for <em>all</em></h2>
+                <p>Industry <em>&amp;</em> Academia</p>
+                <ul>
+                <li>Shared <strong>problems</strong>
+                <ul style="font-size:x-large;" class="fragment current-visible">
+                <li>
+                Access to (/<em>baking</em> of) data
+                </li>
+                <li>
+                Similar questions in different contexts
+                </li>
+                </ul></li>
+                <li>Complementary <strong>resources</strong>
+                <ul style="font-size:x-large;" class="fragment current-visible">
+                <li>
+                <strong><code>[A]</code></strong> Training muscle, space to experiment
+                </li>
+                <li>
+                <strong><code>[I]</code></strong> Funding muscle, production-ready tooling
+                </li>
+                </ul></li>
+                </ul>
+                <p><span class="fragment"><span class="hlg">Clear synergies</span></span></p>
+                </section>
+                <section id="challenges" class="level2">
+                <h2>Challenges</h2>
+                <ul>
+                <li>Communication <span class="fragment"><span class="math inline">→</span><em>what’s needed/valued?</em></span></li>
+                <li>Interaction <span class="fragment"><span class="math inline">→</span><em>how?</em></span></li>
+                <li>Credit <span class="fragment"><span class="math inline">→</span><em>Fame-sharing</em></span></li>
+                </ul>
+                </section>
+                <section id="for-example" class="level2" data-transition="none">
+                <h2 data-transition="none">For example…</h2>
+                <div class="fragment">
+                <ul>
+                <li>Teach relevant G/SDS skills</li>
+                <li>Provide close interaction w/ industry in training</li>
+                <li>Build platforms that enabling data sharing/access</li>
+                </ul>
+                </div>
+                </section>
+                <section id="for-example-1" class="level2" data-transition="none">
+                <h2 data-transition="none">For example…</h2>
+                <div>
+                <ul>
+                <li><span class="hlg">Teach relevant G/SDS skills</span></li>
+                <li>Provide close interaction w/ industry in training</li>
+                <li>Build platforms that enabling data sharing/access</li>
+                </ul>
+                </div>
+                </section>
+                <section id="section-4" class="level2" data-background="../figs/msc.png" data-background-size="contain" data-transition="none">
+                <h2 data-background="../figs/msc.png" data-background-size="contain" data-transition="none"></h2>
+                </section>
+                <section id="for-example-2" class="level2" data-transition="none">
+                <h2 data-transition="none">For example…</h2>
+                <div>
+                <ul>
+                <li>Teach relevant G/SDS skills</li>
+                <li><span class="hlg">Provide close interaction w/ industry in training</span></li>
+                <li>Build platforms that enabling data sharing/access</li>
+                </ul>
+                </div>
+                </section>
+                <section id="section-5" class="level2" data-background="../figs/cdt1.png" data-background-size="contain" data-transition="none">
+                <h2 data-background="../figs/cdt1.png" data-background-size="contain" data-transition="none"></h2>
+                </section>
+                <section id="for-example-3" class="level2" data-transition="none">
+                <h2 data-transition="none">For example…</h2>
+                <div>
+                <ul>
+                <li>Teach relevant G/SDS skills</li>
+                <li>Provide close interaction w/ industry in training</li>
+                <li><span class="hlg">Build platforms that enabling data sharing/access</span></li>
+                </ul>
+                </div>
+                </section>
+                <section id="section-6" class="level2" data-background="../figs/cdrc.png" data-background-size="contain" data-transition="none">
+                <h2 data-background="../figs/cdrc.png" data-background-size="contain" data-transition="none"></h2>
+                <!-- END -->
+                </section>
+                </section>
+                <section id="spatial-data-science-1" class="level1">
+                <h1><code>Spatial Data Science</code></h1>
+                <CENTER>
+                Keynote Response
+                </CENTER>
+                <CENTER>
+                <a href="http://darribas.org"><strong>Dani Arribas-Bel</strong></a> <a href="http://twitter/com/darribas">[<code>@darribas</code>]</a>
+                </CENTER>
+                <table>
+                <col width="50%">
+                <col width="50%">
+                <tr>
+                <td>
+                <img src="../figs/logo.png" style="width:300px">
+                </td>
+                <td>
+                <img src="../figs/gdsl.png" style="width:300px">
+                </td>
+                </tr>
+                </table>
+                </section>
+			</div>
+		</div>
+
+        <!-- DEPENDENCIES -->
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                controlsTutorial: false,
+                history: false,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+        <!-- END of BODY -->
+	</body>
+</html>

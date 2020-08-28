@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title></title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/journal.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+        <!-- BODY -->
+		<div class="reveal">
+			<div class="slides">
+
+                                 
+                <section id="section" class="level1">
+                <h1></h1>
+                <section id="geographic-data-science" class="level2">
+                <h2>Geographic Data Science</h2>
+                <CENTER>
+                “Good Old” Spatial Data
+                </CENTER>
+                <CENTER>
+                <a href="http://darribas.org">Dani Arribas-Bel</a>
+                </CENTER>
+                </section>
+                </section>
+                <section id="section-1" class="level1">
+                <h1></h1>
+                <section id="good-old-spatial-data" class="level2">
+                <h2><em>Good old</em> spatial data</h2>
+                </section>
+                <section id="good-old-spatial-data-1" class="level2">
+                <h2><em>Good old</em> spatial data (+)</h2>
+                <p>Traditionally, datasets used in the (social) sciences are:</p>
+                <ul>
+                <li>Collected for the purpose –&gt; <strong>carefully</strong> designed</li>
+                <li><strong>Detailed</strong> in information (“<em>…rich profiles and portraits of the country…</em>”)</li>
+                <li><strong>High quality</strong></li>
+                </ul>
+                </section>
+                <section id="good-old-spatial-data--" class="level2">
+                <h2><em>Good old</em> spatial data (-)</h2>
+                <p>But also:</p>
+                <ul>
+                <li>Massive enterprises ("<em>…every single person…</em>) –&gt; <strong>costly</strong></li>
+                <li>But <strong>coarse</strong> in resolution (to preserve pricacy they need to be aggregated)</li>
+                <li><strong>Slow</strong>: the more detailed, the less frequent they are available</li>
+                </ul>
+                </section>
+                <section id="examples" class="level2">
+                <h2>Examples</h2>
+                <ul>
+                <li>Decenial census (and census geographies)</li>
+                <li>Longitudinal surveys</li>
+                <li>Customly collected surveys, interviews, etc.</li>
+                <li>Economic indicators</li>
+                <li>…</li>
+                </ul>
+                </section>
+                </section>
+                <section id="section-2" class="level1">
+                <h1></h1>
+                <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A Course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+                </section>
+			</div>
+		</div>
+
+        <!-- DEPENDENCIES -->
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                controlsTutorial: false,
+                history: false,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+        <!-- END of BODY -->
+	</body>
+</html>

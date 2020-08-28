@@ -12,10 +12,10 @@ Keynote Response
 <col width="50%">
 <tr>
 <td>
-<img src="../../figs/logo.png" style="width:300px">
+<img src="../figs/logo.png" style="width:300px">
 </td>
 <td>
-<img src="../../figs/gdsl.png" style="width:300px">
+<img src="../figs/gdsl.png" style="width:300px">
 </td>
 </tr>
 </table>
@@ -57,7 +57,7 @@ Loukides (2011)
 <span class='hlg'>*How can we bring the best of both worlds together?*</span>
 </CENTER>
 
-## {data-background=../../figs/l01_batman.png data-background-size=contain data-transition=none}
+## {data-background=../figs/l01_batman.png data-background-size=contain data-transition=none}
 
 #
 ## Geo/Spatial Data Science
@@ -143,7 +143,7 @@ Industry *&* Academia
 * Build platforms that enabling data sharing/access
 </div>
 
-## {data-background=../../figs/msc.png data-background-size=contain data-transition=none}
+## {data-background=../figs/msc.png data-background-size=contain data-transition=none}
 ## For example... {data-transition=none}
 
 <div>
@@ -152,7 +152,7 @@ Industry *&* Academia
 * Build platforms that enabling data sharing/access
 </div>
 
-## {data-background=../../figs/cdt1.png data-background-size=contain data-transition=none}
+## {data-background=../figs/cdt1.png data-background-size=contain data-transition=none}
 ## For example... {data-transition=none}
 
 <div>
@@ -161,7 +161,7 @@ Industry *&* Academia
 * <span class='hlg'>Build platforms that enabling data sharing/access</span>
 </div>
 
-## {data-background=../../figs/cdrc.png data-background-size=contain data-transition=none}
+## {data-background=../figs/cdrc.png data-background-size=contain data-transition=none}
 
 <!-- END -->
 # `Spatial Data Science`
@@ -178,10 +178,10 @@ Keynote Response
 <col width="50%">
 <tr>
 <td>
-<img src="../../figs/logo.png" style="width:300px">
+<img src="../figs/logo.png" style="width:300px">
 </td>
 <td>
-<img src="../../figs/gdsl.png" style="width:300px">
+<img src="../figs/gdsl.png" style="width:300px">
 </td>
 </tr>
 </table>

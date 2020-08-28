@@ -2,9 +2,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spatial Data Science &#8212; A course on Geographic Data Science</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
@@ -15,6 +16,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -24,10 +27,12 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -133,6 +138,18 @@
   </a>
  </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  C - Spatial Data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bC/concepts_C.html">
+   Concepts
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -194,7 +211,7 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i> On this page
         </div>
         <nav id="bd-toc-nav">
             
@@ -219,10 +236,10 @@ Keynote Response
 <col width="50%">
 <tr>
 <td>
-<img src="../../figs/logo.png" style="width:300px">
+<img src="../figs/logo.png" style="width:300px">
 </td>
 <td>
-<img src="../../figs/gdsl.png" style="width:300px">
+<img src="../figs/gdsl.png" style="width:300px">
 </td>
 </tr>
 </table>
@@ -262,7 +279,7 @@ Loukides (2011)
 </CENTER>
 </div>
 <div class="section" id="data-background-figs-l01-batman-png-data-background-size-contain-data-transition-none">
-<h2>{data-background=../../figs/l01_batman.png data-background-size=contain data-transition=none}<a class="headerlink" href="#data-background-figs-l01-batman-png-data-background-size-contain-data-transition-none" title="Permalink to this headline">¶</a></h2>
+<h2>{data-background=../figs/l01_batman.png data-background-size=contain data-transition=none}<a class="headerlink" href="#data-background-figs-l01-batman-png-data-background-size-contain-data-transition-none" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 <div class="section" id="id2">
@@ -358,7 +375,7 @@ Loukides (2011)
 </div>
 </div>
 <div class="section" id="data-background-figs-msc-png-data-background-size-contain-data-transition-none">
-<h2>{data-background=../../figs/msc.png data-background-size=contain data-transition=none}<a class="headerlink" href="#data-background-figs-msc-png-data-background-size-contain-data-transition-none" title="Permalink to this headline">¶</a></h2>
+<h2>{data-background=../figs/msc.png data-background-size=contain data-transition=none}<a class="headerlink" href="#data-background-figs-msc-png-data-background-size-contain-data-transition-none" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="id5">
 <h2>For example… {data-transition=none}<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
@@ -369,7 +386,7 @@ Loukides (2011)
 </div>
 </div>
 <div class="section" id="data-background-figs-cdt1-png-data-background-size-contain-data-transition-none">
-<h2>{data-background=../../figs/cdt1.png data-background-size=contain data-transition=none}<a class="headerlink" href="#data-background-figs-cdt1-png-data-background-size-contain-data-transition-none" title="Permalink to this headline">¶</a></h2>
+<h2>{data-background=../figs/cdt1.png data-background-size=contain data-transition=none}<a class="headerlink" href="#data-background-figs-cdt1-png-data-background-size-contain-data-transition-none" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="id6">
 <h2>For example… {data-transition=none}<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
@@ -380,7 +397,7 @@ Loukides (2011)
 </div>
 </div>
 <div class="section" id="data-background-figs-cdrc-png-data-background-size-contain-data-transition-none">
-<h2>{data-background=../../figs/cdrc.png data-background-size=contain data-transition=none}<a class="headerlink" href="#data-background-figs-cdrc-png-data-background-size-contain-data-transition-none" title="Permalink to this headline">¶</a></h2>
+<h2>{data-background=../figs/cdrc.png data-background-size=contain data-transition=none}<a class="headerlink" href="#data-background-figs-cdrc-png-data-background-size-contain-data-transition-none" title="Permalink to this headline">¶</a></h2>
 <!-- END -->
 </div>
 </div>
@@ -397,10 +414,10 @@ Keynote Response
 <col width="50%">
 <tr>
 <td>
-<img src="../../figs/logo.png" style="width:300px">
+<img src="../figs/logo.png" style="width:300px">
 </td>
 <td>
-<img src="../../figs/gdsl.png" style="width:300px">
+<img src="../figs/gdsl.png" style="width:300px">
 </td>
 </tr>
 </table>

@@ -69,7 +69,7 @@ Introduction
 ## Python
 
 <CENTER>
-![](../../figs/l01_xkcd-python.png)
+![](../figs/l01_xkcd-python.png)
 </CENTER>
 
 ## Python
