@@ -18,3 +18,9 @@
     - file: content/bB/lab_B
     - file: content/bB/diy_B
 
+- chapter: C - Spatial Data
+  sections:
+    - file: content/bC/concepts_C
+    - file: content/bC/lab_C
+    - file: content/bC/diy_C
+
