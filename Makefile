@@ -20,6 +20,9 @@ html:
 	# Move slides to built website
 	rm -rf docs/content/slides
 	mv website/content/slides docs/content
+	# Move data to built website
+	rm -rf docs/content/data
+	mv website/content/data docs/content
 	# Move figs to built website
 	rm -rf docs/content/figs
 	mv website/content/figs docs/content
