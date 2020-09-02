@@ -2,9 +2,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hands-on &#8212; A course on Geographic Data Science</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
@@ -15,6 +16,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -24,10 +27,12 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -152,16 +157,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../bC/lab_C.html#mapping-in-python-with-geopandas">
-   Mapping in Python with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     geopandas
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../bC/diy_C.html">
    Do-It-Yourself
   </a>
@@ -245,7 +240,7 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i> On this page
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -309,8 +304,8 @@
 <p>Before we get our hands data-dirty, let us import all the additional libraries we will need, so we can get that out of the way and focus on the task at hand:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This ensures visualizations are plotted inside the notebook</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># This ensures visualizations are plotted inside the notebook</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 
 <span class="kn">import</span> <span class="nn">os</span>              <span class="c1"># This provides several system utilities</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>    <span class="c1"># This is the workhorse of data munging in Python</span>
@@ -333,7 +328,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read table</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read table</span>
 <span class="n">db</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://darribas.org/gds_course/content/data/liv_pop.csv&quot;</span><span class="p">,</span> 
                  <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;GeographyCode&#39;</span><span class="p">)</span>
 </pre></div>
@@ -369,7 +364,7 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -454,7 +449,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -542,12 +537,12 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 Index: 298 entries, E01006512 to E01033768
 Data columns (total 5 columns):
  #   Column                          Non-Null Count  Dtype
@@ -568,7 +563,7 @@ memory usage: 14.0+ KB
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -671,7 +666,7 @@ memory usage: 14.0+ KB
 <p>In this case, the summary might be better presented if the table is “transposed”:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 </div>
 </div>
@@ -769,13 +764,13 @@ memory usage: 14.0+ KB
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain minimum values for each table</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain minimum values for each table</span>
 <span class="n">db</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Europe                            731
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Europe                            731
 Africa                              0
 Middle East and Asia                1
 The Americas and the Caribbean      0
@@ -787,13 +782,13 @@ dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain minimum value for the column `Europe`</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain minimum value for the column `Europe`</span>
 <span class="n">db</span><span class="p">[</span><span class="s1">&#39;Europe&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>731
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>731
 </pre></div>
 </div>
 </div>
@@ -802,14 +797,14 @@ dtype: int64
 <p>Similarly, we can restrict the calculations to a single row:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain standard deviation for the row `E01006512`, </span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain standard deviation for the row `E01006512`, </span>
 <span class="c1"># which represents a particular LSOA</span>
 <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;E01006512&#39;</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>457.8842648530303
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>457.8842648530303
 </pre></div>
 </div>
 </div>
@@ -819,7 +814,7 @@ dtype: int64
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Longer, hardcoded</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Longer, hardcoded</span>
 <span class="n">total</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;Europe&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;Africa&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;Middle East and Asia&#39;</span><span class="p">]</span> <span class="o">+</span> \
         <span class="n">db</span><span class="p">[</span><span class="s1">&#39;The Americas and the Caribbean&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;Antarctica and Oceania&#39;</span><span class="p">]</span>
 <span class="c1"># Print the top of the variable</span>
@@ -828,7 +823,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GeographyCode
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>GeographyCode
 E01006512    1880
 E01006513    2941
 E01006514    2108
@@ -841,7 +836,7 @@ dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># One shot</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># One shot</span>
 <span class="n">total</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Print the top of the variable</span>
 <span class="n">total</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -849,7 +844,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GeographyCode
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>GeographyCode
 E01006512    1880
 E01006513    2941
 E01006514    2108
@@ -864,7 +859,7 @@ dtype: int64
 <p>Once we have created the variable, we can make it part of the table:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">total</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">total</span>
 <span class="n">db</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -960,7 +955,7 @@ dtype: int64
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># New variable with all ones</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># New variable with all ones</span>
 <span class="n">db</span><span class="p">[</span><span class="s1">&#39;ones&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">db</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -1062,7 +1057,7 @@ dtype: int64
 <p>And we can modify specific values too:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;E01006512&#39;</span><span class="p">,</span> <span class="s1">&#39;ones&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;E01006512&#39;</span><span class="p">,</span> <span class="s1">&#39;ones&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">db</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1165,7 +1160,7 @@ dtype: int64
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;ones&#39;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;ones&#39;</span><span class="p">]</span>
 <span class="n">db</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1262,7 +1257,7 @@ dtype: int64
 <p>We have already seen how to subset parts of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> if we know exactly which bits we want. For example, if we want to extract the total and European population of the first four areas in the table, we use <code class="docutils literal notranslate"><span class="pre">loc</span></code> with lists:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eu_tot_first4</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;E01006512&#39;</span><span class="p">,</span> <span class="s1">&#39;E01006513&#39;</span><span class="p">,</span> <span class="s1">&#39;E01006514&#39;</span><span class="p">,</span> <span class="s1">&#39;E01006515&#39;</span><span class="p">],</span> \
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eu_tot_first4</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;E01006512&#39;</span><span class="p">,</span> <span class="s1">&#39;E01006513&#39;</span><span class="p">,</span> <span class="s1">&#39;E01006514&#39;</span><span class="p">,</span> <span class="s1">&#39;E01006515&#39;</span><span class="p">],</span> \
                       <span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">,</span> <span class="s1">&#39;Europe&#39;</span><span class="p">]]</span>
 <span class="n">eu_tot_first4</span>
 </pre></div>
@@ -1328,7 +1323,7 @@ dtype: int64
 <p><em>… areas with more than 2,500 people in Total</em>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m5k</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2500</span><span class="p">,</span> <span class="p">:]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">m5k</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2500</span><span class="p">,</span> <span class="p">:]</span>
 <span class="n">m5k</span>
 </pre></div>
 </div>
@@ -1404,7 +1399,7 @@ dtype: int64
 <p><em>… areas where there are no more than 750 Europeans</em>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nm5ke</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Europe&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">750</span><span class="p">,</span> <span class="p">:]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nm5ke</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Europe&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">750</span><span class="p">,</span> <span class="p">:]</span>
 <span class="n">nm5ke</span>
 </pre></div>
 </div>
@@ -1462,7 +1457,7 @@ dtype: int64
 <p><em>… areas with exactly ten person from Antarctica and Oceania</em>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">oneOA</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Antarctica and Oceania&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">10</span><span class="p">,</span> <span class="p">:]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oneOA</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Antarctica and Oceania&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">10</span><span class="p">,</span> <span class="p">:]</span>
 <span class="n">oneOA</span>
 </pre></div>
 </div>
@@ -1520,7 +1515,7 @@ dtype: int64
 <p><strong>Pro-tip</strong>: these queries can grow in sophistication with almost no limits. For example, here is a case where we want to find out the areas where European population is less than half the population:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eu_lth</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Europe&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">100.</span> <span class="o">/</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">,</span> <span class="p">:]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eu_lth</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Europe&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">100.</span> <span class="o">/</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">,</span> <span class="p">:]</span>
 <span class="n">eu_lth</span>
 </pre></div>
 </div>
@@ -1581,7 +1576,7 @@ dtype: int64
 <p>Now all of these queries can be combined with each other, for further flexibility. For example, imagine we want areas with more than 25 people from the Americas and Caribbean, but less than 1,500 in total:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ac25_l500</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;The Americas and the Caribbean&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">)</span> <span class="o">&amp;</span> \
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ac25_l500</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;The Americas and the Caribbean&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">)</span> <span class="o">&amp;</span> \
                    <span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">1500</span><span class="p">),</span> <span class="p">:]</span>
 <span class="n">ac25_l500</span>
 </pre></div>
@@ -1688,7 +1683,7 @@ dtype: int64
 <p>Among the many operations <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> objects support, one of the most useful ones is to sort a table based on a given column. For example, imagine we want to sort the table by total population:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db_pop_sorted</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Total&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db_pop_sorted</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Total&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">db_pop_sorted</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1791,7 +1786,7 @@ dtype: int64
 <p>A histogram is easily created with the following command. In this case, let us have a look at the shape of the overall population:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">],</span> <span class="n">kde</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">],</span> <span class="n">kde</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1804,7 +1799,7 @@ dtype: int64
 <p>An additional feature to visualize the density of values is called <code class="docutils literal notranslate"><span class="pre">rug</span></code>, and adds a little tick for each value on the horizontal axis:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">],</span> <span class="n">kde</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">rug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">],</span> <span class="n">kde</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">rug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1818,7 +1813,7 @@ dtype: int64
 <p>Histograms are useful, but they are artificial in the sense that a continuous variable is made discrete by turning the values into discrete groups. An alternative is kernel density estimation (KDE), which produces an empirical density function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">],</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">],</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1832,14 +1827,15 @@ dtype: int64
 <p>Another very common way of visually displaying a variable is with a line or a bar chart. For example, if we want to generate a line plot of the (sorted) total population by area:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.7/site-packages/pandas/plotting/_matplotlib/core.py:1235: UserWarning: FixedFormatter should only be used together with FixedLocator
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/opt/conda/lib/python3.7/site-packages/pandas/plotting/_matplotlib/core.py:1235: UserWarning: FixedFormatter should only be used together with FixedLocator
   ax.set_xticklabels(xticklabels)
-</pre></div>
+</pre>
 </div>
 <img alt="../../_images/lab_B_53_1.png" src="../../_images/lab_B_53_1.png" />
 </div>
@@ -1847,7 +1843,7 @@ dtype: int64
 <p>For a bar plot all we need to do is to change from <code class="docutils literal notranslate"><span class="pre">plot</span></code> to <code class="docutils literal notranslate"><span class="pre">plot.bar</span></code>. Since there are many neighbourhoods, let us plot only the ten largest ones (which we can retrieve with <code class="docutils literal notranslate"><span class="pre">head</span></code>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>\
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>\
                <span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>\
                <span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
 </pre></div>
@@ -1860,7 +1856,7 @@ dtype: int64
 <p>We can turn the plot around by displaying the bars horizontally (see how it’s just changing <code class="docutils literal notranslate"><span class="pre">bar</span></code> for <code class="docutils literal notranslate"><span class="pre">barh</span></code>). Let’s display now the top 50 areas and, to make it more readable, let us expand the plot’s height:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>\
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>\
                <span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>\
                <span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
 </pre></div>
@@ -1900,7 +1896,7 @@ variables and types.</em></p>
 <p>Let us bring in the concept of “<em>tidy data</em>” to our own Liverpool dataset. First, remember its structure:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1996,7 +1992,7 @@ variables and types.</em></p>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assign column `Total` into its own as a single-column table</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assign column `Total` into its own as a single-column table</span>
 <span class="n">db_totals</span> <span class="o">=</span> <span class="n">db</span><span class="p">[[</span><span class="s1">&#39;Total&#39;</span><span class="p">]]</span>
 <span class="n">db_totals</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -2055,7 +2051,7 @@ variables and types.</em></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a table `db_subgroups` that contains every column in `db` without `Total`</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a table `db_subgroups` that contains every column in `db` without `Total`</span>
 <span class="n">db_subgroups</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Total&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">db_subgroups</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -2146,13 +2142,13 @@ variables and types.</em></p>
 <p>Because this is actually a fairly common pattern, there is a direct way to solve it in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tidy_subgroups</span> <span class="o">=</span> <span class="n">db_subgroups</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tidy_subgroups</span> <span class="o">=</span> <span class="n">db_subgroups</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
 <span class="n">tidy_subgroups</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GeographyCode                                
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>GeographyCode                                
 E01006512      Europe                            910
                Africa                            106
                Middle East and Asia              840
@@ -2166,12 +2162,12 @@ dtype: int64
 <p>The method <code class="docutils literal notranslate"><span class="pre">stack</span></code>, well, “stacks” the different columns into rows. This fixes our “tidiness” problems but the type of object that is returning is not a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">tidy_subgroups</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">tidy_subgroups</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
 </pre></div>
 </div>
 </div>
@@ -2179,7 +2175,7 @@ dtype: int64
 <p>It is a <code class="docutils literal notranslate"><span class="pre">Series</span></code>, which really is like a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, but with only one column. The additional information (<code class="docutils literal notranslate"><span class="pre">GeographyCode</span></code> and population group) are stored in what is called an multi-index. We will skip these for now, so we would really just want to get a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> as we know it out of the <code class="docutils literal notranslate"><span class="pre">Series</span></code>. This is also one line of code away:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Unfold the multi-index into different, new columns</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Unfold the multi-index into different, new columns</span>
 <span class="n">tidy_subgroupsDF</span> <span class="o">=</span> <span class="n">tidy_subgroups</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">tidy_subgroupsDF</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -2247,7 +2243,7 @@ dtype: int64
 <p>To which we can apply to renaming to make it look better:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tidy_subgroupsDF</span> <span class="o">=</span> <span class="n">tidy_subgroupsDF</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;level_1&#39;</span><span class="p">:</span> <span class="s1">&#39;Subgroup&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;Freq&#39;</span><span class="p">})</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tidy_subgroupsDF</span> <span class="o">=</span> <span class="n">tidy_subgroupsDF</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;level_1&#39;</span><span class="p">:</span> <span class="s1">&#39;Subgroup&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;Freq&#39;</span><span class="p">})</span>
 <span class="n">tidy_subgroupsDF</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -2323,13 +2319,13 @@ dtype: int64
 <p>To do this in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, meet one of its workhorses, and also one of the reasons why the library has become so popular: the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> operator.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop_grouped</span> <span class="o">=</span> <span class="n">tidy_subgroupsDF</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Subgroup&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pop_grouped</span> <span class="o">=</span> <span class="n">tidy_subgroupsDF</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Subgroup&#39;</span><span class="p">)</span>
 <span class="n">pop_grouped</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f682872db10&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f682872db10&gt;
 </pre></div>
 </div>
 </div>
@@ -2337,7 +2333,7 @@ dtype: int64
 <p>The object <code class="docutils literal notranslate"><span class="pre">pop_grouped</span></code> still hasn’t computed anything, it is only a convenient way of specifying the grouping. But this allows us then to perform a multitude of operations on it. For our example, the sum is calculated as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop_grouped</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pop_grouped</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2395,7 +2391,7 @@ dtype: int64
 <p>Similarly, you can also obtain a summary of each group:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop_grouped</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pop_grouped</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
