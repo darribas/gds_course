@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title></title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/journal.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+        <!-- BODY -->
+		<div class="reveal">
+			<div class="slides">
+
+                                 
+                <section id="section" class="level1">
+                <h1></h1>
+                <section id="geographic-data-science" class="level2">
+                <h2>Geographic Data Science</h2>
+                <CENTER>
+                (Geo)visualisation
+                </CENTER>
+                <CENTER>
+                <a href="http://darribas.org">Dani Arribas-Bel</a>
+                </CENTER>
+                </section>
+                </section>
+                <section id="section-1" class="level1">
+                <h1></h1>
+                <section id="visualization" class="level2">
+                <h2>Visualization</h2>
+                </section>
+                <section id="section-2" class="level2">
+                <h2></h2>
+                <center>
+                <em>“Data graphics <strong>visually display measured quantities</strong> by means of the <strong>combined use</strong> of points, lines, a coordinate system, numbers, symbols, words, shading, and color.”</em>
+                </center>
+                <div style="text-align:right">
+                <p><small> <em>The Visual Display of Quantitative Information</em>. Edward R. Tufte. </small></p>
+                </div>
+                </section>
+                <section id="section-3" class="level2">
+                <h2></h2>
+                <CENTER>
+                <img src="../figs/l03_monalisa_data.png" alt="ML data"
+                style="width:450px;height:450px;"/> <span class="fragment"> <img src="../figs/l03_monalisa.png" alt="ML pic"
+                style="width:450px;height:450px;"/>
+                </CENTER>
+                <p>[<a href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg/687px-Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg">Source</a>]</p>
+                </section>
+                <section id="visualization-1" class="level2">
+                <h2>Visualization</h2>
+                <ul>
+                <li><span class="fragment highlight-current-blue">By <strong>encoding information visually</strong>, they allow to present <strong>large amounts</strong> of numbers in a <strong>meaninful</strong> way.</span></li>
+                <li><span class="fragment highlight-current-blue">If well made, visualizations provide leads into the processes underlying the graphic.</span></li>
+                </ul>
+                <div style="text-align:right">
+                <p><small> <em>The Visual Display of Quantitative Information</em>. Edward R. Tufte. </small></p>
+                </div>
+                </section>
+                </section>
+                <section id="section-4" class="level1">
+                <h1></h1>
+                <section id="geovisualization" class="level2">
+                <h2><strong>Geo</strong>visualization</h2>
+                </section>
+                <section id="tufte-1983" class="level2">
+                <h2>Tufte (1983)</h2>
+                <center>
+                <em>“The most extensive data maps […] place millions of bits of information on a single page before our eyes. No other method for the display of statistical information is so powerful”</em>
+                </center>
+                </section>
+                <section id="maceachren-1994" class="level2">
+                <h2>MacEachren (1994)</h2>
+                <center>
+                <em>“<strong>Geographic visualization</strong> can be defined as the use of concrete visual representations –whether on paper or through computer displays or other media–to <strong>make spatial contexts and problems visible</strong>, so as to engage the most powerful <strong>human information processing</strong> abilities, those associated with vision.”</em>
+                </center>
+                </section>
+                <section id="geovisualization-1" class="level2">
+                <h2>GeoVisualization</h2>
+                <ul>
+                <li><span class="fragment highlight-current-blue">Not to replace the human <em>in the loop</em>, but to <strong>augment</strong> her/him.</span></li>
+                <li><span class="fragment highlight-current-blue">Augmentation through engaging the <strong>pattern recognition</strong> capabilities that our brain inherently has.</span></li>
+                <li><span class="fragment highlight-current-blue">Combines cartography, infovis and statistics</span></li>
+                </ul>
+                </section>
+                <section id="a-map-for-everyone" class="level2">
+                <h2>A map for everyone</h2>
+                <p><span class="fragment highlight-current-blue">Maps can fulfill several needs, looking very different depending on the end-goal</span></p>
+                <p><span class="fragment highlight-current-blue">MacEachren &amp; Kraak (1997) identify three main dimensions:</span></p>
+                <ul>
+                <li><span class="fragment highlight-current-blue">Knowledge of what is being plotted</span></li>
+                <li><span class="fragment highlight-current-blue">Target audience</span></li>
+                <li><span class="fragment highlight-current-blue">Degree of interactivity</span></li>
+                </ul>
+                </section>
+                <section id="maceachren-kraak-1997-map-cube" class="level2">
+                <h2>MacEachren &amp; Kraak (1997) map cube</h2>
+                <CENTER>
+                <img src="../figs/l03_map_cube.png" alt="Cube"
+                style="height:450px;"/>
+                </CENTER>
+                <p>[<a href="http://cartography.tuwien.ac.at/wordpress/wp-content/uploads/2013/01/cartotalk-corne-van-elzakker.pdf">Source</a>]</p>
+                </section>
+                </section>
+                <section id="section-5" class="level1">
+                <h1></h1>
+                <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+                </section>
+			</div>
+		</div>
+
+        <!-- DEPENDENCIES -->
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                controlsTutorial: false,
+                history: false,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+        <!-- END of BODY -->
+	</body>
+</html>

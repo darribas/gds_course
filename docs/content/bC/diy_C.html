@@ -2,9 +2,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Do-It-Yourself &#8212; A course on Geographic Data Science</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
@@ -15,6 +16,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -24,10 +27,12 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -37,6 +42,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Concepts" href="../bD/concepts_D.html" />
     <link rel="prev" title="Hands-on" href="lab_C.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -156,6 +162,23 @@
   </a>
  </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  D - Mapping Data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bD/concepts_D.html">
+   Concepts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bD/lab_D.html">
+   Hands-on
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -234,7 +257,7 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i> On this page
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -266,8 +289,27 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#non-spatial-manipulations">
-     Non-spatial manipulations
+    <a class="reference internal nav-link" href="#task-i-tweak-your-map">
+     Task I:
+     <em>
+      Tweak your map
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#task-ii-non-spatial-manipulations">
+     Task II:
+     <em>
+      Non-spatial manipulations
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#task-iii-the-gender-gap-on-the-streets">
+     Task III:
+     <em>
+      The gender gap on the streets
+     </em>
     </a>
    </li>
   </ul>
@@ -312,26 +354,26 @@
 <p>For a line layer, we are going to use a different bit of <code class="docutils literal notranslate"><span class="pre">osmnx</span></code> functionality that will allow us to extract all the highways</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bikepaths</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">geocode_to_gdf</span><span class="p">(</span><span class="s2">&quot;Liverpool, UK&quot;</span><span class="p">,</span> <span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bikepaths</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">geocode_to_gdf</span><span class="p">(</span><span class="s2">&quot;Liverpool, UK&quot;</span><span class="p">,</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bikepaths</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">graph_from_place</span><span class="p">(</span><span class="s2">&quot;Liverpool, UK&quot;</span><span class="p">,</span> <span class="n">network_type</span><span class="o">=</span><span class="s2">&quot;bike&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bikepaths</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">graph_from_place</span><span class="p">(</span><span class="s2">&quot;Liverpool, UK&quot;</span><span class="p">,</span> <span class="n">network_type</span><span class="o">=</span><span class="s2">&quot;bike&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">bikepaths</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">bikepaths</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23460
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>23460
 </pre></div>
 </div>
 </div>
@@ -343,7 +385,7 @@
 <p>Let’s import <code class="docutils literal notranslate"><span class="pre">osmnx</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">osmnx</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">osmnx</span>
 </pre></div>
 </div>
 </div>
@@ -351,7 +393,7 @@
 <p>And make a similar query to retrieve the table:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pubs</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">pois</span><span class="o">.</span><span class="n">pois_from_place</span><span class="p">(</span><span class="s2">&quot;Liverpool, UK&quot;</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pubs</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">pois</span><span class="o">.</span><span class="n">pois_from_place</span><span class="p">(</span><span class="s2">&quot;Liverpool, UK&quot;</span><span class="p">,</span>
                                   <span class="n">tags</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;amenity&quot;</span><span class="p">:</span> <span class="s2">&quot;pub&quot;</span><span class="p">}</span>
                                  <span class="p">)</span>
 </pre></div>
@@ -362,6 +404,8 @@
 </div>
 <div class="section" id="tasks">
 <h2>Tasks<a class="headerlink" href="#tasks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="task-i-tweak-your-map">
+<h3>Task I: <em>Tweak your map</em><a class="headerlink" href="#task-i-tweak-your-map" title="Permalink to this headline">¶</a></h3>
 <p>With those three layers, try to complete the following tasks:</p>
 <ul class="simple">
 <li><p>Make a map of the Liverpool neighborhoods that includes the following characteristics:</p>
@@ -377,85 +421,38 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Not all of the requirements above are equally hard to achieve. If you can get some of them but not all of them, that’s also great!</p>
-</div>
-<div class="section" id="non-spatial-manipulations">
-<h3>Non-spatial manipulations<a class="headerlink" href="#non-spatial-manipulations" title="Permalink to this headline">¶</a></h3>
-<p>Once we have joined spatial and non-spatial data, we can use the techniques learned in manipulating and slicing non-spatial tables to create much richer maps. In particular, let us recall the example we worked through in the previous session in which we were selecting rows based on their population characteristics. In addition to being able to to select them, now we will also be able to visualize them in maps.</p>
-<p>For example, let us select again the ten smallest areas of Liverpool (note how we pass a number to <code class="docutils literal notranslate"><span class="pre">head</span></code> to keep that amount of rows):</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smallest</span> <span class="o">=</span> <span class="n">geo_pop</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Total&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
+<p>Not all of the requirements above are not equally hard to achieve. If you can get some but not all of them, that’s also great! The point is you learn something every time you try.</p>
 </div>
 </div>
+<div class="section" id="task-ii-non-spatial-manipulations">
+<h3>Task II: <em>Non-spatial manipulations</em><a class="headerlink" href="#task-ii-non-spatial-manipulations" title="Permalink to this headline">¶</a></h3>
+<p>For this one we will combine some of the ideas we learnt in the <a class="reference internal" href="../bB/lab_B.html"><span class="doc std std-doc">previous block</span></a> with this one.</p>
+<p>Focus on the LSOA <code class="docutils literal notranslate"><span class="pre">liv</span></code> layer and use it to do the following:</p>
+<ol class="simple">
+<li><p>Calculate the area of each neighbourhood</p></li>
+<li><p>Find the five smallest areas in the table. Create a new object (e.g. <code class="docutils literal notranslate"><span class="pre">smallest</span></code> with them only)</p></li>
+<li><p>Create a multi-layer map of Liverpool where the five smallest areas are coloured in red, and the rest appear in black.</p></li>
+</ol>
 </div>
-<p>Now we can make a map of Liverpool and overlay on top of them these areas:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="c1"># Base layer with all the areas for the background</span>
-<span class="n">geo_pop</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="c1"># Smallest areas</span>
-<span class="n">smallest</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
-<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Areas with smallest population&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
+<div class="section" id="task-iii-the-gender-gap-on-the-streets">
+<h3>Task III: <em>The gender gap on the streets</em><a class="headerlink" href="#task-iii-the-gender-gap-on-the-streets" title="Permalink to this headline">¶</a></h3>
+<p>This one is a bit more advanced, so don’t despair if you can’t get it on your first try. It also relies on the <a class="reference internal" href="lab_C.html#lab-c-streets"><span class="std std-ref">streets dataset from the “Hands-on” section</span></a>, so you will need to load it up on your own. Here’re the questions for you to answer:</p>
+<blockquote>
+<div><p><em>Which group accounts for longer total street length in Zaragoza: men or women? By how much</em>?</p>
+</div></blockquote>
+<p>The suggestion is that you get to work right away. However, if this task seems too daunting, you can expand the tip below for a bit of help.</p>
+<div class="dropdown admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Answering those two questions involves the following steps:</p>
+<ol class="simple">
+<li><p>You will need your spatial data projected, so they are expressed in metres, and the length calculation makes sense. Check out the <a class="reference internal" href="lab_C.html#lab-c-to-crs"><span class="std std-ref">section on transforming the CRS</span></a>, and use, for example <code class="docutils literal notranslate"><span class="pre">EPSG:25830</span></code> as the target CRS.</p></li>
+<li><p>Separate streets named after men from those named after women, perhaps in two objects (<code class="docutils literal notranslate"><span class="pre">men</span></code>, <code class="docutils literal notranslate"><span class="pre">women</span></code>) that contain the streets for each group. This is a non-spatial query at its heart, so make sure to revisit <a class="reference internal" href="../bB/lab_B.html#lab-b-condition-queries"><span class="std std-ref">that section on the previous block</span></a>.</p></li>
+<li><p>Calculate the length of each street in each group. Refresh your memory of this in <a class="reference internal" href="lab_C.html#lab-c-length"><span class="std std-ref">this section</span></a>.</p></li>
+<li><p>Create a total length by group by adding the lengths of each street. This is again a non-spatial operation (sum), so make sure to re-read <a class="reference internal" href="../bB/lab_B.html#lab-b-new-columns"><span class="std std-ref">this part</span></a> of Block B.</p></li>
+<li><p>Compare the two and answer the questions.</p></li>
+</ol>
+<p>Surprised by the solution? Perhaps not, but remember data analysis is not only about discovering the unexpected, but about providing evidence of the things we <em>“know”</em> so we can build better arguments about actions.</p>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/diy_C_13_0.png" src="../../_images/diy_C_13_0.png" />
-</div>
-</div>
-<hr class="docutils" />
-<p><strong>[Optional exercise]</strong></p>
-<p>Create a map of Liverpool with the two largest areas for each of the different population subgroups in a different color each.</p>
-<hr class="docutils" />
-<hr class="docutils" />
-<p><strong>[Optional exercise]</strong></p>
-<p>Create a map with the polygons of Liverpool in the background and overlay on top of them their centroids.</p>
-<!--
-f, ax = plt.subplots(1, figsize=(6, 6))
-# Base layer with all the areas for the background
-for poly in geo_pop['geometry']:
-    gpd.plotting.plot_multipolygon(ax, poly, facecolor='black', linewidth=0.025)
-# Smallest areas
-cents.plot(axes=ax)
-ax.set_axis_off()
-f.suptitle('Areas with smallest population')
-plt.axis('equal')
-plt.show()
--->
-<hr class="docutils" />
-<hr class="docutils" />
-<p><strong>[Optional exercise]</strong></p>
-<p>This one is fairly advanced, so do not dispair if you cannot solve it. Find in which polygons the named places in <code class="docutils literal notranslate"><span class="pre">namp</span></code> fall into. Return, for each named place, the LSOA code in which it is located.</p>
-<!--
-pip = []
-for id, place in namp.iterrows():
-    for pid, poly in geo_pop.iterrows():
-        if poly.geometry.contains(place.geometry):
-            pip.append((place.htmlname, poly.LSOA11CD))
-pip = pd.DataFrame(pip, columns=['NamePlace', 'LSOA'])
--->
-<hr class="docutils" />
-<hr class="docutils" />
-<p><strong>[Optional exercise]</strong></p>
-<p>Generate a map of the Liverpool polygons in black and overlay on top of them yellow buffers of 250 metres around each centroid.</p>
-<!--
-f, ax = plt.subplots(1)
-b250 = namp.buffer(250)
-# Plot polys
-for poly in lsoas['geometry']:
-    gpd.plotting.plot_multipolygon(ax, poly, edgecolor='black', facecolor='black')
-# Plot buffer
-for poly in buf:
-    gpd.plotting.plot_multipolygon(ax, poly, linewidth=0, facecolor='yellow')
-plt.axis('equal')
-plt.show()
--->
 </div>
 </div>
 </div>
@@ -489,6 +486,7 @@ plt.show()
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="lab_C.html" title="previous page">Hands-on</a>
+    <a class='right-next' id="next-link" href="../bD/concepts_D.html" title="next page">Concepts</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

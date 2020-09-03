@@ -1,0 +1,1119 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands-on &#8212; A course on Geographic Data Science</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Concepts" href="concepts_D.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">A course on Geographic Data Science</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Information
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  A - Introduction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bA/concepts_A.html">
+   Concepts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bA/lab_A.html">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bA/diy_A.html">
+   Do-It-Yourself
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  B - Open Science
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bB/concepts_B.html">
+   Concepts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bB/lab_B.html">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bB/diy_B.html">
+   Do-It-Yourself
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  C - Spatial Data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bC/concepts_C.html">
+   Concepts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bC/lab_C.html">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bC/diy_C.html">
+   Do-It-Yourself
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  D - Mapping Data
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="concepts_D.html">
+   Concepts
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Hands-on
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/bD/lab_D.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/darribas/gds_course/master?urlpath=tree/content/bD/lab_D.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choropleths-in-python">
+   Choropleths in Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data">
+   Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choropleths">
+   Choropleths
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unique-values">
+     Unique values
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#equal-interval">
+     Equal interval
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quantiles">
+     Quantiles
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fisher-jenks">
+     Fisher-Jenks
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#raster-basemaps">
+   Raster basemaps
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zooming-into-the-map">
+   Zooming into the map
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="hands-on">
+<h1>Hands-on<a class="headerlink" href="#hands-on" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="choropleths-in-python">
+<h2>Choropleths in Python<a class="headerlink" href="#choropleths-in-python" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is an adapted version, with a bit less content and detail, of the chapter on choropleth mapping by Rey, Arribas-Bel and Wolf (<em>in progress</em>) <a class="bibtex reference internal" href="../bibliography.html#reyabwolf" id="id1">[RABWng]</a>. Check out the full chapter, available for free at:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://geographicdata.science/book/notebooks/05_choropleth.html">https://geographicdata.science/book/notebooks/05_choropleth.html</a></p>
+</div></blockquote>
+</div>
+<p>In this session, we will build on all we have learnt so far about loading and manipulating (spatial) data and apply it to one of the most commonly used forms of spatial analysis: choropleths. Remember these are maps that display the spatial distribution of a variable encoded in a color scheme, also called <em>palette</em>. Although there are many ways in which you can convert the values of a variable into a specific color, we will focus in this context only on a handful of them, in particular:</p>
+<ul class="simple">
+<li><p>Unique values</p></li>
+<li><p>Equal interval</p></li>
+<li><p>Quantiles</p></li>
+<li><p>Fisher-Jenks</p></li>
+</ul>
+<p>Before all this mapping fun, let us get the importing of libraries and data loading out of the way:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pysal.viz</span> <span class="kn">import</span> <span class="n">mapclassify</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<p>For this tutorial, we will use the recently released 2015 Index of Multiple Deprivation (IMD) for England and Wales. This dataset can be most easily downloaded from the CDRC data store (<a class="reference external" href="https://data.cdrc.ac.uk/dataset/cdrc-english-indices-of-deprivation-2015-geodata-pack-liverpool-e08000012">link</a>) and, since it already comes both in tabular as well as spatial data format (shapefile), it does not need merging or joining to additional geometries.</p>
+<p>Although all the elements of the IMD, including the ranks and the scores themselves, are in the IMD dataset, we will also be combining them with additional data from the Census, to explore how deprivation is related to other socio-demographic characteristics of the area. For that we will revisit the Census Data Pack (<a class="reference external" href="https://data.cdrc.ac.uk/dataset/cdrc-2011-census-data-packs-for-local-authority-district-liverpool-e08000012">link</a>) we used previously.</p>
+<p>In order to create maps with a base layer that provides context, we will be using a raster file derived from <a class="reference external" href="https://www.ordnancesurvey.co.uk/business-and-government/products/vectormap-district.html">OS VectorMap District (Backdrop Raster)</a> and available for download on <a class="reference external" href="http://darribas.org/gds19/content/labs/figs/lab04_liverpool.tif">this link</a>.</p>
+<p>As usual, let us set the paths to the folders containing the files before anything so we can then focus on data analysis exclusively (keep in mind the specific paths will probably be different for your computer):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># This will be different on your computer and will depend on where</span>
+<span class="c1"># you have downloaded the files</span>
+<span class="n">imd_shp</span> <span class="o">=</span> <span class="s1">&#39;../../../gds19_data/e08000012/E08000012/shapefiles/E08000012.gpkg&#39;</span>
+<span class="n">liv_path</span> <span class="o">=</span> <span class="s1">&#39;figs/lab04_liverpool.tif&#39;</span>
+<span class="n">data_path</span> <span class="o">=</span> <span class="s1">&#39;../../../gds18_data/Liverpool/&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>IMPORTANT</strong>: the paths above might have look different in your computer. See <span class="xref myst">this introductory notebook</span> for more details about how to set your paths.</p>
+<ul class="simple">
+<li><p><strong>IMD data</strong></p></li>
+</ul>
+<p>Now we can load up the IMD data exactly as we did earlier for a shapefile:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the file in</span>
+<span class="n">imd</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">imd_shp</span><span class="p">)</span>
+<span class="c1"># Index it on the LSOA ID</span>
+<span class="n">imd</span> <span class="o">=</span> <span class="n">imd</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;LSOA11CD&#39;</span><span class="p">)</span>
+<span class="c1"># Display summary</span>
+<span class="n">imd</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
+Index: 298 entries, E01006512 to E01033768
+Data columns (total 12 columns):
+imd_rank      298 non-null int64
+imd_score     298 non-null float64
+income        298 non-null float64
+employment    298 non-null float64
+education     298 non-null float64
+health        298 non-null float64
+crime         298 non-null float64
+housing       298 non-null float64
+living_env    298 non-null float64
+idaci         298 non-null float64
+idaopi        298 non-null float64
+geometry      298 non-null object
+dtypes: float64(10), int64(1), object(1)
+memory usage: 30.3+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note how on line 4 we <em>index</em> the resulting table <code class="docutils literal notranslate"><span class="pre">imd</span></code> with the column <code class="docutils literal notranslate"><span class="pre">LSOA11CD</span></code>. Effectively, this means we are “naming” the rows, the same way we the columns are named, using the column <code class="docutils literal notranslate"><span class="pre">LSOA11CD</span></code>, which contains the unique ID’s of each area. This affords us some nice slicing and querying capabilities as well as permitting to merge the table with other ones more easily.</p>
+<p>Pay attention also to how exactly we index the table: we create a new object that is named in the same way, <code class="docutils literal notranslate"><span class="pre">imd</span></code>, but that contains the result of applying the function <code class="docutils literal notranslate"><span class="pre">set_index</span></code> to the original object <code class="docutils literal notranslate"><span class="pre">imd</span></code>. As usual, there are many ways to index a table in Python, but this is one of the most direct and expressive ones.</p>
+<ul class="simple">
+<li><p><strong>Census data</strong></p></li>
+</ul>
+<p>In order to explore additional dimensions of deprivation, and to have categorical data to display with “unique values” choropleths, we will use some of the Census data pack. Although most of the Census variables are continuous, we will transform them to create <em>categorical</em> characteristics. Remember a categorical variable is one that comprises only a limited number of potential values, and these are not comparable with each other across a numerical scale. For example, religion or country of origin are categorical variables. It is not possible to compare their different values in a quantitative way (religion A is not double or half of religion B) but instead they represent qualitative differences.</p>
+<p>In particular, we are going to use tables <code class="docutils literal notranslate"><span class="pre">QS104EW</span></code> (Gender) and <code class="docutils literal notranslate"><span class="pre">KS103EW</span></code> (marital status). The way these are presented in its raw form is as tabulated counts of each of the possible categories. Our strategy to turn these into a single categorical variable for each case is to compare the counts for each area and assign that of the largest case. For example, in the first case, an area will be labelled as “male” if there are more males than females living in that particular LSOA. In the case of marital status, although there are more cases, we will simplify and use only “married” and “single” and assign one or the other on the bases of which ones are more common in each particular area.</p>
+<p><strong>NOTE</strong>: the following code snippet involves some data transformations that are a bit more advanced that what is covered in this course. Simply run them to load the data, but you are not expected to know some of the coding tricks required in this cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                <span class="c1"># Gender breakup</span>
+<span class="c1"># Read table (csv file)</span>
+<span class="n">gender</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span><span class="o">+</span><span class="s1">&#39;tables/QS104EW_lsoa11.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;GeographyCode&#39;</span><span class="p">)</span>
+<span class="c1"># Rename columns from code to human-readable name</span>
+<span class="n">gender</span> <span class="o">=</span> <span class="n">gender</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;QS104EW0002&#39;</span><span class="p">:</span> <span class="s1">&#39;Male&#39;</span><span class="p">,</span> \
+                                <span class="s1">&#39;QS104EW0003&#39;</span><span class="p">:</span> <span class="s1">&#39;Female&#39;</span><span class="p">})[[</span><span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Female&#39;</span><span class="p">]]</span>
+<span class="c1"># Create male-female switcher</span>
+<span class="n">maj_male</span> <span class="o">=</span> <span class="n">gender</span><span class="p">[</span><span class="s1">&#39;Male&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">gender</span><span class="p">[</span><span class="s1">&#39;Female&#39;</span><span class="p">]</span>
+<span class="c1"># Add &quot;Gender_Majority&quot; variable to table and assign the switcher</span>
+<span class="n">gender</span><span class="p">[</span><span class="s1">&#39;Gender_Majority&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">maj_male</span>
+<span class="c1"># Replace `True` values with &quot;Male&quot; and `False` with &quot;Female&quot;</span>
+<span class="n">gender</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">gender</span><span class="p">[</span><span class="s1">&#39;Gender_Majority&#39;</span><span class="p">]</span><span class="o">==</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Gender_Majority&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Male&#39;</span>
+<span class="n">gender</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">gender</span><span class="p">[</span><span class="s1">&#39;Gender_Majority&#39;</span><span class="p">]</span><span class="o">==</span><span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;Gender_Majority&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Female&#39;</span>
+
+                <span class="c1"># Status breakup</span>
+<span class="c1"># Read table (csv file)</span>
+<span class="n">sinmar</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span><span class="o">+</span><span class="s1">&#39;tables/KS103EW_lsoa11.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;GeographyCode&#39;</span><span class="p">)</span>
+<span class="c1"># Rename columns from code to human-readable name</span>
+<span class="n">sinmar</span> <span class="o">=</span> <span class="n">sinmar</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;KS103EW0002&#39;</span><span class="p">:</span> <span class="s1">&#39;Single&#39;</span><span class="p">,</span> \
+                                <span class="s1">&#39;KS103EW0003&#39;</span><span class="p">:</span> <span class="s1">&#39;Married&#39;</span><span class="p">})[[</span><span class="s1">&#39;Single&#39;</span><span class="p">,</span> <span class="s1">&#39;Married&#39;</span><span class="p">]]</span>
+<span class="c1"># Create sigle-married switcher</span>
+<span class="n">maj_sin</span> <span class="o">=</span> <span class="n">sinmar</span><span class="p">[</span><span class="s1">&#39;Single&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">sinmar</span><span class="p">[</span><span class="s1">&#39;Married&#39;</span><span class="p">]</span>
+<span class="c1"># Add &quot;Status_Majority&quot; variable to table and assign the switcher</span>
+<span class="n">sinmar</span><span class="p">[</span><span class="s1">&#39;Status_Majority&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">maj_sin</span>
+<span class="c1"># Replace `True` values with &quot;Single&quot; and `False` with &quot;Married&quot;</span>
+<span class="n">sinmar</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sinmar</span><span class="p">[</span><span class="s1">&#39;Status_Majority&#39;</span><span class="p">]</span><span class="o">==</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Status_Majority&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Single&#39;</span>
+<span class="n">sinmar</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sinmar</span><span class="p">[</span><span class="s1">&#39;Status_Majority&#39;</span><span class="p">]</span><span class="o">==</span><span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;Status_Majority&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Married&#39;</span>
+
+<span class="c1"># Join</span>
+<span class="n">both</span> <span class="o">=</span> <span class="n">imd</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sinmar</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">gender</span><span class="p">)</span>
+<span class="c1"># Reset the CRS after join</span>
+<span class="n">both</span><span class="o">.</span><span class="n">crs</span> <span class="o">=</span> <span class="n">imd</span><span class="o">.</span><span class="n">crs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This creates the table we will be using for the rest of the session:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">both</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>imd_rank</th>
+      <th>imd_score</th>
+      <th>income</th>
+      <th>employment</th>
+      <th>education</th>
+      <th>health</th>
+      <th>crime</th>
+      <th>housing</th>
+      <th>living_env</th>
+      <th>idaci</th>
+      <th>idaopi</th>
+      <th>geometry</th>
+      <th>Single</th>
+      <th>Married</th>
+      <th>Status_Majority</th>
+      <th>Male</th>
+      <th>Female</th>
+      <th>Gender_Majority</th>
+    </tr>
+    <tr>
+      <th>LSOA11CD</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E01006512</th>
+      <td>10518</td>
+      <td>25.61</td>
+      <td>0.10</td>
+      <td>0.08</td>
+      <td>10.06</td>
+      <td>1.19</td>
+      <td>-0.20</td>
+      <td>24.49</td>
+      <td>68.91</td>
+      <td>0.16</td>
+      <td>0.31</td>
+      <td>(POLYGON ((336103.358 389628.58, 336103.416 38...</td>
+      <td>1288</td>
+      <td>287</td>
+      <td>Single</td>
+      <td>1070</td>
+      <td>810</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>E01006513</th>
+      <td>10339</td>
+      <td>25.91</td>
+      <td>0.04</td>
+      <td>0.03</td>
+      <td>20.13</td>
+      <td>0.58</td>
+      <td>1.50</td>
+      <td>25.15</td>
+      <td>85.48</td>
+      <td>0.21</td>
+      <td>0.20</td>
+      <td>(POLYGON ((335173.781 389691.538, 335169.798 3...</td>
+      <td>2613</td>
+      <td>170</td>
+      <td>Single</td>
+      <td>1461</td>
+      <td>1480</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>E01006514</th>
+      <td>5247</td>
+      <td>37.64</td>
+      <td>0.19</td>
+      <td>0.15</td>
+      <td>15.50</td>
+      <td>1.86</td>
+      <td>0.74</td>
+      <td>21.85</td>
+      <td>58.90</td>
+      <td>0.23</td>
+      <td>0.48</td>
+      <td>(POLYGON ((335495.676 389697.267, 335495.444 3...</td>
+      <td>1583</td>
+      <td>204</td>
+      <td>Single</td>
+      <td>1177</td>
+      <td>931</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>E01006515</th>
+      <td>1019</td>
+      <td>58.99</td>
+      <td>0.43</td>
+      <td>0.30</td>
+      <td>33.51</td>
+      <td>1.90</td>
+      <td>1.16</td>
+      <td>17.40</td>
+      <td>29.78</td>
+      <td>0.46</td>
+      <td>0.76</td>
+      <td>(POLYGON ((334953.001 389029, 334951 389035, 3...</td>
+      <td>587</td>
+      <td>218</td>
+      <td>Single</td>
+      <td>595</td>
+      <td>613</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>E01006518</th>
+      <td>662</td>
+      <td>63.37</td>
+      <td>0.43</td>
+      <td>0.34</td>
+      <td>49.90</td>
+      <td>2.24</td>
+      <td>0.67</td>
+      <td>15.52</td>
+      <td>31.03</td>
+      <td>0.50</td>
+      <td>0.52</td>
+      <td>(POLYGON ((335354.015 388601.947, 335354 38860...</td>
+      <td>716</td>
+      <td>363</td>
+      <td>Single</td>
+      <td>843</td>
+      <td>853</td>
+      <td>Female</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>A look at the variables reveals that, in effect, we have successfuly merged the IMD data with the categorical variables derived from Census tables:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">both</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
+Index: 298 entries, E01006512 to E01033768
+Data columns (total 18 columns):
+imd_rank           298 non-null int64
+imd_score          298 non-null float64
+income             298 non-null float64
+employment         298 non-null float64
+education          298 non-null float64
+health             298 non-null float64
+crime              298 non-null float64
+housing            298 non-null float64
+living_env         298 non-null float64
+idaci              298 non-null float64
+idaopi             298 non-null float64
+geometry           298 non-null object
+Single             298 non-null int64
+Married            298 non-null int64
+Status_Majority    298 non-null object
+Male               298 non-null int64
+Female             298 non-null int64
+Gender_Majority    298 non-null object
+dtypes: float64(10), int64(5), object(3)
+memory usage: 54.2+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we are fully ready to map!</p>
+</div>
+<div class="section" id="choropleths">
+<h2>Choropleths<a class="headerlink" href="#choropleths" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="unique-values">
+<h3>Unique values<a class="headerlink" href="#unique-values" title="Permalink to this headline">¶</a></h3>
+<p>A choropleth for categorical variables simply assigns a different color to every potential value in the series. The main requirement in this case is then for the color scheme to reflect the fact that different values are not ordered or follow a particular scale.</p>
+<p>In Python, thanks to <code class="docutils literal notranslate"><span class="pre">geopandas</span></code>, creating categorical choropleths is possible with one line of code. To demonstrate this, we can plot the spatial distribution of LSOAs with a more female population than male and viceversa:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">both</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;Gender_Majority&#39;</span><span class="p">,</span> <span class="n">categorical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+          <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f104eaed710&gt;
+</pre></div>
+</div>
+<img alt="../../_images/lab_D_19_1.png" src="../../_images/lab_D_19_1.png" />
+</div>
+</div>
+<p>Let us stop for a second in a few crucial aspects:</p>
+<ul class="simple">
+<li><p>Note how we are using the same approach as for basic maps, the command <code class="docutils literal notranslate"><span class="pre">plot</span></code>, but we now need to add the argument <code class="docutils literal notranslate"><span class="pre">column</span></code> to specify which column in particular is to be represented.</p></li>
+<li><p>Since the variable is categorical we need to make that explicit by setting the argument <code class="docutils literal notranslate"><span class="pre">categorical</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p>As an optional argument, we can set <code class="docutils literal notranslate"><span class="pre">legend</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> and the resulting figure will include a legend with the names of all the values in the map.</p></li>
+<li><p>Unless we specify a different colormap, the selected one respects the categorical nature of the data by not implying a gradient or scale but a qualitative structure.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>[Optional exercise]</strong></p>
+<p>Create a categorical map of the marital status in Liverpool. Where are the areas with more married than single population?</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="equal-interval">
+<h3>Equal interval<a class="headerlink" href="#equal-interval" title="Permalink to this headline">¶</a></h3>
+<p>If, instead of categorical variables, we want to display the geographical distribution of a continuous phenomenon, we need to select a way to encode each value into a color. One potential solution is applying what is usually called “equal intervals”. The intuition of this method is to split the <em>range</em> of the distribution, the difference between the minimum and maximum value, into equally large segments and to assign a different color to each of them according to a palette that reflects the fact that values are ordered.</p>
+<p>Using the example of the position of a LSOA in the national ranking of the IMD (<code class="docutils literal notranslate"><span class="pre">imd_rank</span></code>), we can calculate these segments, also called bins or buckets, using the library <code class="docutils literal notranslate"><span class="pre">PySAL</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">classi</span> <span class="o">=</span> <span class="n">mapclassify</span><span class="o">.</span><span class="n">EqualInterval</span><span class="p">(</span><span class="n">imd</span><span class="p">[</span><span class="s1">&#39;imd_rank&#39;</span><span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">classi</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>                 Equal Interval                
+ 
+  Lower              Upper                Count
+===============================================
+            x[i] &lt;=  4604.857               156
+ 4604.857 &lt; x[i] &lt;=  9185.714                48
+ 9185.714 &lt; x[i] &lt;= 13766.571                30
+13766.571 &lt; x[i] &lt;= 18347.429                21
+18347.429 &lt; x[i] &lt;= 22928.286                24
+22928.286 &lt; x[i] &lt;= 27509.143                14
+27509.143 &lt; x[i] &lt;= 32090.000                 5
+</pre></div>
+</div>
+</div>
+</div>
+<p>The only additional argument to pass to <code class="docutils literal notranslate"><span class="pre">Equal_Interval</span></code>, other than the actual variable we would like to classify is the number of segments we want to create, <code class="docutils literal notranslate"><span class="pre">k</span></code>, which we are arbitrarily setting to seven in this case. This will be the number of colors that will be plotted on the map so, although having several can give more detail, at some point the marginal value of an additional one is fairly limited, given the ability of the brain to tell any differences.</p>
+<p>Once we have classified the variable, we can check the actual break points where values stop being in one class and become part of the next one:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">classi</span><span class="o">.</span><span class="n">bins</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([ 4604.85714286,  9185.71428571, 13766.57142857, 18347.42857143,
+       22928.28571429, 27509.14285714, 32090.        ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>The array of breaking points above implies that any value in the variable below 4604.9 will get the first color in the gradient when mapped, values between 4604.9 and 9185.7 the next one, and so on.</p>
+<p>The key characteristic in equal interval maps is that the bins are allocated based on the magnitude on the values, irrespective of how many obervations fall into each bin as a result of it. In highly skewed distributions, this can result in bins with a large number of observations, while others only have a handful of outliers. This can be seen in the submmary table printed out above, where 156 LSOAs are in the first group, but only five of them belong to the one with highest values. This can also be represented visually with a kernel density plot where the break points are included as well:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the figure</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Plot the kernel density estimation (KDE)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">imd</span><span class="p">[</span><span class="s1">&#39;imd_rank&#39;</span><span class="p">],</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Add a blue tick for every value at the bottom of the plot (rugs)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">imd</span><span class="p">[</span><span class="s1">&#39;imd_rank&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="c1"># Loop over each break point and plot a vertical red line</span>
+<span class="k">for</span> <span class="n">cut</span> <span class="ow">in</span> <span class="n">classi</span><span class="o">.</span><span class="n">bins</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">cut</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="c1"># Display image</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab_D_28_0.png" src="../../_images/lab_D_28_0.png" />
+</div>
+</div>
+<p>Technically speaking, the figure is created by overlaying a KDE plot with vertical bars for each of the break points. This makes much more explicit the issue highlighed by which the first bin contains a large amount of observations while the one with top values only encompasses a handful of them.</p>
+<p>To create a map that displays the colors assigned by the equal interval classification algorithm, we use a similar approach as with unique values but with some key differences:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">imd</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;imd_rank&#39;</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;equal_interval&#39;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> 
+         <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues_r</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
+         <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f104c8aec88&gt;
+</pre></div>
+</div>
+<img alt="../../_images/lab_D_30_1.png" src="../../_images/lab_D_30_1.png" />
+</div>
+</div>
+<p>Pay attention to the key differences:</p>
+<ul class="simple">
+<li><p>Instead of specifyig <code class="docutils literal notranslate"><span class="pre">categorical</span></code> as <code class="docutils literal notranslate"><span class="pre">True</span></code>, we replace it by the argument <code class="docutils literal notranslate"><span class="pre">scheme</span></code>, which we will use for all choropleths that require a continuous classification scheme. In this case, we set it to <code class="docutils literal notranslate"><span class="pre">equal_interval</span></code>.</p></li>
+<li><p>As above, we set the number of colors to 7. Note that we need not pass the bins we calculated above, the plotting method does it itself under the hood for us.</p></li>
+<li><p>As optional arguments, we can change the colormap to a blue gradient, which is one of the recommended ones by <a class="reference external" href="http://colorbrewer2.org/">ColorBrewer</a> for a sequential palette. <strong>NOTE</strong> also how we use an appropriate palette: <code class="docutils literal notranslate"><span class="pre">imd_rank</span></code> goes from most to least deprived to, so we apply a palette (<code class="docutils literal notranslate"><span class="pre">Blues_r</span></code>, where the <code class="docutils literal notranslate"><span class="pre">_r</span></code> stands for reverse) for which the smaller values are encoded in darker blue.</p></li>
+<li><p>Equally optional, some of the arguments we learned with basic maps, such as the degree of transparency, also apply in this context.</p></li>
+</ul>
+<p>Substantively, the map also makes very explicit the fact that many areas are put into the same bin as the amount of white polygons is very large.</p>
+<hr class="docutils" />
+<p><strong>[Optional exercise]</strong></p>
+<p>Create an equal interval kde plot and map of the actual score of the IMD (<code class="docutils literal notranslate"><span class="pre">imd_score</span></code>). Is the same palette appropriate?</p>
+<p>As a bonus, try including a legend in the map, following a similar approach as in unique values maps.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="quantiles">
+<h3>Quantiles<a class="headerlink" href="#quantiles" title="Permalink to this headline">¶</a></h3>
+<p>One solution to obtain a more balanced classification scheme is using quantiles. This, by definition, assigns the same amount of values to each bin: the entire series is laid out in order and break points are assigned in a way that leaves exactly the same amount of observations between each of them. This “observation-based” approach contrasts with the “value-based” method of equal intervals and, although it can obscure the magnitude of extreme values, it can be more informative in cases with skewed distributions.</p>
+<p>Calculating a quantiles classification with <code class="docutils literal notranslate"><span class="pre">PySAL</span></code> can be done with the following line of code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">classi</span> <span class="o">=</span> <span class="n">mapclassify</span><span class="o">.</span><span class="n">Quantiles</span><span class="p">(</span><span class="n">imd</span><span class="p">[</span><span class="s1">&#39;imd_rank&#39;</span><span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">classi</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>                  Quantiles                   
+ 
+  Lower              Upper               Count
+==============================================
+            x[i] &lt;=   633.714               43
+  633.714 &lt; x[i] &lt;=  1335.714               42
+ 1335.714 &lt; x[i] &lt;=  2641.000               43
+ 2641.000 &lt; x[i] &lt;=  5540.143               42
+ 5540.143 &lt; x[i] &lt;= 10355.857               43
+10355.857 &lt; x[i] &lt;= 18401.143               42
+18401.143 &lt; x[i] &lt;= 32090.000               43
+</pre></div>
+</div>
+</div>
+</div>
+<p>And, similarly, the bins can also be inspected:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">classi</span><span class="o">.</span><span class="n">bins</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([  633.71428571,  1335.71428571,  2641.        ,  5540.14285714,
+       10355.85714286, 18401.14285714, 32090.        ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>The visualization of the distribution can be generated in a similar way as well:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the figure</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Plot the kernel density estimation (KDE)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">imd</span><span class="p">[</span><span class="s1">&#39;imd_rank&#39;</span><span class="p">],</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Add a blue tick for every value at the bottom of the plot (rugs)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">imd</span><span class="p">[</span><span class="s1">&#39;imd_rank&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="c1"># Loop over each break point and plot a vertical red line</span>
+<span class="k">for</span> <span class="n">cut</span> <span class="ow">in</span> <span class="n">classi</span><span class="o">.</span><span class="n">bins</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">cut</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="c1"># Display image</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab_D_39_0.png" src="../../_images/lab_D_39_0.png" />
+</div>
+</div>
+<p>And the choropleth also follows a similar pattern, with the difference that we are now using the scheme “quantiles”, instead of “equal interval”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">imd</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;imd_rank&#39;</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;QUANTILES&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> \
+         <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues_r</span><span class="p">,</span> 
+         <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f104c83d048&gt;
+</pre></div>
+</div>
+<img alt="../../_images/lab_D_41_1.png" src="../../_images/lab_D_41_1.png" />
+</div>
+</div>
+<p>Note how, in this case, the amount of polygons in each color is by definition much more balanced (almost equal in fact, except for rounding differences). This obscures outlier values, which get blurred by significantly smaller values in the same group, but allows to get more detail in the “most populated” part of the distribution, where instead of only white polygons, we can now discern more variability.</p>
+<hr class="docutils" />
+<p><strong>[Optional exercise]</strong></p>
+<p>Create a quantile kde plot and map of the actual score of the IMD (<code class="docutils literal notranslate"><span class="pre">imd_score</span></code>).</p>
+<p>As a bonus, make a map with 50% of transparency and no boundary lines.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="fisher-jenks">
+<h3>Fisher-Jenks<a class="headerlink" href="#fisher-jenks" title="Permalink to this headline">¶</a></h3>
+<p>Equal interval and quantiles are only two examples of very many classification schemes to encode values into colors. Although not all of them are integrated into <code class="docutils literal notranslate"><span class="pre">geopandas</span></code>, <code class="docutils literal notranslate"><span class="pre">PySAL</span></code> includes several other classification schemes (for a detailed list, have a look at this <a class="reference external" href="http://pysal.readthedocs.org/en/latest/library/esda/mapclassify.html">link</a>). As an example of a more sophisticated one, let us create a Fisher-Jenks choropleth:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">classi</span> <span class="o">=</span> <span class="n">mapclassify</span><span class="o">.</span><span class="n">Fisher_Jenks</span><span class="p">(</span><span class="n">imd</span><span class="p">[</span><span class="s1">&#39;imd_rank&#39;</span><span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">classi</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/opt/conda/lib/python3.7/site-packages/pysal/viz/mapclassify/classifiers.py:482: UserWarning: Deprecated (2.1.0): Fisher_Jenks is being renamed to FisherJenks. Fisher_Jenks will be removed on 2020-01-31.
+  warn(self.message)
+</pre>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>                  FisherJenks                  
+ 
+  Lower              Upper                Count
+===============================================
+            x[i] &lt;=  2930.000               133
+ 2930.000 &lt; x[i] &lt;=  6946.000                52
+ 6946.000 &lt; x[i] &lt;= 11656.000                39
+11656.000 &lt; x[i] &lt;= 16185.000                24
+16185.000 &lt; x[i] &lt;= 20719.000                20
+20719.000 &lt; x[i] &lt;= 24098.000                18
+24098.000 &lt; x[i] &lt;= 32090.000                12
+</pre></div>
+</div>
+</div>
+</div>
+<p>This methodology aims at minimizing the variance <em>within</em> each bin while maximizing that <em>between</em> different classes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">classi</span><span class="o">.</span><span class="n">bins</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([ 2930,  6946, 11656, 16185, 20719, 24098, 32090])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Graphically, we can see how the break points are not equally spaced but are adapting to obtain an optimal grouping of observations:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the figure</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Plot the kernel density estimation (KDE)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">imd</span><span class="p">[</span><span class="s1">&#39;imd_rank&#39;</span><span class="p">],</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Add a blue tick for every value at the bottom of the plot (rugs)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">imd</span><span class="p">[</span><span class="s1">&#39;imd_rank&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="c1"># Loop over each break point and plot a vertical red line</span>
+<span class="k">for</span> <span class="n">cut</span> <span class="ow">in</span> <span class="n">classi</span><span class="o">.</span><span class="n">bins</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">cut</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="c1"># Display image</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab_D_50_0.png" src="../../_images/lab_D_50_0.png" />
+</div>
+</div>
+<p>Technically, however, the way to create a Fisher-Jenks map is exactly the same as before:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">imd</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;imd_rank&#39;</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;fisher_jenks&#39;</span><span class="p">,</span> 
+         <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues_r</span><span class="p">,</span> 
+         <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f104bab8a20&gt;
+</pre></div>
+</div>
+<img alt="../../_images/lab_D_52_1.png" src="../../_images/lab_D_52_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="raster-basemaps">
+<h2>Raster basemaps<a class="headerlink" href="#raster-basemaps" title="Permalink to this headline">¶</a></h2>
+<p>This section requires the additional library <code class="docutils literal notranslate"><span class="pre">rasterio</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rasterio</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since choropleths tend to be based on administrative boundaries which do not necessarily reflect correctly the topography of a region, it may be of interest to provide a choropleth with certain geographical context. If data are available, one way to deliver this is by plotting a base raster map underneath the choropleth and allowing some transparency on the upper layer.</p>
+<p>To do this in Python, we can combine the plotting of a raster image with the generation of a choropleth as we have seen above. First, we need to read the raster in:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open the raster file</span>
+<span class="n">src</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">liv_path</span><span class="p">)</span>
+<span class="c1"># Extract the bounds</span>
+<span class="n">left</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">top</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">bounds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>At this point we are ready to generate the figure with both layers:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># NOTE: this may take a little bit to run depending on your machine</span>
+
+<span class="c1"># Set up the figure</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<span class="c1"># Add raster layer</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span> <span class="n">top</span><span class="p">))</span>
+<span class="c1"># Create the choropleth</span>
+<span class="n">imd</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;imd_score&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Purples&#39;</span><span class="p">,</span> 
+         <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="c1"># Style the labels for the ticks</span>
+<span class="n">locs</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="c1"># Keep axes proportionate</span>
+<span class="c1">#plt.axis(&#39;equal&#39;)</span>
+<span class="c1"># Display</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab_D_59_0.png" src="../../_images/lab_D_59_0.png" />
+</div>
+</div>
+<p>Note how the way the raster is added to the axis is different that the way we attach a vector map: the raster gets plotted through <code class="docutils literal notranslate"><span class="pre">imshow</span></code> (image show), which is a function embedded in the axis object (<code class="docutils literal notranslate"><span class="pre">ax</span></code>), while the vector object is appended by passing the axis (<code class="docutils literal notranslate"><span class="pre">ax</span></code>) through the plotting method itself.</p>
+</div>
+<div class="section" id="zooming-into-the-map">
+<h2>Zooming into the map<a class="headerlink" href="#zooming-into-the-map" title="Permalink to this headline">¶</a></h2>
+<p>A general map of an entire region, or urban area, can sometimes obscure particularly local patterns because they happen at a much smaller scale that cannot be perceived in the global view. One way to solve this is by providing a focus of a smaller part of the map in a separate figure. Although there are many ways to do this in Python, the most straightforward one is to reset the limits of the axes to center them in the area of interest.</p>
+<p>As an example, let us consider the quantile map produced above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">imd</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;imd_rank&#39;</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;QUANTILES&#39;</span><span class="p">,</span> 
+         <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues_r</span><span class="p">,</span> 
+         <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f104b35c978&gt;
+</pre></div>
+</div>
+<img alt="../../_images/lab_D_63_1.png" src="../../_images/lab_D_63_1.png" />
+</div>
+</div>
+<p>If we want to focus on the city centre, say the area of the map more or less between coordinates 387,000 and 391,000 on the vertical axis, and 332,000 and 337,000 on the horizontal one, creating the figure involves the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup the figure</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Set background color of the axis</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;#D5E3D8&#39;</span><span class="p">)</span>
+<span class="c1"># Draw the choropleth</span>
+<span class="n">imd</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;imd_rank&#39;</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;QUANTILES&#39;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> \
+         <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Purples_r</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="c1"># [Optional] Keep axes proportionate</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="c1"># Redimensionate X and Y axes to desired bounds</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">387000</span><span class="p">,</span> <span class="mi">391000</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">332000</span><span class="p">,</span> <span class="mi">337000</span><span class="p">)</span>
+<span class="c1"># Show image</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab_D_65_0.png" src="../../_images/lab_D_65_0.png" />
+</div>
+</div>
+<p>Note how, if we decide to keep the axes proportionate, it needs to be done <em>before</em> resetting the limits, as otherwise the change will not have an effect.</p>
+<hr class="docutils" />
+<p><a rel="repo" href="https://github.com/darribas/gds19"><img alt="@darribas/gds19" style="border-width:0" src="../../GitHub-Mark.png" /></a></p>
+<p>This notebook, as well as the entire set of materials, code, and data included
+in this course are available as an open Github repository available at: <a class="reference external" href="https://github.com/darribas/gds19"><code class="docutils literal notranslate"><span class="pre">https://github.com/darribas/gds19</span></code></a></p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Geographic Data Science’19</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/bD"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="concepts_D.html" title="previous page">Concepts</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Dani Arribas-Bel<br/>
+        
+          <div class="extra_footer">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
