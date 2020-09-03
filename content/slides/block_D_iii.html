@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title></title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/journal.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+        <!-- BODY -->
+		<div class="reveal">
+			<div class="slides">
+
+                                 
+                <section id="section" class="level1">
+                <h1></h1>
+                <section id="geographic-data-science" class="level2">
+                <h2>Geographic Data Science</h2>
+                <CENTER>
+                Choropleths
+                </CENTER>
+                <CENTER>
+                <a href="http://darribas.org">Dani Arribas-Bel</a>
+                </CENTER>
+                </section>
+                </section>
+                <section id="section-1" class="level1">
+                <h1></h1>
+                <section id="choropleths" class="level2">
+                <h2>Choropleths</h2>
+                </section>
+                <section id="choropleths-1" class="level2">
+                <h2>Choropleths</h2>
+                <center>
+                <em>Thematic map in which values of a variable are encoded using a color gradient of some sort</em>
+                </center>
+                <ul>
+                <li><span class="fragment highlight-current-blue">Counterpart of the histogram</span></li>
+                <li><span class="fragment highlight-current-blue"><strong>Values</strong> are <strong>classified</strong> into specific <strong>colors</strong>: value –&gt; bin</span></li>
+                <li><span class="fragment highlight-current-blue"><strong>Information loss</strong> as a trade off for <strong>simplicity</strong></span></li>
+                </ul>
+                </section>
+                <section id="classification-choices" class="level2">
+                <h2>Classification choices</h2>
+                <ul>
+                <li>N. of bins</li>
+                <li>How to bin?</li>
+                <li>Colors</li>
+                </ul>
+                </section>
+                <section id="how-many-bins" class="level2">
+                <h2>How many bins?</h2>
+                <ul>
+                <li><span class="fragment highlight-current-blue">Trade-off: detail Vs cognitive load</span></li>
+                <li><span class="fragment highlight-current-blue">Exact number depends on purpose of the map</span></li>
+                <li><span class="fragment highlight-current-blue">Usually not more than 12</span></li>
+                </ul>
+                </section>
+                <section id="how-to-bin" class="level2">
+                <h2>How to bin?</h2>
+                </section>
+                <section id="unique-values" class="level2">
+                <h2>Unique values</h2>
+                <ul>
+                <li><span class="fragment highlight-current-blue">Categorical data</span></li>
+                <li><span class="fragment highlight-current-blue">No gradient (reflect it with the color scheme!!!)</span></li>
+                <li><span class="fragment highlight-current-blue">Examples: Religion, country of origin…</span></li>
+                </ul>
+                </section>
+                <section id="section-2" class="level2" data-background="../figs/l04_unique_values.png" data-background-size="contain">
+                <h2 data-background="../figs/l04_unique_values.png" data-background-size="contain"></h2>
+                </section>
+                <section id="equal-interval" class="level2">
+                <h2>Equal interval</h2>
+                <ul>
+                <li><span class="fragment highlight-current-blue">Take the <strong>value</strong> span of the data to represent and split it equally</span></li>
+                <li><span class="fragment highlight-current-blue"><strong>Splitting</strong> happens based on the <strong>numerical value</strong></span></li>
+                <li><span class="fragment highlight-current-blue">Gives more weight to outliers if the distribution is skewed</span></li>
+                </ul>
+                </section>
+                <section id="section-3" class="level2" data-background="../figs/l04_equal_interval.png" data-background-size="contain">
+                <h2 data-background="../figs/l04_equal_interval.png" data-background-size="contain"></h2>
+                </section>
+                <section id="quantiles" class="level2">
+                <h2>Quantiles</h2>
+                <ul>
+                <li><span class="fragment highlight-current-blue">Regardless of numerical values, split the distribution keeping the same amount of values in each bin</span></li>
+                <li><span class="fragment highlight-current-blue"><strong>Splitting</strong> based on the <strong>rank</strong> of the value</span></li>
+                <li><span class="fragment highlight-current-blue">If distribution is skewed, it can put very different values in the same bin</span></li>
+                </ul>
+                </section>
+                <section id="section-4" class="level2" data-background="../figs/l04_quantiles.png" data-background-size="contain">
+                <h2 data-background="../figs/l04_quantiles.png" data-background-size="contain"></h2>
+                </section>
+                <section id="other" class="level2">
+                <h2>Other</h2>
+                <ul>
+                <li>Fisher-Jenks</li>
+                <li>Natural breaks</li>
+                <li>Outlier maps: box maps, std. maps…</li>
+                </ul>
+                </section>
+                <section id="color-schemes" class="level2">
+                <h2>Color schemes</h2>
+                <p>Align with your purpose</p>
+                <ul>
+                <li><strong>Categories</strong>, non-ordered <a href="https://jiffyclub.github.io/palettable/wesanderson/#fantasticfox2_5"><img src="../figs/l04_pal_qual.png" alt="Qualitative"
+                style="width:300px;height:50px;vertical-align:middle;border:0px;" class="fragment"/></a></li>
+                <li>Graduated, <strong>sequential</strong> <a href="https://jiffyclub.github.io/palettable/colorbrewer/sequential/#rdpu_5"><img src="../figs/l04_pal_seq.png" alt="Sequential"
+                style="width:300px;height:50px;vertical-align:middle;border:0px;" class="fragment"/></a></li>
+                <li>Graduated, <strong>divergent</strong> <a href="https://jiffyclub.github.io/palettable/colorbrewer/diverging/#rdylgn_5"><img src="../figs/l04_pal_div.png" alt="Divergent"
+                style="width:300px;height:50px;vertical-align:middle;border:0px;" class="fragment"/></a></li>
+                </ul>
+                <p><strong>TIP</strong>: check <a href="http://colorbrewer2.org/">ColorBrewer</a> for guidance</p>
+                </section>
+                </section>
+                <section id="section-5" class="level1">
+                <h1></h1>
+                <section id="tips" class="level2">
+                <h2>Tips</h2>
+                <ul>
+                <li><span class="fragment highlight-current-blue">Think of the purpose of the map</span></li>
+                <li><span class="fragment highlight-current-blue">Explore by trying different classification alternatives</span></li>
+                <li><span class="fragment highlight-current-blue">Combine (Geo)visualisation with other statistical devices</span></li>
+                </ul>
+                </section>
+                </section>
+                <section id="section-6" class="level1">
+                <h1></h1>
+                <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+                </section>
+			</div>
+		</div>
+
+        <!-- DEPENDENCIES -->
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                controlsTutorial: false,
+                history: false,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+        <!-- END of BODY -->
+	</body>
+</html>
