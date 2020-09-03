@@ -24,3 +24,9 @@
     - file: content/bC/lab_C
     - file: content/bC/diy_C
 
+- chapter: D - Mapping Data
+  sections:
+    - file: content/bD/concepts_D
+    - file: content/bD/lab_D
+    - file: content/bD/diy_D
+
