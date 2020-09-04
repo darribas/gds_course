@@ -36,7 +36,7 @@ pdf:
 	# list folders with notebooks here. Notebooks must be present in _toc.yml.
 	cp -r content website/
 	# Build
-	jupyter-book build website --builder pdfhtml
+	jupyter-book build website/ --builder pdfhtml
 	# Move over to docs
 	mv website/_build/pdf/book.pdf content/gds_course.pdf
 	# Clean
