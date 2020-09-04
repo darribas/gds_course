@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Concepts &#8212; A course on Geographic Data Science</title>
+    <title>Do-It-Yourself &#8212; A course on Geographic Data Science</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -42,8 +42,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Hands-on" href="lab_D.html" />
-    <link rel="prev" title="Do-It-Yourself" href="../bC/diy_C.html" />
+    <link rel="prev" title="Hands-on" href="lab_D.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -168,8 +167,8 @@
  </span>
 </p>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="concepts_D.html">
    Concepts
   </a>
  </li>
@@ -178,8 +177,8 @@
    Hands-on
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="diy_D.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Do-It-Yourself
   </a>
  </li>
@@ -221,7 +220,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/bD/concepts_D.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/bD/diy_D.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -245,7 +244,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/darribas/gds_course/master?urlpath=tree/content/bD/concepts_D.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/darribas/gds_course/master?urlpath=tree/content/bD/diy_D.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -267,23 +266,23 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#geovisualisation">
-   Geovisualisation
+  <a class="reference internal nav-link" href="#data-preparation">
+   Data preparation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#geographical-containers-for-data">
-   Geographical containers for data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#choropleths">
-   Choropleths
+  <a class="reference internal nav-link" href="#tasks">
+   Tasks
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#further-readings">
-     Further readings
+    <a class="reference internal nav-link" href="#task-i-ahah-choropleths">
+     Task I: AHAH choropleths
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#task-ii-zoom-maps">
+     Task II: Zoom maps
     </a>
    </li>
   </ul>
@@ -298,90 +297,68 @@
         
               <div>
                 
-  <div class="section" id="concepts">
-<h1>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h1>
-<p>This block is all about Geovisualisation and displaying statistical information on maps. We start with an introduction on <em>what</em> geovisualisation is; then we follow with the modifiable areal unit problem, a key concept to keep in mind when displaying statistical information spatially; and we wrap up with tips to make awesome choropleths, thematic maps. Each section contains a short clip and a set of slides, plus a few (optional) readings.</p>
-<div class="section" id="geovisualisation">
-<h2>Geovisualisation<a class="headerlink" href="#geovisualisation" title="Permalink to this headline">¶</a></h2>
-<p>Geovisualisation is an area that underpins much what we will discuss in this course. Often, we will be presenting the results of more sophisticated analyses as maps. So getting the principles behind mapping right is critical. In this clip, we cover <em>what</em> is (geo)visualisation and why it is important.</p>
-<div class="sidebar">
-<p class="sidebar-title">Slides</p>
-<p>The slides used in the clip are available at:</p>
+  <div class="section" id="do-it-yourself">
+<h1>Do-It-Yourself<a class="headerlink" href="#do-it-yourself" title="Permalink to this headline">¶</a></h1>
+<p>Let’s make a bunch of choropleths! In this section, you will practice the <a class="reference internal" href="concepts_D.html"><span class="doc std std-doc">concepts</span></a> and <a class="reference internal" href="lab_D.html"><span class="doc std std-doc">code</span></a> we have learnt in this block. Happy hacking!</p>
+<div class="section" id="data-preparation">
+<h2>Data preparation<a class="headerlink" href="#data-preparation" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The AHAH dataset was invented by a University of Liverpool team. If you want to find out more about the background and details of the project, have a look at the <a class="reference external" href="https://data.cdrc.ac.uk/dataset/access-healthy-assets-hazards-ahah">information page</a> at the CDRC website.</p>
+</div>
+<p>We are going to use the Access to Healthy Assets and Hazards (AHAH) index. This is a score that ranks LSOAs (the same polygons we used in <a class="reference internal" href="../bC/diy_C.html"><span class="doc std std-doc">block C</span></a>) by the proximity to features of the environment that are considered positive for health (assets) and negative (hazards). The resulting number gives us a sense of how “unhealthy” the environment of the LSOA is. The higher the score, the less healthy the area is assessed to be.</p>
+<p>To download the Liverpool AHAH pack, please go over to:</p>
+<div class="admonition-important admonition">
+<p class="admonition-title">Important</p>
+<p>You will need a username and password to download the data. Create it for free at:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://data.cdrc.ac.uk/user/register">https://data.cdrc.ac.uk/user/register</a></p>
+</div></blockquote>
+</div>
+<blockquote>
+<div><p><a class="reference external" href="https://data.cdrc.ac.uk/system/files/Access_to_Healthy_Assets_and_Hazards_AHAH/Access_to_Healthy_Assets_and_Hazards_AHAH_E08000012.zip">Liverpool AHAH GeoData pack</a></p>
+</div></blockquote>
+<p>Once you have the <code class="docutils literal notranslate"><span class="pre">.zip</span></code> file on your computer, right-click and “Extract all”. The resulting folder will contain all you need. For the sake of the example, let’s assume you place the resulting folder in the same location as the notebook you are using. If that is the case, you can load up a <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> of Liverpool neighborhoods with:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span>
+<span class="n">lsoas</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;Access_to_Healthy_Assets_and_Hazards_AHAH_E08000012/data/Access_to_Healthy_Assets_and_Hazards_AHAH/Local_Authority_Districts/E08000012/shapefiles/E08000012.shp&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, this gets us the geometries of the LSOAs, but not the AHAH data. For that, we need to read in the data and join it to <code class="docutils literal notranslate"><span class="pre">ahah</span></code>. Assuming the same location of the data as above, we can do as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+<span class="n">ahah_data</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Access_to_Healthy_Assets_and_Hazards_AHAH_E08000012/data/Access_to_Healthy_Assets_and_Hazards_AHAH/Local_Authority_Districts/E0800001/tables/E08000012.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To read the data, and as follows to join it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ahah</span> <span class="o">=</span> <span class="n">lsoas</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ahah_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;lsoa11cd&quot;</span><span class="p">),</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;lsoa11cd&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now we’re ready to map using the <code class="docutils literal notranslate"><span class="pre">ahah</span></code> object.</p>
+</div>
+<div class="section" id="tasks">
+<h2>Tasks<a class="headerlink" href="#tasks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="task-i-ahah-choropleths">
+<h3>Task I: AHAH choropleths<a class="headerlink" href="#task-i-ahah-choropleths" title="Permalink to this headline">¶</a></h3>
+<p>Create the following choropleths and, where possible, complement them with a figure that displays the distribution of values using a KDE:</p>
 <ul class="simple">
-<li><p><a href="../slides/block_D_i.html"> <code class="docutils literal notranslate"><span class="pre">[HTML]</span></code> </a></p></li>
-<li><p><a href="../slides/pdf/block_D_i.pdf"> <code class="docutils literal notranslate"><span class="pre">[PDF]</span></code> </a></p></li>
+<li><p>Equal Interval with five classes</p></li>
+<li><p>Quantiles with five classes</p></li>
+<li><p>Fisher-Jenks with five classes</p></li>
+<li><p>Unique Values with the following setup:</p>
+<ul>
+<li><p>Split the LSOAs in two classes: above and below the average AHAH score</p></li>
+<li><p>Assign a qualitative label (<code class="docutils literal notranslate"><span class="pre">above</span></code> or <code class="docutils literal notranslate"><span class="pre">below</span></code>) to each LSOA</p></li>
+<li><p>Create a unique value map for the labels you have just created</p></li>
+</ul>
+</li>
 </ul>
 </div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="500"
-    height="300"
-    src="https://www.youtube.com/embed/TY4QWnnd4jY"
-    frameborder="0"
-    allowfullscreen
-></iframe>
-</div></div>
-</div>
-</div>
-<div class="section" id="geographical-containers-for-data">
-<h2>Geographical containers for data<a class="headerlink" href="#geographical-containers-for-data" title="Permalink to this headline">¶</a></h2>
-<p>This section tries to get you to think about the geographical containers we use to represent data in maps. By that, we mean the areas, delineations and aggregations we, implicitly or explicitly, incur in when mapping data. This is an important aspect, but Geographers have been aware of them for a long time, so we are standing on the shoulders of giants.</p>
-<div class="sidebar">
-<p class="sidebar-title">Slides</p>
-<p>The slides used in the clip are available at:</p>
+<div class="section" id="task-ii-zoom-maps">
+<h3>Task II: Zoom maps<a class="headerlink" href="#task-ii-zoom-maps" title="Permalink to this headline">¶</a></h3>
+<p>Generate the following maps:</p>
 <ul class="simple">
-<li><p><a href="../slides/block_D_ii.html"> <code class="docutils literal notranslate"><span class="pre">[HTML]</span></code> </a></p></li>
-<li><p><a href="../slides/pdf/block_D_ii.pdf"> <code class="docutils literal notranslate"><span class="pre">[PDF]</span></code> </a></p></li>
-</ul>
-</div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="500"
-    height="300"
-    src="https://www.youtube.com/embed/TY4QWnnd4jY"
-    frameborder="0"
-    allowfullscreen
-></iframe>
-</div></div>
-</div>
-</div>
-<div class="section" id="choropleths">
-<h2>Choropleths<a class="headerlink" href="#choropleths" title="Permalink to this headline">¶</a></h2>
-<p>Choropleths are thematic maps and, these days, are everywhere. From elections, to economic inequality, to the distribution of population density, there’s a choropleth for everyone. Although technically, it is easy to create choropleths, it is even easier to make <em>bad</em> choropleths. Fortunately, there are a few principles that we can follow to create effective choropleths. Get them all delivered right to the conform of your happy place in the following clip and slides!</p>
-<div class="sidebar">
-<p class="sidebar-title">Slides</p>
-<p>The slides used in the clip are available at:</p>
-<ul class="simple">
-<li><p><a href="../slides/block_D_iii.html"> <code class="docutils literal notranslate"><span class="pre">[HTML]</span></code> </a></p></li>
-<li><p><a href="../slides/pdf/block_D_iii.pdf"> <code class="docutils literal notranslate"><span class="pre">[PDF]</span></code> </a></p></li>
-</ul>
-</div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="500"
-    height="300"
-    src="https://www.youtube.com/embed/TY4QWnnd4jY"
-    frameborder="0"
-    allowfullscreen
-></iframe>
-</div></div>
-</div>
-<div class="section" id="further-readings">
-<h3>Further readings<a class="headerlink" href="#further-readings" title="Permalink to this headline">¶</a></h3>
-<p>The clip above contains a compressed version of the key principles behind successful choropleths. For a more comprehensive coverage, please refer to:</p>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<p>The chapter is available for free <a class="reference external" href="https://geographicdata.science/book/notebooks/05_choropleth.html">here</a></p>
-</div>
-<ul class="simple">
-<li><p>Choropleths chapter on the GDS book (in progress) <a class="bibtex reference internal" href="../bibliography.html#reyabwolf" id="id1">[RABWng]</a>.</p></li>
-<li><p>Cynthia Brewer’s “Designing Better Maps” <a class="bibtex reference internal" href="../bibliography.html#brewer2015designing" id="id2">[Bre15]</a> covers several core aspects of building effective geovisualisations.</p></li>
+<li><p>Zoom of the <a class="reference external" href="https://osm.org/go/euf9EJpQ-?m=">city centre of Liverpool</a> with he same color for every LSO</p></li>
+<li><p>Quantile map of AHAH for all of Liverpool, zoomed into <a class="reference external" href="https://osm.org/go/euf9TZJ?m=">north of the city centre</a></p></li>
+<li><p>Zoom to <a class="reference external" href="https://osm.org/go/euf9TZJ?m=">north of the city centre</a> with a quantile map of AHAH for the section only</p></li>
 </ul>
 </div>
 </div>
@@ -415,8 +392,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../bC/diy_C.html" title="previous page">Do-It-Yourself</a>
-    <a class='right-next' id="next-link" href="lab_D.html" title="next page">Hands-on</a>
+    <a class='left-prev' id="prev-link" href="lab_D.html" title="previous page">Hands-on</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
