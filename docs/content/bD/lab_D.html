@@ -2,10 +2,9 @@
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hands-on &#8212; A course on Geographic Data Science</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
@@ -16,8 +15,6 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -27,12 +24,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -262,7 +257,7 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> On this page
+            <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -351,7 +346,7 @@
 <p>Before all this mapping fun, let us get the importing of libraries and data loading out of the way:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="kn">import</span> <span class="nn">geopandas</span>
 <span class="kn">from</span> <span class="nn">pysal.lib</span> <span class="kn">import</span> <span class="n">examples</span>
@@ -375,12 +370,12 @@
 <p>We can get a short explanation of the dataset through the <code class="docutils literal notranslate"><span class="pre">explain</span></code> method:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">examples</span><span class="o">.</span><span class="n">explain</span><span class="p">(</span><span class="s2">&quot;mexico&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">examples</span><span class="o">.</span><span class="n">explain</span><span class="p">(</span><span class="s2">&quot;mexico&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>mexico
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mexico
 ======
 
 Decennial per capita incomes of Mexican states 1940-2000
@@ -391,7 +386,6 @@ Decennial per capita incomes of Mexican states 1940-2000
 * mexicojoin.shp: Polygon shapefile. (n=32)
 
 Data used in Rey, S.J. and M.L. Sastre Gutierrez. (2010) &quot;Interregional inequality dynamics in Mexico.&quot; Spatial Economic Analysis, 5: 277-298.
-
 </pre></div>
 </div>
 </div>
@@ -399,7 +393,7 @@ Data used in Rey, S.J. and M.L. Sastre Gutierrez. (2010) &quot;Interregional ine
 <p>Now, to download it from its remote location, we can use <code class="docutils literal notranslate"><span class="pre">load_example</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mx</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">load_example</span><span class="p">(</span><span class="s2">&quot;mexico&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mx</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">load_example</span><span class="p">(</span><span class="s2">&quot;mexico&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -407,12 +401,12 @@ Data used in Rey, S.J. and M.L. Sastre Gutierrez. (2010) &quot;Interregional ine
 <p>This will download the data and place it on your home directory. We can inspect the directory where it is stored:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mx</span><span class="o">.</span><span class="n">get_file_list</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mx</span><span class="o">.</span><span class="n">get_file_list</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;/opt/conda/lib/python3.7/site-packages/libpysal/examples/mexico/mexicojoin.shp&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;/opt/conda/lib/python3.7/site-packages/libpysal/examples/mexico/mexicojoin.shp&#39;,
  &#39;/opt/conda/lib/python3.7/site-packages/libpysal/examples/mexico/mexico.csv&#39;,
  &#39;/opt/conda/lib/python3.7/site-packages/libpysal/examples/mexico/README.md&#39;,
  &#39;/opt/conda/lib/python3.7/site-packages/libpysal/examples/mexico/mexicojoin.dbf&#39;,
@@ -426,7 +420,7 @@ Data used in Rey, S.J. and M.L. Sastre Gutierrez. (2010) &quot;Interregional ine
 <p>For this section, we will read the ESRI shapefile, which we can do by pointing <code class="docutils literal notranslate"><span class="pre">geopandas.read_file</span></code> to the <code class="docutils literal notranslate"><span class="pre">.shp</span></code> file. The utility function <code class="docutils literal notranslate"><span class="pre">get_path</span></code> makes it a bit easier for us:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">examples</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s2">&quot;mexicojoin.shp&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">examples</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s2">&quot;mexicojoin.shp&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -434,12 +428,12 @@ Data used in Rey, S.J. and M.L. Sastre Gutierrez. (2010) &quot;Interregional ine
 <p>And, from now on, <code class="docutils literal notranslate"><span class="pre">db</span></code> is a table as we are used to so far in this course:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
 RangeIndex: 32 entries, 0 to 31
 Data columns (total 35 columns):
  #   Column      Non-Null Count  Dtype   
@@ -488,7 +482,7 @@ memory usage: 8.9+ KB
 <p>The data however does not include a CRS:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">crs</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">crs</span>
 </pre></div>
 </div>
 </div>
@@ -496,13 +490,13 @@ memory usage: 8.9+ KB
 <p>To be able to add baselayers, we need to specify one. Looking at the details and the original reference, we find the data are expressed in longitude and latitude, so the CRS we can use is <code class="docutils literal notranslate"><span class="pre">EPSG:4326</span></code>. Let’s add it to <code class="docutils literal notranslate"><span class="pre">db</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">crs</span> <span class="o">=</span> <span class="s2">&quot;EPSG:4326&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">crs</span> <span class="o">=</span> <span class="s2">&quot;EPSG:4326&quot;</span>
 <span class="n">db</span><span class="o">.</span><span class="n">crs</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Geographic 2D CRS: EPSG:4326&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Geographic 2D CRS: EPSG:4326&gt;
 Name: WGS 84
 Axis Info [ellipsoidal]:
 - Lat[north]: Geodetic latitude (degree)
@@ -527,7 +521,7 @@ Datum: World Geodetic System 1984
 <p>In Python, creating categorical choropleths is possible with one line of code. To demonstrate this, we can plot the Mexican states and the region each belongs to based on the Mexican Statistics Institute (coded in our table as the <code class="docutils literal notranslate"><span class="pre">INEGI</span></code> variable):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;INEGI&quot;</span><span class="p">,</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;INEGI&quot;</span><span class="p">,</span> 
         <span class="n">categorical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
         <span class="n">legend</span><span class="o">=</span><span class="kc">True</span>
        <span class="p">)</span>
@@ -535,7 +529,7 @@ Datum: World Geodetic System 1984
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
 <img alt="../../_images/lab_D_21_1.png" src="../../_images/lab_D_21_1.png" />
@@ -555,7 +549,7 @@ Datum: World Geodetic System 1984
 <p>Creating the choropleth is relatively straightforward in Python. For example, to create an equal interval on the GDP per capita in 2000 (<code class="docutils literal notranslate"><span class="pre">PCGDP2000</span></code>), we can run a similar command as above:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">,</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">,</span> 
         <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;equal_interval&quot;</span><span class="p">,</span> 
         <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
         <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGn&quot;</span><span class="p">,</span>
@@ -565,7 +559,7 @@ Datum: World Geodetic System 1984
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
 <img alt="../../_images/lab_D_25_1.png" src="../../_images/lab_D_25_1.png" />
@@ -580,13 +574,13 @@ Datum: World Geodetic System 1984
 <p>Now, let’s dig a bit deeper into the classification, and how exactly we are encoding values into colors. Each segment, also called bins or buckets, can also be calculated using the library <code class="docutils literal notranslate"><span class="pre">mapclassify</span></code> from the <code class="docutils literal notranslate"><span class="pre">PySAL</span></code> family:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">classi</span> <span class="o">=</span> <span class="n">mapclassify</span><span class="o">.</span><span class="n">EqualInterval</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">classi</span> <span class="o">=</span> <span class="n">mapclassify</span><span class="o">.</span><span class="n">EqualInterval</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 <span class="n">classi</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>EqualInterval               
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EqualInterval               
 
       Interval         Count
 ----------------------------
@@ -605,12 +599,12 @@ Datum: World Geodetic System 1984
 <p>Once we have classified the variable, we can check the actual break points where values stop being in one class and become part of the next one:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">classi</span><span class="o">.</span><span class="n">bins</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">classi</span><span class="o">.</span><span class="n">bins</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([15207.57142857, 21731.14285714, 28254.71428571, 34778.28571429,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([15207.57142857, 21731.14285714, 28254.71428571, 34778.28571429,
        41301.85714286, 47825.42857143, 54349.        ])
 </pre></div>
 </div>
@@ -620,7 +614,7 @@ Datum: World Geodetic System 1984
 <p>The key characteristic in equal interval maps is that the bins are allocated based on the magnitude on the values, irrespective of how many obervations fall into each bin as a result of it. In highly skewed distributions, this can result in bins with a large number of observations, while others only have a handful of outliers. This can be seen in the summary table printed out above, where ten states are in the first group, but only one of them belong to the one with highest values. This can also be represented visually with a kernel density plot where the break points are included as well:</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the figure</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the figure</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Plot the kernel density estimation (KDE)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">],</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -646,7 +640,7 @@ Datum: World Geodetic System 1984
 <p>The code required to create the choropleth mirrors that needed above for equal intervals:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">,</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">,</span> 
         <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;quantiles&quot;</span><span class="p">,</span> 
         <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
         <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGn&quot;</span><span class="p">,</span>
@@ -656,7 +650,7 @@ Datum: World Geodetic System 1984
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
 <img alt="../../_images/lab_D_35_1.png" src="../../_images/lab_D_35_1.png" />
@@ -666,13 +660,13 @@ Datum: World Geodetic System 1984
 <p>To get further insight into the quantile classification, let’s calculate it with <code class="docutils literal notranslate"><span class="pre">mapclassify</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">classi</span> <span class="o">=</span> <span class="n">mapclassify</span><span class="o">.</span><span class="n">Quantiles</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">classi</span> <span class="o">=</span> <span class="n">mapclassify</span><span class="o">.</span><span class="n">Quantiles</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 <span class="n">classi</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Quantiles                   
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Quantiles                   
 
       Interval         Count
 ----------------------------
@@ -690,12 +684,12 @@ Datum: World Geodetic System 1984
 <p>And, similarly, the bins can also be inspected:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">classi</span><span class="o">.</span><span class="n">bins</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">classi</span><span class="o">.</span><span class="n">bins</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([11752.        , 13215.42857143, 15996.28571429, 20447.14285714,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([11752.        , 13215.42857143, 15996.28571429, 20447.14285714,
        26109.57142857, 30357.85714286, 54349.        ])
 </pre></div>
 </div>
@@ -704,7 +698,7 @@ Datum: World Geodetic System 1984
 <p>The visualization of the distribution can be generated in a similar way as well:</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the figure</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the figure</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Plot the kernel density estimation (KDE)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">],</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -728,7 +722,7 @@ Datum: World Geodetic System 1984
 <p>Equal interval and quantiles are only two examples of very many classification schemes to encode values into colors. Although not all of them are integrated into <code class="docutils literal notranslate"><span class="pre">geopandas</span></code>, <code class="docutils literal notranslate"><span class="pre">PySAL</span></code> includes several other classification schemes (for a detailed list, have a look at this <a class="reference external" href="https://pysal.org/mapclassify/notebooks/01_maximum_breaks.html">link</a>). As an example of a more sophisticated one, let us create a Fisher-Jenks choropleth:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">,</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">,</span> 
         <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;fisher_jenks&quot;</span><span class="p">,</span> 
         <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
         <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGn&quot;</span><span class="p">,</span>
@@ -738,7 +732,7 @@ Datum: World Geodetic System 1984
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
 <img alt="../../_images/lab_D_45_1.png" src="../../_images/lab_D_45_1.png" />
@@ -747,13 +741,13 @@ Datum: World Geodetic System 1984
 <p>The same classification can be obtained with a similar approach as before:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">classi</span> <span class="o">=</span> <span class="n">mapclassify</span><span class="o">.</span><span class="n">FisherJenks</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">classi</span> <span class="o">=</span> <span class="n">mapclassify</span><span class="o">.</span><span class="n">FisherJenks</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 <span class="n">classi</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>FisherJenks                 
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FisherJenks                 
 
       Interval         Count
 ----------------------------
@@ -771,12 +765,12 @@ Datum: World Geodetic System 1984
 <p>This methodology aims at minimizing the variance <em>within</em> each bin while maximizing that <em>between</em> different classes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">classi</span><span class="o">.</span><span class="n">bins</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">classi</span><span class="o">.</span><span class="n">bins</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([13360., 18170., 24068., 28460., 33442., 38672., 54349.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([13360., 18170., 24068., 28460., 33442., 38672., 54349.])
 </pre></div>
 </div>
 </div>
@@ -784,7 +778,7 @@ Datum: World Geodetic System 1984
 <p>Graphically, we can see how the break points are not equally spaced but are adapting to obtain an optimal grouping of observations:</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the figure</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the figure</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Plot the kernel density estimation (KDE)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">],</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -813,7 +807,7 @@ Datum: World Geodetic System 1984
 <p>As an example, let us consider the quantile map produced above:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">,</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">,</span> 
         <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;quantiles&quot;</span><span class="p">,</span> 
         <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
         <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGn&quot;</span><span class="p">,</span>
@@ -823,7 +817,7 @@ Datum: World Geodetic System 1984
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
 <img alt="../../_images/lab_D_56_1.png" src="../../_images/lab_D_56_1.png" />
@@ -832,7 +826,7 @@ Datum: World Geodetic System 1984
 <p>If we want to focus around the capital, Mexico DF, the first step involves realising that such area of the map (the little dark green polygon in the SE centre of the map), falls within the coordinates of -102W/-97W, and 18N/21N, roughly speaking. To display a zoom map into that area, we can do as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup the figure</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup the figure</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Draw the choropleth</span>
 <span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">,</span> 
@@ -849,7 +843,7 @@ Datum: World Geodetic System 1984
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(-102.0, -97.0)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-102.0, -97.0)
 </pre></div>
 </div>
 <img alt="../../_images/lab_D_58_1.png" src="../../_images/lab_D_58_1.png" />
@@ -864,13 +858,13 @@ Datum: World Geodetic System 1984
 <p>For these cases, it is computationally more efficient to select the data we want to plot first, and then display them through <code class="docutils literal notranslate"><span class="pre">plot</span></code>. For this, we can rely on the <code class="docutils literal notranslate"><span class="pre">cx</span></code> operator:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">subset</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">cx</span><span class="p">[</span><span class="o">-</span><span class="mi">102</span><span class="p">:</span><span class="o">-</span><span class="mi">97</span><span class="p">,</span> <span class="mi">18</span><span class="p">:</span><span class="mi">21</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subset</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">cx</span><span class="p">[</span><span class="o">-</span><span class="mi">102</span><span class="p">:</span><span class="o">-</span><span class="mi">97</span><span class="p">,</span> <span class="mi">18</span><span class="p">:</span><span class="mi">21</span><span class="p">]</span>
 <span class="n">subset</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
 <img alt="../../_images/lab_D_60_1.png" src="../../_images/lab_D_60_1.png" />
@@ -881,7 +875,7 @@ Datum: World Geodetic System 1984
 <p>Since the result is a <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> itself, we can create a choropleth that is based only on the data in the subset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">subset</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">,</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subset</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">,</span> 
             <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;quantiles&quot;</span><span class="p">,</span> 
             <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
             <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGn&quot;</span><span class="p">,</span>
@@ -891,7 +885,7 @@ Datum: World Geodetic System 1984
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
 <img alt="../../_images/lab_D_62_1.png" src="../../_images/lab_D_62_1.png" />
