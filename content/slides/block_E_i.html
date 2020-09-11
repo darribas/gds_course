@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title></title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/journal.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+        <!-- BODY -->
+		<div class="reveal">
+			<div class="slides">
+
+                                 
+                <section id="section" class="level1">
+                <h1></h1>
+                <section id="geographic-data-science" class="level2">
+                <h2>Geographic Data Science</h2>
+                <CENTER>
+                Space, formally
+                </CENTER>
+                <CENTER>
+                <a href="http://darribas.org">Dani Arribas-Bel</a>
+                </CENTER>
+                </section>
+                </section>
+                <section id="section-1" class="level1">
+                <h1></h1>
+                <section id="space-formally" class="level2">
+                <h2>Space, formally</h2>
+                </section>
+                <section id="section-2" class="level2">
+                <h2></h2>
+                <p>For a statistical method to be <strong>explicitly spatial</strong>, it needs to contain some representation of the geography, or <strong>spatial context</strong></p>
+                <p><span class="fragment"> One of the most common ways is through <strong>Spatial Weights Matrices</strong></p>
+                </section>
+                <section id="section-3" class="level2">
+                <h2></h2>
+                <ul>
+                <li><strong>(Geo)Visualization</strong>: translating numbers into a (visual) language that the human brain <em>“speaks better”</em></li>
+                <li><strong>Spatial Weights Matrices</strong>: translating geography into a (numerical) language that a computer <em>“speaks better”</em>.</li>
+                </ul>
+                </section>
+                <section id="section-4" class="level2">
+                <h2></h2>
+                <p>Core element in several spatial analysis techniques:</p>
+                <ul>
+                <li>Spatial autocorrelation</li>
+                <li>Spatial clustering / geodemographics</li>
+                <li>Spatial regression</li>
+                </ul>
+                </section>
+                </section>
+                <section id="section-5" class="level1">
+                <h1></h1>
+                <section id="w-as-a-formal-representation-of-space" class="level2">
+                <h2><span class="math inline"><em>W</em></span> as a formal representation of space</h2>
+                </section>
+                <section id="w" class="level2">
+                <h2><span class="math inline"><em>W</em></span></h2>
+                <center>
+                <em><span class="math inline"><em>N</em></span> x <span class="math inline"><em>N</em></span> positive matrix <span class="fragment"> that contains <strong>spatial relations</strong> <span class="fragment"> between all the observations in the sample</em>
+                </center>
+                <p class="fragment">
+                <script type="math/tex; mode=display">
+                w_{ij} = \left\{ \begin{array}{rl}
+                x > 0 &\mbox{ if $i$ and $j$ are neighbors} \\
+                0 &\mbox{ otherwise}
+                \end{array} \right\}
+                </script>
+                <span class="math inline"><em>w</em><sub><em>i</em><em>i</em></sub> = 0</span> by convention
+                </p>
+                <p><span class="fragment"> <em>…What is a <strong>neighbor</strong>???</em></p>
+                </section>
+                </section>
+                <section id="section-6" class="level1">
+                <h1></h1>
+                <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+                </section>
+			</div>
+		</div>
+
+        <!-- DEPENDENCIES -->
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                controlsTutorial: false,
+                history: false,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+        <!-- END of BODY -->
+	</body>
+</html>
