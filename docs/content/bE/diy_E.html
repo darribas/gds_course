@@ -2,10 +2,9 @@
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>&lt;no title&gt; &#8212; A course on Geographic Data Science</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
@@ -16,8 +15,6 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -27,12 +24,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -42,7 +37,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="lab_E.html" />
+    <link rel="prev" title="Hands-on" href="lab_E.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -194,6 +189,11 @@
    Concepts
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab_E.html">
+   Hands-on
+  </a>
+ </li>
 </ul>
 
 </nav>
@@ -273,7 +273,7 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> On this page
+            <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
             
@@ -285,7 +285,89 @@
         
               <div>
                 
-  
+  <hr class="docutils" />
+<p><strong>[Optional exercise]</strong></p>
+<p>Create a similar map for the rook neighbors of polygon <code class="docutils literal notranslate"><span class="pre">E01006580</span></code>.</p>
+<p>How would it differ if the spatial weights were created based on the queen criterion?</p>
+<hr class="docutils" />
+<hr class="docutils" />
+<p><strong>[Optional exercise]</strong></p>
+<p>Explore the help for functions <code class="docutils literal notranslate"><span class="pre">weights.DistanceBand.from_array</span></code> and try to use them to replicate <code class="docutils literal notranslate"><span class="pre">w_dist1kmB</span></code> and <code class="docutils literal notranslate"><span class="pre">w_dist1kmC</span></code>.</p>
+<hr class="docutils" />
+<hr class="docutils" />
+<p><strong>[Optional extension. Lecture figure]</strong></p>
+<p>Below is how to build a visualization for distance-based weights that displays the polygons, highlighting the focus and its neighbors, and then overlays the centroids and the buffer used to decide whether a polygon is a neighbor or not. Since this is distance-based weights, there needs to be a way to establish distance between two polygons and, in this case, the distance between their centroids is used.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="c1"># Plot base layer of polygons</span>
+<span class="n">imd</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="c1"># Select focal polygon</span>
+<span class="c1"># NOTE we pass both the area code and the column name</span>
+<span class="c1">#      (`geometry`) within brackets!!!</span>
+<span class="n">focus</span> <span class="o">=</span> <span class="n">imd</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;E01006690&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]]</span>
+<span class="c1"># Plot focal polygon</span>
+<span class="n">focus</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="c1"># Plot neighbors</span>
+<span class="n">neis</span> <span class="o">=</span> <span class="n">imd</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">w_dist1kmC</span><span class="p">[</span><span class="s1">&#39;E01006690&#39;</span><span class="p">],</span> <span class="p">:]</span>
+<span class="n">neis</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;lime&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># Plot 1km buffer</span>
+<span class="n">buf</span> <span class="o">=</span> <span class="n">focus</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">buf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="c1"># Plot centroids of neighbor</span>
+<span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="n">pt</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">pt</span> <span class="ow">in</span> <span class="n">imd</span><span class="o">.</span><span class="n">centroid</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">pts</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#00d8ea&#39;</span><span class="p">,</span> 
+        <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="c1"># Title</span>
+<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Neighbors within 1km of `E01006690`&quot;</span><span class="p">)</span>
+<span class="c1"># Style, zoom and display on screen</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">388000</span><span class="p">,</span> <span class="mi">393500</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">336000</span><span class="p">,</span> <span class="mi">339500</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/diy_E_4_0.png" src="../../_images/diy_E_4_0.png" />
+</div>
+</div>
+<hr class="docutils" />
+<hr class="docutils" />
+<p><strong>[Optional exercise]</strong></p>
+<p>For block weights, create a similar map to that of queen neighbors of polygon <code class="docutils literal notranslate"><span class="pre">E01006690</span></code>.</p>
+<hr class="docutils" />
+<hr class="docutils" />
+<p><strong>[Optional exercise]</strong></p>
+<p>Explore the spatial lag of <code class="docutils literal notranslate"><span class="pre">w_queen_score</span></code> by constructing a density/histogram plot similar to those created in Lab 2. Compare these with one for <code class="docutils literal notranslate"><span class="pre">imd_score</span></code>. What differences can you tell?</p>
+<!--
+sns.distplot(imd['imd_score'])
+
+sns.distplot(imd['w_queen_score'])
+-->
+<hr class="docutils" />
+<hr class="docutils" />
+<p><strong>[Optional exercise]</strong></p>
+<p>Create a standardized Moran Plot for each of the components of the IMD:</p>
+<ul class="simple">
+<li><p>Crime</p></li>
+<li><p>Education</p></li>
+<li><p>Employment</p></li>
+<li><p>Health</p></li>
+<li><p>Housing</p></li>
+<li><p>Income</p></li>
+<li><p>Living environment</p></li>
+</ul>
+<p><strong>Bonus</strong> if you can generate all the plots with a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
+<p><strong>Bonus-II</strong> if you explore the functionality of Seaborn’s <code class="docutils literal notranslate"><span class="pre">jointplot</span></code> (<a class="reference external" href="http://stanford.edu/~mwaskom/software/seaborn/tutorial/regression.html#plotting-a-regression-in-other-contexts">link</a> and <a class="reference external" href="http://stanford.edu/~mwaskom/software/seaborn/generated/seaborn.jointplot.html#seaborn.jointplot">link</a>) to create a richer Moran plot.</p>
+<!--
+w_queen.transform = 'R'
+for col in ['crime', 'education', 'employment', 'health', 'housing', 'income', 'living_env']:
+    stdd = (imd[col] - imd[col].mean()) / imd[col].std()
+    sl = pd.Series(ps.lag_spatial(w_queen, stdd), index=stdd.index)
+    sns.jointplot(x=stdd, y=sl, kind="reg")
+-->
+
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -314,7 +396,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="lab_E.html" title="previous page">&lt;no title&gt;</a>
+    <a class='left-prev' id="prev-link" href="lab_E.html" title="previous page">Hands-on</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
