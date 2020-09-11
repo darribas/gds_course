@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title></title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/journal.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+        <!-- BODY -->
+		<div class="reveal">
+			<div class="slides">
+
+                                 
+                <section id="section" class="level1">
+                <h1></h1>
+                <section id="geographic-data-science" class="level2">
+                <h2>Geographic Data Science</h2>
+                <CENTER>
+                Types of <span class="math inline"><em>W</em></span>
+                </CENTER>
+                <CENTER>
+                <a href="http://darribas.org">Dani Arribas-Bel</a>
+                </CENTER>
+                </section>
+                </section>
+                <section id="section-1" class="level1">
+                <h1></h1>
+                <section id="what-is-a-neighbor" class="level2">
+                <h2><em>What is a neighbor?</em></h2>
+                <p>A neighbor is “somebody” who is:</p>
+                <ul>
+                <li>Next door <span class="fragment"> <span class="math inline">→</span> <strong>Contiguity</strong>-based <span class="math inline"><em>W</em></span>s</li>
+                <li>Close <span class="fragment"> <span class="math inline">→</span> <strong>Distance</strong>-based <span class="math inline"><em>W</em></span>s</li>
+                <li>In the same “place” as us <span class="fragment"> <span class="math inline">→</span> <strong>Block</strong> weights</li>
+                <li>…</li>
+                </ul>
+                <p><span class="fragment"> See <a href="http://www.amazon.com/Modern-Spatial-Econometrics-Practice-GeoDaSpace/dp/0986342106/ref=sr_1_1?ie=UTF8&amp;qid=1421531753&amp;sr=8-1&amp;keywords=anselin+spatial+econometrics">Anselin &amp; Rey (2014)</a> for an in-detail discussion and more types of <span class="math inline"><em>W</em></span>. </span></p>
+                </section>
+                <section id="contiguity-based-weights" class="level2">
+                <h2>Contiguity-based weights</h2>
+                <p><strong>Sharing boundaries</strong> to any extent</p>
+                <ul>
+                <li>Rook</li>
+                <li>Queen</li>
+                <li>…</li>
+                </ul>
+                </section>
+                <section id="section-2" class="level2" data-background="../figs/l05_queen.png">
+                <h2 data-background="../figs/l05_queen.png"></h2>
+                </section>
+                <section id="distance-based-weights" class="level2">
+                <h2>Distance-based weights</h2>
+                <p>Weight is (inversely) proportional to distance between observations</p>
+                <ul>
+                <li>Inverse distance (threshold)</li>
+                <li>KNN (fixed number of neighbors)</li>
+                <li>…</li>
+                </ul>
+                </section>
+                <section id="section-3" class="level2" data-background="..//figs/l05_dist.png">
+                <h2 data-background="..//figs/l05_dist.png"></h2>
+                </section>
+                <section id="section-4" class="level2">
+                <h2></h2>
+                <center>
+                <img src="../figs/l05_queen.png" alt=""
+                style="width:400px;height:400px;"/> <img src="../figs/l05_dist.png" alt=""
+                style="width:400px;height:400px;"/>
+                </center>
+                </section>
+                <section id="block-weights" class="level2">
+                <h2>Block weights</h2>
+                <p>Weights are assigned based on discretionary rules loosely related to geography</p>
+                <p>For example:</p>
+                <ul>
+                <li>LSOAs into MSOAs</li>
+                <li>Post-codes within city boundaries</li>
+                <li>Counties within states</li>
+                <li>…</li>
+                </ul>
+                </section>
+                <section id="section-5" class="level2" data-background="../figs/l05_block.png">
+                <h2 data-background="../figs/l05_block.png"></h2>
+                </section>
+                <section id="how-much-of-a-neighbor" class="level2">
+                <h2><em>How much of a neighbor?</em></h2>
+                <p>No neighbors receive zero weight: <span class="math inline"><em>w</em><sub><em>i</em><em>j</em></sub> = 0</span></p>
+                <p>Neighbors, it depends, <span class="math inline"><em>w</em><sub><em>i</em><em>j</em></sub></span> can be:</p>
+                <ul>
+                <li><p>One <span class="math inline"><em>w</em><sub><em>i</em><em>j</em></sub> = 1</span> <span class="math inline">→</span> <span class="hlg">Binary</span></p></li>
+                <li><p>Some proportion (<span class="math inline">0 &lt; <em>w</em><sub><em>i</em><em>j</em></sub> &lt; 1</span>, <span class="hlg">continuous</span>) which can be a function of:</p>
+                <ul>
+                <li>Distance</li>
+                <li>Strength of interaction (e.g. commuting flows, trade, etc.)</li>
+                <li>…</li>
+                </ul></li>
+                </ul>
+                </section>
+                <section id="choice-of-w" class="level2">
+                <h2>Choice of <span class="math inline"><em>W</em></span></h2>
+                <p>Should be based on and reflect the <strong>underlying channels of interaction</strong> for the question at hand.</p>
+                <p>Examples:</p>
+                <ul>
+                <li>Processes propagated by inmediate contact (e.g. disease contagion) <span class="math inline">→</span> Contiguity weights</li>
+                <li>Accessibility <span class="math inline">→</span> Distance weights</li>
+                <li>Effects of county differences in laws <span class="math inline">→</span> Block weights</li>
+                </ul>
+                </section>
+                <section id="standardization" class="level2">
+                <h2>Standardization</h2>
+                <p>In some applications (e.g. spatial autocorrelation) it is common to <em>standardize</em> <span class="math inline"><em>W</em></span></p>
+                <p>The most widely used standardization is <strong>row-based</strong>: divide every element by the sum of the row:</p>
+                <p>
+                <script type="math/tex; mode=display">
+                \bar{w_{ij}} = \dfrac{w_{ij}}{w_{i\cdotp}}
+                </script>
+                </p>
+                <p>where <span class="math inline"><em>w</em><sub><em>i</em>·</sub></span> is the sum of a row.</p>
+                </section>
+                </section>
+                <section id="section-6" class="level1">
+                <h1></h1>
+                <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+                </section>
+			</div>
+		</div>
+
+        <!-- DEPENDENCIES -->
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                controlsTutorial: false,
+                history: false,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+        <!-- END of BODY -->
+	</body>
+</html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title></title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/journal.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+        <!-- BODY -->
+		<div class="reveal">
+			<div class="slides">
+
+                                 
+                <section id="section" class="level1">
+                <h1></h1>
+                <section id="geographic-data-science" class="level2">
+                <h2>Geographic Data Science</h2>
+                <CENTER>
+                The spatial lag
+                </CENTER>
+                <CENTER>
+                <a href="http://darribas.org">Dani Arribas-Bel</a>
+                </CENTER>
+                </section>
+                </section>
+                <section id="section-1" class="level1">
+                <h1></h1>
+                <section id="the-spatial-lag" class="level2">
+                <h2>The spatial lag</h2>
+                <p>Product of a spatial weights matrix <span class="math inline"><em>W</em></span> and a given variably <span class="math inline"><em>Y</em></span></p>
+                <p class="fragment">
+                <span class="math display"><em>Y</em><sub><em>s</em><em>l</em></sub> = <em>W</em><em>Y</em></span> <span class="math display"><em>y</em><sub><em>s</em><em>l</em> − <em>i</em></sub> = ∑<sub><em>j</em></sub><em>w</em><sub><em>i</em><em>j</em></sub><em>y</em><sub><em>j</em></sub></span>
+                </p>
+                </section>
+                <section id="section-2" class="level2">
+                <h2></h2>
+                <ul>
+                <li>Measure that captures the behaviour of a variable in the neighborhood of a given observation <span class="math inline"><em>i</em></span>.</li>
+                <li>If <span class="math inline"><em>W</em></span> is <strong>standardized</strong>, the spatial lag is the <em>average value of the variable in the neighborhood</em></li>
+                </ul>
+                </section>
+                <section id="section-3" class="level2">
+                <h2></h2>
+                <ul>
+                <li><p>Common way to introduce space formally in a statistical framework</p></li>
+                <li><p>Heavily used in both ESDA and spatial regression to delineate neighborhoods. Examples:</p>
+                <ul>
+                <li>Moran’s I</li>
+                <li>LISAs</li>
+                <li>Spatial models (lag, error…)</li>
+                </ul></li>
+                </ul>
+                </section>
+                </section>
+                <section id="section-4" class="level1">
+                <h1></h1>
+                <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+                </section>
+			</div>
+		</div>
+
+        <!-- DEPENDENCIES -->
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                controlsTutorial: false,
+                history: false,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+        <!-- END of BODY -->
+	</body>
+</html>
