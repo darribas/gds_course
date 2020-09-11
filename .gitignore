@@ -2,6 +2,10 @@
 */.ipynb_checkpoints/
 *.swp
 */*.swp
+*/*.gal
+*/*/*.gal
+*/*.gwt
+*/*/*.gwt
 *~
 */*~
 *.*~
