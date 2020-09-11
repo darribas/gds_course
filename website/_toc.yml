@@ -30,3 +30,8 @@
     - file: content/bD/lab_D
     - file: content/bD/diy_D
 
+- chapter: E - Spatial Weights
+  sections:
+    - file: content/bE/concepts_E
+    - file: content/bE/lab_E
+    - file: content/bE/diy_E
