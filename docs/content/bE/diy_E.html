@@ -2,10 +2,11 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>&lt;no title&gt; &#8212; A course on Geographic Data Science</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do-It-Yourself &#8212; A course on Geographic Data Science</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -15,6 +16,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -24,10 +27,12 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -183,7 +188,7 @@
   E - Spatial Weights
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="concepts_E.html">
    Concepts
@@ -192,6 +197,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="lab_E.html">
    Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Do-It-Yourself
   </a>
  </li>
 </ul>
@@ -273,10 +283,27 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i> On this page
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-i-nyc-tracts">
+   Task I: NYC tracts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-ii-japanese-cities">
+   Task II: Japanese cities
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-iii-spatial-lag">
+   Task III: Spatial Lag
+  </a>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -285,88 +312,329 @@
         
               <div>
                 
-  <hr class="docutils" />
-<p><strong>[Optional exercise]</strong></p>
-<p>Create a similar map for the rook neighbors of polygon <code class="docutils literal notranslate"><span class="pre">E01006580</span></code>.</p>
-<p>How would it differ if the spatial weights were created based on the queen criterion?</p>
-<hr class="docutils" />
-<hr class="docutils" />
-<p><strong>[Optional exercise]</strong></p>
-<p>Explore the help for functions <code class="docutils literal notranslate"><span class="pre">weights.DistanceBand.from_array</span></code> and try to use them to replicate <code class="docutils literal notranslate"><span class="pre">w_dist1kmB</span></code> and <code class="docutils literal notranslate"><span class="pre">w_dist1kmC</span></code>.</p>
-<hr class="docutils" />
-<hr class="docutils" />
-<p><strong>[Optional extension. Lecture figure]</strong></p>
-<p>Below is how to build a visualization for distance-based weights that displays the polygons, highlighting the focus and its neighbors, and then overlays the centroids and the buffer used to decide whether a polygon is a neighbor or not. Since this is distance-based weights, there needs to be a way to establish distance between two polygons and, in this case, the distance between their centroids is used.</p>
+  <div class="section" id="do-it-yourself">
+<h1>Do-It-Yourself<a class="headerlink" href="#do-it-yourself" title="Permalink to this headline">¶</a></h1>
+<p>In this section, we are going to try</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure</span>
-<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="c1"># Plot base layer of polygons</span>
-<span class="n">imd</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="c1"># Select focal polygon</span>
-<span class="c1"># NOTE we pass both the area code and the column name</span>
-<span class="c1">#      (`geometry`) within brackets!!!</span>
-<span class="n">focus</span> <span class="o">=</span> <span class="n">imd</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;E01006690&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]]</span>
-<span class="c1"># Plot focal polygon</span>
-<span class="n">focus</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="c1"># Plot neighbors</span>
-<span class="n">neis</span> <span class="o">=</span> <span class="n">imd</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">w_dist1kmC</span><span class="p">[</span><span class="s1">&#39;E01006690&#39;</span><span class="p">],</span> <span class="p">:]</span>
-<span class="n">neis</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;lime&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="c1"># Plot 1km buffer</span>
-<span class="n">buf</span> <span class="o">=</span> <span class="n">focus</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">buf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="c1"># Plot centroids of neighbor</span>
-<span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="n">pt</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">pt</span> <span class="ow">in</span> <span class="n">imd</span><span class="o">.</span><span class="n">centroid</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">pts</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#00d8ea&#39;</span><span class="p">,</span> 
-        <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="c1"># Title</span>
-<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Neighbors within 1km of `E01006690`&quot;</span><span class="p">)</span>
-<span class="c1"># Style, zoom and display on screen</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">388000</span><span class="p">,</span> <span class="mi">393500</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">336000</span><span class="p">,</span> <span class="mi">339500</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span>
+<span class="kn">import</span> <span class="nn">contextily</span>
+<span class="kn">from</span> <span class="nn">pysal.lib</span> <span class="kn">import</span> <span class="n">examples</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="task-i-nyc-tracts">
+<h2>Task I: NYC tracts<a class="headerlink" href="#task-i-nyc-tracts" title="Permalink to this headline">¶</a></h2>
+<p>In this task we will explore contiguity weights.To do it, we will load Census tracts for New York City. Census tracts are the geography the US Census Burearu uses for areas around 4,000 people. We will use a dataset prepared as part of the <a class="reference external" href="https://pysal.org/libpysal/tutorial.html?highlight=examples#example-datasets">PySAL examples</a>. Geographically, this is a set of polygons that cover all the area of the city of New York.</p>
+<p>A bit of info on the dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">examples</span><span class="o">.</span><span class="n">explain</span><span class="p">(</span><span class="s2">&quot;NYC Socio-Demographics&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/diy_E_4_0.png" src="../../_images/diy_E_4_0.png" />
+<div class="output text_html">
+<iframe
+    width="700"
+    height="350"
+    src="https://geodacenter.github.io/data-and-lab//NYC_Tract_ACS2008_12/"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>To check out the location of the files that make up the dataset, we can load it with <code class="docutils literal notranslate"><span class="pre">load_example</span></code> and inspect with <code class="docutils literal notranslate"><span class="pre">get_file_list</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load example (this automatically downloads if not available)</span>
+<span class="n">nyc_data</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">load_example</span><span class="p">(</span><span class="s2">&quot;NYC Socio-Demographics&quot;</span><span class="p">)</span>
+<span class="c1"># Print the paths to all the files in the dataset</span>
+<span class="n">nyc_data</span><span class="o">.</span><span class="n">get_file_list</span><span class="p">()</span>
+</pre></div>
 </div>
 </div>
-<hr class="docutils" />
-<hr class="docutils" />
-<p><strong>[Optional exercise]</strong></p>
-<p>For block weights, create a similar map to that of queen neighbors of polygon <code class="docutils literal notranslate"><span class="pre">E01006690</span></code>.</p>
-<hr class="docutils" />
-<hr class="docutils" />
-<p><strong>[Optional exercise]</strong></p>
-<p>Explore the spatial lag of <code class="docutils literal notranslate"><span class="pre">w_queen_score</span></code> by constructing a density/histogram plot similar to those created in Lab 2. Compare these with one for <code class="docutils literal notranslate"><span class="pre">imd_score</span></code>. What differences can you tell?</p>
-<!--
-sns.distplot(imd['imd_score'])
-
-sns.distplot(imd['w_queen_score'])
--->
-<hr class="docutils" />
-<hr class="docutils" />
-<p><strong>[Optional exercise]</strong></p>
-<p>Create a standardized Moran Plot for each of the components of the IMD:</p>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;/home/jovyan/pysal_data/NYC_Socio-Demographics/NYC_Tract_ACS2008_12.prj&#39;,
+ &#39;/home/jovyan/pysal_data/NYC_Socio-Demographics/NYC_Tract_ACS2008_12.dbf&#39;,
+ &#39;/home/jovyan/pysal_data/NYC_Socio-Demographics/__MACOSX/._NYC_Tract_ACS2008_12.dbf&#39;,
+ &#39;/home/jovyan/pysal_data/NYC_Socio-Demographics/__MACOSX/._NYC_Tract_ACS2008_12.shp&#39;,
+ &#39;/home/jovyan/pysal_data/NYC_Socio-Demographics/__MACOSX/._NYC_Tract_ACS2008_12.shx&#39;,
+ &#39;/home/jovyan/pysal_data/NYC_Socio-Demographics/__MACOSX/._NYC_Tract_ACS2008_12.prj&#39;,
+ &#39;/home/jovyan/pysal_data/NYC_Socio-Demographics/NYC_Tract_ACS2008_12.shp&#39;,
+ &#39;/home/jovyan/pysal_data/NYC_Socio-Demographics/NYC_Tract_ACS2008_12.shx&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>And let’s read the shapefile:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nyc</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">nyc_data</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s2">&quot;NYC_Tract_ACS2008_12.shp&quot;</span><span class="p">))</span>
+<span class="n">nyc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../../_images/diy_E_7_1.png" src="../../_images/diy_E_7_1.png" />
+</div>
+</div>
+<p>Now with the <code class="docutils literal notranslate"><span class="pre">nyc</span></code> object ready to go, here a few tasks for you to complete:</p>
 <ul class="simple">
-<li><p>Crime</p></li>
-<li><p>Education</p></li>
-<li><p>Employment</p></li>
-<li><p>Health</p></li>
-<li><p>Housing</p></li>
-<li><p>Income</p></li>
-<li><p>Living environment</p></li>
+<li><p>Create a contiguity matrix using the queen criterion</p></li>
+<li><p>Let’s focus on <a class="reference external" href="https://en.wikipedia.org/wiki/Central_Park">Central Park</a>. The corresponding polygon is ID <code class="docutils literal notranslate"><span class="pre">142</span></code>. <em>How many neighbors does it have?</em></p></li>
+<li><p>Try to reproduce the <a class="reference internal" href="lab_E.html#lab-e-queen-zoom"><span class="std std-ref">zoom plot in the previous section</span></a>.</p></li>
+<li><p>Create a block spatial weights matrix where every tract is connected to other tracts in the same borough. For that, use the <code class="docutils literal notranslate"><span class="pre">boroct2010</span></code> column of the <code class="docutils literal notranslate"><span class="pre">nyc</span></code> table.</p></li>
+<li><p>Compare the number of neighbors by tract for the two weights matrices, <em>which one has more? why?</em></p></li>
 </ul>
-<p><strong>Bonus</strong> if you can generate all the plots with a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
-<p><strong>Bonus-II</strong> if you explore the functionality of Seaborn’s <code class="docutils literal notranslate"><span class="pre">jointplot</span></code> (<a class="reference external" href="http://stanford.edu/~mwaskom/software/seaborn/tutorial/regression.html#plotting-a-regression-in-other-contexts">link</a> and <a class="reference external" href="http://stanford.edu/~mwaskom/software/seaborn/generated/seaborn.jointplot.html#seaborn.jointplot">link</a>) to create a richer Moran plot.</p>
-<!--
-w_queen.transform = 'R'
-for col in ['crime', 'education', 'employment', 'health', 'housing', 'income', 'living_env']:
-    stdd = (imd[col] - imd[col].mean()) / imd[col].std()
-    sl = pd.Series(ps.lag_spatial(w_queen, stdd), index=stdd.index)
-    sns.jointplot(x=stdd, y=sl, kind="reg")
--->
+</div>
+<div class="section" id="task-ii-japanese-cities">
+<h2>Task II: Japanese cities<a class="headerlink" href="#task-ii-japanese-cities" title="Permalink to this headline">¶</a></h2>
+<p>In this task, you will be generating spatial weights matrices based on distance. We will test your skills on this using a <a class="reference external" href="http://www.oecd.org/cfe/regionaldevelopment/functional-urban-areas.htm">dataset</a> of Japanese urban areas provided by <a class="reference external" href="http://www.oecd.org">OECD</a>. Let’s get it ready for you to work on it directly.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>If you are interested in the original methodology, you can check out in <a class="bibtex reference internal" href="../bibliography.html#moreno2020metropolitan" id="id1">[MMSV20]</a></p>
+</div>
+<p>The data is available over the web on the following addres and we can read it straight into a <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jp_cities</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;http://www.oecd.org/cfe/regionaldevelopment/Japan.zip&quot;</span><span class="p">)</span>
+<span class="n">jp_cities</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>fuacode_si</th>
+      <th>fuaname</th>
+      <th>fuaname_en</th>
+      <th>class_code</th>
+      <th>iso3</th>
+      <th>name</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>JPN19</td>
+      <td>Kagoshima</td>
+      <td>Kagoshima</td>
+      <td>3.0</td>
+      <td>JPN</td>
+      <td>Japan</td>
+      <td>MULTIPOLYGON Z (((130.67888 31.62931 0.00000, ...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>JPN20</td>
+      <td>Himeji</td>
+      <td>Himeji</td>
+      <td>3.0</td>
+      <td>JPN</td>
+      <td>Japan</td>
+      <td>MULTIPOLYGON Z (((134.51537 34.65958 0.00000, ...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>JPN50</td>
+      <td>Hitachi</td>
+      <td>Hitachi</td>
+      <td>3.0</td>
+      <td>JPN</td>
+      <td>Japan</td>
+      <td>POLYGON Z ((140.58715 36.94447 0.00000, 140.61...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>JPN08</td>
+      <td>Hiroshima</td>
+      <td>Hiroshima</td>
+      <td>3.0</td>
+      <td>JPN</td>
+      <td>Japan</td>
+      <td>MULTIPOLYGON Z (((132.29648 34.19932 0.00000, ...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>JPN03</td>
+      <td>Toyota</td>
+      <td>Toyota</td>
+      <td>4.0</td>
+      <td>JPN</td>
+      <td>Japan</td>
+      <td>MULTIPOLYGON Z (((137.04096 34.73242 0.00000, ...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>If we make a quick plot, we can see these are polygons covering the part of the Japanese geography that is considered urban by their analysis:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">jp_cities</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<span class="n">contextily</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">jp_cities</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/diy_E_12_0.png" src="../../_images/diy_E_12_0.png" />
+</div>
+</div>
+<p>For this example, we need two transformations: lon/lat coordinates to a geographical projection, and polygons to points. To calculate distances effectively, we need to ensure the coordinates of our geographic data are expressed in metres (or a similar measurement unit). The original dataset is expressed in lon/lat degrees:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jp_cities</span><span class="o">.</span><span class="n">crs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Geographic 2D CRS: EPSG:4326&gt;
+Name: WGS 84
+Axis Info [ellipsoidal]:
+- Lat[north]: Geodetic latitude (degree)
+- Lon[east]: Geodetic longitude (degree)
+Area of Use:
+- name: World
+- bounds: (-180.0, -90.0, 180.0, 90.0)
+Datum: World Geodetic System 1984
+- Ellipsoid: WGS 84
+- Prime Meridian: Greenwich
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use the Japan Plane Rectangular CS XVII system (<a class="reference external" href="http://epsg.io/2459"><code class="docutils literal notranslate"><span class="pre">EPSG:2459</span></code></a>), which is expressed in metres:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jp</span> <span class="o">=</span> <span class="n">jp_cities</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">2459</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So the resulting table is in metres:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jp</span><span class="o">.</span><span class="n">crs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Projected CRS: EPSG:2459&gt;
+Name: JGD2000 / Japan Plane Rectangular CS XVII
+Axis Info [cartesian]:
+- X[north]: Northing (metre)
+- Y[east]: Easting (metre)
+Area of Use:
+- name: Japan - zone XVII
+- bounds: (131.12, 24.4, 131.38, 26.01)
+Coordinate Operation:
+- name: Japan Plane Rectangular CS zone XVII
+- method: Transverse Mercator
+Datum: Japanese Geodetic Datum 2000
+- Ellipsoid: GRS 1980
+- Prime Meridian: Greenwich
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, distances are easier to calculate between points than between polygons. Hence, we will convert the urban areas into their centroids:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jp</span><span class="o">.</span><span class="n">geometry</span> <span class="o">=</span> <span class="n">jp</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">centroid</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So the result is a seet of points expressed in metres:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jp</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../../_images/diy_E_22_1.png" src="../../_images/diy_E_22_1.png" />
+</div>
+</div>
+<p>With these at hand, tackle the following challenges:</p>
+<ul class="simple">
+<li><p>Generate a spatial weights matrix with five nearest neighbors</p></li>
+</ul>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+</div>
+<ul class="simple">
+<li><p>Generate a spatial weights matrix with a 100km distance band</p></li>
+<li><p>Compare the two in terms of average number of neighbors. <em>What are the main differences you can spot? In which cases do you think one criterion would be preferable over the other?</em></p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The final task below is a bit more involved, so do not despair if you cannot get it to work completely!</p>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Be careful with the projections you are using and make sure to plot every dataset in a figure in the same projection!</p>
+</div>
+</div>
+<p>Focus on Tokyo (find the row in the table through a query search as we saw when considering <a class="reference internal" href="../bB/lab_B.html#lab-b-index-queries"><span class="std std-ref">Index-based queries</span></a>) and the 100km spatial weights generated above. Try to create a figure similar to <a class="reference external" href="https://darribas.org/gds_course/content/slides/block_E_ii.html">the one in the lecture</a>. Here’s a recipe:</p>
+<ol class="simple">
+<li><p>Generate a buffer of 100Km around the Tokyo centroid</p></li>
+<li><p>Start the plot with the Tokyo urban area polygon (<code class="docutils literal notranslate"><span class="pre">jp_cities</span></code>) in one color (e.g. red)</p></li>
+<li><p>Add its neighbors in, say blue</p></li>
+<li><p>Add their centroids in a third different color</p></li>
+<li><p>Layer on top the buffer, making sure only the edge is colored</p></li>
+<li><p>[Optional] Add a basemap</p></li>
+</ol>
+<p>If all goes well, your figure should look, more or less, like:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/opt/conda/lib/python3.7/site-packages/libpysal/weights/weights.py:172: UserWarning: The weights matrix is not fully connected: 
+ There are 9 disconnected components.
+ There are 4 islands with ids: 14, 17, 30, 54.
+  warnings.warn(message)
+</pre>
+</div>
+<img alt="../../_images/diy_E_24_1.png" src="../../_images/diy_E_24_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="task-iii-spatial-lag">
+<h2>Task III: Spatial Lag<a class="headerlink" href="#task-iii-spatial-lag" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Check out the notes on how to read the AHAH dataset on the <a class="reference internal" href="../bD/diy_D.html#diy-d-ahah"><span class="std std-ref">DIY section of block D</span></a> to refresh your mind before starting the task.</p>
+</div>
+<p>For this task, we will rely on the AHAH dataset. Create the spatial lag of the overall score, and generate a Moran plot. <em>Can you tell any overall pattern? What do you think it means?</em></p>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
