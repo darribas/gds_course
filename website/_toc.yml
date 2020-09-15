@@ -35,3 +35,9 @@
     - file: content/bE/concepts_E
     - file: content/bE/lab_E
     - file: content/bE/diy_E
+    
+- chapter: F - ESDA
+  sections:
+    - file: content/bF/concepts_F
+    - file: content/bF/lab_F
+    - file: content/bF/diy_F
