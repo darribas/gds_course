@@ -2,10 +2,11 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>&lt;no title&gt; &#8212; A course on Geographic Data Science</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do-It-Yourself &#8212; A course on Geographic Data Science</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -15,6 +16,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -24,10 +27,12 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -37,7 +42,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="lab_F.html" />
+    <link rel="prev" title="Hands-on" href="lab_F.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -205,10 +210,20 @@
   F - ESDA
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="concepts_F.html">
    Concepts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab_F.html">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Do-It-Yourself
   </a>
  </li>
 </ul>
@@ -290,10 +305,32 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i> On this page
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-preparation">
+   Data preparation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-i-get-the-dataset-ready">
+   Task I: get the dataset ready
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-ii-global-spatial-autocorrelation">
+   Task II: global spatial autocorrelation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-iii-local-spatial-autocorrelation">
+   Task III: local spatial autocorrelation
+  </a>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -302,7 +339,60 @@
         
               <div>
                 
-  
+  <div class="section" id="do-it-yourself">
+<h1>Do-It-Yourself<a class="headerlink" href="#do-it-yourself" title="Permalink to this headline">¶</a></h1>
+<p>In this block, the DIY section is more straightforward: we have a few tasks, but they are all around the same dataset. The tasks incorporates all the bits and pieces we have seen on the <span class="xref myst">hands-on</span> section.</p>
+<div class="section" id="data-preparation">
+<h2>Data preparation<a class="headerlink" href="#data-preparation" title="Permalink to this headline">¶</a></h2>
+<p>For this section, we are going to revisit the AHAH dataset we saw in the <a class="reference internal" href="../bD/diy_D.html"><span class="doc std std-doc">DIY section of Block D</span></a>. Please head over to the section to refresh your mind about how to load up the required data. Once you have successfully created the <code class="docutils literal notranslate"><span class="pre">ahah</span></code> <a class="reference internal" href="../bD/diy_D.html#diy-d-ahah-read"><span class="std std-ref">object</span></a>, move on to Task I.</p>
+</div>
+<div class="section" id="task-i-get-the-dataset-ready">
+<h2>Task I: get the dataset ready<a class="headerlink" href="#task-i-get-the-dataset-ready" title="Permalink to this headline">¶</a></h2>
+<p>With the <code class="docutils literal notranslate"><span class="pre">ahah</span></code> table on your figertips, complete all the other bits required for the ESDA analysis of spatial autocorrelation:</p>
+<ul class="simple">
+<li><p>Make sure your geography does not have islands</p></li>
+</ul>
+<div class="tip margin sidebar">
+<p class="sidebar-title"></p>
+<p>When creating your spatial weights matrix, think of one criterium to build it that you think would fit this variable (e.g. contiguity, distance-based, etc.), and apply it.</p>
+</div>
+<ul class="simple">
+<li><p>Create a spatial weights matrix</p></li>
+<li><p>Standardise the spatial weights matrix</p></li>
+<li><p>Create the standardised version of the AHAH score</p></li>
+<li><p>Create the spatial lag of the main AHAH score</p></li>
+</ul>
+</div>
+<div class="section" id="task-ii-global-spatial-autocorrelation">
+<h2>Task II: global spatial autocorrelation<a class="headerlink" href="#task-ii-global-spatial-autocorrelation" title="Permalink to this headline">¶</a></h2>
+<p>Let’s move on to the analytics:</p>
+<ul class="simple">
+<li><p>Visualise the main AHAH score with a Moran Plot</p></li>
+<li><p>Calculate Moran’s I</p></li>
+<li><p><em>What conclusions can you reach from the Moran Plot and Moran’s I? What’s the main spatial pattern?</em></p></li>
+</ul>
+</div>
+<div class="section" id="task-iii-local-spatial-autocorrelation">
+<h2>Task III: local spatial autocorrelation<a class="headerlink" href="#task-iii-local-spatial-autocorrelation" title="Permalink to this headline">¶</a></h2>
+<p>Now that you have a good sense of the overall pattern in the AHAH dataset, let’s move to the local scale:</p>
+<ul class="simple">
+<li><p>Calculate LISA statistics for the LSOA areas</p></li>
+<li><p>Make a map of significant clusters at the 5%</p></li>
+<li><p><em>Can you identify hotspots or coldspots? If so, what do they mean? What about spatial outliers?</em></p></li>
+</ul>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The last action is a bit more sophisticated, put all your brain power into it and you’ll achieve it!</p>
+</div>
+</div>
+<ul class="simple">
+<li><p>Create cluster maps for significance levels 1% and 10%; compare them with the one we obtained. <em>What are the main changes? Why?</em></p></li>
+</ul>
+</div>
+</div>
+
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -331,7 +421,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="lab_F.html" title="previous page">&lt;no title&gt;</a>
+    <a class='left-prev' id="prev-link" href="lab_F.html" title="previous page">Hands-on</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

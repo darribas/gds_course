@@ -2,10 +2,11 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>&lt;no title&gt; &#8212; A course on Geographic Data Science</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands-on &#8212; A course on Geographic Data Science</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -15,6 +16,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -24,10 +27,12 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -37,7 +42,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="diy_F.html" />
+    <link rel="next" title="Do-It-Yourself" href="diy_F.html" />
     <link rel="prev" title="Concepts" href="concepts_F.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -206,10 +211,20 @@
   F - ESDA
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="concepts_F.html">
    Concepts
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="diy_F.html">
+   Do-It-Yourself
   </a>
  </li>
 </ul>
@@ -291,10 +306,61 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i> On this page
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spatial-autocorrelation-and-exploratory-spatial-data-analysis">
+   Spatial autocorrelation and Exploratory Spatial Data Analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data">
+   Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preparing-the-data">
+   Preparing the data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spatial-weights-matrix">
+     Spatial weights matrix
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spatial-lag">
+     Spatial lag
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#global-spatial-autocorrelation">
+   Global Spatial autocorrelation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#moran-plot">
+     Moran Plot
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#moran-s-i">
+     Moran’s I
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#local-spatial-autocorrelation">
+   Local Spatial autocorrelation
+  </a>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -303,7 +369,611 @@
         
               <div>
                 
-  
+  <div class="section" id="hands-on">
+<h1>Hands-on<a class="headerlink" href="#hands-on" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="spatial-autocorrelation-and-exploratory-spatial-data-analysis">
+<h2>Spatial autocorrelation and Exploratory Spatial Data Analysis<a class="headerlink" href="#spatial-autocorrelation-and-exploratory-spatial-data-analysis" title="Permalink to this headline">¶</a></h2>
+<p>Spatial autocorrelation has to do with the degree to which the similarity in values between observations in a dataset is related to the similarity in locations of such observations. Not completely unlike the traditional correlation between two variables -which informs us about how the values in one variable change as a function of those in the other- and analogous to its time-series counterpart -which relates the value of a variable at a given point in time with those in previous periods-, spatial autocorrelation relates the value of the variable of interest in a given location, with values of the same variable in surrounding locations.</p>
+<p>A key idea in this context is that of spatial randomness: a situation in which the location of an observation gives no information whatsoever about its value. In other words, a variable is spatially random if it is distributed following no discernible pattern over space. Spatial autocorrelation can thus be formally defined as the “absence of spatial randomness”, which gives room for two main classes of autocorrelation, similar to the traditional case: <em>positive</em> spatial autocorrelation, when similar values tend to group together in similar locations; and <em>negative</em> spatial autocorrelation, in cases where similar values tend to be dispersed and further apart from each other.</p>
+<p>In this session we will learn how to explore spatial autocorrelation in a given dataset, interrogating the data about its presence, nature, and strength. To do this, we will use a set of tools collectively known as Exploratory Spatial Data Analysis (ESDA), specifically designed for this purpose. The range of ESDA methods is very wide and spans from less sophisticated approaches like choropleths and general table querying, to more advanced and robust methodologies that include statistical inference and an explicit recognition of the geographical dimension of the data. The purpose of this session is to dip our toes into the latter group.</p>
+<p>ESDA techniques are usually divided into two main groups: tools to analyze <em>global</em>, and <em>local</em> spatial autocorrelation. The former consider the overall trend that the location of values follows, and makes possible statements about the degree of <em>clustering</em> in the dataset. <em>Do values generally follow a particular pattern in their geographical distribution</em>? <em>Are similar values closer to other similar values than we would expect from pure chance?</em> These are some of the questions that tools for global spatial autocorrelation allow to answer. We will practice with global spatial autocorrelation by using Moran’s I statistic.</p>
+<p>Tools for <em>local</em> spatial autocorrelation instead focus on spatial instability: the departure of parts of a map from the general trend. The idea here is that, even though there is a given trend for the data in terms of the nature and strength of spatial association, some particular areas can diverege quite substantially from the general pattern. Regardless of the overall degree of concentration in the values, we can observe pockets of unusually high (low) values close to other high (low) values, in what we will call hot(cold)spots. Additionally, it is also possible to observe some high (low) values surrounded by low (high) values, and we will name these “spatial outliers”. The main technique we will review in this session to explore local spatial autocorrelation is the Local Indicators of Spatial Association (LISA).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pysal.lib</span> <span class="kn">import</span> <span class="n">weights</span>
+<span class="kn">from</span> <span class="nn">pysal.explore</span> <span class="kn">import</span> <span class="n">esda</span>
+<span class="kn">from</span> <span class="nn">splot.esda</span> <span class="kn">import</span> <span class="n">moran_scatterplot</span><span class="p">,</span> <span class="n">lisa_cluster</span><span class="p">,</span> <span class="n">plot_local_autocorrelation</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">contextily</span> <span class="k">as</span> <span class="nn">ctx</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<p>For this session, we will use the results of the 2016 referendum vote to leave the EU, at the local authority level. In particular, we will focus on the spatial distribution of the vote to Leave, which ended up winning. From a technical point of view, you will be working with polygons which have a value (the percentage of the electorate that voted to Leave the EU) attached to them.</p>
+<p>All the necessary data have been assembled for convenience in a single file that contains geographic information about each local authority in England, Wales and Scotland, as well as the vote attributes. The file is in the geospatial format <a class="reference external" href="http://www.geopackage.org/">GeoPackage</a>, which presents several advantages over the more traditional shapefile (chief among them, the need of a single file instead of several). The file is available as a download from the course website.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-important admonition">
+<p class="admonition-title">Important</p>
+<p>Make sure you are connected to the internet when you run this cell</p>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the file in</span>
+<span class="n">br</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;http://darribas.org/gds_course/content/data/brexit.gpkg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-alternative admonition">
+<p class="admonition-title">Alternative</p>
+<p>Instead of reading the file directly off the web, it is possible to download it manually, store it on your computer, and read it locally. To do that, you can follow these steps:</p>
+<ol class="simple">
+<li><p>Download the file by right-clicking on <span class="xref myst">this link</span> and saving the file</p></li>
+<li><p>Place the file on the <em>same folder as the notebook</em> where you intend to read it</p></li>
+<li><p>Replace the code in the cell above by:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">br</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;brexit.gpkg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Now let’s index it on the local authority IDs, while keeping those as a column too:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Index table on the LAD ID</span>
+<span class="n">br</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;lad16cd&quot;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># Display summary</span>
+<span class="n">br</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
+Index: 380 entries, E06000001 to W06000024
+Data columns (total 5 columns):
+ #   Column     Non-Null Count  Dtype   
+---  ------     --------------  -----   
+ 0   objectid   380 non-null    int64   
+ 1   lad16cd    380 non-null    object  
+ 2   lad16nm    380 non-null    object  
+ 3   Pct_Leave  380 non-null    float64 
+ 4   geometry   380 non-null    geometry
+dtypes: float64(1), geometry(1), int64(1), object(2)
+memory usage: 17.8+ KB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="preparing-the-data">
+<h2>Preparing the data<a class="headerlink" href="#preparing-the-data" title="Permalink to this headline">¶</a></h2>
+<p>Let’s get a first view of the data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot polygons</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">);</span>
+<span class="c1"># Add background map, expressing target CRS so the basemap can be</span>
+<span class="c1"># reprojected (warped)</span>
+<span class="n">ctx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">br</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab_F_9_0.png" src="../../_images/lab_F_9_0.png" />
+</div>
+</div>
+<div class="section" id="spatial-weights-matrix">
+<h3>Spatial weights matrix<a class="headerlink" href="#spatial-weights-matrix" title="Permalink to this headline">¶</a></h3>
+<p>As discused before, a spatial weights matrix is the way geographical space is formally encoded into a numerical form so it is easy for a computer (or a statistical method) to understand. We have seen already many of the conceptual ways in which we can define a spatial weights matrix, such as contiguity, distance-based, or block.</p>
+<p>For this example, we will show how to build a queen contiguity matrix, which considers two observations as neighbors if they share at least one point of their boundary. In other words, for a pair of local authorities in the dataset to be considered neighbours under this <span class="math notranslate nohighlight">\(W\)</span>, they will need to be sharing border or, in other words, “touching” each other to some degree.</p>
+<p>Technically speaking, we will approach building the contiguity matrix in the same way we did in Lab 5. We will begin with a <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> and pass it on to the queen contiguity weights builder in <code class="docutils literal notranslate"><span class="pre">PySAL</span></code> (<code class="docutils literal notranslate"><span class="pre">ps.weights.Queen.from_dataframe</span></code>). We will also make sure our table of data is previously indexed on the local authority code, so the <span class="math notranslate nohighlight">\(W\)</span> is also indexed on that form.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the spatial weights matrix</span>
+<span class="o">%</span><span class="n">time</span> <span class="n">w</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">Queen</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">br</span><span class="p">,</span> <span class="n">idVariable</span><span class="o">=</span><span class="s2">&quot;lad16cd&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.09 s, sys: 258 ms, total: 4.35 s
+Wall time: 4.34 s
+</pre></div>
+</div>
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/opt/conda/lib/python3.7/site-packages/libpysal/weights/weights.py:172: UserWarning: The weights matrix is not fully connected: 
+ There are 7 disconnected components.
+ There are 6 islands with ids: E06000046, E06000053, S12000013, S12000023, S12000027, W06000001.
+  warnings.warn(message)
+</pre>
+</div>
+</div>
+</div>
+<p>Now, the <code class="docutils literal notranslate"><span class="pre">w</span></code> object we have just is of the same type of any other one we have created in the past. As such, we can inspect it in the same way. For example, we can check who is a neighbor of observation <code class="docutils literal notranslate"><span class="pre">E08000012</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">[</span><span class="s1">&#39;E08000012&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;E08000011&#39;: 1.0, &#39;E08000014&#39;: 1.0, &#39;E06000006&#39;: 1.0}
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, the cell where we computed <span class="math notranslate nohighlight">\(W\)</span> returned a warning on “islands”. Remember these are islands not necessarily in the geographic sense (although some of them will be), but in the mathematical sense of the term: local authorities that are not sharing border with any other one and thus do not have any neighbors. We can inspect and map them to get a better sense of what we are dealing with:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<span class="n">br</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">w</span><span class="o">.</span><span class="n">islands</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab_F_16_0.png" src="../../_images/lab_F_16_0.png" />
+</div>
+</div>
+<p>In this case, all the islands are indeed “real” islands. These cases can create issues in the analysis and distort the results. There are several solutions to this situation such as connecting the islands to other observations through a different criterium (e.g. nearest neighbor), and then combining both spatial weights matrices. For convenience, we will remove them from the dataset because they are a small sample and their removal is likely not to have a large impact in the calculations.</p>
+<p>Technically, this amounts to a subsetting, very much like we saw in the first weeks of the course, although in this case we will use the <code class="docutils literal notranslate"><span class="pre">drop</span></code> command, which comes in very handy in these cases:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">br</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">islands</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once we have the set of local authorities that are not an island, we need to re-calculate the weights matrix:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the spatial weights matrix</span>
+<span class="c1"># NOTE: this might take a few minutes as the geometries are</span>
+<span class="c1">#       are very detailed</span>
+<span class="o">%</span><span class="n">time</span> <span class="n">w</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">Queen</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">br</span><span class="p">,</span> <span class="n">idVariable</span><span class="o">=</span><span class="s2">&quot;lad16cd&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.99 s, sys: 88.6 ms, total: 3.08 s
+Wall time: 3.06 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>And, finally, let us row-standardize it to make sure every row of the matrix sums up to one:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Row standardize the matrix</span>
+<span class="n">w</span><span class="o">.</span><span class="n">transform</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, because we have row-standardize them, the weight given to each of the four neighbors is 0.33 which, all together, sum up to one.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">[</span><span class="s1">&#39;E08000012&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;E08000011&#39;: 0.3333333333333333,
+ &#39;E08000014&#39;: 0.3333333333333333,
+ &#39;E06000006&#39;: 0.3333333333333333}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="spatial-lag">
+<h3>Spatial lag<a class="headerlink" href="#spatial-lag" title="Permalink to this headline">¶</a></h3>
+<p>Once we have the data and the spatial weights matrix ready, we can start by computing the spatial lag of the percentage of votes that went to leave the EU. Remember the spatial lag is the product of the spatial weights matrix and a given variable and that, if <span class="math notranslate nohighlight">\(W\)</span> is row-standardized, the result amounts to the average value of the variable in the neighborhood of each observation.</p>
+<p>We can calculate the spatial lag for the variable <code class="docutils literal notranslate"><span class="pre">Pct_Leave</span></code> and store it directly in the main table with the following line of code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;w_Pct_Leave&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">lag_spatial</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let us have a quick look at the resulting variable, as compared to the original one:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">br</span><span class="p">[[</span><span class="s1">&#39;lad16cd&#39;</span><span class="p">,</span> <span class="s1">&#39;Pct_Leave&#39;</span><span class="p">,</span> <span class="s1">&#39;w_Pct_Leave&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lad16cd</th>
+      <th>Pct_Leave</th>
+      <th>w_Pct_Leave</th>
+    </tr>
+    <tr>
+      <th>lad16cd</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E06000001</th>
+      <td>E06000001</td>
+      <td>69.57</td>
+      <td>59.640000</td>
+    </tr>
+    <tr>
+      <th>E06000002</th>
+      <td>E06000002</td>
+      <td>65.48</td>
+      <td>60.526667</td>
+    </tr>
+    <tr>
+      <th>E06000003</th>
+      <td>E06000003</td>
+      <td>66.19</td>
+      <td>60.376667</td>
+    </tr>
+    <tr>
+      <th>E06000004</th>
+      <td>E06000004</td>
+      <td>61.73</td>
+      <td>60.488000</td>
+    </tr>
+    <tr>
+      <th>E06000005</th>
+      <td>E06000005</td>
+      <td>56.18</td>
+      <td>57.430000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The way to interpret the spatial lag (<code class="docutils literal notranslate"><span class="pre">w_Pct_Leave</span></code>) for say the first observation is as follow: Hartlepool, where 69,6% of the electorate voted to leave is surrounded by neighbouring local authorities where, on average, almost 60% of the electorate also voted to leave the EU. For the purpose of illustration, we can in fact check this is correct by querying the spatial weights matrix to find out Hartepool’s neighbors:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="o">.</span><span class="n">neighbors</span><span class="p">[</span><span class="s1">&#39;E06000001&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;E06000004&#39;, &#39;E06000047&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>And then checking their values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">neis</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">w</span><span class="o">.</span><span class="n">neighbors</span><span class="p">[</span><span class="s1">&#39;E06000001&#39;</span><span class="p">],</span> <span class="s1">&#39;Pct_Leave&#39;</span><span class="p">]</span>
+<span class="n">neis</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>lad16cd
+E06000004    61.73
+E06000047    57.55
+Name: Pct_Leave, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>And the average value, which we saw in the spatial lag is 61.8, can be calculated as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">neis</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>59.64
+</pre></div>
+</div>
+</div>
+</div>
+<p>For some of the techniques we will be seeing below, it makes more sense to operate with the standardized version of a variable, rather than with the raw one. Standardizing means to substract the average value and divide by the standard deviation each observation of the column. This can be done easily with a bit of basic algebra in Python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave_std&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, to be able to explore the spatial patterns of the standardized values, also called sometimes <span class="math notranslate nohighlight">\(z\)</span> values, we need to create its spatial lag:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;w_Pct_Leave_std&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">lag_spatial</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave_std&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="global-spatial-autocorrelation">
+<h2>Global Spatial autocorrelation<a class="headerlink" href="#global-spatial-autocorrelation" title="Permalink to this headline">¶</a></h2>
+<p>Global spatial autocorrelation relates to the overall geographical pattern present in the data. Statistics designed to measure this trend thus characterize a map in terms of its degree of clustering and summarize it. This summary can be visual or numerical. In this section, we will walk through an example of each of them: the Moran Plot, and Moran’s I statistic of spatial autocorrelation.</p>
+<div class="section" id="moran-plot">
+<h3>Moran Plot<a class="headerlink" href="#moran-plot" title="Permalink to this headline">¶</a></h3>
+<p>The moran plot is a way of visualizing a spatial dataset to explore the nature and strength of spatial autocorrelation. It is essentially a traditional scatter plot in which the variable of interest is displayed against its spatial lag. In order to be able to interpret values as above or below the mean, and their quantities in terms of standard deviations, the variable of interest is usually standardized by substracting its mean and dividing it by its standard deviation.</p>
+<p>Technically speaking, creating a Moran Plot is very similar to creating any other scatter plot in Python, provided we have standardized the variable and calculated its spatial lag beforehand:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup the figure and axis</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<span class="c1"># Plot values</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Pct_Leave_std&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;w_Pct_Leave_std&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">br</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="c1"># Add vertical and horizontal lines</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="c1"># Display</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab_F_41_0.png" src="../../_images/lab_F_41_0.png" />
+</div>
+</div>
+<p>The figure above displays the relationship between the standardized percentage which voted to Leave the EU (<code class="docutils literal notranslate"><span class="pre">Pct_Leave_std</span></code>) and its spatial lag which, because the <span class="math notranslate nohighlight">\(W\)</span> that was used is row-standardized, can be interpreted as the average percentage which voted to Leave in the surrounding areas of a given Local Authority. In order to guide the interpretation of the plot, a linear fit is also included in the post. This line represents the best linear fit to the scatter plot or, in other words, what is the best way to represent the relationship between the two variables as a straight line.</p>
+<p>The plot displays a positive relationship between both variables. This is associated with the presence of <em>positive</em> spatial autocorrelation: similar values tend to be located close to each other. This means that the <em>overall trend</em> is for high values to be close to other high values, and for low values to be surrounded by other low values. This however does not mean that this is only situation in the dataset: there can of course be particular cases where high values are surrounded by low ones, and viceversa. But it means that, if we had to summarize the main pattern of the data in terms of how clustered similar values are, the best way would be to say they are positively correlated and, hence, clustered over space.</p>
+<p>In the context of the example, this can be interpreted along the lines of: local authorities display positive spatial autocorrelation in the way they voted in the EU referendum. This means that local authorities with high percentage of Leave voters tend to be located nearby other local authorities where a significant share of the electorate also voted to Leave, and viceversa.</p>
+</div>
+<div class="section" id="moran-s-i">
+<h3>Moran’s I<a class="headerlink" href="#moran-s-i" title="Permalink to this headline">¶</a></h3>
+<p>The Moran Plot is an excellent tool to explore the data and get a good sense of how much values are clustered over space. However, because it is a graphical device, it is sometimes hard to condense its insights into a more concise way. For these cases, a good approach is to come up with a statistical measure that summarizes the figure. This is exactly what Moran’s I is meant to do.</p>
+<p>Very much in the same way the mean summarizes a crucial element of the distribution of values in a non-spatial setting, so does Moran’s I for a spatial dataset. Continuing the comparison, we can think of the mean as a single numerical value summarizing a histogram or a kernel density plot. Similarly, Moran’s I captures much of the essence of the Moran Plot. In fact, there is an even close connection between the two: the value of Moran’s I corresponds with the slope of the linear fit overlayed on top of the Moran Plot.</p>
+<p>In order to calculate Moran’s I in our dataset, we can call a specific function in <code class="docutils literal notranslate"><span class="pre">PySAL</span></code> directly:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mi</span> <span class="o">=</span> <span class="n">esda</span><span class="o">.</span><span class="n">Moran</span><span class="p">(</span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">],</span> <span class="n">w</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note how we do not need to use the standardized version in this context as we will not represent it visually.</p>
+<p>The method <code class="docutils literal notranslate"><span class="pre">ps.Moran</span></code> creates an object that contains much more information than the actual statistic. If we want to retrieve the value of the statistic, we can do it this way:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mi</span><span class="o">.</span><span class="n">I</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.6228641407137806
+</pre></div>
+</div>
+</div>
+</div>
+<p>The other bit of information we will extract from Moran’s I relates to statistical inference: how likely is the pattern we observe in the map and Moran’s I captures in its value to be generated by an entirely random process? If we considered the same variable but shuffled its locations randomly, would we obtain a map with similar characteristics?</p>
+<p>The specific details of the mechanism to calculate this are beyond the scope of the session, but it is important to know that a small enough p-value associated with the Moran’s I of a map allows to reject the hypothesis that the map is random. In other words, we can conclude that the map displays more spatial pattern that we would expect if the values had been randomly allocated to a particular location.</p>
+<p>The most reliable p-value for Moran’s I can be found in the attribute <code class="docutils literal notranslate"><span class="pre">p_sim</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mi</span><span class="o">.</span><span class="n">p_sim</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.001
+</pre></div>
+</div>
+</div>
+</div>
+<p>That is just 0.1% and, by standard terms, it would be considered statistically significant. We can quickly ellaborate on its intuition. What that 0.001 (or 0.1%) means is that, if we generated a large number of maps with the same values but randomly allocated over space, and calculated the Moran’s I statistic for each of those maps, only 0.1% of them would display a larger (absolute) value than the one we obtain from the real data, and the other 99.9% of the random maps would receive a smaller (absolute) value of Moran’s I. If we remember again that the value of Moran’s I can also be interpreted as the slope of the Moran Plot, what we have is that, in this case, the particular spatial arrangement of values for the Leave votes is more concentrated than if the values had been allocated following a completely spatially random process, hence the statistical significance.</p>
+<p>Once we have calculated Moran’s I and created an object like <code class="docutils literal notranslate"><span class="pre">mi</span></code>, we can use some of the functionality in <code class="docutils literal notranslate"><span class="pre">splot</span></code> to replicate the plot above more easily (remember, <a class="reference external" href="http://darribas.org/gds19/slides/lecture_02.html#/open-source-packages">D.R.Y.</a>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">moran_scatterplot</span><span class="p">(</span><span class="n">mi</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab_F_51_0.png" src="../../_images/lab_F_51_0.png" />
+</div>
+</div>
+<p>As a first step, the global autocorrelation analysis can teach us that observations do seem to be positively correlated over space. In terms of our initial goal to find spatial structure in the attitude towards Brexit, this view seems to align: if the vote had no such structure, it should not show a pattern over space -technically, it would show a random one.</p>
+</div>
+</div>
+<div class="section" id="local-spatial-autocorrelation">
+<h2>Local Spatial autocorrelation<a class="headerlink" href="#local-spatial-autocorrelation" title="Permalink to this headline">¶</a></h2>
+<p>Moran’s I is good tool to summarize a dataset into a single value that informs about its degree of <em>clustering</em>. However, it is not an appropriate measure to identify areas within the map where specific values are located. In other words, Moran’s I can tell us values are clustered overall, but it will not inform us about <em>where</em> the clusters are. For that purpose, we need to use a <em>local</em> measure of spatial autocorrelation. Local measures consider each single observation in a dataset and operate on them, as oposed to on the overall data, as <em>global</em> measures do. Because of that, they are not good a summarizing a map, but they allow to obtain further insight.</p>
+<p>In this session, we will consider <a class="reference external" href="http://onlinelibrary.wiley.com/doi/10.1111/j.1538-4632.1995.tb00338.x/abstract">Local Indicators of Spatial Association</a> (LISAs), a local counter-part of global measures like Moran’s I. At the core of these method is a classification of the observations in a dataset into four groups derived from the Moran Plot: high values surrounded by high values (HH), low values nearby other low values (LL), high values among low values (HL), and viceversa (LH). Each of these groups are typically called “quadrants”. An illustration of where each of these groups fall into the Moran Plot can be seen below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup the figure and axis</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<span class="c1"># Plot values</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Pct_Leave_std&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;w_Pct_Leave_std&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">br</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="c1"># Add vertical and horizontal lines</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.75</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;HH&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="s2">&quot;HL&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;LH&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="s2">&quot;LL&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="c1"># Display</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab_F_54_0.png" src="../../_images/lab_F_54_0.png" />
+</div>
+</div>
+<p>So far we have classified each observation in the dataset depending on its value and that of its neighbors. This is only half way into identifying areas of unusual concentration of values. To know whether each of the locations is a <em>statistically significant</em> cluster of a given kind, we again need to compare it with what we would expect if the data were allocated in a completely random way. After all, by definition, every observation will be of one kind of another, based on the comparison above. However, what we are interested in is whether the strength with which the values are concentrated is unusually high.</p>
+<p>This is exactly what LISAs are designed to do. As before, a more detailed description of their statistical underpinnings is beyond the scope in this context, but we will try to shed some light into the intuition of how they go about it. The core idea is to identify cases in which the comparison between the value of an observation and the average of its neighbors is either more similar (HH, LL) or dissimilar (HL, LH) than we would expect from pure chance. The mechanism to do this is similar to the one in the global Moran’s I, but applied in this case to each observation, resulting then in as many statistics as original observations.</p>
+<p>LISAs are widely used in many fields to identify clusters of values in space. They are a very useful tool that can quickly return areas in which values are concentrated and provide <em>suggestive</em> evidence about the processes that might be at work. For that, they have a prime place in the exploratory toolbox. Examples of contexts where LISAs can be useful include: identification of spatial clusters of poverty in regions, detection of ethnic enclaves, delineation of areas of particularly high/low activity of any phenomenon, etc.</p>
+<p>In Python, we can calculate LISAs in a very streamlined way thanks to <code class="docutils literal notranslate"><span class="pre">PySAL</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lisa</span> <span class="o">=</span> <span class="n">esda</span><span class="o">.</span><span class="n">Moran_Local</span><span class="p">(</span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">],</span> <span class="n">w</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>All we need to pass is the variable of interest -percentage of Leave votes- and the spatial weights that describes the neighborhood relations between the different observation that make up the dataset.</p>
+<p>Because of their very nature, looking at the numerical result of LISAs is not always the most useful way to exploit all the information they can provide. Remember that we are calculating a statistic for every sigle observation in the data so, if we have many of them, it will be difficult to extract any meaningful pattern. Instead, what is typically done is to create a map, a cluster map as it is usually called, that extracts the significant observations (those that are highly unlikely to have come from pure chance) and plots them with a specific color depending on their quadrant category.</p>
+<p>All of the needed pieces are contained inside the <code class="docutils literal notranslate"><span class="pre">lisa</span></code> object we have created above. But, to make the map making more straightforward, it is convenient to pull them out and insert them in the main data table, <code class="docutils literal notranslate"><span class="pre">br</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Break observations into significant or not</span>
+<span class="n">br</span><span class="p">[</span><span class="s1">&#39;significant&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lisa</span><span class="o">.</span><span class="n">p_sim</span> <span class="o">&lt;</span> <span class="mf">0.05</span>
+<span class="c1"># Store the quadrant they belong to</span>
+<span class="n">br</span><span class="p">[</span><span class="s1">&#39;quadrant&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lisa</span><span class="o">.</span><span class="n">q</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let us stop for second on these two steps. First, the <code class="docutils literal notranslate"><span class="pre">significant</span></code> column. Similarly as with global Moran’s I, <code class="docutils literal notranslate"><span class="pre">PySAL</span></code> is automatically computing a p-value for each LISA. Because not every observation represents a statistically significant one, we want to identify those with a p-value small enough that rules out the possibility of obtaining a similar situation from pure chance. Following a similar reasoning as with global Moran’s I, we select 5% as the threshold for statistical significance. To identify these values, we create a variable, <code class="docutils literal notranslate"><span class="pre">significant</span></code>, that contains <code class="docutils literal notranslate"><span class="pre">True</span></code> if the p-value of the observation is satisfies the condition, and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise. We can check this is the case:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;significant&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>lad16cd
+E06000001    False
+E06000002    False
+E06000003    False
+E06000004     True
+E06000005    False
+Name: significant, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>And the first five p-values can be checked by:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lisa</span><span class="o">.</span><span class="n">p_sim</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0.191, 0.087, 0.097, 0.039, 0.212])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note how the third and fourth are smaller than 0.05, as the variable <code class="docutils literal notranslate"><span class="pre">significant</span></code> correctly identified.</p>
+<p>Second, the quadrant each observation belongs to. This one is easier as it comes built into the <code class="docutils literal notranslate"><span class="pre">lisa</span></code> object directly:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;quadrant&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>lad16cd
+E06000001    1
+E06000002    1
+E06000003    1
+E06000004    1
+E06000005    1
+Name: quadrant, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>The correspondence between the numbers in the variable and the actual quadrants is as follows:</p>
+<ul class="simple">
+<li><p>1: HH</p></li>
+<li><p>2: LH</p></li>
+<li><p>3: LL</p></li>
+<li><p>4: HL</p></li>
+</ul>
+<p>With these two elements, <code class="docutils literal notranslate"><span class="pre">significant</span></code> and <code class="docutils literal notranslate"><span class="pre">quadrant</span></code>, we can build a typical LISA cluster map combining the mapping skills with what we have learned about subsetting and querying tables:</p>
+<p>We can create a quick LISA cluster map with <code class="docutils literal notranslate"><span class="pre">splot</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lisa_cluster</span><span class="p">(</span><span class="n">lisa</span><span class="p">,</span> <span class="n">br</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab_F_67_0.png" src="../../_images/lab_F_67_0.png" />
+</div>
+</div>
+<p>Or, if we want to have more control over what is being displayed, and how each component is presented, we can “cook” the plot ourselves:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup the figure and axis</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<span class="c1"># Plot insignificant clusters</span>
+<span class="n">ns</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;significant&#39;</span><span class="p">]</span><span class="o">==</span><span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]</span>
+<span class="n">ns</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="c1"># Plot HH clusters</span>
+<span class="n">hh</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;quadrant&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;significant&#39;</span><span class="p">]</span><span class="o">==</span><span class="kc">True</span><span class="p">),</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]</span>
+<span class="n">hh</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="c1"># Plot LL clusters</span>
+<span class="n">ll</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;quadrant&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;significant&#39;</span><span class="p">]</span><span class="o">==</span><span class="kc">True</span><span class="p">),</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]</span>
+<span class="n">ll</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="c1"># Plot LH clusters</span>
+<span class="n">lh</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;quadrant&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;significant&#39;</span><span class="p">]</span><span class="o">==</span><span class="kc">True</span><span class="p">),</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]</span>
+<span class="n">lh</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#83cef4&#39;</span><span class="p">)</span>
+<span class="c1"># Plot HL clusters</span>
+<span class="n">hl</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;quadrant&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">4</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;significant&#39;</span><span class="p">]</span><span class="o">==</span><span class="kc">True</span><span class="p">),</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]</span>
+<span class="n">hl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#e59696&#39;</span><span class="p">)</span>
+<span class="c1"># Style and draw</span>
+<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;LISA for Brexit vote&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;0.75&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab_F_69_0.png" src="../../_images/lab_F_69_0.png" />
+</div>
+</div>
+<p>The map above displays the LISA results of the Brexit vote. In bright red, we find those local authorities with an unusual concentration of high Leave voters surrounded also by high levels of Leave vote. This corresponds with areas in the East of England, the Black Country, and East of London. In light red, we find the first type of <em>spatial outliers</em>. These are areas with high Leave vote but surrounded by areas with low support for leaving the EU (e.g. central London). Finally, in light blue we find the other type of spatial outlier: local authorities with low Leave support surrounded by other authorities with high support.</p>
+<p>The substantive interpretation of a LISA map needs to relate its output to the original intention of the analyst who created the map. In this case, our original idea was to explore the spatial structure of support to leaving the EU. The LISA proves a fairly useful tool in this context. Comparing the LISA map above with the choropleth we started with, we can interpret the LISA as “simplification” of the detailed but perhaps too complicated picture in the choropleth that focuses the reader’s attention to the areas that display a particularly high concentration of (dis)similar values, helping the spatial structure of the vote emerge in a more explicit way. The result of this highlights the relevance that the East of England and the Midlands had in voting to Leave, as well as the regions of the map where there was a lot less excitement about Leaving.</p>
+<p>The results from the LISA statistics can be connected to the Moran plot to visualise where in the scatter plot each type of polygon falls:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_local_autocorrelation</span><span class="p">(</span><span class="n">lisa</span><span class="p">,</span> <span class="n">br</span><span class="p">,</span> <span class="s1">&#39;Pct_Leave&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lab_F_72_0.png" src="../../_images/lab_F_72_0.png" />
+</div>
+</div>
+</div>
+</div>
+
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -333,7 +1003,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="concepts_F.html" title="previous page">Concepts</a>
-    <a class='right-next' id="next-link" href="diy_F.html" title="next page">&lt;no title&gt;</a>
+    <a class='right-next' id="next-link" href="diy_F.html" title="next page">Do-It-Yourself</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
