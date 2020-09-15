@@ -2,10 +2,9 @@
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hands-on &#8212; A course on Geographic Data Science</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
@@ -16,8 +15,6 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -27,12 +24,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -306,7 +301,7 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> On this page
+            <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -380,7 +375,7 @@
 <p>Tools for <em>local</em> spatial autocorrelation instead focus on spatial instability: the departure of parts of a map from the general trend. The idea here is that, even though there is a given trend for the data in terms of the nature and strength of spatial association, some particular areas can diverege quite substantially from the general pattern. Regardless of the overall degree of concentration in the values, we can observe pockets of unusually high (low) values close to other high (low) values, in what we will call hot(cold)spots. Additionally, it is also possible to observe some high (low) values surrounded by low (high) values, and we will name these “spatial outliers”. The main technique we will review in this session to explore local spatial autocorrelation is the Local Indicators of Spatial Association (LISA).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -411,7 +406,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the file in</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the file in</span>
 <span class="n">br</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;http://darribas.org/gds_course/content/data/brexit.gpkg&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -432,7 +427,7 @@
 <p>Now let’s index it on the local authority IDs, while keeping those as a column too:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Index table on the LAD ID</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Index table on the LAD ID</span>
 <span class="n">br</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;lad16cd&quot;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="c1"># Display summary</span>
 <span class="n">br</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -440,7 +435,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
 Index: 380 entries, E06000001 to W06000024
 Data columns (total 5 columns):
  #   Column     Non-Null Count  Dtype   
@@ -462,7 +457,7 @@ memory usage: 17.8+ KB
 <p>Let’s get a first view of the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot polygons</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot polygons</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">);</span>
 <span class="c1"># Add background map, expressing target CRS so the basemap can be</span>
 <span class="c1"># reprojected (warped)</span>
@@ -481,34 +476,33 @@ memory usage: 17.8+ KB
 <p>Technically speaking, we will approach building the contiguity matrix in the same way we did in Lab 5. We will begin with a <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> and pass it on to the queen contiguity weights builder in <code class="docutils literal notranslate"><span class="pre">PySAL</span></code> (<code class="docutils literal notranslate"><span class="pre">ps.weights.Queen.from_dataframe</span></code>). We will also make sure our table of data is previously indexed on the local authority code, so the <span class="math notranslate nohighlight">\(W\)</span> is also indexed on that form.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the spatial weights matrix</span>
-<span class="o">%</span><span class="n">time</span> <span class="n">w</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">Queen</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">br</span><span class="p">,</span> <span class="n">idVariable</span><span class="o">=</span><span class="s2">&quot;lad16cd&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the spatial weights matrix</span>
+<span class="o">%</span><span class="k">time</span> w = weights.Queen.from_dataframe(br, idVariable=&quot;lad16cd&quot;)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.09 s, sys: 258 ms, total: 4.35 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.09 s, sys: 258 ms, total: 4.35 s
 Wall time: 4.34 s
 </pre></div>
 </div>
-<div class="stderr docutils container">
-<pre class="stderr literal-block">/opt/conda/lib/python3.7/site-packages/libpysal/weights/weights.py:172: UserWarning: The weights matrix is not fully connected: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.7/site-packages/libpysal/weights/weights.py:172: UserWarning: The weights matrix is not fully connected: 
  There are 7 disconnected components.
  There are 6 islands with ids: E06000046, E06000053, S12000013, S12000023, S12000027, W06000001.
   warnings.warn(message)
-</pre>
+</pre></div>
 </div>
 </div>
 </div>
 <p>Now, the <code class="docutils literal notranslate"><span class="pre">w</span></code> object we have just is of the same type of any other one we have created in the past. As such, we can inspect it in the same way. For example, we can check who is a neighbor of observation <code class="docutils literal notranslate"><span class="pre">E08000012</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">[</span><span class="s1">&#39;E08000012&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">[</span><span class="s1">&#39;E08000012&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;E08000011&#39;: 1.0, &#39;E08000014&#39;: 1.0, &#39;E06000006&#39;: 1.0}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;E08000011&#39;: 1.0, &#39;E08000014&#39;: 1.0, &#39;E06000006&#39;: 1.0}
 </pre></div>
 </div>
 </div>
@@ -516,7 +510,7 @@ Wall time: 4.34 s
 <p>However, the cell where we computed <span class="math notranslate nohighlight">\(W\)</span> returned a warning on “islands”. Remember these are islands not necessarily in the geographic sense (although some of them will be), but in the mathematical sense of the term: local authorities that are not sharing border with any other one and thus do not have any neighbors. We can inspect and map them to get a better sense of what we are dealing with:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
 <span class="n">br</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">w</span><span class="o">.</span><span class="n">islands</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -529,7 +523,7 @@ Wall time: 4.34 s
 <p>Technically, this amounts to a subsetting, very much like we saw in the first weeks of the course, although in this case we will use the <code class="docutils literal notranslate"><span class="pre">drop</span></code> command, which comes in very handy in these cases:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">br</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">islands</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">br</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">islands</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -537,15 +531,15 @@ Wall time: 4.34 s
 <p>Once we have the set of local authorities that are not an island, we need to re-calculate the weights matrix:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the spatial weights matrix</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the spatial weights matrix</span>
 <span class="c1"># NOTE: this might take a few minutes as the geometries are</span>
 <span class="c1">#       are very detailed</span>
-<span class="o">%</span><span class="n">time</span> <span class="n">w</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">Queen</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">br</span><span class="p">,</span> <span class="n">idVariable</span><span class="o">=</span><span class="s2">&quot;lad16cd&quot;</span><span class="p">)</span>
+<span class="o">%</span><span class="k">time</span> w = weights.Queen.from_dataframe(br, idVariable=&quot;lad16cd&quot;)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.99 s, sys: 88.6 ms, total: 3.08 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.99 s, sys: 88.6 ms, total: 3.08 s
 Wall time: 3.06 s
 </pre></div>
 </div>
@@ -554,7 +548,7 @@ Wall time: 3.06 s
 <p>And, finally, let us row-standardize it to make sure every row of the matrix sums up to one:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Row standardize the matrix</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Row standardize the matrix</span>
 <span class="n">w</span><span class="o">.</span><span class="n">transform</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span>
 </pre></div>
 </div>
@@ -563,12 +557,12 @@ Wall time: 3.06 s
 <p>Now, because we have row-standardize them, the weight given to each of the four neighbors is 0.33 which, all together, sum up to one.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">[</span><span class="s1">&#39;E08000012&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">[</span><span class="s1">&#39;E08000012&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;E08000011&#39;: 0.3333333333333333,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;E08000011&#39;: 0.3333333333333333,
  &#39;E08000014&#39;: 0.3333333333333333,
  &#39;E06000006&#39;: 0.3333333333333333}
 </pre></div>
@@ -582,7 +576,7 @@ Wall time: 3.06 s
 <p>We can calculate the spatial lag for the variable <code class="docutils literal notranslate"><span class="pre">Pct_Leave</span></code> and store it directly in the main table with the following line of code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;w_Pct_Leave&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">lag_spatial</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;w_Pct_Leave&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">lag_spatial</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -590,7 +584,7 @@ Wall time: 3.06 s
 <p>Let us have a quick look at the resulting variable, as compared to the original one:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">br</span><span class="p">[[</span><span class="s1">&#39;lad16cd&#39;</span><span class="p">,</span> <span class="s1">&#39;Pct_Leave&#39;</span><span class="p">,</span> <span class="s1">&#39;w_Pct_Leave&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">br</span><span class="p">[[</span><span class="s1">&#39;lad16cd&#39;</span><span class="p">,</span> <span class="s1">&#39;Pct_Leave&#39;</span><span class="p">,</span> <span class="s1">&#39;w_Pct_Leave&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -662,12 +656,12 @@ Wall time: 3.06 s
 <p>The way to interpret the spatial lag (<code class="docutils literal notranslate"><span class="pre">w_Pct_Leave</span></code>) for say the first observation is as follow: Hartlepool, where 69,6% of the electorate voted to leave is surrounded by neighbouring local authorities where, on average, almost 60% of the electorate also voted to leave the EU. For the purpose of illustration, we can in fact check this is correct by querying the spatial weights matrix to find out Hartepool’s neighbors:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="o">.</span><span class="n">neighbors</span><span class="p">[</span><span class="s1">&#39;E06000001&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="o">.</span><span class="n">neighbors</span><span class="p">[</span><span class="s1">&#39;E06000001&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;E06000004&#39;, &#39;E06000047&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;E06000004&#39;, &#39;E06000047&#39;]
 </pre></div>
 </div>
 </div>
@@ -675,13 +669,13 @@ Wall time: 3.06 s
 <p>And then checking their values:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">neis</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">w</span><span class="o">.</span><span class="n">neighbors</span><span class="p">[</span><span class="s1">&#39;E06000001&#39;</span><span class="p">],</span> <span class="s1">&#39;Pct_Leave&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neis</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">w</span><span class="o">.</span><span class="n">neighbors</span><span class="p">[</span><span class="s1">&#39;E06000001&#39;</span><span class="p">],</span> <span class="s1">&#39;Pct_Leave&#39;</span><span class="p">]</span>
 <span class="n">neis</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>lad16cd
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lad16cd
 E06000004    61.73
 E06000047    57.55
 Name: Pct_Leave, dtype: float64
@@ -692,12 +686,12 @@ Name: Pct_Leave, dtype: float64
 <p>And the average value, which we saw in the spatial lag is 61.8, can be calculated as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">neis</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neis</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>59.64
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>59.64
 </pre></div>
 </div>
 </div>
@@ -705,7 +699,7 @@ Name: Pct_Leave, dtype: float64
 <p>For some of the techniques we will be seeing below, it makes more sense to operate with the standardized version of a variable, rather than with the raw one. Standardizing means to substract the average value and divide by the standard deviation each observation of the column. This can be done easily with a bit of basic algebra in Python:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave_std&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave_std&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -713,7 +707,7 @@ Name: Pct_Leave, dtype: float64
 <p>Finally, to be able to explore the spatial patterns of the standardized values, also called sometimes <span class="math notranslate nohighlight">\(z\)</span> values, we need to create its spatial lag:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;w_Pct_Leave_std&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">lag_spatial</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave_std&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;w_Pct_Leave_std&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">lag_spatial</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave_std&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -729,7 +723,7 @@ Name: Pct_Leave, dtype: float64
 <p>Technically speaking, creating a Moran Plot is very similar to creating any other scatter plot in Python, provided we have standardized the variable and calculated its spatial lag beforehand:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup the figure and axis</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup the figure and axis</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
 <span class="c1"># Plot values</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Pct_Leave_std&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;w_Pct_Leave_std&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">br</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
@@ -756,7 +750,7 @@ Name: Pct_Leave, dtype: float64
 <p>In order to calculate Moran’s I in our dataset, we can call a specific function in <code class="docutils literal notranslate"><span class="pre">PySAL</span></code> directly:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mi</span> <span class="o">=</span> <span class="n">esda</span><span class="o">.</span><span class="n">Moran</span><span class="p">(</span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">],</span> <span class="n">w</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mi</span> <span class="o">=</span> <span class="n">esda</span><span class="o">.</span><span class="n">Moran</span><span class="p">(</span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">],</span> <span class="n">w</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -765,12 +759,12 @@ Name: Pct_Leave, dtype: float64
 <p>The method <code class="docutils literal notranslate"><span class="pre">ps.Moran</span></code> creates an object that contains much more information than the actual statistic. If we want to retrieve the value of the statistic, we can do it this way:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mi</span><span class="o">.</span><span class="n">I</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mi</span><span class="o">.</span><span class="n">I</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.6228641407137806
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6228641407137806
 </pre></div>
 </div>
 </div>
@@ -780,12 +774,12 @@ Name: Pct_Leave, dtype: float64
 <p>The most reliable p-value for Moran’s I can be found in the attribute <code class="docutils literal notranslate"><span class="pre">p_sim</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mi</span><span class="o">.</span><span class="n">p_sim</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mi</span><span class="o">.</span><span class="n">p_sim</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.001
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.001
 </pre></div>
 </div>
 </div>
@@ -794,7 +788,7 @@ Name: Pct_Leave, dtype: float64
 <p>Once we have calculated Moran’s I and created an object like <code class="docutils literal notranslate"><span class="pre">mi</span></code>, we can use some of the functionality in <code class="docutils literal notranslate"><span class="pre">splot</span></code> to replicate the plot above more easily (remember, <a class="reference external" href="http://darribas.org/gds19/slides/lecture_02.html#/open-source-packages">D.R.Y.</a>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">moran_scatterplot</span><span class="p">(</span><span class="n">mi</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moran_scatterplot</span><span class="p">(</span><span class="n">mi</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -811,7 +805,7 @@ Name: Pct_Leave, dtype: float64
 <p>In this session, we will consider <a class="reference external" href="http://onlinelibrary.wiley.com/doi/10.1111/j.1538-4632.1995.tb00338.x/abstract">Local Indicators of Spatial Association</a> (LISAs), a local counter-part of global measures like Moran’s I. At the core of these method is a classification of the observations in a dataset into four groups derived from the Moran Plot: high values surrounded by high values (HH), low values nearby other low values (LL), high values among low values (HL), and viceversa (LH). Each of these groups are typically called “quadrants”. An illustration of where each of these groups fall into the Moran Plot can be seen below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup the figure and axis</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup the figure and axis</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
 <span class="c1"># Plot values</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Pct_Leave_std&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;w_Pct_Leave_std&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">br</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
@@ -837,7 +831,7 @@ Name: Pct_Leave, dtype: float64
 <p>In Python, we can calculate LISAs in a very streamlined way thanks to <code class="docutils literal notranslate"><span class="pre">PySAL</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lisa</span> <span class="o">=</span> <span class="n">esda</span><span class="o">.</span><span class="n">Moran_Local</span><span class="p">(</span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">],</span> <span class="n">w</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lisa</span> <span class="o">=</span> <span class="n">esda</span><span class="o">.</span><span class="n">Moran_Local</span><span class="p">(</span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">],</span> <span class="n">w</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -847,7 +841,7 @@ Name: Pct_Leave, dtype: float64
 <p>All of the needed pieces are contained inside the <code class="docutils literal notranslate"><span class="pre">lisa</span></code> object we have created above. But, to make the map making more straightforward, it is convenient to pull them out and insert them in the main data table, <code class="docutils literal notranslate"><span class="pre">br</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Break observations into significant or not</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Break observations into significant or not</span>
 <span class="n">br</span><span class="p">[</span><span class="s1">&#39;significant&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lisa</span><span class="o">.</span><span class="n">p_sim</span> <span class="o">&lt;</span> <span class="mf">0.05</span>
 <span class="c1"># Store the quadrant they belong to</span>
 <span class="n">br</span><span class="p">[</span><span class="s1">&#39;quadrant&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lisa</span><span class="o">.</span><span class="n">q</span>
@@ -858,12 +852,12 @@ Name: Pct_Leave, dtype: float64
 <p>Let us stop for second on these two steps. First, the <code class="docutils literal notranslate"><span class="pre">significant</span></code> column. Similarly as with global Moran’s I, <code class="docutils literal notranslate"><span class="pre">PySAL</span></code> is automatically computing a p-value for each LISA. Because not every observation represents a statistically significant one, we want to identify those with a p-value small enough that rules out the possibility of obtaining a similar situation from pure chance. Following a similar reasoning as with global Moran’s I, we select 5% as the threshold for statistical significance. To identify these values, we create a variable, <code class="docutils literal notranslate"><span class="pre">significant</span></code>, that contains <code class="docutils literal notranslate"><span class="pre">True</span></code> if the p-value of the observation is satisfies the condition, and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise. We can check this is the case:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;significant&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;significant&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>lad16cd
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lad16cd
 E06000001    False
 E06000002    False
 E06000003    False
@@ -877,12 +871,12 @@ Name: significant, dtype: bool
 <p>And the first five p-values can be checked by:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lisa</span><span class="o">.</span><span class="n">p_sim</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lisa</span><span class="o">.</span><span class="n">p_sim</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0.191, 0.087, 0.097, 0.039, 0.212])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.191, 0.087, 0.097, 0.039, 0.212])
 </pre></div>
 </div>
 </div>
@@ -891,12 +885,12 @@ Name: significant, dtype: bool
 <p>Second, the quadrant each observation belongs to. This one is easier as it comes built into the <code class="docutils literal notranslate"><span class="pre">lisa</span></code> object directly:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;quadrant&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;quadrant&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>lad16cd
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lad16cd
 E06000001    1
 E06000002    1
 E06000003    1
@@ -918,7 +912,7 @@ Name: quadrant, dtype: int64
 <p>We can create a quick LISA cluster map with <code class="docutils literal notranslate"><span class="pre">splot</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lisa_cluster</span><span class="p">(</span><span class="n">lisa</span><span class="p">,</span> <span class="n">br</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lisa_cluster</span><span class="p">(</span><span class="n">lisa</span><span class="p">,</span> <span class="n">br</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -929,7 +923,7 @@ Name: quadrant, dtype: int64
 <p>Or, if we want to have more control over what is being displayed, and how each component is presented, we can “cook” the plot ourselves:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup the figure and axis</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup the figure and axis</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
 <span class="c1"># Plot insignificant clusters</span>
 <span class="n">ns</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;significant&#39;</span><span class="p">]</span><span class="o">==</span><span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]</span>
@@ -963,7 +957,7 @@ Name: quadrant, dtype: int64
 <p>The results from the LISA statistics can be connected to the Moran plot to visualise where in the scatter plot each type of polygon falls:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_local_autocorrelation</span><span class="p">(</span><span class="n">lisa</span><span class="p">,</span> <span class="n">br</span><span class="p">,</span> <span class="s1">&#39;Pct_Leave&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_local_autocorrelation</span><span class="p">(</span><span class="n">lisa</span><span class="p">,</span> <span class="n">br</span><span class="p">,</span> <span class="s1">&#39;Pct_Leave&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
