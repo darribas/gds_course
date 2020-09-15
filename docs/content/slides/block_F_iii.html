@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title></title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/journal.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+        <!-- BODY -->
+		<div class="reveal">
+			<div class="slides">
+
+                                 
+                <section id="section" class="level1">
+                <h1></h1>
+                <section id="geographic-data-science" class="level2">
+                <h2>Geographic Data Science</h2>
+                <CENTER>
+                Global Spatial Autocorrelation
+                </CENTER>
+                <CENTER>
+                <a href="http://darribas.org">Dani Arribas-Bel</a>
+                </CENTER>
+                </section>
+                </section>
+                <section id="section-1" class="level1">
+                <h1></h1>
+                <section id="global-spatial-autocorr." class="level2">
+                <h2><strong>Global</strong> Spatial Autocorr.</h2>
+                </section>
+                <section id="global-spatial-autocorr.-1" class="level2">
+                <h2><strong>Global</strong> Spatial Autocorr.</h2>
+                <p><strong><i>“Clustering”</i></strong></p>
+                <p><em>Overall trend where the distribution of values follows a particular pattern over space</em></p>
+                <p><span class="fragment"> <strong>[Positive]</strong> Similar values close to each other (high-high, low-low)</p>
+                <p><span class="fragment"> <strong>[Negative]</strong> Similar values far from each other (high-low)</p>
+                <p><span class="fragment"> How to measure it???</p>
+                </section>
+                <section id="moran-plot" class="level2">
+                <h2>Moran Plot</h2>
+                <ul>
+                <li>Graphical device that displays <strong>a variable</strong> on the horizontal axis against <strong>its spatial lag</strong> on the vertical one</li>
+                <li>Variable and spatial weights matrix are preferably <strong>standardized</strong></li>
+                <li>Asssessment of the overall association between a variable in a given location and in its <em>neighborhood</em></li>
+                </ul>
+                </section>
+                <section id="section-2" class="level2">
+                <h2></h2>
+                <center>
+                <img src="../figs/l06_imd_score_choro.png" alt="IMD Choropleth"
+                style="width:450px;height:450px;"/> <span class="fragment"> <img src="../figs/l05_moranplot_std.png" alt="IMD Moran Plot"
+                style="width:450px;height:450px;"/>
+                </center>
+                </section>
+                <section id="morans-i" class="level2">
+                <h2>Moran’s I</h2>
+                <p><strong>Formal test</strong> of global spatial autocorrelation</p>
+                <p><strong>Statistically</strong> identify the presence of clustering in a variable</p>
+                <p>Slope of the Moran plot</p>
+                <p>Inference based on how likely it is to obtain a map like observed from a purely random pattern</p>
+                <div class="fragment">
+                <script type="math/tex; mode=display">
+                I = \dfrac{N} {\sum_{i} \sum_{j} w_{ij}} \dfrac {\sum_{i} \sum_{j}
+                w_{ij}(Z_i) (Z_j)} {\sum_{i} (Z_i)^2}
+                </script>
+                </div>
+                </section>
+                </section>
+                <section id="section-3" class="level1">
+                <h1></h1>
+                <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+                </section>
+			</div>
+		</div>
+
+        <!-- DEPENDENCIES -->
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                controlsTutorial: false,
+                history: false,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+        <!-- END of BODY -->
+	</body>
+</html>

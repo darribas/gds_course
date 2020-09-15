@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title></title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/journal.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+        <!-- BODY -->
+		<div class="reveal">
+			<div class="slides">
+
+                                 
+                <section id="section" class="level1">
+                <h1></h1>
+                <section id="geographic-data-science" class="level2">
+                <h2>Geographic Data Science</h2>
+                <CENTER>
+                Local Spatial Autocorrelation
+                </CENTER>
+                <CENTER>
+                <a href="http://darribas.org">Dani Arribas-Bel</a>
+                </CENTER>
+                </section>
+                </section>
+                <section id="section-1" class="level1">
+                <h1></h1>
+                <section id="local-spatial-autocorr." class="level2">
+                <h2><strong>Local</strong> Spatial Autocorr.</h2>
+                </section>
+                <section id="local-spatial-autocorr.-1" class="level2">
+                <h2><strong>Local</strong> Spatial Autocorr.</h2>
+                <p><strong><i>“Clusters”</i></strong></p>
+                <p><em>Pockets of spatial instability</em></p>
+                <p>Portions of a map where values are correlated in a particularly strong and specific way</p>
+                <p><span class="fragment"> <strong>[High-High]</strong> + SA of <em>high</em> values (<em>hotspots</em>)</p>
+                <p><span class="fragment"> <strong>[Low-Low]</strong> + SA of <em>low</em> values (<em>coldspots</em>)</p>
+                <p><span class="fragment"> <strong>[High-Low]</strong> - SA (<em>spatial outliers</em>)</p>
+                <p><span class="fragment"> <strong>[Low-High]</strong> - SA (<em>spatial outliers</em>)</p>
+                </section>
+                <section id="lisas" class="level2">
+                <h2>LISAs</h2>
+                <p><strong>L</strong>ocal <strong>I</strong>ndicators of <strong>S</strong>patial <strong>A</strong>ssociation</p>
+                <p>Statistical tests for <strong>spatial cluster detection</strong> <span class="math inline">→</span> Statistical significance</p>
+                <p><strong>Compares</strong> the <strong>observed</strong> map with many <strong>random</strong>ly generated ones to see how likely it is to obtain the observed associations <strong>for each location</strong></p>
+                <div class="fragment">
+                <script type="math/tex; mode=display">
+                I_i = \frac{Z_i}{m_2} \sum_j W_{ij} Z_j \; \; ; \; \;  m_2= \frac{\sum_i Z_i^2
+                }{N}
+                </script>
+                </div>
+                </section>
+                <section id="section-2" class="level2">
+                <h2></h2>
+                <center>
+                <img src="../figs/l06_brexit_choro.png" alt="Choropleth"
+                style="width:450px;height:650px;"/> <span class="fragment"> <img src="../figs/l06_brexit_lisa.png" alt="LISA Map"
+                style="width:450px;height:650px;"/>
+                </center>
+                </section>
+                </section>
+                <section id="section-3" class="level1">
+                <h1></h1>
+                <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+                </section>
+			</div>
+		</div>
+
+        <!-- DEPENDENCIES -->
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                controlsTutorial: false,
+                history: false,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+        <!-- END of BODY -->
+	</body>
+</html>
