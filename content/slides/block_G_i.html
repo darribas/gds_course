@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title></title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/journal.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+        <!-- BODY -->
+		<div class="reveal">
+			<div class="slides">
+
+                                 
+                <section id="section" class="level1">
+                <h1></h1>
+                <section id="geographic-data-science" class="level2">
+                <h2>Geographic Data Science</h2>
+                <CENTER>
+                The need to group data
+                </CENTER>
+                <CENTER>
+                <a href="http://darribas.org">Dani Arribas-Bel</a>
+                </CENTER>
+                </section>
+                </section>
+                <section id="section-1" class="level1">
+                <h1></h1>
+                <section id="the-need-to-group-data" class="level2">
+                <h2>The need to group data</h2>
+                </section>
+                <section id="section-2" class="level2">
+                <h2></h2>
+                <center>
+                <em>Everything should be made as simple as possible, but not simpler</em>
+                </center>
+                <div style="text-align:right">
+                <p><small> Albert Einstein </small></p>
+                </div>
+                </section>
+                <section id="the-need-to-group-data-1" class="level2">
+                <h2>The need to group data</h2>
+                <ul>
+                <li>The world is <strong>complex</strong> and <strong>multidimensional</strong></li>
+                <li><strong>Univariate</strong> analysis focuses on <strong>only one</strong> dimension</li>
+                <li>Sometimes, world issues are best understood as <strong>multivariate</strong>. E.g.</li>
+                </ul>
+                <ul class="fragment">
+                <ul>
+                <li>Percentage of foreign-born Vs. <em>What is a neighborhood?</em></li>
+                <li>Years of schooling Vs. <em>Human development</em></li>
+                <li>Monthly income Vs. <em>Deprivation</em></li>
+                </ul>
+                </ul>
+                </section>
+                <section id="grouping-as-simplifying" class="level2">
+                <h2><em>Grouping</em> as <em>simplifying</em></h2>
+                <ul>
+                <li>Define a given number of categories based on <strong>many characteristics</strong> (multi-dimensional)</li>
+                <li>Find the <strong>category</strong> where each observation <em>fits best</em></li>
+                <li><strong>Reduce complexity</strong>, keep all the <strong>relevant information</strong></li>
+                <li>Produce easier-to-understand outputs</li>
+                </ul>
+                </section>
+                <section id="types-of-grouping" class="level2">
+                <h2>Types of grouping</h2>
+                <ul>
+                <li>Non-spatial clustering</li>
+                <li>Regionalisation</li>
+                </ul>
+                </section>
+                </section>
+                <section id="section-3" class="level1">
+                <h1></h1>
+                <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+                </section>
+			</div>
+		</div>
+
+        <!-- DEPENDENCIES -->
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                controlsTutorial: false,
+                history: false,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+        <!-- END of BODY -->
+	</body>
+</html>

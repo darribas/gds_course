@@ -41,3 +41,9 @@
     - file: content/bF/concepts_F
     - file: content/bF/lab_F
     - file: content/bF/diy_F
+    
+- chapter: G - Clustering
+  sections:
+    - file: content/bG/concepts_G
+    - file: content/bG/lab_G
+    - file: content/bG/diy_G
