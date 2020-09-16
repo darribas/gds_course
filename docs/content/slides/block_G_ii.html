@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title></title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/journal.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+        <!-- BODY -->
+		<div class="reveal">
+			<div class="slides">
+
+                                 
+                <section id="section" class="level1">
+                <h1></h1>
+                <section id="geographic-data-science" class="level2">
+                <h2>Geographic Data Science</h2>
+                <CENTER>
+                Non-spatial clustering
+                </CENTER>
+                <CENTER>
+                <a href="http://darribas.org">Dani Arribas-Bel</a>
+                </CENTER>
+                </section>
+                </section>
+                <section id="section-1" class="level1">
+                <h1></h1>
+                <section id="non-spatial-clustering" class="level2">
+                <h2>Non-spatial clustering</h2>
+                </section>
+                <section id="section-2" class="level2">
+                <h2></h2>
+                <p><strong>Split</strong> a dataset into <strong>groups</strong> of observations that are <strong>similar within</strong> the group and <strong>dissimilar between</strong> groups, based on a series of <strong>attributes</strong></p>
+                </section>
+                <section id="section-3" class="level2">
+                <h2></h2>
+                <p><strong>Machine learning</strong></p>
+                <div class="fragment current-visible">
+                <p>The computer <em>learns</em> some of the properties of the dataset without the human specifying them</p>
+                </div>
+                <p><strong>Unsupervised</strong></p>
+                <div class="fragment current-visible">
+                <p>There is no a-priori structure imposed on the classification <span class="math inline">→</span> before the analysis, no observations is in a category</p>
+                </div>
+                </section>
+                <section id="intuition" class="level2">
+                <h2>Intuition</h2>
+                <center>
+                <img src="../figs/l08_split.png" alt="Clustering"
+                style="width:750px;height:450px;"/>
+                </center>
+                </section>
+                <section id="k-means" class="level2">
+                <h2>K-means</h2>
+                <ul>
+                <li>Most popular clustering algorithm</li>
+                <li>Good but not perfect</li>
+                <li>Watch video for int</li>
+                </ul>
+                </section>
+                <section id="more-clustering" class="level2">
+                <h2>More clustering…</h2>
+                <ul>
+                <li>Hierarchical clustering</li>
+                <li>Agglomerative clustering</li>
+                <li>Spectral clustering</li>
+                <li>Neural networks (e.g. Self-Organizing Maps)</li>
+                <li>DBSCAN</li>
+                <li>…</li>
+                </ul>
+                <p>Different properties, different best usecases</p>
+                <p>See <a href="http://scikit-learn.org/stable/modules/clustering.html#overview-of-clustering-methods">interesting comparison</a> table</p>
+                </section>
+                </section>
+                <section id="section-4" class="level1">
+                <h1></h1>
+                <section id="geodemographic-analysis" class="level2">
+                <h2>Geodemographic analysis</h2>
+                </section>
+                <section id="geodemographic-analysis-1" class="level2">
+                <h2>Geodemographic analysis</h2>
+                <table>
+                <col width="70%">
+                <col width="30%">
+                <tr>
+                <td style="vertical-align:top">
+                <ul>
+                <li>1970’s, Richard Webber</li>
+                <li><strong>Identify similar neighborhoods</strong> <span class="math inline">→</span> Target urban deprivation funding</li>
+                <li><strong>Public</strong> Sector (policy) <span class="math inline">→</span> <strong>Private</strong> sector (marketing and business intelligence)</li>
+                </ul>
+                </td>
+                <td>
+                <img src="../content/lectures/figs/l08_predictive_postcode.jpg"
+                alt="Predictive Postcode"/>
+                </td>
+                </table>
+                </section>
+                <section id="section-5" class="level2" data-background="../content/lectures/figs/l08_oac.png" data-transition="none">
+                <h2 data-background="../content/lectures/figs/l08_oac.png" data-transition="none"></h2>
+                <p><a href="http://maps.cdrc.ac.uk">Source</a></p>
+                </section>
+                </section>
+                <section id="section-6" class="level1">
+                <h1></h1>
+                <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+                </section>
+			</div>
+		</div>
+
+        <!-- DEPENDENCIES -->
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                controlsTutorial: false,
+                history: false,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+        <!-- END of BODY -->
+	</body>
+</html>

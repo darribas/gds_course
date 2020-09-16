@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title></title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/journal.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+        <!-- BODY -->
+		<div class="reveal">
+			<div class="slides">
+
+                                 
+                <section id="section" class="level1">
+                <h1></h1>
+                <section id="geographic-data-science" class="level2">
+                <h2>Geographic Data Science</h2>
+                <CENTER>
+                Regionalisation
+                </CENTER>
+                <CENTER>
+                <a href="http://darribas.org">Dani Arribas-Bel</a>
+                </CENTER>
+                </section>
+                </section>
+                <section id="section-1" class="level1">
+                <h1></h1>
+                <section id="regionalization" class="level2">
+                <h2>Regionalization</h2>
+                </section>
+                <section id="section-2" class="level2">
+                <h2></h2>
+                <p>Unsupervised <span class="fragment"><strong>Spatial</strong></span> Machine Learning</p>
+                <p><span class="fragment"> <em>Aggregating basic spatial units (<strong>areas</strong>) <strong>into</strong> larger units (<strong>regions</strong>)</em></p>
+                </section>
+                <section id="regionalization-1" class="level2">
+                <h2>Regionalization</h2>
+                <p><strong>Split</strong> a dataset into <strong>groups</strong> of observations that are <strong>similar within</strong> the group and <strong>dissimilar between</strong> groups, based on a series of <strong>attributes</strong>…</p>
+                <p><span class="fragment"> …with the additional constraint observations need to be <strong>spatial neighbors</strong></span></p>
+                </section>
+                <section id="regionalization-2" class="level2" data-transition="none">
+                <h2 data-transition="none">Regionalization</h2>
+                <SMALL>
+                <ul>
+                <li class="fragment current-visible">
+                All the methods aggregate geographical areas into a predefined number of regions, while optimizing a particular aggregation criterion;
+                </li>
+                <li class="fragment current-visible">
+                The areas within a region must be geographically connected (the spatial contiguity constraint);
+                </li>
+                <li class="fragment current-visible">
+                The number of regions must be smaller than or equal to the number of areas;
+                </li>
+                <li class="fragment current-visible">
+                Each area must be assigned to one and only one region;
+                </li>
+                <li class="fragment current-visible">
+                Each region must contain at least one area.
+                </li>
+                </ul>
+                <p></SMALL></p>
+                <div style="text-align:right">
+                <p><a href="http://irx.sagepub.com/content/30/3/195">Duque et al. (2007)</a></p>
+                </div>
+                </section>
+                <section id="regionalization-3" class="level2" data-transition="none">
+                <h2 data-transition="none">Regionalization</h2>
+                <SMALL>
+                <ul>
+                <li>
+                All the methods aggregate geographical areas into a predefined number of regions, while optimizing a particular aggregation criterion;
+                </li>
+                <li>
+                The areas within a region must be geographically connected (the spatial contiguity constraint);
+                </li>
+                <li>
+                The number of regions must be smaller than or equal to the number of areas;
+                </li>
+                <li>
+                Each area must be assigned to one and only one region;
+                </li>
+                <li>
+                Each region must contain at least one area.
+                </li>
+                </ul>
+                <p></SMALL></p>
+                <div style="text-align:right">
+                <p><a href="http://irx.sagepub.com/content/30/3/195">Duque et al. (2007)</a></p>
+                </div>
+                </section>
+                <section id="section-3" class="level2" data-background="../figs/l08_abb_london.png">
+                <h2 data-background="../figs/l08_abb_london.png"></h2>
+                </section>
+                <section id="algorithms" class="level2">
+                <h2>Algorithms</h2>
+                <ul>
+                <li>Automated Zoning Procedure (AZP)</li>
+                <li>Arisel</li>
+                <li>Max-P</li>
+                <li>…</li>
+                </ul>
+                <p>See <a href="http://irx.sagepub.com/content/30/3/195">Duque et al. (2007)</a> for an excellent, though advanced, overview</p>
+                </section>
+                </section>
+                <section id="section-4" class="level1">
+                <h1></h1>
+                <section id="examples" class="level2">
+                <h2>Examples</h2>
+                </section>
+                <section id="census-geographies" class="level2" data-transition="none">
+                <h2 data-transition="none">Census geographies</h2>
+                <center>
+                <img src="../figs/l08_census.png" alt="Choropleth"
+                style="width:800px;height:350px;"/>
+                </center>
+                </section>
+                <section id="section-5" class="level2" data-background="../figs/l08_livehoods.png" data-transition="none">
+                <h2 data-background="../figs/l08_livehoods.png" data-transition="none"></h2>
+                <p><a href="http://www.livehoods.org/">Livehoods</a></p>
+                </section>
+                </section>
+                <section id="section-6" class="level1">
+                <h1></h1>
+                <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+                </section>
+			</div>
+		</div>
+
+        <!-- DEPENDENCIES -->
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                controlsTutorial: false,
+                history: false,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+        <!-- END of BODY -->
+	</body>
+</html>
