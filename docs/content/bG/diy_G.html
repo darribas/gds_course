@@ -2,11 +2,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>&lt;no title&gt; &#8212; A course on Geographic Data Science</title>
+    <title>Do-It-Yourself &#8212; A course on Geographic Data Science</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -16,8 +15,6 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -27,12 +24,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -232,7 +227,7 @@
   G - Clustering
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="concepts_G.html">
    Concepts
@@ -241,6 +236,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="lab_G.html">
    Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Do-It-Yourself
   </a>
  </li>
 </ul>
@@ -322,10 +322,22 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> On this page
+            <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-i-nyc-geodemographics">
+   Task I: NYC Geodemographics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-ii-regionalisation-of-dar-es-salaam">
+   Task II: Regionalisation of Dar Es Salaam
+  </a>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -334,14 +346,144 @@
         
               <div>
                 
-  <hr class="docutils" />
-<p><strong>[Optional exercise]</strong></p>
-<p>Explore the help and the <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> tutorial (find it on Google) for the function <code class="docutils literal notranslate"><span class="pre">pairplot</span></code> and experiment with some of the parameters. For example, recreate the figure above replacing the KDE plots with histograms.</p>
-<hr class="docutils" />
-<hr class="docutils" />
-<p><strong>[Optional exercise]</strong></p>
-<p>Create a new classification with 10 groups. Compare the output maps between the two solutions.</p>
-<hr class="docutils" />
+  <div class="section" id="do-it-yourself">
+<h1>Do-It-Yourself<a class="headerlink" href="#do-it-yourself" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span>
+<span class="kn">import</span> <span class="nn">contextily</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="task-i-nyc-geodemographics">
+<h2>Task I: NYC Geodemographics<a class="headerlink" href="#task-i-nyc-geodemographics" title="Permalink to this headline">¶</a></h2>
+<p>We are going to try to get at the (geographic) essence of New York City. For that, we will rely on the same set up Census tracts for New York City we used <a class="reference internal" href="../bE/diy_E.html#diy-e-tracts"><span class="std std-ref">a few blocks ago</span></a>. Once you have the <code class="docutils literal notranslate"><span class="pre">nyc</span></code> object loaded, create a geodemographic classification using the following variables:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">european</span></code>: Total Population White</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">asian</span></code>: Total Population Asian American</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">american</span></code>: Total Population American Indian</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">african</span></code>: Total Population African American</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hispanic</span></code>: Total Population Hispanic</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mixed</span></code>: Total Population Mixed race</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pacific</span></code>: Total Population Pacific Islander</p></li>
+</ul>
+<p>For this, make sure you standardise the table by the size of each tract. That is, compute a column with the total population as the sum of all the ethnic groups and divide each of them by that column. This way, the values will range between 0 (no population of a given ethnic group) and 1 (all the population in the tract is of that group).</p>
+<p>Once this is ready, get to work with the following tasks:</p>
+<ol class="simple">
+<li><p>Pick a number of clusters (e.g. 10)</p></li>
+<li><p>Run K-Means for that number of clusters</p></li>
+<li><p>Plot the different clusters on a map</p></li>
+<li><p>Analyse the results:</p>
+<ul class="simple">
+<li><p><em>What do you find?</em></p></li>
+<li><p><em>What are the main characteristics of each cluster?</em></p></li>
+<li><p><em>How are clusters distributed geographically?</em></p></li>
+<li><p><em>Can you identify some groups concentrated on particular areas (e.g. China Town, Little Italy)?</em></p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="task-ii-regionalisation-of-dar-es-salaam">
+<h2>Task II: Regionalisation of Dar Es Salaam<a class="headerlink" href="#task-ii-regionalisation-of-dar-es-salaam" title="Permalink to this headline">¶</a></h2>
+<p>For this task we will travel to Tanzania’s Dar Es Salaam. We are using a dataset assembled to describe the built environment of the city centre. Let’s load up the dataset before anything:</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-important admonition">
+<p class="admonition-title">Important</p>
+<p>Make sure you are connected to the internet when you run this cell</p>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the file in</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;http://darribas.org/gds_course/content/data/dar_es_salaam.geojson&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-alternative admonition">
+<p class="admonition-title">Alternative</p>
+<p>Instead of reading the file directly off the web, it is possible to download it manually, store it on your computer, and read it locally. To do that, you can follow these steps:</p>
+<ol class="simple">
+<li><p>Download the file by right-clicking on <span class="xref myst">this link</span> and saving the file</p></li>
+<li><p>Place the file on the <em>same folder as the notebook</em> where you intend to read it</p></li>
+<li><p>Replace the code in the cell above by:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">br</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;dar_es_salaam.geojson&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Geographically, this is what we are looking at:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> 
+             <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+             <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+             <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+            <span class="p">)</span>
+<span class="n">contextily</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> 
+                       <span class="n">crs</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> 
+                       <span class="n">source</span><span class="o">=</span><span class="n">contextily</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">Esri</span><span class="o">.</span><span class="n">WorldImagery</span>
+                      <span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/diy_G_7_0.png" src="../../_images/diy_G_7_0.png" />
+</div>
+</div>
+<p>We can inspect the table:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
+RangeIndex: 1291 entries, 0 to 1290
+Data columns (total 7 columns):
+ #   Column             Non-Null Count  Dtype   
+---  ------             --------------  -----   
+ 0   index              1291 non-null   object  
+ 1   id                 1291 non-null   object  
+ 2   street_length      1291 non-null   float64 
+ 3   street_linearity   1291 non-null   float64 
+ 4   building_density   1291 non-null   float64 
+ 5   building_coverage  1291 non-null   float64 
+ 6   geometry           1291 non-null   geometry
+dtypes: float64(4), geometry(1), object(2)
+memory usage: 70.7+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<p>Two main aspects of the built environment are considered: the street network and buildings. To capture those, the following variables are calculated at for the H3 hexagonal grid system, zoom level 8:</p>
+<ul class="simple">
+<li><p>Building density: number of buildings per hexagon</p></li>
+<li><p>Building coverage: proportion of the hexagon covered by buildings</p></li>
+<li><p>Street length: total length of streets within the hexagon</p></li>
+<li><p>Street linearity: a measure of how regular the street network is</p></li>
+</ul>
+<p>With these at hand, your task is the following:</p>
+<blockquote>
+<div><p><em>Develop a regionalisation that partitions Dar Es Salaam based on its built environment</em></p>
+</div></blockquote>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>These are only guidelines, feel free to improvise and go beyond what’s set. The sky is the limit!</p>
+</div>
+<p>For that, you can follow these suggestions:</p>
+<ul class="simple">
+<li><p>Create a spatial weights matrix to capture spatial relationships between hexagons</p></li>
+<li><p>Set up a regionalisation algorithm with a given number of clusters (e.g. seven)</p></li>
+<li><p>Generate a geography that contains only the boundaries of each region and visualise it (ideally with a satellite image as basemap for context)</p></li>
+<li><p>Rinse and repeat with several combinations of variables and number of clusters</p></li>
+<li><p>Pick your best. <em>Why have you selected it? What does it show? What are the main groups of areas based on the built environment?</em></p></li>
+</ul>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
