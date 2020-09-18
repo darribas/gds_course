@@ -26,6 +26,7 @@ jobs:
         shell: bash -l {0}
         continue-on-error: false
         run: |
+          pyppeteer-install
           make pdf
       - name: Commit files
         run: |
