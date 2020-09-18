@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title></title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/journal.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+        <!-- BODY -->
+		<div class="reveal">
+			<div class="slides">
+
+                                 
+                <section id="section" class="level1">
+                <h1></h1>
+                <section id="geographic-data-science" class="level2">
+                <h2>Geographic Data Science</h2>
+                <CENTER>
+                Visualisation of Point Patterns
+                </CENTER>
+                <CENTER>
+                <a href="http://darribas.org">Dani Arribas-Bel</a>
+                </CENTER>
+                </section>
+                </section>
+                <section id="section-1" class="level1">
+                <h1></h1>
+                <section id="visualization-of-pps" class="level2">
+                <h2>Visualization of PPs</h2>
+                </section>
+                <section id="visualization-of-pps-1" class="level2">
+                <h2>Visualization of PPs</h2>
+                <p>Three routes (today):</p>
+                <ul>
+                <li><em>One-to-one</em> mapping <span class='fragment'> <span class="math inline">↔︎</span> “Scatter plot”</li>
+                <li><em>Aggregate</em> <span class='fragment'> <span class="math inline">↔︎</span> “Histogram”</li>
+                <li><em>Smooth</em> <span class='fragment'> <span class="math inline">↔︎</span> KDE</li>
+                </ul>
+                </section>
+                <section id="one-to-one" class="level2">
+                <h2>One-to-one</h2>
+                </section>
+                <section id="one-to-one-1" class="level2">
+                <h2>One-to-one</h2>
+                <ul>
+                <li>Intuitive</li>
+                <li>Effective in small datasets</li>
+                <li>Limited as size increases until useless</li>
+                </ul>
+                </section>
+                <section id="aggregation" class="level2">
+                <h2>Aggregation</h2>
+                </section>
+                <section id="section-2" class="level2">
+                <h2></h2>
+                <center>
+                <em>Points meet polygons</em>
+                </center>
+                <p><span class="fragment"> Use <strong>polygon</strong> boundaries and <strong>count</strong> points per area</p>
+                <p><span class="fragment"> [Insert your skills for <strong>choropleth mapping</strong> here!!!]</p>
+                <p><span class="fragment"> <strong>But</strong>, <span class="fragment"> the polygons need to <em>“make sense”</em> (their delineation needs to relate to the point generating process)</p>
+                </section>
+                <section id="section-3" class="level2">
+                <h2></h2>
+                <center>
+                <img src="../figs/l09_liv_pts.png" alt=""
+                style="width:400px;height:500px;"/> <span class="fragment"> <img src="../figs/l09_liv_cho.png" alt=""
+                style="width:400px;height:500px;"/>
+                </center>
+                </section>
+                <section id="hex-binning" class="level2">
+                <h2>Hex-binning</h2>
+                <p>If <strong>no</strong> polygon boundary seems like a <strong>good candidate</strong> for aggregation…</p>
+                <p><span class='fragment'> …draw a <strong>hexagonal</strong> (or squared) <strong>tesselation</strong>!!!</p>
+                <div class="fragment">
+                <p>Hexagons…</p>
+                <ul>
+                <li>Are <strong>regular</strong></li>
+                <li><strong>Exhaust</strong> the space (Unlike circles)</li>
+                <li>Have <strong>many sides</strong> (minimize boundary problems)</li>
+                </ul>
+                </div>
+                </section>
+                <section id="section-4" class="level2">
+                <h2></h2>
+                <center>
+                <img src="../figs/l09_liv_pts.png" alt=""
+                style="width:300px;height:400px;"/> <span class="fragment"> <img src="../figs/l09_liv_hex_empty.png" alt=""
+                style="width:300px;height:400px;"/> <span class="fragment"> <img src="../figs/l09_liv_hex_filled.png" alt=""
+                style="width:300px;height:400px;"/>
+                </center>
+                </section>
+                <section id="but" class="level2">
+                <h2>But…</h2>
+                <div class="fragment">
+                <p>(Arbitrary) aggregation may induce <strong>MAUP</strong> (see Block D)</p>
+                </div>
+                <center class="fragment">
+                <span class="math inline">+</span>
+                </center>
+                <div class="fragment">
+                <p>Points usually represent events that affect only <strong>part</strong> of the population and hence are best considered as <strong>rates</strong> (see Lecture 4)</p>
+                </div>
+                </section>
+                <section id="kernel-density-estimation" class="level2">
+                <h2>Kernel Density Estimation</h2>
+                </section>
+                <section id="kernel-density-estimation-1" class="level2">
+                <h2>Kernel Density Estimation</h2>
+                <p><em>Estimate the (<strong>continuous</strong>) observed <strong>distribution</strong> of a variable</em></p>
+                <div class="fragment">
+                <ul>
+                <li>Probability of finding an observation at a given point</li>
+                <li>“Continuous histogram”</li>
+                <li>Solves (much of) the MAUP problem, but not the underlying population issue</li>
+                </ul>
+                </div>
+                </section>
+                <section id="section-5" class="level2" data-background="../figs/l09_kde.png" data-background-size="contain">
+                <h2 data-background="../figs/l09_kde.png" data-background-size="contain"></h2>
+                <p>[<a href="https://en.wikipedia.org/wiki/Kernel_density_estimation#/media/File:Comparison_of_1D_histogram_and_KDE.png">Source</a>]</p>
+                </section>
+                <section id="bivariate-spatial-kde" class="level2">
+                <h2>Bivariate (spatial) KDE</h2>
+                <p><em>Probability of finding observations at a given point in space</em></p>
+                <ul>
+                <li><strong>Bivariate</strong> version: distribution of <strong>pairs of values</strong></li>
+                <li>In <strong>space</strong>: values are coordinates (XY), locations</li>
+                <li>Continuous “version” of a choropleth</li>
+                </ul>
+                </section>
+                <section id="section-6" class="level2" data-background="../figs/l09_kde2d.png">
+                <h2 data-background="../figs/l09_kde2d.png"></h2>
+                </section>
+                <section id="section-7" class="level2">
+                <h2></h2>
+                <center>
+                <img src="../figs/l09_liv_pts.png" alt=""
+                style="width:400px;height:500px;"/> <span class="fragment"> <img src="../figs/l09_liv_kde.png" alt=""
+                style="width:400px;height:500px;"/>
+                </center>
+                </section>
+                </section>
+                <section id="section-8" class="level1">
+                <h1></h1>
+                <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+                </section>
+			</div>
+		</div>
+
+        <!-- DEPENDENCIES -->
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                controlsTutorial: false,
+                history: false,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+        <!-- END of BODY -->
+	</body>
+</html>

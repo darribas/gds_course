@@ -2,9 +2,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hands-on &#8212; A course on Geographic Data Science</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
@@ -15,6 +16,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -24,10 +27,12 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -245,6 +250,18 @@
   </a>
  </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  H - Points
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bH/concepts_H.html">
+   Concepts
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -323,7 +340,7 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i> On this page
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -492,7 +509,7 @@
 <h2>Mapping in Python<a class="headerlink" href="#mapping-in-python" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 
 <span class="kn">import</span> <span class="nn">geopandas</span>
 <span class="kn">import</span> <span class="nn">osmnx</span>
@@ -524,7 +541,7 @@
 <p>First we will use a polygon geography. We will use an open dataset that contains the boundaries of Spanish cities. We can read it into an object named <code class="docutils literal notranslate"><span class="pre">cities</span></code> by:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;https://ndownloader.figshare.com/files/20232174&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;https://ndownloader.figshare.com/files/20232174&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -547,14 +564,14 @@
 <p>The data is available on the following web address:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;https://github.com/geochicasosm/lascallesdelasmujeres&quot;</span>\
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;https://github.com/geochicasosm/lascallesdelasmujeres&quot;</span>\
        <span class="s2">&quot;/raw/master/data/zaragoza/final_tile.geojson&quot;</span><span class="p">)</span>
 <span class="n">url</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;https://github.com/geochicasosm/lascallesdelasmujeres/raw/master/data/zaragoza/final_tile.geojson&#39;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;https://github.com/geochicasosm/lascallesdelasmujeres/raw/master/data/zaragoza/final_tile.geojson&#39;
 </pre></div>
 </div>
 </div>
@@ -562,7 +579,7 @@
 <p>And you can read it into an object called <code class="docutils literal notranslate"><span class="pre">streets</span></code> with:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">streets</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">streets</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -573,7 +590,7 @@
 <p>The final dataset we will rely on is a set of points demarcating the location of bars in Zaragoza. To obtain it, we will use <code class="docutils literal notranslate"><span class="pre">osmnx</span></code>, a Python library that allows us to query <a class="reference external" href="https://www.openstreetmap.org">OpenStreetMap</a>. Note that we use the method <code class="docutils literal notranslate"><span class="pre">pois_from_place</span></code>, which queries for points of interest (POIs, or <code class="docutils literal notranslate"><span class="pre">pois</span></code>) in a particular place (Zaragoza in this case). In addition, we can specify a set of tags to delimit the query. We use this to ask <em>only</em> for amenities of the type “bar”:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pois</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">pois</span><span class="o">.</span><span class="n">pois_from_place</span><span class="p">(</span><span class="s2">&quot;Zaragoza, Spain&quot;</span><span class="p">,</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pois</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">pois</span><span class="o">.</span><span class="n">pois_from_place</span><span class="p">(</span><span class="s2">&quot;Zaragoza, Spain&quot;</span><span class="p">,</span> 
                                   <span class="n">tags</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;amenity&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">}</span>
                                  <span class="p">)</span>
 </pre></div>
@@ -592,7 +609,7 @@
 <p>Now <code class="docutils literal notranslate"><span class="pre">lsoas</span></code> is a <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code>. Very similar to a traditional, non-spatial <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, but with an additional column called <code class="docutils literal notranslate"><span class="pre">geometry</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -658,12 +675,12 @@
 <p>This allows us to quickly produce a plot by executing the following line:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
 <img alt="../../_images/lab_C_21_1.png" src="../../_images/lab_C_21_1.png" />
@@ -673,7 +690,7 @@
 <p><strong>Pro-tip</strong>: if you call a single row of the <code class="docutils literal notranslate"><span class="pre">geometry</span></code> column, it’ll return a small plot ith the shape:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -686,7 +703,7 @@
 <p>Similarly to the polygon case, if we pick the <code class="docutils literal notranslate"><span class="pre">&quot;geometry&quot;</span></code> column of a table with lines, a single row will display the geometry as well:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">streets</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">streets</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -696,12 +713,12 @@
 <p>A quick plot is similarly generated by:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">streets</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">streets</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
 <img alt="../../_images/lab_C_29_1.png" src="../../_images/lab_C_29_1.png" />
@@ -714,12 +731,12 @@
 <p>Points take a similar approach for quick plotting:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pois</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pois</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
 <img alt="../../_images/lab_C_33_1.png" src="../../_images/lab_C_33_1.png" />
@@ -736,12 +753,12 @@
 <p>The intensity of color of a polygon can be easily changed through the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> attribute in plot. This is specified as a value betwee zero and one, where the former is entirely transparent while the latter is the fully opaque (maximum intensity):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pois</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pois</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
 <img alt="../../_images/lab_C_38_1.png" src="../../_images/lab_C_38_1.png" />
@@ -753,7 +770,7 @@
 <p>Although in some cases, the axes can be useful to obtain context, most of the times maps look and feel better without them. Removing the axes involves wrapping the plot into a figure, which takes a few more lines of aparently useless code but that, in time, it will allow you to tweak the map further and to create much more flexible designs:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Plot layer of polygons on the axis</span>
 <span class="n">cities</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
@@ -781,7 +798,7 @@
 <p>Adding a title is an extra line, if we are creating the plot within a figure, as we just did. To include text on top of the figure:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Add layer of polygons on the axis</span>
 <span class="n">streets</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
@@ -802,7 +819,7 @@
 <p>The size of the plot is changed equally easily in this context. The only difference is that it is specified when we create the figure with the argument <code class="docutils literal notranslate"><span class="pre">figsize</span></code>. The first number represents the width, the X axis, and the second corresponds with the height, the Y axis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis with different size</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis with different size</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
 <span class="c1"># Add layer of polygons on the axis</span>
 <span class="n">cities</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
@@ -821,7 +838,7 @@
 <p>Border lines sometimes can distort or impede proper interpretation of a map. In those cases, it is useful to know how they can be modified. Although not too complicated, the way to access borders in <code class="docutils literal notranslate"><span class="pre">geopandas</span></code> is not as straightforward as it is the case for other aspects of the map, such as size or frame. Let us first see the code to make the <em>lines thicker</em> and <em>black</em>, and then we will work our way through the different steps:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
 <span class="c1"># Add layer of polygons on the axis, set fill color (`facecolor`) and boundary</span>
 <span class="c1"># color (`edgecolor`)</span>
@@ -834,7 +851,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
 <img alt="../../_images/lab_C_51_1.png" src="../../_images/lab_C_51_1.png" />
@@ -849,7 +866,7 @@
 <p>This approach works very similarly with other geometries, such as lines. For example, if we wanted to plot the streets in red, we would simply:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Add layer with lines, set them red and with different line width</span>
 <span class="c1"># and append it to the axis `ax`</span>
@@ -858,7 +875,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
 <img alt="../../_images/lab_C_53_1.png" src="../../_images/lab_C_53_1.png" />
@@ -871,12 +888,12 @@
 <p>The coordindate reference system (CRS) is the way geographers and cartographers have to represent a three-dimentional object, such as the round earth, on a two-dimensional plane, such as a piece of paper or a computer screen. If the source data contain information on the CRS of the data, we can modify this in a <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code>. First let us check if we have the information stored properly:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span><span class="o">.</span><span class="n">crs</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span><span class="o">.</span><span class="n">crs</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Projected CRS: EPSG:25830&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Projected CRS: EPSG:25830&gt;
 Name: ETRS89 / UTM zone 30N
 Axis Info [cartesian]:
 - E[east]: Easting (metre)
@@ -898,7 +915,7 @@ Datum: European Terrestrial Reference System 1989
 <p>If we want to modify this and “reproject” the polygons into a different CRS, the quickest way is to find the <a class="reference external" href="https://en.wikipedia.org/wiki/International_Association_of_Oil_%26_Gas_Producers#European_Petroleum_Survey_Group">EPSG</a> code online (<a class="reference external" href="http://epsg.io/">epsg.io</a> is a good one, although there are others too). For example, if we wanted to transform the dataset into lat/lon coordinates, we would use its EPSG code, 4326:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reproject (`to_crs`) and plot (`plot`) polygons</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reproject (`to_crs`) and plot (`plot`) polygons</span>
 <span class="n">cities</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">4326</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="c1"># Set equal axis</span>
 <span class="n">lims</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
@@ -918,7 +935,7 @@ Datum: European Terrestrial Reference System 1989
 <p>For this section, let’s select only Zaragoza from the <code class="docutils literal notranslate"><span class="pre">streets</span></code> table and convert it to lat/lon so it’s aligned with the streets and POIs layers:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zgz</span> <span class="o">=</span> <span class="n">cities</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">112</span><span class="p">],</span> <span class="p">:]</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">4326</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">zgz</span> <span class="o">=</span> <span class="n">cities</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">112</span><span class="p">],</span> <span class="p">:]</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">4326</span><span class="p">)</span>
 <span class="n">zgz</span>
 </pre></div>
 </div>
@@ -961,7 +978,7 @@ Datum: European Terrestrial Reference System 1989
 <p>Combining different layers on a single map boils down to adding each of them to the same axis in a sequential way, as if we were literally overlaying one on top of the previous one. For example, let’s plot the boundary of Zaragoza and its bars:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Add a layer with polygon on to axis `ax`</span>
 <span class="n">zgz</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;yellow&quot;</span><span class="p">)</span>
@@ -971,7 +988,7 @@ Datum: European Terrestrial Reference System 1989
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
 <img alt="../../_images/lab_C_65_1.png" src="../../_images/lab_C_65_1.png" />
@@ -983,7 +1000,7 @@ Datum: European Terrestrial Reference System 1989
 <p>Once we have produced a map we are content with, we might want to save it to a file so we can include it into a report, article, website, etc. Exporting maps in Python involves replacing <code class="docutils literal notranslate"><span class="pre">plt.show</span></code> by <code class="docutils literal notranslate"><span class="pre">plt.savefig</span></code> at the end of the code block to specify where and how to save it. For example to save the previous map into a <code class="docutils literal notranslate"><span class="pre">png</span></code> file in the same folder where the notebook is hosted:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Add a layer with polygon on to axis `ax`</span>
 <span class="n">zgz</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;yellow&quot;</span><span class="p">)</span>
@@ -1002,7 +1019,7 @@ Datum: European Terrestrial Reference System 1989
 <p>The command <code class="docutils literal notranslate"><span class="pre">plt.savefig</span></code> contains a large number of options and additional parameters to tweak. Given the size of the figure created is not very large, we can increase this with the argument <code class="docutils literal notranslate"><span class="pre">dpi</span></code>, which stands for “dots per inch” and it’s a standard measure of resolution in images. For example, for a high quality image, we could use 500:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Add a layer with polygon on to axis `ax`</span>
 <span class="n">zgz</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;yellow&quot;</span><span class="p">)</span>
@@ -1027,13 +1044,13 @@ Datum: European Terrestrial Reference System 1989
 <p>One of the spatial aspects we often need from polygons is their area. “How big is it?” is a question that always haunts us when we think of countries, regions, or cities. To obtain area measurements, first make sure you <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> <a class="reference internal" href="#lab-c-to-crs"><span class="std std-ref">is projected</span></a>. If that is the case, you can calculate areas as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">city_areas</span> <span class="o">=</span> <span class="n">cities</span><span class="o">.</span><span class="n">area</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">city_areas</span> <span class="o">=</span> <span class="n">cities</span><span class="o">.</span><span class="n">area</span>
 <span class="n">city_areas</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    8.449666e+06
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0    8.449666e+06
 1    9.121270e+06
 2    1.322653e+07
 3    6.808121e+07
@@ -1046,13 +1063,13 @@ dtype: float64
 <p>This indicates that the area of the first city in our table takes up 8,450,000 squared metres. If we wanted to convert into squared kilometres, we can divide by 1,000,000:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">areas_in_sqkm</span> <span class="o">=</span> <span class="n">city_areas</span> <span class="o">/</span> <span class="mi">1000000</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">areas_in_sqkm</span> <span class="o">=</span> <span class="n">city_areas</span> <span class="o">/</span> <span class="mi">1000000</span>
 <span class="n">areas_in_sqkm</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     8.449666
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0     8.449666
 1     9.121270
 2    13.226528
 3    68.081212
@@ -1068,13 +1085,13 @@ dtype: float64
 <p>Similarly, an equally common question with lines is their length. Also similarly, their computation is relatively straightforward in Python, provided that our data are projected. Here we will perform the projection (<code class="docutils literal notranslate"><span class="pre">to_crs</span></code>) and the calculation of the length at the same time:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">street_length</span> <span class="o">=</span> <span class="n">streets</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">25830</span><span class="p">)</span><span class="o">.</span><span class="n">length</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">street_length</span> <span class="o">=</span> <span class="n">streets</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">25830</span><span class="p">)</span><span class="o">.</span><span class="n">length</span>
 <span class="n">street_length</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     37.338828
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0     37.338828
 1    104.510732
 2    365.969719
 3     97.101436
@@ -1091,13 +1108,13 @@ dtype: float64
 <p>Sometimes it is useful to summarize a polygon into a single point and, for that, a good candidate is its centroid (almost like a spatial analogue of the average). The following command will return a <code class="docutils literal notranslate"><span class="pre">GeoSeries</span></code> (a single column with spatial data) with the centroids of a polygon <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cents</span> <span class="o">=</span> <span class="n">cities</span><span class="o">.</span><span class="n">centroid</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cents</span> <span class="o">=</span> <span class="n">cities</span><span class="o">.</span><span class="n">centroid</span>
 <span class="n">cents</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    POINT (386147.759 4204605.994)
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0    POINT (386147.759 4204605.994)
 1    POINT (216296.159 4579397.331)
 2    POINT (688901.588 4180201.774)
 3    POINT (518262.028 4069898.674)
@@ -1110,12 +1127,12 @@ dtype: geometry
 <p>Note how <code class="docutils literal notranslate"><span class="pre">cents</span></code> is not an entire table but a single column, or a <code class="docutils literal notranslate"><span class="pre">GeoSeries</span></code> object. This means you can plot it directly, just like a table:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cents</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cents</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
 <img alt="../../_images/lab_C_84_1.png" src="../../_images/lab_C_84_1.png" />
@@ -1128,7 +1145,7 @@ dtype: geometry
 <p>Knowing whether a point is inside a polygon is conceptually a straightforward exercise but computationally a tricky task to perform. The way to perform this operation in <code class="docutils literal notranslate"><span class="pre">GeoPandas</span></code> is through the <code class="docutils literal notranslate"><span class="pre">contains</span></code> method, available for each polygon object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">poly</span> <span class="o">=</span> <span class="n">cities</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">112</span><span class="p">,</span> <span class="s2">&quot;geometry&quot;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poly</span> <span class="o">=</span> <span class="n">cities</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">112</span><span class="p">,</span> <span class="s2">&quot;geometry&quot;</span><span class="p">]</span>
 <span class="n">pt1</span> <span class="o">=</span> <span class="n">cents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">pt2</span> <span class="o">=</span> <span class="n">cents</span><span class="p">[</span><span class="mi">112</span><span class="p">]</span>
 </pre></div>
@@ -1138,24 +1155,24 @@ dtype: geometry
 <p>And we can perform the checks as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">poly</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">pt1</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poly</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">pt1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>False
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">poly</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">pt2</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poly</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">pt2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -1168,13 +1185,13 @@ dtype: geometry
 <p>For this example, we will use the bars table, but will project it to the same CRS as <code class="docutils literal notranslate"><span class="pre">cities</span></code>, so it is expressed in metres:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pois_projected</span> <span class="o">=</span> <span class="n">pois</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">cities</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pois_projected</span> <span class="o">=</span> <span class="n">pois</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">cities</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
 <span class="n">pois_projected</span><span class="o">.</span><span class="n">crs</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Projected CRS: EPSG:25830&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Projected CRS: EPSG:25830&gt;
 Name: ETRS89 / UTM zone 30N
 Axis Info [cartesian]:
 - E[east]: Easting (metre)
@@ -1195,13 +1212,13 @@ Datum: European Terrestrial Reference System 1989
 <p>To create a buffer using <code class="docutils literal notranslate"><span class="pre">geopandas</span></code>, simply call the <code class="docutils literal notranslate"><span class="pre">buffer</span></code> method, passing in the radious. For example, to draw a 500m. buffer around every bar in Zaragoza:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">buf</span> <span class="o">=</span> <span class="n">pois_projected</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buf</span> <span class="o">=</span> <span class="n">pois_projected</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
 <span class="n">buf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>603129991    POLYGON ((676071.164 4612191.116, 676068.756 4...
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>603129991    POLYGON ((676071.164 4612191.116, 676068.756 4...
 673807647    POLYGON ((675740.197 4612333.309, 675737.789 4...
 759470843    POLYGON ((676083.551 4614558.818, 676081.143 4...
 765953540    POLYGON ((675653.012 4611997.279, 675650.604 4...
@@ -1214,7 +1231,7 @@ dtype: geometry
 <p>And plotting it is equally straighforward:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Plot buffer</span>
 <span class="n">buf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="c1"># Plot named places on top for reference</span>
@@ -1225,7 +1242,7 @@ dtype: geometry
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
 <img alt="../../_images/lab_C_97_1.png" src="../../_images/lab_C_97_1.png" />
@@ -1239,7 +1256,7 @@ dtype: geometry
 <p>We can begin by creating a map in the same way we would do normally, and then use the <code class="docutils literal notranslate"><span class="pre">add_basemap</span></code> command to, er, add a basemap:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">cities</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">cities</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
 <span class="n">cx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">cities</span><span class="o">.</span><span class="n">crs</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -1251,7 +1268,7 @@ dtype: geometry
 <p>Note that we need to be explicit when adding the basemap to state the coordinate reference system (<code class="docutils literal notranslate"><span class="pre">crs</span></code>) our data is expressed in, <code class="docutils literal notranslate"><span class="pre">contextily</span></code> will not be able to pick it up otherwise. Conversely, we could change our data’s CRS into <a class="reference external" href="http://epsg.io/3857">Pseudo-Mercator</a>, the native reference system for most web tiles:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities_wm</span> <span class="o">=</span> <span class="n">cities</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">3857</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cities_wm</span> <span class="o">=</span> <span class="n">cities</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">3857</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">cities_wm</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
 <span class="n">cx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">);</span>
 </pre></div>
@@ -1265,7 +1282,7 @@ dtype: geometry
 <p>Web tiles can be integrated with other features of maps in a similar way as we have seen above. So, for example, we can change the size of the map, and remove the axis. Let’s use Zaragoza for this example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
 <span class="n">zgz</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 <span class="n">cx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">zgz</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
@@ -1279,7 +1296,7 @@ dtype: geometry
 <p>Now, <code class="docutils literal notranslate"><span class="pre">contextily</span></code> offers a lot of options in terms of the sources and providers you can use to create your basemaps. For example, we can use satellite imagery instead:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
 <span class="n">zgz</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 <span class="n">cx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> 
                <span class="n">crs</span><span class="o">=</span><span class="n">zgz</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span>
@@ -1312,7 +1329,7 @@ dtype: geometry
 <p>One of the most prominents examples of interactive maps integrated with notebooks is <a class="reference external" href="https://kepler.gl/">Kepler.GL</a>. Using its Jupyter integration, we can easily convert data (expressed in lon/lat) into interactive maps, and then play further to tweak its appearance. In this context, we will only show how you can take a <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> into an interactive map in two lines of code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># NOTE: this may not render on the website</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># NOTE: this may not render on the website</span>
 
 <span class="c1"># Create a new map</span>
 <span class="n">m</span> <span class="o">=</span> <span class="n">KeplerGl</span><span class="p">()</span>
@@ -1324,12 +1341,13 @@ dtype: geometry
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>User Guide: https://docs.kepler.gl/docs/keplergl-jupyter
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>User Guide: https://docs.kepler.gl/docs/keplergl-jupyter
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.7/site-packages/geopandas/geodataframe.py:852: UserWarning: Geometry column does not contain geometry.
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/opt/conda/lib/python3.7/site-packages/geopandas/geodataframe.py:852: UserWarning: Geometry column does not contain geometry.
   warnings.warn(&quot;Geometry column does not contain geometry.&quot;)
-</pre></div>
+</pre>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "4f4c906bbd4b483796628efea094da54", "version_major": 2, "version_minor": 0}

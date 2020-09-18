@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title></title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/journal.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+        <!-- BODY -->
+		<div class="reveal">
+			<div class="slides">
+
+                                 
+                <section id="section" class="level1">
+                <h1></h1>
+                <section id="geographic-data-science" class="level2">
+                <h2>Geographic Data Science</h2>
+                <CENTER>
+                Point Patterns
+                </CENTER>
+                <CENTER>
+                <a href="http://darribas.org">Dani Arribas-Bel</a>
+                </CENTER>
+                </section>
+                </section>
+                <section id="section-1" class="level1">
+                <h1></h1>
+                <section id="the-point-of-points" class="level2">
+                <h2>The <em>point</em> of points</h2>
+                </section>
+                <section id="points-like-polygons" class="level2">
+                <h2>Points like polygons</h2>
+                <p>Points <em>can</em> represent <strong>“fixed” entities</strong></p>
+                <p><span class='fragment'> In this case, points are <strong>qualitatively</strong> similar to <strong>polygons/lines</strong></p>
+                <p><span class='fragment'> The <strong>goal</strong> here is, taking location fixed, to model other aspects of the data</p>
+                </section>
+                <section id="points-like-polygons-1" class="level2">
+                <h2>Points like polygons</h2>
+                <p>Examples:</p>
+                <ul>
+                <li>
+                Cities (in most cases)
+                </li>
+                <li>
+                Buildings
+                </li>
+                <li>
+                Polygons represented as their centroid
+                </li>
+                <li>
+                …
+                </li>
+                </ul>
+                </section>
+                <section id="when-points-are-not-polygons" class="level2">
+                <h2>When points are not polygons</h2>
+                <p>Point data are not only a different geometry than polygons or lines…</p>
+                <p><span class="fragment"> … Points can also represent a fundamentally different way to approach spatial analysis</p>
+                </section>
+                <section id="points-unlike-polygons" class="level2">
+                <h2>Points unlike polygons</h2>
+                <ul>
+                <li class="fragment current-visible">
+                Rather than exhausting the entire space, points can be <strong>events</strong> subject to <strong>occur anywhere</strong>
+                </li>
+                <li class="fragment current-visible">
+                The <strong>location</strong> of the event is <strong>part</strong> of what we are trying to understand/<strong>model</strong>
+                </li>
+                <li class="fragment current-visible">
+                The interest focuses on <strong>characterizing</strong> the <strong>pattern</strong> that the points follow <strong>over space</strong>
+                </ul>
+                </section>
+                <section id="a-few-examples" class="level2">
+                <h2>A few examples…</h2>
+                </section>
+                <section id="section-2" class="level2" data-background="../figs/l09_crime.png">
+                <h2 data-background="../figs/l09_crime.png"></h2>
+                <p>[<a href="http://www.crimemapping.com/map.aspx?aid=3db8cf99-a73b-46d2-b218-bd24cf491577">Source</a>]</p>
+                </section>
+                <section id="section-3" class="level2" data-background="../figs/l09_trees.png">
+                <h2 data-background="../figs/l09_trees.png"></h2>
+                <p>[<a href="http://jillhubley.com/project/nyctrees/">Source</a>]</p>
+                </section>
+                <section id="ufo-sightings-1933-" class="level2">
+                <h2>UFO Sightings (1933-)</h2>
+                <iframe width="100%" height="520" frameborder="0" src="https://lcpearso.cartodb.com/viz/e36e448a-da87-11e4-a327-0e018d66dc29/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen>
+                </iframe>
+                </section>
+                <section id="geo-tagged-tweets" class="level2">
+                <h2>Geo-tagged tweets</h2>
+                <iframe width="100%" height="500px" frameBorder="0" src="https://api.tiles.mapbox.com/v4/enf.c3a2de35/page.html?access_token=pk.eyJ1IjoiZW5mIiwiYSI6IkNJek92bnMifQ.xn2_Uj9RkYTGRuCGg4DXZQ#12/53.4155/-2.9680">
+                </iframe>
+                </section>
+                </section>
+                <section id="section-4" class="level1">
+                <h1></h1>
+                <section id="point-patterns" class="level2">
+                <h2>Point patterns</h2>
+                </section>
+                <section id="point-patterns-1" class="level2">
+                <h2>Point patterns</h2>
+                <p>Distribution of <strong>points over</strong> a portion of <strong>space</strong></p>
+                <p>Assumption is a point can happen anywhere on that space, but only happens in specific locations</p>
+                <div class="fragment">
+                <ul>
+                <li><strong>Unmarked</strong>: locations only</li>
+                <li><strong>Marked</strong>: values attached to each point</li>
+                </ul>
+                </div>
+                </section>
+                <section id="section-5" class="level2">
+                <h2></h2>
+                <p><strong><code>Point Pattern Analysis</code></strong></p>
+                <p>Describe, characterize, and explain point patterns, focusing on their <strong>generating process</strong></p>
+                <ul>
+                <li><u>Visual exploration</u></li>
+                <li><em>Clustering</em> properties and <u><em>clusters</em></u></li>
+                <li>Statistical modeling of the underlying processes</li>
+                </ul>
+                </section>
+                </section>
+                <section id="section-6" class="level1">
+                <h1></h1>
+                <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+                </section>
+			</div>
+		</div>
+
+        <!-- DEPENDENCIES -->
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                controlsTutorial: false,
+                history: false,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+        <!-- END of BODY -->
+	</body>
+</html>
