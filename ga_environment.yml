@@ -8,6 +8,6 @@ dependencies:
   - python=3.7.*
   - sphinx=2.4.4
   - pip
-  - pyppeteer=0.2.2
   - pip:
       - jupyter-book==0.7.3
+      - pyppeteer>=0.2.2
