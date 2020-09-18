@@ -47,3 +47,9 @@
     - file: content/bG/concepts_G
     - file: content/bG/lab_G
     - file: content/bG/diy_G
+    
+- chapter: H - Points
+  sections:
+    - file: content/bH/concepts_H
+    - file: content/bH/lab_H
+    - file: content/bH/diy_H
