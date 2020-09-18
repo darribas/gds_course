@@ -20,7 +20,7 @@ jobs:
           auto-activate-base: false
           miniconda-version: "latest"
           python-version: 3.7
-          environment-file: environment.yml
+          environment-file: ga_environment.yml
           activate-environment: book
       - name: Build PDF
         shell: bash -l {0}
@@ -53,7 +53,7 @@ jobs:
           auto-activate-base: false
           miniconda-version: "latest"
           python-version: 3.7
-          environment-file: environment.yml
+          environment-file: ga_environment.yml
           activate-environment: book
 
       - name: Build HTML

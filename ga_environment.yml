@@ -1,4 +1,5 @@
 # Environment file to build website on each commit
+# For end-users, the gds_env (darribas.org/gds_env) is recommended
 name: book
 channels:
   - default
@@ -7,6 +8,6 @@ dependencies:
   - python=3.7.*
   - sphinx=2.4.4
   - pip
-  - pyppeteer
+  - pyppeteer=0.2.2
   - pip:
       - jupyter-book==0.7.3
