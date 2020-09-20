@@ -42,6 +42,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Hands-on" href="lab_H.html" />
     <link rel="prev" title="Do-It-Yourself" href="../bG/diy_G.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -260,6 +261,16 @@
    Concepts
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab_H.html">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="diy_H.html">
+   Do-It-Yourself
+  </a>
+ </li>
 </ul>
 
 </nav>
@@ -358,6 +369,11 @@
    Clustering Points
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-readings">
+   Further readings
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -444,10 +460,10 @@
 ></iframe>
 </div></div>
 </div>
-<p>We will put all of these ideas to visualising points into practice on the <span class="xref myst">Hands-on</span> section.</p>
+<p>We will put all of these ideas to visualising points into practice on the <a class="reference internal" href="lab_H.html"><span class="doc std std-doc">Hands-on</span></a> section.</p>
 </div>
 <div class="section" id="clustering-points">
-<h2>Clustering Points<a class="headerlink" href="#clustering-points" title="Permalink to this headline">¶</a></h2>
+<span id="concepts-h-dbscan"></span><h2>Clustering Points<a class="headerlink" href="#clustering-points" title="Permalink to this headline">¶</a></h2>
 <p>As we have seen in this course, “cluster” is a hard to define term. In <a class="reference internal" href="../bG/concepts_G.html"><span class="doc std std-doc">Block G</span></a> we used it as the outcome of an unsupervised learning algorithm. In this context, we will use the following definition:</p>
 <blockquote>
 <div><p><em>Concentrations/agglomerations of points over space, significantly more so than in the rest of the space considered</em></p>
@@ -476,6 +492,14 @@
 <li><p><strong>It is not based on a probabilistic model</strong>. Unlike the <a class="reference internal" href="../bF/concepts_F.html#concepts-f-local"><span class="std std-ref">LISAs</span></a>, for example, there is no underlying model that helps us characterise the pattern the algorithms returns. There is no “null hypothesis” to reject, no inferential model and thus no statistical significance. In some cases, this is an important drawback if we want to ensure what we are observing (and the algorithm is picking up) is not a random pattern.</p></li>
 <li><p><strong>Agnostic about the underlying process</strong>. Because there is no inferential model and the algorithm imposes very little prior structure to identify clusters, it is also hard to learn anything about the underlying process that gave rise to the pattern picked up by the algorithm. This is by no means a unique feature of DBSCAN, but one that is always good to keep in mind as we are moving from <span class="xref myst">exploratory analysis</span> to more confirmatory approaches.</p></li>
 </ol>
+</div>
+<div class="section" id="further-readings">
+<h2>Further readings<a class="headerlink" href="#further-readings" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>The chapter is available for free <a class="reference external" href="https://geographicdata.science/book/notebooks/08_point_pattern_analysis.html">here</a></p>
+</div>
+<p>If this section was of your interest, there is plenty more you can read and explore. A good “next step” is the Points chapter on the GDS book (in progress) <a class="bibtex reference internal" href="../bibliography.html#reyabwolf" id="id2">[RABWng]</a>.</p>
 </div>
 </div>
 
@@ -508,6 +532,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../bG/diy_G.html" title="previous page">Do-It-Yourself</a>
+    <a class='right-next' id="next-link" href="lab_H.html" title="next page">Hands-on</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

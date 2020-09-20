@@ -11,7 +11,6 @@ Visualisation of Point Patterns
 
 #
 ## Visualization of PPs
-## Visualization of PPs
 
 Three routes (today):
 
@@ -19,6 +18,7 @@ Three routes (today):
 * *Aggregate* <span class='fragment'> $\leftrightarrow$ "Histogram"
 * *Smooth* <span class='fragment'> $\leftrightarrow$ KDE
 
+#
 ## One-to-one
 ## One-to-one
     
@@ -26,6 +26,7 @@ Three routes (today):
 - Effective in small datasets
 - Limited as size increases until useless
 
+#
 ## Aggregation
 ##
 
@@ -93,6 +94,7 @@ Points usually represent events that affect only **part** of the population
 and hence are best considered as **rates** (see Lecture 4)
 </div>
 
+#
 ## Kernel Density Estimation
 ## Kernel Density Estimation
 
