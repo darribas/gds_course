@@ -5,40 +5,6 @@ on:
     branches:
       - master
 jobs:
-  build-pdf-and-add:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-
-      - name: Setup Miniconda
-        uses: goanpeca/setup-miniconda@v1
-        with:
-          auto-update-conda: true
-          auto-activate-base: false
-          miniconda-version: "latest"
-          python-version: 3.7
-          environment-file: ga_environment.yml
-          activate-environment: book
-      - name: Build PDF
-        shell: bash -l {0}
-        continue-on-error: false
-        run: |
-          pyppeteer-install
-          make pdf
-      - name: Commit files
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add content/gds_course.pdf
-          git commit -m "PDF Build" -a --allow-empty
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          force: true
   build-html-and-deploy:
     runs-on: ubuntu-latest
     steps:
@@ -57,17 +23,25 @@ jobs:
           environment-file: ga_environment.yml
           activate-environment: book
 
+      - name: Build PDF
+        shell: bash -l {0}
+        continue-on-error: false
+        run: |
+          pyppeteer-install
+          make pdf
+
       - name: Build HTML
         shell: bash -l {0}
         continue-on-error: false
         run: |
           make html
+
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add docs
-          git commit -m "Build Jupyter book" -a --allow-empty
+          git add docs content/gds_course.pdf
+          git commit -m "Build Jupyter book | HTML + PDF" -a --allow-empty
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
