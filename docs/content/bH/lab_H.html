@@ -2,10 +2,9 @@
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hands-on &#8212; A course on Geographic Data Science</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
@@ -16,8 +15,6 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -27,12 +24,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -350,7 +345,7 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> On this page
+            <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -454,7 +449,7 @@
 <p>This notebook aims to be a gentle introduction to working with point patterns in Python. As such, it covers how to read, process and transform point data, as well as several common ways to visualize point patterns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -488,7 +483,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read remote file</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read remote file</span>
 <span class="n">tokyo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://geographicdata.science/book/_downloads/7fb86b605af15b3c9cbd9bfcbead23e9/tokyo_clean.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -519,7 +514,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the file in</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the file in</span>
 <span class="c1">#areas = gpd.read_file(&quot;https://darribas.org/gds_course/content/data/tokyo_admin_boundaries.geojson&quot;)</span>
 <span class="n">areas</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;../data/tokyo_admin_boundaries.geojson&quot;</span><span class="p">)</span>
 </pre></div>
@@ -545,7 +540,7 @@
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tokyo_gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">({</span><span class="s2">&quot;geometry&quot;</span><span class="p">:</span> <span class="n">gpd</span><span class="o">.</span><span class="n">points_from_xy</span><span class="p">(</span><span class="n">tokyo</span><span class="p">[</span><span class="s2">&quot;longitude&quot;</span><span class="p">],</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokyo_gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">({</span><span class="s2">&quot;geometry&quot;</span><span class="p">:</span> <span class="n">gpd</span><span class="o">.</span><span class="n">points_from_xy</span><span class="p">(</span><span class="n">tokyo</span><span class="p">[</span><span class="s2">&quot;longitude&quot;</span><span class="p">],</span> 
                                                              <span class="n">tokyo</span><span class="p">[</span><span class="s2">&quot;latitude&quot;</span><span class="p">])</span>
                              <span class="p">},</span> <span class="n">crs</span><span class="o">=</span><span class="s2">&quot;EPSG:4326&quot;</span>
                             <span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tokyo</span><span class="p">)</span>
@@ -566,13 +561,13 @@
 <p>The first approach we review here is the one-to-one approach, where we place a dot on the screen for every point to visualise. In Python, one way to do this is with the <code class="docutils literal notranslate"><span class="pre">scatter</span></code> method in the Pandas visualisation layer:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot a dot for every image</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot a dot for every image</span>
 <span class="n">tokyo</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span> <span class="s2">&quot;latitude&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;longitude&#39;, ylabel=&#39;latitude&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;longitude&#39;, ylabel=&#39;latitude&#39;&gt;
 </pre></div>
 </div>
 <img alt="../../_images/lab_H_14_1.png" src="../../_images/lab_H_14_1.png" />
@@ -581,7 +576,7 @@
 <p>However this does not give us much geographical context and, since there are many points, it is hard to see any pattern in areas of high density. Let’s tweak the dot display and add a basemap:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot photographs with smaller, more translucent dots</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot photographs with smaller, more translucent dots</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">tokyo</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span> 
                         <span class="s2">&quot;latitude&quot;</span><span class="p">,</span>
                         <span class="n">s</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
@@ -613,7 +608,7 @@
 <p>To exemplify this approach, we will use the administrative areas we have loaded above. Let’s add them to the figure above to get better context (unfold the code if you are interested in seeing exactly how we do this):</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot photographs with smaller, more translucent dots</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot photographs with smaller, more translucent dots</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">tokyo</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span> 
                         <span class="s2">&quot;latitude&quot;</span><span class="p">,</span>
                         <span class="n">s</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
@@ -643,7 +638,7 @@
 <p>Now we need to know how many photographs each are contains. Our photograph table already contains the area ID, so all we need to do here is counting by area and attaching the count to the <code class="docutils literal notranslate"><span class="pre">areas</span></code> table. We rely here on the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> operator which takes all the photos in the table and “groups” them “by” their administrative ID. Once grouped, we apply the method <code class="docutils literal notranslate"><span class="pre">size</span></code>, which counts how many elements each group has and returns a column indexed on the LSOA code with all the counts as its values. We end by assigning the counts to a newly created column in the <code class="docutils literal notranslate"><span class="pre">areas</span></code> table.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create counts</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create counts</span>
 <span class="n">photos_by_area</span> <span class="o">=</span> <span class="n">tokyo</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;admin_area&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
 <span class="c1"># Assign counts into a table of its own </span>
 <span class="c1"># and joins it to the areas table</span>
@@ -664,7 +659,7 @@
 <p>At this point, we are ready to map the counts. Technically speaking, this is a choropleth just as we have seen many times before:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up figure and axis</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up figure and axis</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
 <span class="c1"># Plot the equal interval choropleth and add a legend</span>
 <span class="n">areas</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;photo_count&#39;</span><span class="p">,</span> 
@@ -700,7 +695,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">areas</span><span class="p">[</span><span class="s2">&quot;area_sqm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">areas</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">2459</span><span class="p">)</span><span class="o">.</span><span class="n">area</span> <span class="o">*</span> <span class="mf">1e-6</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">areas</span><span class="p">[</span><span class="s2">&quot;area_sqm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">areas</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">2459</span><span class="p">)</span><span class="o">.</span><span class="n">area</span> <span class="o">*</span> <span class="mf">1e-6</span>
 </pre></div>
 </div>
 </div>
@@ -708,7 +703,7 @@
 <p>And we can add the photo density as well:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">areas</span><span class="p">[</span><span class="s2">&quot;photo_density&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">areas</span><span class="p">[</span><span class="s2">&quot;photo_count&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">areas</span><span class="p">[</span><span class="s2">&quot;area_sqm&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">areas</span><span class="p">[</span><span class="s2">&quot;photo_density&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">areas</span><span class="p">[</span><span class="s2">&quot;photo_count&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">areas</span><span class="p">[</span><span class="s2">&quot;area_sqm&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -716,7 +711,7 @@
 <p>With the density at hand, creating the new choropleth is similar as above (check the code in the expandable):</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up figure and axis</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up figure and axis</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
 <span class="c1"># Plot the equal interval choropleth and add a legend</span>
 <span class="n">areas</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;photo_density&#39;</span><span class="p">,</span> 
@@ -751,7 +746,7 @@
 <p>Python has a simplified way to create this hexagon layer <em>and</em> aggregate points into it in one shot thanks to the method <code class="docutils literal notranslate"><span class="pre">hexbin</span></code>, which is available in every axis object (e.g. <code class="docutils literal notranslate"><span class="pre">ax</span></code>). Let us first see how you could create a map of the hexagon layer alone:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
 <span class="c1"># Add hexagon layer that displays count of points in each polygon</span>
 <span class="n">hb</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hexbin</span><span class="p">(</span><span class="n">tokyo</span><span class="p">[</span><span class="s2">&quot;longitude&quot;</span><span class="p">],</span> 
@@ -764,7 +759,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f0f11fdb2d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f0f11fdb2d0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/lab_H_32_1.png" src="../../_images/lab_H_32_1.png" />
@@ -774,7 +769,7 @@
 <p>Once we know the basics, we can dress it up a bit more for better results (expand to see code):</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
 <span class="c1"># Add hexagon layer that displays count of points in each polygon</span>
 <span class="n">hb</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hexbin</span><span class="p">(</span><span class="n">tokyo</span><span class="p">[</span><span class="s2">&quot;longitude&quot;</span><span class="p">],</span> 
@@ -812,7 +807,7 @@
 <p>The actual algorithm to estimate a kernel density is not trivial but its application in Python is rather simplified by the use of Seaborn. KDE’s however are fairly computationally intensive. When you have a large point pattern like we do in the <code class="docutils literal notranslate"><span class="pre">tokyo</span></code> example (10,000 points), its computation can take a bit long. To get around this issue, we create a random subset, which retains the overall structure of the pattern, but with much fewer points. Let’s take a subset of 1,000 random points from our original table:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take a random subset of 1,000 rows from `tokyo`</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take a random subset of 1,000 rows from `tokyo`</span>
 <span class="n">tokyo_sub</span> <span class="o">=</span> <span class="n">tokyo</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">12345</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -822,7 +817,7 @@
 <p>Same as above, let us first see how to create a quick KDE. For this we rely on Seaborn’s <code class="docutils literal notranslate"><span class="pre">kdeplot</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">tokyo_sub</span><span class="p">[</span><span class="s2">&quot;longitude&quot;</span><span class="p">],</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">tokyo_sub</span><span class="p">[</span><span class="s2">&quot;longitude&quot;</span><span class="p">],</span> 
             <span class="n">tokyo_sub</span><span class="p">[</span><span class="s2">&quot;latitude&quot;</span><span class="p">],</span> 
             <span class="n">n_levels</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> 
             <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
@@ -832,7 +827,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;longitude&#39;, ylabel=&#39;latitude&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;longitude&#39;, ylabel=&#39;latitude&#39;&gt;
 </pre></div>
 </div>
 <img alt="../../_images/lab_H_38_1.png" src="../../_images/lab_H_38_1.png" />
@@ -842,7 +837,7 @@
 <p>Once we know how the basic logic works, we can insert it into the usual mapping machinery to create a more complete plot. The main difference here is that we now have to tell <code class="docutils literal notranslate"><span class="pre">sns.kdeplot</span></code> where we want the surface to be added (<code class="docutils literal notranslate"><span class="pre">ax</span></code> in this case). Toggle the expandable to find out the code that produces the figure below:</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
 <span class="c1"># Add KDE layer that displays probability surface</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">tokyo_sub</span><span class="p">[</span><span class="s2">&quot;longitude&quot;</span><span class="p">],</span> 
@@ -886,7 +881,7 @@
 <p>The heavy lifting is done by the method <code class="docutils literal notranslate"><span class="pre">DBSCAN</span></code>, part of the excellent machine learning library <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>. Running the algorithm is similar to how we ran K-Means when <a class="reference internal" href="../bG/lab_G.html"><span class="doc std std-doc">clustering</span></a>. We first set up the details:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up algorithm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up algorithm</span>
 <span class="n">algo</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -894,7 +889,7 @@
 </div>
 <div class="cell tag_margin docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## Express points in metres</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Express points in metres</span>
 <span class="c1"># Convert lon/lat into Point objects + set CRS</span>
 <span class="n">pts</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">points_from_xy</span><span class="p">(</span><span class="n">tokyo</span><span class="p">[</span><span class="s2">&quot;longitude&quot;</span><span class="p">],</span>
                          <span class="n">tokyo</span><span class="p">[</span><span class="s2">&quot;latitude&quot;</span><span class="p">],</span>
@@ -912,12 +907,12 @@
 <p>We decide to consider a cluster photos with more than 50 photos within 100 metres from them, hence we set the two parameters accordingly. Once ready, we <em>“fit”</em> it to our data, but note that we first need to express the longitude and latitude of our points in metres (see code for that on the side cell).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">algo</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">tokyo</span><span class="p">[[</span><span class="s2">&quot;X_metres&quot;</span><span class="p">,</span> <span class="s2">&quot;Y_metres&quot;</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">algo</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">tokyo</span><span class="p">[[</span><span class="s2">&quot;X_metres&quot;</span><span class="p">,</span> <span class="s2">&quot;Y_metres&quot;</span><span class="p">]])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>DBSCAN(eps=100, min_samples=50)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DBSCAN(eps=100, min_samples=50)
 </pre></div>
 </div>
 </div>
@@ -925,12 +920,12 @@
 <p>Once fit, we can recover the labels:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">algo</span><span class="o">.</span><span class="n">labels_</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">algo</span><span class="o">.</span><span class="n">labels_</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([-1, -1, -1, ...,  8, -1, -1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1, -1, -1, ...,  8, -1, -1])
 </pre></div>
 </div>
 </div>
@@ -938,13 +933,13 @@
 <p>And the list of points classified as cores:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print only the first five values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print only the first five values</span>
 <span class="n">algo</span><span class="o">.</span><span class="n">core_sample_indices_</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([12, 25, 28, 46, 63])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([12, 25, 28, 46, 63])
 </pre></div>
 </div>
 </div>
@@ -952,7 +947,7 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">labels_</span></code> object always has the same length as the number of points used to run <code class="docutils literal notranslate"><span class="pre">DBSCAN</span></code>. Each value represents the index of the cluster a point belongs to. If the point is classified as <em>noise</em>, it receives a -1. Above, we can see that the first five points are effectively not part of any cluster. To make thinks easier later on, let us turn the labels into a <code class="docutils literal notranslate"><span class="pre">Series</span></code> object that we can index in the same way as our collection of points:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lbls</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">algo</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">tokyo</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lbls</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">algo</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">tokyo</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -960,7 +955,7 @@
 <p>Now we already have the clusters, we can proceed to visualize them. There are many ways in which this can be done. We will start just by coloring points in a cluster in red and noise in grey:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="c1"># Assign labels to tokyo table dynamically and</span>
 <span class="c1"># subset points that are not part of any cluster (noise)</span>
@@ -999,7 +994,7 @@
 <p>For an illustration of this, let’s run through a case with very different parameter values. For example, let’s pick a larger radious (e.g. 500m) and a smaller number of points (e.g. 10):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up algorithm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up algorithm</span>
 <span class="n">algo</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="c1"># Fit to Tokyo projected points</span>
 <span class="n">algo</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">tokyo</span><span class="p">[[</span><span class="s2">&quot;X_metres&quot;</span><span class="p">,</span> <span class="s2">&quot;Y_metres&quot;</span><span class="p">]])</span>
@@ -1012,7 +1007,7 @@
 <p>And let’s now visualise the result (toggle the expandable to see the code):</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="c1"># Assign labels to tokyo table dynamically and</span>
 <span class="c1"># subset points that are not part of any cluster (noise)</span>
@@ -1059,7 +1054,7 @@
 <p>Below is a function that accomplishes just that:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">clusters</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="n">min_samples</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">clusters</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="n">min_samples</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Compute and visualize DBSCAN clusters    </span>
 <span class="sd">    ...</span>
@@ -1097,7 +1092,7 @@
 <p>Let us see how the function can be used. For example, let us replicate the plot above, with a minimum of 10 points and a maximum radious of 500 metres:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">clusters</span><span class="p">(</span><span class="n">tokyo</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clusters</span><span class="p">(</span><span class="n">tokyo</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1109,7 +1104,7 @@
 <p>However, this could be even more interesting if we didn’t have to write each time the parameters we want to explore. To change that, we can create a quick interactive tool that will allow us to modify both parameters with sliders. To do this, we will use the library <a class="reference external" href="https://ipywidgets.readthedocs.io"><code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code></a>. Let us first do it and then we will analyse it bit by bit:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span>
     <span class="n">clusters</span><span class="p">,</span>                 <span class="c1"># Method to make interactive</span>
     <span class="n">db</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="n">tokyo</span><span class="p">),</span>          <span class="c1"># Data to pass on db (does not change)</span>
     <span class="n">eps</span><span class="o">=</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span>        <span class="c1"># Range start/end/step of eps</span>

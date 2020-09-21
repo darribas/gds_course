@@ -2,10 +2,9 @@
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Do-It-Yourself &#8212; A course on Geographic Data Science</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
@@ -16,8 +15,6 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -27,12 +24,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -349,7 +344,7 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> On this page
+            <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -377,7 +372,7 @@
 <h1>Do-It-Yourself<a class="headerlink" href="#do-it-yourself" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span><span class="o">,</span> <span class="nn">geopandas</span><span class="o">,</span> <span class="nn">contextily</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span><span class="o">,</span> <span class="nn">geopandas</span><span class="o">,</span> <span class="nn">contextily</span>
 </pre></div>
 </div>
 </div>
@@ -387,14 +382,14 @@
 <p>In this task, you will explore patterns in the distribution of the location of AirBnb properties in Beijing. For that, we will use data from the same provider as we did for the <a class="reference internal" href="../bG/lab_G.html"><span class="doc std std-doc">clustering</span></a> block: <a class="reference external" href="http://insideairbnb.com">Inside AirBnb</a>. We are going to read in a file with the locations of the properties available as of August 15th. 2019:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;http://data.insideairbnb.com/china/beijing/beijing/&quot;</span>\
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;http://data.insideairbnb.com/china/beijing/beijing/&quot;</span>\
        <span class="s2">&quot;2019-08-15/visualisations/listings.csv&quot;</span><span class="p">)</span>
 <span class="n">url</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;http://data.insideairbnb.com/china/beijing/beijing/2019-08-15/visualisations/listings.csv&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;http://data.insideairbnb.com/china/beijing/beijing/2019-08-15/visualisations/listings.csv&#39;
 </pre></div>
 </div>
 </div>
@@ -408,7 +403,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">abb</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">abb</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -428,12 +423,12 @@
 <p>This gives us a table with the following information:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">abb</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">abb</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 34400 entries, 0 to 34399
 Data columns (total 16 columns):
  #   Column                          Non-Null Count  Dtype  
@@ -463,14 +458,14 @@ memory usage: 4.2+ MB
 <p>Also, for an ancillary geography, we will use the neighbourhoods provided by the same source:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;http://data.insideairbnb.com/china/beijing/beijing/&quot;</span>\
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;http://data.insideairbnb.com/china/beijing/beijing/&quot;</span>\
        <span class="s2">&quot;2019-08-15/visualisations/neighbourhoods.geojson&quot;</span><span class="p">)</span>
 <span class="n">url</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;http://data.insideairbnb.com/china/beijing/beijing/2019-08-15/visualisations/neighbourhoods.geojson&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;http://data.insideairbnb.com/china/beijing/beijing/2019-08-15/visualisations/neighbourhoods.geojson&#39;
 </pre></div>
 </div>
 </div>
@@ -484,7 +479,7 @@ memory usage: 4.2+ MB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">neis</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neis</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -503,12 +498,12 @@ memory usage: 4.2+ MB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">neis</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neis</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
 RangeIndex: 16 entries, 0 to 15
 Data columns (total 3 columns):
  #   Column               Non-Null Count  Dtype   
@@ -517,34 +512,6 @@ Data columns (total 3 columns):
  1   neighbourhood_group  0 non-null      object  
  2   geometry             16 non-null     geometry
 dtypes: geometry(1), object(2)
-memory usage: 512.0+ bytes
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cs</span> <span class="o">=</span> <span class="n">abb</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;neighbourhood&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">neis</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;neighbourhood&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="n">cs</span><span class="p">)</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
-Index: 16 entries, 东城区 to 石景山区
-Data columns (total 3 columns):
- #   Column               Non-Null Count  Dtype   
----  ------               --------------  -----   
- 0   neighbourhood_group  0 non-null      object  
- 1   geometry             16 non-null     geometry
- 2   count                16 non-null     int64   
-dtypes: geometry(1), int64(1), object(1)
 memory usage: 512.0+ bytes
 </pre></div>
 </div>
@@ -568,14 +535,14 @@ memory usage: 512.0+ bytes
 <p>For this one, we are going to use a dataset on the location of populated places in India provided by <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">http://geojson.xyz</span></code></span>. The original table covers the entire world so, to get it ready for you to work on it, we need to prepare it:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/&quot;</span>\
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/&quot;</span>\
        <span class="s2">&quot;ne_50m_populated_places_simple.geojson&quot;</span><span class="p">)</span>
 <span class="n">url</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_populated_places_simple.geojson&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_populated_places_simple.geojson&#39;
 </pre></div>
 </div>
 </div>
@@ -590,7 +557,7 @@ memory usage: 512.0+ bytes
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">places</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;adm0name == &#39;India&#39;&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">places</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;adm0name == &#39;India&#39;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -610,7 +577,7 @@ memory usage: 512.0+ bytes
 <p>By defaul, place locations come expressed in longitude and latitude. Because you will be working with distances, it makes sense to convert the table into a system expressed in metres. For India, this can be the <a class="reference external" href="http://epsg.io/24378">“Kalianpur 1975 / India zone I”</a> (<code class="docutils literal notranslate"><span class="pre">EPSG:24378</span></code>) projection.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">places_m</span> <span class="o">=</span> <span class="n">places</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">24378</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">places_m</span> <span class="o">=</span> <span class="n">places</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">24378</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -618,7 +585,7 @@ memory usage: 512.0+ bytes
 <p>This is what we have to work with then:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">places_m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;xkcd:bright yellow&quot;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">places_m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;xkcd:bright yellow&quot;</span><span class="p">,</span>
                  <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
                 <span class="p">)</span>
 <span class="n">contextily</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> 
@@ -629,7 +596,7 @@ memory usage: 512.0+ bytes
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/diy_H_26_0.png" src="../../_images/diy_H_26_0.png" />
+<img alt="../../_images/diy_H_24_0.png" src="../../_images/diy_H_24_0.png" />
 </div>
 </div>
 <p>With this at hand, get to work:</p>

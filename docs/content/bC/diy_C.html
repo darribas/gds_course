@@ -2,10 +2,9 @@
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Do-It-Yourself &#8212; A course on Geographic Data Science</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
@@ -16,8 +15,6 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -27,12 +24,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -350,7 +345,7 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> On this page
+            <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -447,26 +442,26 @@
 <p>For a line layer, we are going to use a different bit of <code class="docutils literal notranslate"><span class="pre">osmnx</span></code> functionality that will allow us to extract all the highways</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bikepaths</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">geocode_to_gdf</span><span class="p">(</span><span class="s2">&quot;Liverpool, UK&quot;</span><span class="p">,</span> <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bikepaths</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">geocode_to_gdf</span><span class="p">(</span><span class="s2">&quot;Liverpool, UK&quot;</span><span class="p">,</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bikepaths</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">graph_from_place</span><span class="p">(</span><span class="s2">&quot;Liverpool, UK&quot;</span><span class="p">,</span> <span class="n">network_type</span><span class="o">=</span><span class="s2">&quot;bike&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bikepaths</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">graph_from_place</span><span class="p">(</span><span class="s2">&quot;Liverpool, UK&quot;</span><span class="p">,</span> <span class="n">network_type</span><span class="o">=</span><span class="s2">&quot;bike&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">bikepaths</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">bikepaths</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>23460
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23460
 </pre></div>
 </div>
 </div>
@@ -478,7 +473,7 @@
 <p>Let’s import <code class="docutils literal notranslate"><span class="pre">osmnx</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">osmnx</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">osmnx</span>
 </pre></div>
 </div>
 </div>
@@ -486,7 +481,7 @@
 <p>And make a similar query to retrieve the table:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pubs</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">pois</span><span class="o">.</span><span class="n">pois_from_place</span><span class="p">(</span><span class="s2">&quot;Liverpool, UK&quot;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pubs</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">pois</span><span class="o">.</span><span class="n">pois_from_place</span><span class="p">(</span><span class="s2">&quot;Liverpool, UK&quot;</span><span class="p">,</span>
                                   <span class="n">tags</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;amenity&quot;</span><span class="p">:</span> <span class="s2">&quot;pub&quot;</span><span class="p">}</span>
                                  <span class="p">)</span>
 </pre></div>

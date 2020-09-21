@@ -2,10 +2,9 @@
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hands-on &#8212; A course on Geographic Data Science</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
@@ -16,8 +15,6 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -27,12 +24,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -350,7 +345,7 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> On this page
+            <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -433,7 +428,7 @@
 <p>In the case of analysing spatial data, there is a subset of methods that are of particular interest for many common cases in Geographic Data Science. These are the so-called <em>regionalization</em> techniques. Regionalization methods can take also many forms and faces but, at their core, they all involve statistical clustering of observations with the additional constraint that observations need to be geographical neighbors to be in the same category. Because of this, rather than category, we will use the term <em>area</em> for each observation and <em>region</em> for each category, hence regionalization, the construction of regions from smaller areas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -463,7 +458,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the file in</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the file in</span>
 <span class="c1">#abb = gpd.read_file(&quot;https://darribas.org/gds_course/content/data/london_abb.gpkg&quot;)</span>
 <span class="n">abb</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;../data/london_abb.gpkg&quot;</span><span class="p">)</span>
 </pre></div>
@@ -484,13 +479,13 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inspect the structure of the table</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inspect the structure of the table</span>
 <span class="n">abb</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
 RangeIndex: 353 entries, 0 to 352
 Data columns (total 18 columns):
  #   Column                       Non-Null Count  Dtype   
@@ -522,7 +517,7 @@ memory usage: 49.8+ KB
 <p>Before we jump into exploring the data, one additional step that will come in handy down the line. Not every variable in the table is an attribute that we will want for the clustering. In particular, we are interested in review ratings, so we will only consider those. Hence, let us first manually write them so they are easier to subset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ratings</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;review_scores_rating&#39;</span><span class="p">,</span> <span class="s1">&#39;review_scores_accuracy&#39;</span><span class="p">,</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ratings</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;review_scores_rating&#39;</span><span class="p">,</span> <span class="s1">&#39;review_scores_accuracy&#39;</span><span class="p">,</span> 
            <span class="s1">&#39;review_scores_cleanliness&#39;</span><span class="p">,</span> <span class="s1">&#39;review_scores_checkin&#39;</span><span class="p">,</span> 
            <span class="s1">&#39;review_scores_communication&#39;</span><span class="p">,</span> <span class="s1">&#39;review_scores_location&#39;</span><span class="p">,</span>
            <span class="s1">&#39;review_scores_value&#39;</span><span class="p">]</span>
@@ -540,7 +535,7 @@ memory usage: 49.8+ KB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#boroughs = gpd.read_file(&quot;https://darribas.org/gds_course/content/data/london_boroughs.geojson&quot;)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#boroughs = gpd.read_file(&quot;https://darribas.org/gds_course/content/data/london_boroughs.geojson&quot;)</span>
 <span class="n">boroughs</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;../data/london_inner_boroughs.geojson&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -554,7 +549,7 @@ memory usage: 49.8+ KB
 <p>Since we have many columns to plot, we will create a loop that generates each map for us and places it on a “subplot” of the main figure:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create figure and axes (this time it&#39;s 9, arranged 3 by 3)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create figure and axes (this time it&#39;s 9, arranged 3 by 3)</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
 <span class="c1"># Make the axes accessible with single indexing</span>
 <span class="n">axs</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
@@ -591,7 +586,7 @@ memory usage: 49.8+ KB
 <p>Even though we only have seven variables, it is very hard to “mentally overlay” all of them to come up with an overall assessment of the nature of each part of London. For bivariate correlations, a useful tool is the correlation matrix plot, available in <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">abb</span><span class="p">[</span><span class="n">ratings</span><span class="p">],</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;reg&#39;</span><span class="p">,</span> <span class="n">diag_kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">abb</span><span class="p">[</span><span class="n">ratings</span><span class="p">],</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;reg&#39;</span><span class="p">,</span> <span class="n">diag_kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -607,7 +602,7 @@ memory usage: 49.8+ KB
 <p>Although the underlying algorithm is not trivial, running K-means in Python is streamlined thanks to <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>. Similar to the extensive set of available algorithms in the library, its computation is a matter of two lines of code. First, we need to specify the parameters in the <code class="docutils literal notranslate"><span class="pre">KMeans</span></code> method (which is part of <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>’s <code class="docutils literal notranslate"><span class="pre">cluster</span></code> submodule). Note that, at this point, we do not even need to pass the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kmeans5</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">12345</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kmeans5</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">12345</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -616,7 +611,7 @@ memory usage: 49.8+ KB
 <p>To actually run the algorithm on the attributes, we need to call the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method in <code class="docutils literal notranslate"><span class="pre">kmeans5</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run the clustering algorithm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run the clustering algorithm</span>
 <span class="n">k5cls</span> <span class="o">=</span> <span class="n">kmeans5</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">abb</span><span class="p">[</span><span class="n">ratings</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -625,12 +620,12 @@ memory usage: 49.8+ KB
 <p>The <code class="docutils literal notranslate"><span class="pre">k5cls</span></code> object we have just created contains several components that can be useful for an analysis. For now, we will use the labels, which represent the different categories in which we have grouped the data. Remember, in Python, life starts at zero, so the group labels go from zero to four. Labels can be  extracted as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">k5cls</span><span class="o">.</span><span class="n">labels_</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k5cls</span><span class="o">.</span><span class="n">labels_</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([4, 1, 1, 1, 3, 3, 1, 0, 4, 0, 3, 0, 4, 0, 0, 0, 1, 3, 3, 4, 4, 4,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4, 1, 1, 1, 3, 3, 1, 0, 4, 0, 3, 0, 4, 0, 0, 0, 1, 3, 3, 4, 4, 4,
        2, 2, 2, 2, 2, 4, 4, 2, 4, 4, 0, 1, 3, 3, 3, 3, 1, 3, 0, 3, 3, 3,
        1, 3, 3, 3, 1, 1, 0, 2, 4, 3, 3, 3, 3, 1, 1, 1, 4, 1, 1, 3, 0, 1,
        1, 1, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 3, 3, 3, 3, 1, 1, 3, 1, 0, 0,
@@ -654,7 +649,7 @@ memory usage: 49.8+ KB
 <p>Each number represents a different category, so two observations with the same number belong to same group. The labels are returned in the same order as the input attributes were passed in, which means we can append them to the original table of data as an additional column:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">abb</span><span class="p">[</span><span class="s1">&#39;k5cls&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">k5cls</span><span class="o">.</span><span class="n">labels_</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">abb</span><span class="p">[</span><span class="s1">&#39;k5cls&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">k5cls</span><span class="o">.</span><span class="n">labels_</span>
 </pre></div>
 </div>
 </div>
@@ -664,7 +659,7 @@ memory usage: 49.8+ KB
 <p>To get a better understanding of the classification we have just performed, it is useful to display the categories created on a map. For this, we will use a unique values choropleth, which will automatically assign a different color to each category:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and ax</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and ax</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
 <span class="c1"># Plot unique values choropleth including a legend and with no boundary lines</span>
 <span class="n">abb</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;k5cls&#39;</span><span class="p">,</span> <span class="n">categorical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
@@ -688,13 +683,13 @@ memory usage: 49.8+ KB
 <p>Once we have a sense of where and how the categories are distributed over space, it is also useful to explore them statistically. This will allow us to characterize them, giving us an idea of the kind of observations subsumed into each of them. As a first step, let us find how many observations are in each category. To do that, we will make use of the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> operator introduced before, combined with the function <code class="docutils literal notranslate"><span class="pre">size</span></code>, which returns the number of elements in a subgroup:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">k5sizes</span> <span class="o">=</span> <span class="n">abb</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;k5cls&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k5sizes</span> <span class="o">=</span> <span class="n">abb</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;k5cls&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
 <span class="n">k5sizes</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>k5cls
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>k5cls
 0     72
 1     98
 2     23
@@ -708,7 +703,7 @@ dtype: int64
 <p>The <code class="docutils literal notranslate"><span class="pre">groupby</span></code> operator groups a table (<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>) using the values in the column provided (<code class="docutils literal notranslate"><span class="pre">k5cls</span></code>) and passes them onto the function provided aftwerards, which in this case is <code class="docutils literal notranslate"><span class="pre">size</span></code>. Effectively, what this does is to groupby the observations by the categories created and count how many of them each contains. For a more visual representation of the output, a bar plot is a good alternative:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">k5sizes</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">k5sizes</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -720,7 +715,7 @@ dtype: int64
 <p>In order to describe the nature of each category, we can look at the values of each of the attributes we have used to create them in the first place. Remember we used the average ratings on many aspects (cleanliness, communication of the host, etc.) to create the classification, so we can begin by checking the average value of each. To do that in Python, we will rely on the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> operator which we will combine it with the function <code class="docutils literal notranslate"><span class="pre">mean</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the mean by group</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the mean by group</span>
 <span class="n">k5means</span> <span class="o">=</span> <span class="n">abb</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;k5cls&#39;</span><span class="p">)[</span><span class="n">ratings</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="c1"># Show the table transposed (so it&#39;s not too wide)</span>
 <span class="n">k5means</span><span class="o">.</span><span class="n">T</span>
@@ -828,7 +823,7 @@ dtype: int64
 <p>Technically speaking, this is the same process as we have seen before, thanks to <code class="docutils literal notranslate"><span class="pre">PySAL</span></code>. The difference in this case is that we did not begin with a shapefile, but with a GeoJSON. Fortunately, <code class="docutils literal notranslate"><span class="pre">PySAL</span></code> supports the construction of spatial weights matrices “on-the-fly”, that is from a table. This is a one-liner:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">Queen</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">abb</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">Queen</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">abb</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -839,13 +834,13 @@ dtype: int64
 <p>At this point, we have all the pieces needed to run a regionalization algorithm. For this example, we will use a spatially-constrained version of the agglomerative algorithm. This is a similar approach to that used above (the inner-workings of the algorithm are different however) with the difference that, in this case, observations can only be labelled in the same group if they are spatial neighbors, as defined by our spatial weights matrix <code class="docutils literal notranslate"><span class="pre">w</span></code>. The way to interact with the algorithm is very similar to that above. We first set the parameters:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sagg13</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">AgglomerativeClustering</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">connectivity</span><span class="o">=</span><span class="n">w</span><span class="o">.</span><span class="n">sparse</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sagg13</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">AgglomerativeClustering</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">connectivity</span><span class="o">=</span><span class="n">w</span><span class="o">.</span><span class="n">sparse</span><span class="p">)</span>
 <span class="n">sagg13</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>AgglomerativeClustering(connectivity=&lt;353x353 sparse matrix of type &#39;&lt;class &#39;numpy.float64&#39;&gt;&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AgglomerativeClustering(connectivity=&lt;353x353 sparse matrix of type &#39;&lt;class &#39;numpy.float64&#39;&gt;&#39;
 	with 1978 stored elements in Compressed Sparse Row format&gt;,
                         n_clusters=13)
 </pre></div>
@@ -855,7 +850,7 @@ dtype: int64
 <p>And we can run the algorithm by calling <code class="docutils literal notranslate"><span class="pre">fit</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run the clustering algorithm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run the clustering algorithm</span>
 <span class="n">sagg13cls</span> <span class="o">=</span> <span class="n">sagg13</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">abb</span><span class="p">[</span><span class="n">ratings</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -864,7 +859,7 @@ dtype: int64
 <p>And then we append the labels to the table:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">abb</span><span class="p">[</span><span class="s1">&#39;sagg13cls&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sagg13cls</span><span class="o">.</span><span class="n">labels_</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">abb</span><span class="p">[</span><span class="s1">&#39;sagg13cls&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sagg13cls</span><span class="o">.</span><span class="n">labels_</span>
 </pre></div>
 </div>
 </div>
@@ -875,7 +870,7 @@ dtype: int64
 <p>At this point, the column <code class="docutils literal notranslate"><span class="pre">sagg13cls</span></code> is no different than <code class="docutils literal notranslate"><span class="pre">k5cls</span></code>: a categorical variable that can be mapped into a unique values choropleth. In fact the following code snippett is exactly the same as before, only replacing the name of the variable to be mapped and the title:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and ax</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and ax</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
 <span class="c1"># Plot unique values choropleth including a legend and with no boundary lines</span>
 <span class="n">abb</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;sagg13cls&#39;</span><span class="p">,</span> <span class="n">categorical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
@@ -898,7 +893,7 @@ dtype: int64
 <p>The map above gives a very clear impression of the boundary delineation of the algorithm. However, it is still based on the small area polygons. To create the new boroughs “properly”, we need to dissolve all the polygons in each category into a single one. This is a standard GIS operation that is supported by <code class="docutils literal notranslate"><span class="pre">geopandas</span></code> and that can be easily actioned with the same <code class="docutils literal notranslate"><span class="pre">groupby</span></code> operator we used before. The only additional complication is that we need to wrap it into a separate function to be able to pass it on to <code class="docutils literal notranslate"><span class="pre">groupby</span></code>. We first the define the function <code class="docutils literal notranslate"><span class="pre">dissolve</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dissolve</span><span class="p">(</span><span class="n">gs</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dissolve</span><span class="p">(</span><span class="n">gs</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Take a series of polygons and dissolve them into a single one</span>
 <span class="sd">    </span>
@@ -919,7 +914,7 @@ dtype: int64
 <p>The boundaries for the AirBnb boroughs can then be obtained as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dissolve the polygons based on `sagg13cls`</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dissolve the polygons based on `sagg13cls`</span>
 <span class="n">abb_boroughs</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoSeries</span><span class="p">(</span><span class="n">abb</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">abb</span><span class="p">[</span><span class="s1">&#39;sagg13cls&#39;</span><span class="p">])</span>\
                                 <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">dissolve</span><span class="p">),</span>
                              <span class="n">crs</span><span class="o">=</span><span class="n">abb</span><span class="o">.</span><span class="n">crs</span>
@@ -931,7 +926,7 @@ dtype: int64
 <p>Which we can plot:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and ax</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and ax</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="c1"># Plot boundary lines</span>
 <span class="n">abb_boroughs</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> 
@@ -947,7 +942,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;AirBnb-based boroughs for Inner London&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;AirBnb-based boroughs for Inner London&#39;)
 </pre></div>
 </div>
 <img alt="../../_images/lab_G_51_1.png" src="../../_images/lab_G_51_1.png" />
@@ -957,7 +952,7 @@ dtype: int64
 <p>Remember we read these at the beginning of the notebook:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">boroughs</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boroughs</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1053,7 +1048,7 @@ dtype: int64
 <p>And displayed in a similar way as with the newly created ones:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and ax</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and ax</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="c1"># Plot boundary lines</span>
 <span class="n">boroughs</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> 
@@ -1069,7 +1064,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Administrative boroughs for Inner London&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Administrative boroughs for Inner London&#39;)
 </pre></div>
 </div>
 <img alt="../../_images/lab_G_55_1.png" src="../../_images/lab_G_55_1.png" />
@@ -1082,7 +1077,7 @@ dtype: int64
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up figure</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up figure</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
 <span class="n">f</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
 
