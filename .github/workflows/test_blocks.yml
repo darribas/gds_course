@@ -1,4 +1,4 @@
-name: Test Course
+name: Test GDS Course
 
 on:
   push:
@@ -18,8 +18,6 @@ jobs:
           - env: https://github.com/darribas/gds_env/raw/master/gds_py/gds_py.yml
             os: macos-latest
           - env: https://github.com/darribas/gds_env/raw/master/gds_py/gds_py.yml
-            os: windows-latest
-          - env: https://github.com/darribas/gds_env/raw/master/gds_py/gds_py.yml
             os: ubuntu-latest
 
     steps:
@@ -36,7 +34,6 @@ jobs:
           wget ${{ matrix.env }} -O env.yml
           conda env create -f env.yml
 
-
       - name: Check and Log Environment
         shell: bash
         run: |
@@ -45,6 +42,7 @@ jobs:
           conda info
           # Print conda list
           conda list
+          
       - name: Test blocks
         shell: bash
         continue-on-error: false
