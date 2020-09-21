@@ -42,3 +42,12 @@ pdf:
 	# Clean
 	rm -rf website/content
 	rm -r website/_build
+test:
+	rm -rf tests
+	mkdir tests
+	jupyter nbconvert --to markdown \
+                      --execute \
+                      --output-dir=tests \
+                      --ExecutePreprocessor.timeout=600 \
+                      content/b*/*.ipynb 
+	rm -rf tests
