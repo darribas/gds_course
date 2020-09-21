@@ -32,7 +32,9 @@ jobs:
 
       - name: Install Env
         shell: bash
-        run: conda env create -f ${{ matrix.env }}
+        run: |
+          wget ${{ matrix.env }} -O env.yml
+          conda env create -f env.yml
 
 
       - name: Check and Log Environment
