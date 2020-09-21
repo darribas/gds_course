@@ -33,7 +33,7 @@ jobs:
       - name: Install GDS Env
         shell: bash
         run: |
-          python -c "import urllib; env=urllib.open('https://raw.githubusercontent.com/darribas/gds_env/master/gds_py/gds_py.yml');fo.open('env.yml', 'w'); fo.write(env); fo.close();"
+          python -c "import urllib; env=urllib.urlopen('https://raw.githubusercontent.com/darribas/gds_env/master/gds_py/gds_py.yml');fo.open('env.yml', 'w'); fo.write(env); fo.close();"
           conda env create -f env.yml
           source activate gds
           pip install -r https://github.com/darribas/gds_env/raw/master/gds_py/gds_py_pip.txt
