@@ -1,0 +1,51 @@
+name: Test Course
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+
+  Test:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        env:
+          - https://github.com/darribas/gds_env/raw/master/gds_py/gds_py.yml
+        include:
+          - env: https://github.com/darribas/gds_env/raw/master/gds_py/gds_py.yml
+            os: macos-latest
+          - env: https://github.com/darribas/gds_env/raw/master/gds_py/gds_py.yml
+            os: windows-latest
+          - env: https://github.com/darribas/gds_env/raw/master/gds_py/gds_py.yml
+            os: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Conda
+        uses: s-weigand/setup-conda@v1.0.4
+        with:
+          activate-conda: false
+
+      - name: Install Env
+        shell: bash
+        run: conda env create -f ${{ matrix.env }}
+
+
+      - name: Check and Log Environment
+        shell: bash
+        run: |
+          source activate gds
+          pip install -r https://github.com/darribas/gds_env/raw/master/gds_py/gds_py_pip.txt
+          conda info
+          # Print conda list
+          conda list
+      - name: Test blocks
+        shell: bash
+        continue-on-error: false
+        run: |
+          source activate gds
+          make test
