@@ -28,7 +28,7 @@ jobs:
       - name: Setup Conda
         uses: s-weigand/setup-conda@v1.0.4
         with:
-          activate-conda: false
+          activate-conda: true
 
       - name: Install GDS Env
         shell: bash
@@ -40,13 +40,13 @@ jobs:
                     "gds_env/master/gds_py/gds_py.yml').text; "\
                     "fo=open('env.yml', 'w'); fo.write(env); fo.close();"
           conda env create -f env.yml
-          source activate gds
+          conda activate gds
           pip install -r https://github.com/darribas/gds_env/raw/master/gds_py/gds_py_pip.txt
 
       - name: Check and Log Environment
         shell: bash
         run: |
-          source activate gds
+          conda activate gds
           conda info
           # Print conda list
           conda list
@@ -55,5 +55,5 @@ jobs:
         shell: bash
         continue-on-error: false
         run: |
-          source activate gds
+          conda activate gds
           make test
