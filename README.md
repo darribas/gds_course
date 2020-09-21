@@ -2,7 +2,10 @@
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/darribas/gds_course/master)
 
-[![Actions Status](https://github.com/darribas/gds_course/workflows/Test%20GDS%20Course/badge.svg)](https://github.com/darribas/gds_course/actions)
+
+[![Actions Status](https://github.com/darribas/gds_course/workflows/Build%20Jupyter%20Book/badge.svg)](https://github.com/darribas/gds_course/actions?query=workflow%3A%22Build+Jupyter+book%22)
+
+[![Actions Status](https://github.com/darribas/gds_course/workflows/Test%20GDS%20Course/badge.svg)](https://github.com/darribas/gds_course/actions?query=workflow%3A%22Test+GDS+Course%22)
 
 This is an up-to-date version of the GDS course. Previous versions are available at:
 
