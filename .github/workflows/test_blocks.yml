@@ -16,8 +16,6 @@ jobs:
           - https://github.com/darribas/gds_env/raw/master/gds_py/gds_py.yml
         include:
           - env: https://github.com/darribas/gds_env/raw/master/gds_py/gds_py.yml
-            os: windows-latest
-          - env: https://github.com/darribas/gds_env/raw/master/gds_py/gds_py.yml
             os: macos-latest
           - env: https://github.com/darribas/gds_env/raw/master/gds_py/gds_py.yml
             os: ubuntu-latest
@@ -33,7 +31,7 @@ jobs:
       - name: Install GDS Env
         shell: bash
         run: |
-          python -c "import urllib; env=urllib.urlopen('https://raw.githubusercontent.com/darribas/gds_env/master/gds_py/gds_py.yml');fo=open('env.yml', 'w'); fo.write(env.read()); fo.close();"
+          wget https://raw.githubusercontent.com/darribas/gds_env/master/gds_py/gds_py.yml -O env.yml
           conda env create -f env.yml
           source activate gds
           pip install -r https://github.com/darribas/gds_env/raw/master/gds_py/gds_py_pip.txt
