@@ -30,22 +30,23 @@ jobs:
         with:
           activate-conda: false
 
-      - name: Install Env
+      - name: Install GDS Env
         shell: bash
         run: |
-          python -c "import urllib.request; urllib.request.urlretrieve('https://raw.githubusercontent.com/darribas/gds_env/master/gds_py/gds_py.yml', 'env.yml');"
+          python -c "import urllib; urllib.urlretrieve('https://raw.githubusercontent.com/darribas/gds_env/master/gds_py/gds_py.yml', 'env.yml');"
           conda env create -f env.yml
+          source activate gds
+          pip install -r https://github.com/darribas/gds_env/raw/master/gds_py/gds_py_pip.txt
 
       - name: Check and Log Environment
         shell: bash
         run: |
           source activate gds
-          pip install -r https://github.com/darribas/gds_env/raw/master/gds_py/gds_py_pip.txt
           conda info
           # Print conda list
           conda list
           
-      - name: Test blocks
+      - name: Test Blocks
         shell: bash
         continue-on-error: false
         run: |
