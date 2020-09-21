@@ -45,9 +45,10 @@ pdf:
 test:
 	rm -rf tests
 	mkdir tests
-	jupyter nbconvert --to markdown \
+	jupyter nbconvert --to html \
                       --execute \
                       --output-dir=tests \
                       --ExecutePreprocessor.timeout=600 \
                       content/b*/*.ipynb 
 	rm -rf tests
+	echo "###########################\n\nAll blocks passed\n\n###########################"

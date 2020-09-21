@@ -16,6 +16,8 @@ jobs:
           - https://github.com/darribas/gds_env/raw/master/gds_py/gds_py.yml
         include:
           - env: https://github.com/darribas/gds_env/raw/master/gds_py/gds_py.yml
+            os: windows-latest
+          - env: https://github.com/darribas/gds_env/raw/master/gds_py/gds_py.yml
             os: macos-latest
           - env: https://github.com/darribas/gds_env/raw/master/gds_py/gds_py.yml
             os: ubuntu-latest
@@ -31,6 +33,7 @@ jobs:
       - name: Install GDS Env
         shell: bash
         run: |
+          conda install -c conda-forge wget
           wget https://raw.githubusercontent.com/darribas/gds_env/master/gds_py/gds_py.yml -O env.yml
           conda env create -f env.yml
           source activate gds
