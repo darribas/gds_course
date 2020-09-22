@@ -45,9 +45,9 @@ pdf:
 test:
 	rm -rf tests
 	mkdir tests
-	jupyter nbconvert --to markdown \
+	jupyter nbconvert --to html \
                       --execute \
-                      --stdout \
+                      --output-dir tests \
                       --ExecutePreprocessor.timeout=600 \
                       content/b*/*.ipynb 
 	rm -rf tests
