@@ -4,7 +4,9 @@
 
 
 [![Actions Status](https://github.com/darribas/gds_course/workflows/Build%20Jupyter%20book/badge.svg)](https://github.com/darribas/gds_course/actions?query=workflow%3A%22Build+Jupyter+book%22)
+<!--
 [![Actions Status](https://github.com/darribas/gds_course/workflows/Test%20GDS%20Course/badge.svg)](https://github.com/darribas/gds_course/actions?query=workflow%3A%22Test+GDS+Course%22)
+-->
 
 This is an up-to-date version of the GDS course. Previous versions are available at:
 
