@@ -24,4 +24,4 @@ install:
   - pip install -r https://github.com/darribas/gds_env/raw/master/gds_py/gds_py_pip.txt
 
 test_script:
-  - jupyter nbconvert --to markdown --execute --stdout --ExecutePreprocessor.timeout=600 content/b*/*.ipynb 
+  - jupyter nbconvert --to html --execute --ExecutePreprocessor.timeout=600 content/b*/*.ipynb 
