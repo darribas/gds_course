@@ -36,14 +36,13 @@ jobs:
           conda install -c conda-forge requests
           python -c "import requests; env=requests.get('https://raw.githubusercontent.com/darribas/gds_env/master/gds_py/gds_py.yml').text; fo=open('env.yml', 'w'); fo.write(env); fo.close();print('env.yml downloaded successfully');"
           conda env create -f env.yml
-          conda init bash
-          conda activate gds
+          source activate gds
           pip install -r https://github.com/darribas/gds_env/raw/master/gds_py/gds_py_pip.txt
 
       - name: Check and Log Environment
         shell: bash
         run: |
-          conda activate gds
+          source activate gds
           conda info
           # Print conda list
           conda list
@@ -52,5 +51,5 @@ jobs:
         shell: bash
         continue-on-error: false
         run: |
-          conda activate gds
+          source activate gds
           make test
