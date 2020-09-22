@@ -17,10 +17,6 @@ jobs:
         include:
           - env: https://github.com/darribas/gds_env/raw/master/gds_py/gds_py.yml
             os: windows-latest
-          - env: https://github.com/darribas/gds_env/raw/master/gds_py/gds_py.yml
-            os: macos-latest
-          - env: https://github.com/darribas/gds_env/raw/master/gds_py/gds_py.yml
-            os: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
