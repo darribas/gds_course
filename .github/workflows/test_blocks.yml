@@ -36,6 +36,7 @@ jobs:
           conda install -c conda-forge requests
           python -c "import requests; env=requests.get('https://raw.githubusercontent.com/darribas/gds_env/master/gds_py/gds_py.yml').text; fo=open('env.yml', 'w'); fo.write(env); fo.close();print('env.yml downloaded successfully');"
           conda env create -f env.yml
+          conda init bash
           conda activate gds
           pip install -r https://github.com/darribas/gds_env/raw/master/gds_py/gds_py_pip.txt
 
