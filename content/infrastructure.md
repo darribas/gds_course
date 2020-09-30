@@ -59,3 +59,5 @@ The course is developed, built and tested using the [`gds_env`](https://darribas
 ```{warning}
 It is important to note Binder instances are *ephemeral* in the sense that the data and content created in a session is **NOT** saved anywhere and is deleted as soon as the browser tab is closed.
 ```
+
+Binder is also the backend this website relies on when you click on the rocket icon (<i class="fas fa-rocket"></i>) on a page with code. Remember, you can play with the code interactively but, once you close the tab, all the changes are lost.
