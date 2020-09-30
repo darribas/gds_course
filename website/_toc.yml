@@ -3,7 +3,8 @@
 - chapter: Information
   sections:
     - file: content/overview
-    - file: content/syllabus
+    - file: content/infrastructure
+    - file: content/assessment
     - file: content/bibliography
 
 - chapter: A - Introduction
