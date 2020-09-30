@@ -1,22 +1,40 @@
 
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Syllabus &#8212; A course on Geographic Data Science</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <title>Infrastructure &#8212; A course on Geographic Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
+
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -24,8 +42,8 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -37,11 +55,11 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bibliography" href="bibliography.html" />
+    <link rel="next" title="Assessment" href="assessment.html" />
     <link rel="prev" title="Overview" href="overview.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
 
 
 
@@ -82,7 +100,12 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Syllabus
+   Infrastructure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assessment.html">
+   Assessment
   </a>
  </li>
  <li class="toctree-l1">
@@ -304,7 +327,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/content/syllabus.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/content/infrastructure.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -327,69 +350,41 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
+        
         <div class="tocsection onthispage pt-5 pb-3">
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-1-introduction">
-   Week 1: Introduction
+  <a class="reference internal nav-link" href="#software-stack">
+   Software stack
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-2-modern-computational-environments">
-   Week 2: Modern Computational Environments
+  <a class="reference internal nav-link" href="#github-repository">
+   Github repository
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-3-spatial-data">
-   Week 3: Spatial Data
+  <a class="reference internal nav-link" href="#continuous-integration">
+   Continuous Integration
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-4-geo-visualization-choropleths">
-   Week 4: (Geo)Visualization + Choropleths
+  <a class="reference internal nav-link" href="#containerised-backend">
+   Containerised backend
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-5-spatial-weights">
-   Week 5: Spatial Weights
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-6-esda">
-   Week 6: ESDA
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-7-clustering">
-   Week 7: Clustering
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-8-point-data">
-   Week 8: Point Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-9">
-   Week 9
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-10-spatial-causal-inference">
-   Week 10: (Spatial) causal inference
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-11-geographic-data-science-in-action">
-   Week 11: Geographic Data Science in Action
+  <a class="reference internal nav-link" href="#binder">
+   Binder
   </a>
  </li>
 </ul>
 
         </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -397,98 +392,60 @@
         
               <div>
                 
-  <div class="section" id="syllabus">
-<h1>Syllabus<a class="headerlink" href="#syllabus" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="week-1-introduction">
-<h2>Week 1: Introduction<a class="headerlink" href="#week-1-introduction" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Lecture: <span class="xref myst">Geographic Data Science</span>.</p></li>
-<li><p>Tutorial: <span class="xref myst">Tools</span> + <span class="xref myst">Manipulating data in Python - Tidy Data</span>.</p></li>
-</ul>
+  <div class="section" id="infrastructure">
+<h1>Infrastructure<a class="headerlink" href="#infrastructure" title="Permalink to this headline">¶</a></h1>
+<p>This page covers a few technical aspects on how the course is built, kept up to date, and how you can create a computational environment to run all the code it includes.</p>
+<div class="section" id="software-stack">
+<h2>Software stack<a class="headerlink" href="#software-stack" title="Permalink to this headline">¶</a></h2>
+<p>This course is best followed if you can not only read its content but also interact with its code and even branch out to write your own code and play on your own. For that, you will need to have installed on your computer a series of interconnected software packages; this is what we call a <em>stack</em>. You can learn more about modern stacks for scientific computing on <a class="reference internal" href="bB/concepts_B.html"><span class="doc std std-doc">Block B</span></a>.</p>
+<p>Instructions on how to install a software stack that allows you to run the materials of this course depend on the operating system you are using. Detailed guides are available for the main systems on the following resource, provided by the <a class="reference external" href="https://www.liverpool.ac.uk/geographic-data-science/">Geographic Data Science Lab</a>:</p>
+<p><a class="reference external" href="https://gdsl-ul.github.io/soft_install/"><img alt="@gdsl-ul/soft_install" width=130px height=65px style="border-width:0" src="figs/gdsl.png" /></a>
+<a class="reference external" href="https://gdsl-ul.github.io/soft_install/">https://gdsl-ul.github.io/soft_install/</a></p>
 </div>
-<div class="section" id="week-2-modern-computational-environments">
-<h2>Week 2: Modern Computational Environments<a class="headerlink" href="#week-2-modern-computational-environments" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Lecture: <span class="xref myst">Modern Computational Environments</span>.</p></li>
-<li><p>Tutorial: <span class="xref myst">Manipulating data in Python - Advanced Tricks</span>.</p></li>
-</ul>
+<div class="section" id="github-repository">
+<h2>Github repository<a class="headerlink" href="#github-repository" title="Permalink to this headline">¶</a></h2>
+<p>All the materials for this course and this website are available on the following Github repository:</p>
+<p><a class="reference external" href="https://github.com/darribas/gds_course"><img alt="@darribas/gds_course" style="border-width:0" src="figs/GitHub-Mark-64px.png" /></a>
+<a class="reference external" href="https://github.com/darribas/gds_course">https://github.com/darribas/gds_course</a></p>
+<p>If you are interested, you can download a compressed <code class="docutils literal notranslate"><span class="pre">.zip</span></code> file with the most up-to-date version of all the materials, including the HTML for this website at:</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<SMALL>
+<div>Icon made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+</SMALL>
 </div>
-<div class="section" id="week-3-spatial-data">
-<h2>Week 3: Spatial Data<a class="headerlink" href="#week-3-spatial-data" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Lecture: <span class="xref myst">Spatial Data</span>.</p></li>
-<li><p>Tutorial: <span class="xref myst">Manipulating geospatial data in Python</span>.</p></li>
-</ul>
+<p><a class="reference external" href="https://github.com/darribas/gds_course/archive/master.zip"><img alt="@darribas/gds_course_zip" style="border-width:0" src="figs/zip-file-format.png" /></a>
+<a class="reference external" href="https://github.com/darribas/gds_course/archive/master.zip">https://github.com/darribas/gds_course/archive/master.zip</a></p>
 </div>
-<hr class="docutils" />
-<div class="section" id="week-4-geo-visualization-choropleths">
-<h2>Week 4: (Geo)Visualization + Choropleths<a class="headerlink" href="#week-4-geo-visualization-choropleths" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Lecture: <span class="xref myst">(Geo)Visualization + Choropleths</span>.</p></li>
-<li><p>Tutorial: <span class="xref myst">Mapping deprivation</span>.</p></li>
-</ul>
+<div class="section" id="continuous-integration">
+<h2>Continuous Integration<a class="headerlink" href="#continuous-integration" title="Permalink to this headline">¶</a></h2>
+<p>Following modern software engineering principles, this course is continuously tested and the website is built in an automated way. This means that, every time a new commit is built, the following two actions are triggered (click on the badges for detailed logs):</p>
+<ol class="simple">
+<li><p>Automatic build of the HTML and PDF version of the course</p></li>
+</ol>
+<p><a class="reference external" href="https://github.com/darribas/gds_course/actions?query=workflow%3A%22Build+Jupyter+book%22"><img alt="Actions Status" src="https://github.com/darribas/gds_course/workflows/Build%20Jupyter%20book/badge.svg" /></a></p>
+<ol class="simple">
+<li><p>Testing of the Python code that makes up the practical sections (<em>“Hands-on”</em> and <em>DIY</em>) of the course</p></li>
+</ol>
+<p><a class="reference external" href="https://github.com/darribas/gds_course/actions?query=workflow%3A%22Test+GDS+Course%22"><img alt="Actions Status" src="https://github.com/darribas/gds_course/workflows/Test%20GDS%20Course/badge.svg" /></a></p>
 </div>
-<div class="section" id="week-5-spatial-weights">
-<h2>Week 5: Spatial Weights<a class="headerlink" href="#week-5-spatial-weights" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Lecture: <span class="xref myst">Spatial Weights</span>.</p></li>
-<li><p>Tutorial:</p>
-<ul>
-<li><p><a class="reference external" href="assignments.html#task_01"><strong>TEST 1</strong></a> (1h): Thursday Oct. 24th</p></li>
-<li><p><span class="xref myst">Spatial Weights with PySAL</span>.</p></li>
-</ul>
-</li>
-</ul>
+<div class="section" id="containerised-backend">
+<h2>Containerised backend<a class="headerlink" href="#containerised-backend" title="Permalink to this headline">¶</a></h2>
+<p>The course is developed, built and tested using the <a class="reference external" href="https://darribas.org/gds_env/"><code class="docutils literal notranslate"><span class="pre">gds_env</span></code></a>, a containerised platform for Geographic Data Science. You can read more about the <a class="reference external" href="https://darribas.org/gds_env/"><code class="docutils literal notranslate"><span class="pre">gds_env</span></code></a> project at:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://darribas.org/gds_env/">https://darribas.org/gds_env/</a></p>
+</div></blockquote>
+<p><a class="reference external" href="https://darribas.org/gds_env/"><img alt="@darribas/gds_env" width=200px height=65px style="border-width:0" src="https://github.com/darribas/gds_env/raw/master/website/logo.png" /></a></p>
 </div>
-<div class="section" id="week-6-esda">
-<h2>Week 6: ESDA<a class="headerlink" href="#week-6-esda" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Lecture: <span class="xref myst">Exploratory Spatial Data Analysis (ESDA)</span>.</p></li>
-<li><p>Tutorial: <span class="xref myst">ESDA in Python</span>.</p></li>
-</ul>
+<div class="section" id="binder">
+<h2>Binder<a class="headerlink" href="#binder" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://mybinder.org/">Binder</a> is service that allows you to run scientific projects in the cloud for free. Binder can spin up <em>“ephemeral”</em> instances that allow you to run code on the browser without any local setup. It is possible to run the course on Binder by clicking on the button below:</p>
+<p><a class="reference external" href="https://mybinder.org/v2/gh/darribas/gds_course/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is important to note Binder instances are <em>ephemeral</em> in the sense that the data and content created in a session is <strong>NOT</strong> saved anywhere and is deleted as soon as the browser tab is closed.</p>
 </div>
-<div class="section" id="week-7-clustering">
-<h2>Week 7: Clustering<a class="headerlink" href="#week-7-clustering" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Lecture: <span class="xref myst">Clustering</span>.</p></li>
-<li><p>Tutorial: <span class="xref myst">Geodemographic analysis</span>.</p></li>
-</ul>
-</div>
-<div class="section" id="week-8-point-data">
-<h2>Week 8: Point Data<a class="headerlink" href="#week-8-point-data" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Lecture: <span class="xref myst">Point Data</span>.</p></li>
-<li><p>Tutorial: <span class="xref myst">Exploring Twitter patterns</span>.</p></li>
-</ul>
-</div>
-<hr class="docutils" />
-<div class="section" id="week-9">
-<h2>Week 9<a class="headerlink" href="#week-9" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Lecture: <span class="xref myst">Assignment preparation</span>.</p></li>
-<li><p>Tutorial:</p>
-<ul>
-<li><p><a class="reference external" href="assignments.html#task_02"><strong>TEST 2</strong></a> (1h): Thursday Nov. 21st</p></li>
-<li><p>Assignment Clinic</p></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="week-10-spatial-causal-inference">
-<h2>Week 10: (Spatial) causal inference<a class="headerlink" href="#week-10-spatial-causal-inference" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Lecture: <span class="xref myst">Spatial causal inference</span>.</p></li>
-<li><p>Tutorial: Assignment Clinic.</p></li>
-</ul>
-</div>
-<div class="section" id="week-11-geographic-data-science-in-action">
-<h2>Week 11: Geographic Data Science in Action<a class="headerlink" href="#week-11-geographic-data-science-in-action" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Lecture: Geographic Data Science <em>in the wild</em>.</p></li>
-<li><p>Tutorial: Assignment Clinic.</p></li>
-</ul>
-<p><a class="reference external" href="assignments.html#task_03"><strong>ASSIGNMENT</strong></a> due on Thursday, December
-5th-2019.</p>
+<p>Binder is also the backend this website relies on when you click on the rocket icon (<i class="fas fa-rocket"></i>) on a page with code. Remember, you can play with the code interactively but, once you close the tab, all the changes are lost.</p>
 </div>
 </div>
 
@@ -521,7 +478,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="overview.html" title="previous page">Overview</a>
-    <a class='right-next' id="next-link" href="bibliography.html" title="next page">Bibliography</a>
+    <a class='right-next' id="next-link" href="assessment.html" title="next page">Assessment</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
@@ -543,7 +500,10 @@
       </div>
     </div>
 
-    <script src="../_static/js/index.js"></script>
+    
+  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
     
   </body>
 </html>
