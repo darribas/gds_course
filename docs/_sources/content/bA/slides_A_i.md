@@ -18,12 +18,6 @@ Introduction
 * Have you ever heard the term **"Data Science"**?
 * Have you ever written a line of **computer code**?
 
-## 
-
-> *More stats than a GIS course... more GIS than a stats course*
-
-<span class='fragment'>With a few twists!</span>
-
 ## Philosophy
 
 - (Lots of) **methods** and techniques
@@ -36,18 +30,18 @@ Introduction
 
 ## Format
 
-11 blocks with:
+Eight blocks with:
 
-- **Concepts**: videos + slides, readings
-- **Hands-on**: concepts in (interactive) action
-- **Do-It-Yourself**: practical material to do on your own
+- <span class="hlg">*Concepts*</span>: videos + slides, readings
+- <span class="hlg">*Hands-on*</span>: concepts in (interactive) action
+- <span class="hlg">*Do-It-Yourself*</span>: practical material to do on your own
 
 ## Content
 
 <ul>
 <li class='fragment'> **Blocks A-C**: "big picture" content + computational tools (learning curve) </li>
 <li class='fragment'> **Blocks D-H**: "meat" of the course (lots of concepts packed) </li>
-<li class='fragment'> **Blocks I-K**: prepare an awesome Computational Esssay </li>
+<li class='fragment'> *Rest of the course*: prepare an awesome Computational Esssay </li>
 </ul>
 
 ## Logistics - Website
@@ -56,7 +50,7 @@ Introduction
 
 <iframe src="https://darribas.org/gds_course" width=600 height=400 ></iframe>
 
-## Logistics - Teams [`[URL]`](PH)
+## Logistics - Teams 
 
 ![Team](../figs/l01_team.png)
 
@@ -76,7 +70,7 @@ Introduction
 
 <ul>
 * **General purpose** programming language
-* "Sweet spot" between *"proof-of-concept"* and *"production-ready"*
+* Sweet spot between *"proof-of-concept"* and *"production-ready"*
 * Industry standard: **GIS** (Esri, QGIS) and **Data Science** (Google, Facebook, Amazon, Netflix, The New York Times, NASA...)
 </ul>
 
@@ -85,12 +79,12 @@ Introduction
 **Prepare** 
 
 <ul>
-<li class='fragment'> This is a **flipped class**: it's like a gym, the "subscription" does not make you fit </li>
-<li class='fragment'> **I won't** be leading/lecturing on computer material </li>
-<li class='fragment'> **Bring** questions, comments, feedback, (informed) rants to Teams/class </li>
+<li class='fragment'> This is a <span class="hlg">**flipped class**</span>: it's like a gym, the "subscription" does not make you fit </li>
+<li class='fragment'> **Bring** questions, comments, feedback, (informed) rants to Teams/labs </li>
 <li class='fragment'> **Teams**, **Teams**, **Teams** </li>
 <li class='fragment'> **Collaborate** (it's **NOT** a zero-sum win!!!) </li>
 </ul>
+
 
 ## More help!!!
 
@@ -104,11 +98,23 @@ solving** rather than acquiring specific programming tricks or stats wizardry
 <li class='fragment'> **Search** heavily on Google + Stack Overflow </li>
 </ul>
 
+## Workflow - Before a Lab
+
+1. Go over the *Concepts* and *Hands-on* sections of a block
+1. Get started on the *DIY*
+1. Record questions and **post** them on Teams **prior to the lab**
+
+## Workflow - Online Labs
+
+1. Come work on the ***DIY*** sections
+1. Live **answers** to questions posted
+1. **Support** from demonstrators and module lead
+
 #
 ## Assignments
 ## Assignments
 
-- In-lab <span class='hlg'>computer tests</span>: W.5 (25%) and W.10 (25%)
+- <span class='hlg'>Computer tests</span>: W.5 (25%) and W.10 (25%)
 - <span class='hlg'>Computational essay</span> (W.12, 50%)
      - Equivalent to 2,500 word
      - Report (*notebook*) with **code**, **figures** (e.g. maps), and **text**
