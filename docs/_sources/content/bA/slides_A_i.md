@@ -114,7 +114,7 @@ solving** rather than acquiring specific programming tricks or stats wizardry
 ## Assignments
 ## Assignments
 
-- <span class='hlg'>Computer tests</span>: W.5 (25%) and W.10 (25%)
+- <span class='hlg'>Computer tests</span>: W.5 (20%) and W.10 (25%)
 - <span class='hlg'>Computational essay</span> (W.12, 50%)
      - Equivalent to 2,500 word
      - Report (*notebook*) with **code**, **figures** (e.g. maps), and **text**
