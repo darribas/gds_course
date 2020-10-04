@@ -3,6 +3,7 @@
 
 This page covers a few technical aspects on how the course is built, kept up to date, and how you can create a computational environment to run all the code it includes.
 
+(software_stack)=
 ### Software stack
 
 This course is best followed if you can not only read its content but also interact with its code and even branch out to write your own code and play on your own. For that, you will need to have installed on your computer a series of interconnected software packages; this is what we call a *stack*. You can learn more about modern stacks for scientific computing on [Block B](bB/concepts_B). 
