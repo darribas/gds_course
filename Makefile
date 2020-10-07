@@ -52,3 +52,6 @@ test:
                       content/b*/*.ipynb 
 	rm -rf tests
 	echo "###########################\n\nAll blocks passed\n\n###########################"
+reset_docs:
+	rm -r docs/*
+	git checkout HEAD docs/
