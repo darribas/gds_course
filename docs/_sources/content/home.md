@@ -22,7 +22,7 @@ United Kingdom.
 
 ### Citation
 
-[![DOI](http://jose.theoj.org/papers/10.21105/jose.00042/status.svg)](https://doi.org/10.21105/jose.00042)
+[<img src="http://jose.theoj.org/papers/10.21105/jose.00042/status.svg" alt="DOI" style="margin-left: 0px" />](https://doi.org/10.21105/jose.00042)
 
 ```bibtex
 @article{darribas_gds_course,

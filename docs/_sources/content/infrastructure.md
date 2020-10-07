@@ -10,14 +10,14 @@ This course is best followed if you can not only read its content but also inter
 
 Instructions on how to install a software stack that allows you to run the materials of this course depend on the operating system you are using. Detailed guides are available for the main systems on the following resource, provided by the [Geographic Data Science Lab](https://www.liverpool.ac.uk/geographic-data-science/):
 
-[<img alt="@gdsl-ul/soft_install" width=130px height=65px style="border-width:0" src="figs/gdsl.png" />](https://gdsl-ul.github.io/soft_install/)
+[<img alt="@gdsl-ul/soft_install" width=130px height=65px style="border-width:0;margin-left: 0px" src="figs/gdsl.png" />](https://gdsl-ul.github.io/soft_install/)
 [https://gdsl-ul.github.io/soft_install/](https://gdsl-ul.github.io/soft_install/)
 
 ### Github repository
 
 All the materials for this course and this website are available on the following Github repository:
 
-[<img alt="@darribas/gds_course" style="border-width:0" src="figs/GitHub-Mark-64px.png" />](https://github.com/darribas/gds_course)
+[<img alt="@darribas/gds_course" style="border-width:0;margin-left: 0px" src="figs/GitHub-Mark-64px.png" />](https://github.com/darribas/gds_course)
 [https://github.com/darribas/gds_course](https://github.com/darribas/gds_course)
 
 If you are interested, you can download a compressed `.zip` file with the most up-to-date version of all the materials, including the HTML for this website at:
@@ -28,7 +28,7 @@ If you are interested, you can download a compressed `.zip` file with the most u
 </SMALL>
 ```
 
-[<img alt="@darribas/gds_course_zip" style="border-width:0" src="figs/zip-file-format.png" />](https://github.com/darribas/gds_course/archive/master.zip)
+[<img alt="@darribas/gds_course_zip" style="border-width:0;margin-left: 0px" src="figs/zip-file-format.png" />](https://github.com/darribas/gds_course/archive/master.zip)
 [https://github.com/darribas/gds_course/archive/master.zip](https://github.com/darribas/gds_course/archive/master.zip)
 
 ### Continuous Integration
@@ -49,7 +49,7 @@ The course is developed, built and tested using the [`gds_env`](https://darribas
 
 > [https://darribas.org/gds_env/](https://darribas.org/gds_env/)
 
-[<img alt="@darribas/gds_env" width=200px height=65px style="border-width:0" src="https://github.com/darribas/gds_env/raw/master/website/logo.png" />](https://darribas.org/gds_env/)
+[<img alt="@darribas/gds_env" width=200px height=65px style="border-width:0;margin-left: 0px" src="https://github.com/darribas/gds_env/raw/master/website/logo.png" />](https://darribas.org/gds_env/)
 
 ### Binder
 
