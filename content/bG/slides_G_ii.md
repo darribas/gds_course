@@ -75,11 +75,11 @@ See [interesting comparison](http://scikit-learn.org/stable/modules/clustering.h
 * **Public** Sector (policy) $\rightarrow$
   **Private** sector (marketing and business intelligence)
 </td>
-<td><img src="../content/lectures/figs/l08_predictive_postcode.jpg"
+<td><img src="../figs/l08_predictive_postcode.jpg"
 alt="Predictive Postcode"/></td>
 </table>
 
-## {data-background=../content/lectures/figs/l08_oac.png data-transition=none}
+## {data-background=../figs/l08_oac.png data-transition=none}
 
 [Source](http://maps.cdrc.ac.uk)
 
