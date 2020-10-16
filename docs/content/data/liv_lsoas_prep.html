@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title> &#8212; A course on Geographic Data Science</title>
+    <title>Prepare LSOA/MSOA table for Liverpool &#8212; A course on Geographic Data Science</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -212,17 +212,17 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="concepts_E.html">
+  <a class="reference internal" href="../bE/concepts_E.html">
    Concepts
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="lab_E.html">
+  <a class="reference internal" href="../bE/lab_E.html">
    Hands-on
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="diy_E.html">
+  <a class="reference internal" href="../bE/diy_E.html">
    Do-It-Yourself
   </a>
  </li>
@@ -330,9 +330,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/bE/slides_E_ii.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/data/liv_lsoas_prep.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -350,101 +350,27 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/darribas/gds_course/master?urlpath=tree/content/data/liv_lsoas_prep.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#geographic-data-science">
-     Geographic Data Science
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-is-a-neighbor">
-     <em>
-      What is a neighbor?
-     </em>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#contiguity-based-weights">
-     Contiguity-based weights
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-background-figs-l05-queen-png">
-     {data-background=../figs/l05_queen.png}
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#distance-based-weights">
-     Distance-based weights
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-background-figs-l05-dist-png">
-     {data-background=..//figs/l05_dist.png}
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#block-weights">
-     Block weights
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-background-figs-l05-block-png">
-     {data-background=../figs/l05_block.png}
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-much-of-a-neighbor">
-     <em>
-      How much of a neighbor?
-     </em>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#choice-of-w">
-     Choice of
-     <span class="math notranslate nohighlight">
-      \(W\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#standardization">
-     Standardization
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
-  </a>
- </li>
-</ul>
-
-        </nav>
         
     </div>
 </div>
@@ -453,125 +379,200 @@
         
               <div>
                 
-  <div class="section" id="id1">
-<h1><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="geographic-data-science">
-<h2>Geographic Data Science<a class="headerlink" href="#geographic-data-science" title="Permalink to this headline">¶</a></h2>
-<CENTER>
-Types of $W$
-</CENTER>
-<CENTER>
-[Dani Arribas-Bel](http://darribas.org)
-</CENTER>
-</div>
-</div>
-<div class="section" id="id2">
-<h1><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="what-is-a-neighbor">
-<h2><em>What is a neighbor?</em><a class="headerlink" href="#what-is-a-neighbor" title="Permalink to this headline">¶</a></h2>
-<p>A neighbor is “somebody” who is:</p>
+  <div class="section" id="prepare-lsoa-msoa-table-for-liverpool">
+<h1>Prepare LSOA/MSOA table for Liverpool<a class="headerlink" href="#prepare-lsoa-msoa-table-for-liverpool" title="Permalink to this headline">¶</a></h1>
+<p>We need the following two datasets:</p>
 <ul class="simple">
-<li><p>Next door <span class="fragment"> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <strong>Contiguity</strong>-based <span class="math notranslate nohighlight">\(W\)</span>s</p></li>
-<li><p>Close <span class="fragment"> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <strong>Distance</strong>-based <span class="math notranslate nohighlight">\(W\)</span>s</p></li>
-<li><p>In the same “place” as us <span class="fragment"> <span class="math notranslate nohighlight">\(\rightarrow\)</span>
-<strong>Block</strong> weights</p></li>
-<li><p>…</p></li>
+<li><p>LSOAs originally downloaded from the CDRC data store (<a class="reference external" href="https://data.cdrc.ac.uk/dataset/cdrc-english-indices-of-deprivation-2015-geodata-pack-liverpool-e08000012">original link</a>).</p></li>
+<li><p>LSOA to MSOA crosswalk from <a class="reference external" href="http://www.ons.gov.uk/ons/external-links/social-media/g-m/2011-oas-to-2011-lower-layer-super-output-areas--lsoas---middle-layer-super-output-areas--msoa--and-lads.html">ONS</a>.</p></li>
 </ul>
-<span class='fragment'>
-See [Anselin & Rey (2014)](http://www.amazon.com/Modern-Spatial-Econometrics-Practice-GeoDaSpace/dp/0986342106/ref=sr_1_1?ie=UTF8&qid=1421531753&sr=8-1&keywords=anselin+spatial+econometrics) for an in-detail discussion and more types of $W$.
-</span>
+<p>LSOAs come from the IMD package from the CDRC. The dataset was most easily downloaded from the CDRC data store (<a class="reference external" href="https://data.cdrc.ac.uk/dataset/cdrc-english-indices-of-deprivation-2015-geodata-pack-liverpool-e08000012">link</a>) and, since it already comes both in tabular as well as spatial data format (shapefile), it does not need merging or joining to additional geometries.</p>
+<p>In addition, we will be using the lookup between LSOAs and Medium Super Output Areas (MSOAs), which can be downloaded on this <a class="reference external" href="http://www.ons.gov.uk/ons/external-links/social-media/g-m/2011-oas-to-2011-lower-layer-super-output-areas--lsoas---middle-layer-super-output-areas--msoa--and-lads.html">link</a>. This connects each LSOA polygon to the MSOA they belong to. MSOAs are a coarser geographic delineation from the Office of National Statistics (ONS), within which LSOAs are nested. That is, no LSOA boundary crosses any of an MSOA.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">geopandas</span>
+</pre></div>
 </div>
-<div class="section" id="contiguity-based-weights">
-<h2>Contiguity-based weights<a class="headerlink" href="#contiguity-based-weights" title="Permalink to this headline">¶</a></h2>
-<p><strong>Sharing boundaries</strong> to any extent</p>
+</div>
+</div>
 <ul class="simple">
-<li><p>Rook</p></li>
-<li><p>Queen</p></li>
-<li><p>…</p></li>
+<li><p>We read the LSOAs</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lsoas</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;../../E08000012_IMD/shapefiles/E08000012.shp&quot;</span><span class="p">)</span>
+<span class="n">lsoas</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
 </div>
-<div class="section" id="data-background-figs-l05-queen-png">
-<h2>{data-background=../figs/l05_queen.png}<a class="headerlink" href="#data-background-figs-l05-queen-png" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="distance-based-weights">
-<h2>Distance-based weights<a class="headerlink" href="#distance-based-weights" title="Permalink to this headline">¶</a></h2>
-<p>Weight is (inversely) proportional to distance between observations</p>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
+RangeIndex: 298 entries, 0 to 297
+Data columns (total 13 columns):
+ #   Column      Non-Null Count  Dtype   
+---  ------      --------------  -----   
+ 0   LSOA11CD    298 non-null    object  
+ 1   imd_rank    298 non-null    int64   
+ 2   imd_score   298 non-null    float64 
+ 3   income      298 non-null    float64 
+ 4   employment  298 non-null    float64 
+ 5   education   298 non-null    float64 
+ 6   health      298 non-null    float64 
+ 7   crime       298 non-null    float64 
+ 8   housing     298 non-null    float64 
+ 9   living_env  298 non-null    float64 
+ 10  idaci       298 non-null    float64 
+ 11  idaopi      298 non-null    float64 
+ 12  geometry    298 non-null    geometry
+dtypes: float64(10), geometry(1), int64(1), object(1)
+memory usage: 30.4+ KB
+</pre></div>
+</div>
+</div>
+</div>
 <ul class="simple">
-<li><p>Inverse distance (threshold)</p></li>
-<li><p>KNN (fixed number of neighbors)</p></li>
-<li><p>…</p></li>
+<li><p>We also need the crosswalk between LSOA and MSOA</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cw</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../E08000012_IMD/OA11_LSOA11_MSOA11_LAD11_EW_LUv2.csv&quot;</span><span class="p">,</span> 
+                     <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;iso-8859-1&quot;</span>
+                    <span class="p">)</span>
+<span class="n">cw</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
 </div>
-<div class="section" id="data-background-figs-l05-dist-png">
-<h2>{data-background=..//figs/l05_dist.png}<a class="headerlink" href="#data-background-figs-l05-dist-png" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="id3">
-<h2><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<center>
-<img src="../figs/l05_queen.png" alt=""
-style="width:400px;height:400px;"/>
-<img src="../figs/l05_dist.png" alt=""
-style="width:400px;height:400px;"/>
-</center>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 181408 entries, 0 to 181407
+Data columns (total 8 columns):
+ #   Column    Non-Null Count   Dtype 
+---  ------    --------------   ----- 
+ 0   OA11CD    181408 non-null  object
+ 1   LSOA11CD  181408 non-null  object
+ 2   LSOA11NM  181408 non-null  object
+ 3   MSOA11CD  181408 non-null  object
+ 4   MSOA11NM  181408 non-null  object
+ 5   LAD11CD   181408 non-null  object
+ 6   LAD11NM   181408 non-null  object
+ 7   LAD11NMW  10036 non-null   object
+dtypes: object(8)
+memory usage: 11.1+ MB
+</pre></div>
 </div>
-<div class="section" id="block-weights">
-<h2>Block weights<a class="headerlink" href="#block-weights" title="Permalink to this headline">¶</a></h2>
-<p>Weights are assigned based on discretionary rules loosely related to geography</p>
-<p>For example:</p>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.7/site-packages/IPython/core/interactiveshell.py:3072: DtypeWarning: Columns (7) have mixed types.Specify dtype option on import or set low_memory=False.
+  interactivity=interactivity, compiler=compiler, result=result)
+</pre></div>
+</div>
+</div>
+</div>
 <ul class="simple">
-<li><p>LSOAs into MSOAs</p></li>
-<li><p>Post-codes within city boundaries</p></li>
-<li><p>Counties within states</p></li>
-<li><p>…</p></li>
+<li><p>Grab MSOA codes for Liverpool LSOA</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msoas</span> <span class="o">=</span> <span class="n">cw</span><span class="p">[[</span><span class="s1">&#39;LSOA11CD&#39;</span><span class="p">,</span> <span class="s1">&#39;MSOA11CD&#39;</span><span class="p">]]</span>\
+          <span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;last&#39;</span><span class="p">)</span>\
+          <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;LSOA11CD&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="data-background-figs-l05-block-png">
-<h2>{data-background=../figs/l05_block.png}<a class="headerlink" href="#data-background-figs-l05-block-png" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="how-much-of-a-neighbor">
-<h2><em>How much of a neighbor?</em><a class="headerlink" href="#how-much-of-a-neighbor" title="Permalink to this headline">¶</a></h2>
-<p>No neighbors receive zero weight: <span class="math notranslate nohighlight">\(w_{ij} = 0\)</span></p>
-<p>Neighbors, it depends, <span class="math notranslate nohighlight">\(w_{ij}\)</span> can be:</p>
+</div>
 <ul class="simple">
-<li><p>One <span class="math notranslate nohighlight">\(w_{ij} = 1\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <span class='hlg'>Binary</span></p></li>
-<li><p>Some proportion (<span class="math notranslate nohighlight">\(0 &lt; w_{ij} &lt; 1\)</span>, <span class='hlg'>continuous</span>) which can be a function of:</p>
-<ul>
-<li><p>Distance</p></li>
-<li><p>Strength of interaction (e.g. commuting flows, trade, etc.)</p></li>
-<li><p>…</p></li>
+<li><p>Build the table</p></li>
 </ul>
-</li>
-</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msoas</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
 </div>
-<div class="section" id="choice-of-w">
-<h2>Choice of <span class="math notranslate nohighlight">\(W\)</span><a class="headerlink" href="#choice-of-w" title="Permalink to this headline">¶</a></h2>
-<p>Should be based on and reflect the <strong>underlying channels of interaction</strong> for
-the question at hand.</p>
-<p>Examples:</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MSOA11CD</th>
+    </tr>
+    <tr>
+      <th>LSOA11CD</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E01000002</th>
+      <td>E02000001</td>
+    </tr>
+    <tr>
+      <th>E01032740</th>
+      <td>E02000001</td>
+    </tr>
+    <tr>
+      <th>E01000005</th>
+      <td>E02000001</td>
+    </tr>
+    <tr>
+      <th>E01000009</th>
+      <td>E02000017</td>
+    </tr>
+    <tr>
+      <th>E01000008</th>
+      <td>E02000016</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span> <span class="o">=</span> <span class="n">lsoas</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msoas</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;LSOA11CD&quot;</span><span class="p">)</span>\
+          <span class="p">[[</span><span class="s2">&quot;LSOA11CD&quot;</span><span class="p">,</span> <span class="s2">&quot;MSOA11CD&quot;</span><span class="p">,</span> <span class="s2">&quot;geometry&quot;</span><span class="p">]]</span>
+<span class="n">db</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
+RangeIndex: 298 entries, 0 to 297
+Data columns (total 3 columns):
+ #   Column    Non-Null Count  Dtype   
+---  ------    --------------  -----   
+ 0   LSOA11CD  298 non-null    object  
+ 1   MSOA11CD  298 non-null    object  
+ 2   geometry  298 non-null    geometry
+dtypes: geometry(1), object(2)
+memory usage: 7.1+ KB
+</pre></div>
+</div>
+</div>
+</div>
 <ul class="simple">
-<li><p>Processes propagated by inmediate contact (e.g. disease contagion) <span class="math notranslate nohighlight">\(\rightarrow\)</span>
-Contiguity weights</p></li>
-<li><p>Accessibility <span class="math notranslate nohighlight">\(\rightarrow\)</span> Distance weights</p></li>
-<li><p>Effects of county differences in laws <span class="math notranslate nohighlight">\(\rightarrow\)</span> Block weights</p></li>
+<li><p>Write as Geopackage</p></li>
 </ul>
-</div>
-<div class="section" id="standardization">
-<h2>Standardization<a class="headerlink" href="#standardization" title="Permalink to this headline">¶</a></h2>
-<p>In some applications (e.g. spatial autocorrelation) it is common to
-<em>standardize</em> <span class="math notranslate nohighlight">\(W\)</span></p>
-<p>The most widely used standardization is <strong>row-based</strong>: divide every element by the sum of
-the row:</p>
-<p>
-<script type="math/tex; mode=display">
-\bar{w_{ij}} = \dfrac{w_{ij}}{w_{i\cdotp}}
-</script>
-</p>
-<p>where <span class="math notranslate nohighlight">\(w_{i\cdotp}\)</span> is the sum of a row.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> rm -f liv_lsoas.gpkg
+<span class="n">db</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s2">&quot;liv_lsoas.gpkg&quot;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s2">&quot;GPKG&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
-<div class="section" id="id4">
-<h1><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h1>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -587,7 +588,7 @@ the row:</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/bE"
+            path: "./content/data"
         },
         predefinedOutput: true
     }

@@ -1,0 +1,1023 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>London AirBnb dataset prep &#8212; A course on Geographic Data Science</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">A course on Geographic Data Science</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Information
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../infrastructure.html">
+   Infrastructure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assessment.html">
+   Assessment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasets.html">
+   Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  A - Introduction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bA/concepts_A.html">
+   Concepts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bA/lab_A.html">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bA/diy_A.html">
+   Do-It-Yourself
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  B - Open Science
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bB/concepts_B.html">
+   Concepts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bB/lab_B.html">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bB/diy_B.html">
+   Do-It-Yourself
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  C - Spatial Data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bC/concepts_C.html">
+   Concepts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bC/lab_C.html">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bC/diy_C.html">
+   Do-It-Yourself
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  D - Mapping Data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bD/concepts_D.html">
+   Concepts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bD/lab_D.html">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bD/diy_D.html">
+   Do-It-Yourself
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  E - Spatial Weights
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bE/concepts_E.html">
+   Concepts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bE/lab_E.html">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bE/diy_E.html">
+   Do-It-Yourself
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  F - ESDA
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bF/concepts_F.html">
+   Concepts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bF/lab_F.html">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bF/diy_F.html">
+   Do-It-Yourself
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  G - Clustering
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bG/concepts_G.html">
+   Concepts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bG/lab_G.html">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bG/diy_G.html">
+   Do-It-Yourself
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  H - Points
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bH/concepts_H.html">
+   Concepts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bH/lab_H.html">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bH/diy_H.html">
+   Do-It-Yourself
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/data/london_abb_prep.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/darribas/gds_course/master?urlpath=tree/content/data/london_abb_prep.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#source-data">
+   Source data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#airbnb-listings">
+     AirBnb listings
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#london-geographies">
+     London geographies
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aggregate-variables-to-msoa">
+   Aggregate variables to MSOA
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attach-boroughs">
+   Attach boroughs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#keep-inner-london">
+   Keep Inner London
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#write-out-and-clean-up">
+   Write out and clean up
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="london-airbnb-dataset-prep">
+<h1>London AirBnb dataset prep<a class="headerlink" href="#london-airbnb-dataset-prep" title="Permalink to this headline">¶</a></h1>
+<p>In this notebook we put together the dataset of London properties on AirBnb.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span><span class="o">,</span> <span class="nn">geopandas</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="source-data">
+<h2>Source data<a class="headerlink" href="#source-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="airbnb-listings">
+<h3>AirBnb listings<a class="headerlink" href="#airbnb-listings" title="Permalink to this headline">¶</a></h3>
+<p>We use the recorded listings in January 2020:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;http://data.insideairbnb.com/united-kingdom/&quot;</span>\
+       <span class="s2">&quot;england/london/2020-01-09/data/listings.csv.gz&quot;</span><span class="p">)</span>
+<span class="n">url</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;http://data.insideairbnb.com/united-kingdom/england/london/2020-01-09/data/listings.csv.gz&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Accessed on Sep. 16th 2020</span>
+<span class="n">listings</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.7/site-packages/IPython/core/interactiveshell.py:3072: DtypeWarning: Columns (61,62,94,95) have mixed types.Specify dtype option on import or set low_memory=False.
+  interactivity=interactivity, compiler=compiler, result=result)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s keep tidy the variables we will want to pull out:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;property_type&#39;</span><span class="p">,</span> <span class="s1">&#39;room_type&#39;</span><span class="p">,</span> <span class="s1">&#39;accommodates&#39;</span><span class="p">,</span> \
+     <span class="s1">&#39;bathrooms&#39;</span><span class="p">,</span> <span class="s1">&#39;bedrooms&#39;</span><span class="p">,</span> <span class="s1">&#39;beds&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;security_deposit&#39;</span><span class="p">,</span> \
+     <span class="s1">&#39;number_of_reviews&#39;</span><span class="p">,</span> <span class="s1">&#39;reviews_per_month&#39;</span><span class="p">,</span> \
+     <span class="s1">&#39;review_scores_rating&#39;</span><span class="p">,</span> <span class="s1">&#39;review_scores_accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;review_scores_cleanliness&#39;</span><span class="p">,</span> \
+     <span class="s1">&#39;review_scores_checkin&#39;</span><span class="p">,</span> <span class="s1">&#39;review_scores_communication&#39;</span><span class="p">,</span> <span class="s1">&#39;review_scores_location&#39;</span><span class="p">,</span> \
+     <span class="s1">&#39;review_scores_value&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s turn <code class="docutils literal notranslate"><span class="pre">listings</span></code> into a <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pts</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">points_from_xy</span><span class="p">(</span><span class="n">listings</span><span class="p">[</span><span class="s2">&quot;longitude&quot;</span><span class="p">],</span> <span class="n">listings</span><span class="p">[</span><span class="s2">&quot;latitude&quot;</span><span class="p">])</span>
+<span class="n">geo_listings</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">listings</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">geometry</span><span class="o">=</span><span class="n">pts</span><span class="p">),</span>
+                                      <span class="n">crs</span><span class="o">=</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="london-geographies">
+<h3>London geographies<a class="headerlink" href="#london-geographies" title="Permalink to this headline">¶</a></h3>
+<p>From the London Datastore, we can download a <code class="docutils literal notranslate"><span class="pre">.zip</span></code> file with statistical boundaries for London (as of Sep. 16th 2020):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> wget https://data.london.gov.uk/download/statistical-gis-boundary-files-london/9ba8c833-6370-4b11-abdc-314aa020d5e0/statistical-gis-boundaries-london.zip
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2020-09-16 19:06:02--  https://data.london.gov.uk/download/statistical-gis-boundary-files-london/9ba8c833-6370-4b11-abdc-314aa020d5e0/statistical-gis-boundaries-london.zip
+Resolving data.london.gov.uk (data.london.gov.uk)... 99.84.10.83, 99.84.10.96, 99.84.10.34, ...
+Connecting to data.london.gov.uk (data.london.gov.uk)|99.84.10.83|:443... connected.
+HTTP request sent, awaiting response... 302 Moved Temporarily
+Location: https://airdrive-secure.s3-eu-west-1.amazonaws.com/london/dataset/statistical-gis-boundary-files-london/2016-10-03T13%3A52%3A28/statistical-gis-boundaries-london.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAJJDIMAIVZJDICKHA%2F20200916%2Feu-west-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20200916T190556Z&amp;X-Amz-Expires=300&amp;X-Amz-Signature=5bf7051cbe47f79bbdcd6a3b094f3d55d5f0f263bfe5426cff4bcdf4b723fe4d&amp;X-Amz-SignedHeaders=host [following]
+--2020-09-16 19:06:02--  https://airdrive-secure.s3-eu-west-1.amazonaws.com/london/dataset/statistical-gis-boundary-files-london/2016-10-03T13%3A52%3A28/statistical-gis-boundaries-london.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAJJDIMAIVZJDICKHA%2F20200916%2Feu-west-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20200916T190556Z&amp;X-Amz-Expires=300&amp;X-Amz-Signature=5bf7051cbe47f79bbdcd6a3b094f3d55d5f0f263bfe5426cff4bcdf4b723fe4d&amp;X-Amz-SignedHeaders=host
+Resolving airdrive-secure.s3-eu-west-1.amazonaws.com (airdrive-secure.s3-eu-west-1.amazonaws.com)... 52.218.109.32, 52.218.88.56
+Connecting to airdrive-secure.s3-eu-west-1.amazonaws.com (airdrive-secure.s3-eu-west-1.amazonaws.com)|52.218.109.32|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 28666674 (27M) [application/zip]
+Saving to: ‘statistical-gis-boundaries-london.zip’
+
+statistical-gis-bou 100%[===================&gt;]  27.34M  2.48MB/s    in 12s     
+
+2020-09-16 19:06:15 (2.29 MB/s) - ‘statistical-gis-boundaries-london.zip’ saved [28666674/28666674]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unpack the compressed files:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> unzip statistical-gis-boundaries-london.zip
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Archive:  statistical-gis-boundaries-london.zip
+   creating: statistical-gis-boundaries-london/ESRI/
+  inflating: statistical-gis-boundaries-london/ESRI/London_Borough_Excluding_MHW.dbf  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Borough_Excluding_MHW.GSS_CODE.atx  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Borough_Excluding_MHW.NAME.atx  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Borough_Excluding_MHW.prj  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Borough_Excluding_MHW.sbn  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Borough_Excluding_MHW.sbx  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Borough_Excluding_MHW.shp  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Borough_Excluding_MHW.shp.xml  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Borough_Excluding_MHW.shx  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Ward.BOROUGH.atx  
+ extracting: statistical-gis-boundaries-london/ESRI/London_Ward.cpg  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Ward.dbf  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Ward.GSS_CODE.atx  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Ward.LB_GSS_CD.atx  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Ward.prj  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Ward.sbn  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Ward.sbx  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Ward.shp  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Ward.shp.xml  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Ward.shx  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Ward_CityMerged.BOROUGH.atx  
+ extracting: statistical-gis-boundaries-london/ESRI/London_Ward_CityMerged.cpg  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Ward_CityMerged.dbf  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Ward_CityMerged.GSS_CODE.atx  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Ward_CityMerged.LB_GSS_CD.atx  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Ward_CityMerged.prj  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Ward_CityMerged.sbn  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Ward_CityMerged.sbx  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Ward_CityMerged.shp  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Ward_CityMerged.shp.xml  
+  inflating: statistical-gis-boundaries-london/ESRI/London_Ward_CityMerged.shx  
+  inflating: statistical-gis-boundaries-london/ESRI/LSOA_2004_London_Low_Resolution.dbf  
+  inflating: statistical-gis-boundaries-london/ESRI/LSOA_2004_London_Low_Resolution.prj  
+  inflating: statistical-gis-boundaries-london/ESRI/LSOA_2004_London_Low_Resolution.shp  
+  inflating: statistical-gis-boundaries-london/ESRI/LSOA_2004_London_Low_Resolution.shx  
+  inflating: statistical-gis-boundaries-london/ESRI/LSOA_2011_London_gen_MHW.dbf  
+  inflating: statistical-gis-boundaries-london/ESRI/LSOA_2011_London_gen_MHW.prj  
+  inflating: statistical-gis-boundaries-london/ESRI/LSOA_2011_London_gen_MHW.sbn  
+  inflating: statistical-gis-boundaries-london/ESRI/LSOA_2011_London_gen_MHW.sbx  
+  inflating: statistical-gis-boundaries-london/ESRI/LSOA_2011_London_gen_MHW.shp  
+  inflating: statistical-gis-boundaries-london/ESRI/LSOA_2011_London_gen_MHW.shp.xml  
+  inflating: statistical-gis-boundaries-london/ESRI/LSOA_2011_London_gen_MHW.shx  
+  inflating: statistical-gis-boundaries-london/ESRI/MSOA_2004_London_High_Resolution.dbf  
+  inflating: statistical-gis-boundaries-london/ESRI/MSOA_2004_London_High_Resolution.prj  
+  inflating: statistical-gis-boundaries-london/ESRI/MSOA_2004_London_High_Resolution.sbn  
+  inflating: statistical-gis-boundaries-london/ESRI/MSOA_2004_London_High_Resolution.sbx  
+  inflating: statistical-gis-boundaries-london/ESRI/MSOA_2004_London_High_Resolution.shp  
+  inflating: statistical-gis-boundaries-london/ESRI/MSOA_2004_London_High_Resolution.shp.xml  
+  inflating: statistical-gis-boundaries-london/ESRI/MSOA_2004_London_High_Resolution.shx  
+  inflating: statistical-gis-boundaries-london/ESRI/MSOA_2011_London_gen_MHW.dbf  
+  inflating: statistical-gis-boundaries-london/ESRI/MSOA_2011_London_gen_MHW.prj  
+  inflating: statistical-gis-boundaries-london/ESRI/MSOA_2011_London_gen_MHW.sbn  
+  inflating: statistical-gis-boundaries-london/ESRI/MSOA_2011_London_gen_MHW.sbx  
+  inflating: statistical-gis-boundaries-london/ESRI/MSOA_2011_London_gen_MHW.shp  
+  inflating: statistical-gis-boundaries-london/ESRI/MSOA_2011_London_gen_MHW.shp.xml  
+  inflating: statistical-gis-boundaries-london/ESRI/MSOA_2011_London_gen_MHW.shx  
+  inflating: statistical-gis-boundaries-london/ESRI/OA_2011_London_gen_MHW.dbf  
+  inflating: statistical-gis-boundaries-london/ESRI/OA_2011_London_gen_MHW.prj  
+  inflating: statistical-gis-boundaries-london/ESRI/OA_2011_London_gen_MHW.sbn  
+  inflating: statistical-gis-boundaries-london/ESRI/OA_2011_London_gen_MHW.sbx  
+  inflating: statistical-gis-boundaries-london/ESRI/OA_2011_London_gen_MHW.shp  
+  inflating: statistical-gis-boundaries-london/ESRI/OA_2011_London_gen_MHW.shp.xml  
+  inflating: statistical-gis-boundaries-london/ESRI/OA_2011_London_gen_MHW.shx  
+  inflating: statistical-gis-boundaries-london/Geography-licensing.pdf  
+   creating: statistical-gis-boundaries-london/MapInfo/
+  inflating: statistical-gis-boundaries-london/MapInfo/London_Borough_Excluding_MHW.dat  
+  inflating: statistical-gis-boundaries-london/MapInfo/London_Borough_Excluding_MHW.id  
+  inflating: statistical-gis-boundaries-london/MapInfo/London_Borough_Excluding_MHW.ind  
+  inflating: statistical-gis-boundaries-london/MapInfo/London_Borough_Excluding_MHW.map  
+  inflating: statistical-gis-boundaries-london/MapInfo/London_Borough_Excluding_MHW.tab  
+  inflating: statistical-gis-boundaries-london/MapInfo/London_Ward_CityMerged.dat  
+  inflating: statistical-gis-boundaries-london/MapInfo/London_Ward_CityMerged.id  
+  inflating: statistical-gis-boundaries-london/MapInfo/London_Ward_CityMerged.ind  
+  inflating: statistical-gis-boundaries-london/MapInfo/London_Ward_CityMerged.map  
+  inflating: statistical-gis-boundaries-london/MapInfo/London_Ward_CityMerged.tab  
+  inflating: statistical-gis-boundaries-london/MapInfo/LSOA_2004_London_Low_Resolution.DAT  
+  inflating: statistical-gis-boundaries-london/MapInfo/LSOA_2004_London_Low_Resolution.ID  
+  inflating: statistical-gis-boundaries-london/MapInfo/LSOA_2004_London_Low_Resolution.IND  
+  inflating: statistical-gis-boundaries-london/MapInfo/LSOA_2004_London_Low_Resolution.MAP  
+  inflating: statistical-gis-boundaries-london/MapInfo/LSOA_2004_London_Low_Resolution.TAB  
+  inflating: statistical-gis-boundaries-london/MapInfo/LSOA_2011_London_gen_MHW.DAT  
+  inflating: statistical-gis-boundaries-london/MapInfo/LSOA_2011_London_gen_MHW.ID  
+  inflating: statistical-gis-boundaries-london/MapInfo/LSOA_2011_London_gen_MHW.MAP  
+  inflating: statistical-gis-boundaries-london/MapInfo/LSOA_2011_London_gen_MHW.tab  
+  inflating: statistical-gis-boundaries-london/MapInfo/MSOA_2004_London_Low_Resolution.DAT  
+  inflating: statistical-gis-boundaries-london/MapInfo/MSOA_2004_London_Low_Resolution.ID  
+  inflating: statistical-gis-boundaries-london/MapInfo/MSOA_2004_London_Low_Resolution.MAP  
+  inflating: statistical-gis-boundaries-london/MapInfo/MSOA_2004_London_Low_Resolution.TAB  
+  inflating: statistical-gis-boundaries-london/MapInfo/MSOA_2011_London_gen_MHW.DAT  
+  inflating: statistical-gis-boundaries-london/MapInfo/MSOA_2011_London_gen_MHW.ID  
+  inflating: statistical-gis-boundaries-london/MapInfo/MSOA_2011_London_gen_MHW.MAP  
+  inflating: statistical-gis-boundaries-london/MapInfo/MSOA_2011_London_gen_MHW.tab  
+  inflating: statistical-gis-boundaries-london/MapInfo/OA_2011_London_gen_MHW.DAT  
+  inflating: statistical-gis-boundaries-london/MapInfo/OA_2011_London_gen_MHW.ID  
+  inflating: statistical-gis-boundaries-london/MapInfo/OA_2011_London_gen_MHW.MAP  
+  inflating: statistical-gis-boundaries-london/MapInfo/OA_2011_London_gen_MHW.tab  
+</pre></div>
+</div>
+</div>
+</div>
+<p>Read in MSOAs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msoas</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;statistical-gis-boundaries-london/ESRI/MSOA_2004_London_High_Resolution.shp&quot;</span><span class="p">)</span>
+<span class="n">msoas</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
+RangeIndex: 983 entries, 0 to 982
+Data columns (total 10 columns):
+ #   Column     Non-Null Count  Dtype   
+---  ------     --------------  -----   
+ 0   MSOA_CODE  983 non-null    object  
+ 1   MSOA_NAME  983 non-null    object  
+ 2   LA_CODE    983 non-null    object  
+ 3   LA_NAME    983 non-null    object  
+ 4   GEOEAST    983 non-null    int64   
+ 5   GEONORTH   983 non-null    int64   
+ 6   POPEAST    983 non-null    int64   
+ 7   POPNORTH   983 non-null    int64   
+ 8   AREA_KM2   983 non-null    float64 
+ 9   geometry   983 non-null    geometry
+dtypes: float64(1), geometry(1), int64(4), object(4)
+memory usage: 76.9+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<p>Read in boroughs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boroughs</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;statistical-gis-boundaries-london/ESRI/London_Borough_Excluding_MHW.shp&quot;</span><span class="p">)</span>
+<span class="n">boroughs</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
+RangeIndex: 33 entries, 0 to 32
+Data columns (total 8 columns):
+ #   Column      Non-Null Count  Dtype   
+---  ------      --------------  -----   
+ 0   NAME        33 non-null     object  
+ 1   GSS_CODE    33 non-null     object  
+ 2   HECTARES    33 non-null     float64 
+ 3   NONLD_AREA  33 non-null     float64 
+ 4   ONS_INNER   33 non-null     object  
+ 5   SUB_2009    0 non-null      object  
+ 6   SUB_2006    0 non-null      object  
+ 7   geometry    33 non-null     geometry
+dtypes: float64(2), geometry(1), object(5)
+memory usage: 2.2+ KB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="aggregate-variables-to-msoa">
+<h2>Aggregate variables to MSOA<a class="headerlink" href="#aggregate-variables-to-msoa" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Attach MSOA code to each point</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">geo_listings</span><span class="p">,</span> 
+                     <span class="n">msoas</span><span class="p">[[</span><span class="s2">&quot;geometry&quot;</span><span class="p">,</span> <span class="s2">&quot;MSOA_CODE&quot;</span><span class="p">,</span> <span class="s2">&quot;MSOA_NAME&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">geo_listings</span><span class="o">.</span><span class="n">crs</span><span class="p">),</span> 
+                     <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span>
+                    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Aggregate stats to MSOA level and reattach geometries</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;MSOA_CODE&quot;</span><span class="p">)</span>
+<span class="n">msoas_abb</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;index_right&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">msoas_abb</span><span class="p">[</span><span class="s2">&quot;property_count&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+
+<span class="n">msoas_abb</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">msoas_abb</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msoas</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;MSOA_CODE&quot;</span><span class="p">)[[</span><span class="s2">&quot;geometry&quot;</span><span class="p">]]),</span> 
+                                   <span class="n">crs</span><span class="o">=</span><span class="n">msoas</span><span class="o">.</span><span class="n">crs</span>
+                                  <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="attach-boroughs">
+<h2>Attach boroughs<a class="headerlink" href="#attach-boroughs" title="Permalink to this headline">¶</a></h2>
+<p>We attach to a MSOA the borough where its centroid falls within.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msoa_cents</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">({</span><span class="s2">&quot;MSOA11CD&quot;</span><span class="p">:</span> <span class="n">msoas_abb</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+                                     <span class="s2">&quot;geometry&quot;</span><span class="p">:</span> <span class="n">msoas_abb</span><span class="o">.</span><span class="n">centroid</span>
+                                    <span class="p">},</span> <span class="n">crs</span><span class="o">=</span><span class="n">msoas_abb</span><span class="o">.</span><span class="n">crs</span>
+                                   <span class="p">)</span>
+<span class="n">msoa2borough</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">msoa_cents</span><span class="p">,</span>
+                               <span class="n">boroughs</span><span class="p">[[</span><span class="s2">&quot;NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;GSS_CODE&quot;</span><span class="p">,</span> <span class="s2">&quot;geometry&quot;</span><span class="p">]]</span>\
+                                       <span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">msoas_abb</span><span class="o">.</span><span class="n">crs</span><span class="p">),</span> 
+                               <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span>
+                              <span class="p">)</span>
+<span class="n">msoa2borough</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MSOA11CD</th>
+      <th>geometry</th>
+      <th>index_right</th>
+      <th>NAME</th>
+      <th>GSS_CODE</th>
+    </tr>
+    <tr>
+      <th>MSOA_CODE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E02000001</th>
+      <td>E02000001</td>
+      <td>POINT (532464.075 181219.688)</td>
+      <td>32</td>
+      <td>City of London</td>
+      <td>E09000001</td>
+    </tr>
+    <tr>
+      <th>E02000002</th>
+      <td>E02000002</td>
+      <td>POINT (548312.704 189878.010)</td>
+      <td>31</td>
+      <td>Barking and Dagenham</td>
+      <td>E09000002</td>
+    </tr>
+    <tr>
+      <th>E02000003</th>
+      <td>E02000003</td>
+      <td>POINT (548456.427 188399.878)</td>
+      <td>31</td>
+      <td>Barking and Dagenham</td>
+      <td>E09000002</td>
+    </tr>
+    <tr>
+      <th>E02000004</th>
+      <td>E02000004</td>
+      <td>POINT (551009.985 186307.533)</td>
+      <td>31</td>
+      <td>Barking and Dagenham</td>
+      <td>E09000002</td>
+    </tr>
+    <tr>
+      <th>E02000005</th>
+      <td>E02000005</td>
+      <td>POINT (548666.108 186902.593)</td>
+      <td>31</td>
+      <td>Barking and Dagenham</td>
+      <td>E09000002</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>And add the borough code to the main table:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">abb</span> <span class="o">=</span> <span class="n">msoas_abb</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>\
+               <span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msoa2borough</span><span class="p">[[</span><span class="s2">&quot;NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;GSS_CODE&quot;</span><span class="p">]],</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;MSOA_CODE&quot;</span><span class="p">)</span>\
+               <span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;NAME&quot;</span><span class="p">:</span> <span class="s2">&quot;BOROUGH&quot;</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>\
+               <span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;longitude&quot;</span><span class="p">,</span> <span class="s2">&quot;latitude&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">abb</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
+RangeIndex: 981 entries, 0 to 980
+Data columns (total 18 columns):
+ #   Column                       Non-Null Count  Dtype   
+---  ------                       --------------  -----   
+ 0   MSOA_CODE                    981 non-null    object  
+ 1   accommodates                 981 non-null    float64 
+ 2   bathrooms                    981 non-null    float64 
+ 3   bedrooms                     981 non-null    float64 
+ 4   beds                         981 non-null    float64 
+ 5   number_of_reviews            981 non-null    float64 
+ 6   reviews_per_month            977 non-null    float64 
+ 7   review_scores_rating         977 non-null    float64 
+ 8   review_scores_accuracy       977 non-null    float64 
+ 9   review_scores_cleanliness    977 non-null    float64 
+ 10  review_scores_checkin        976 non-null    float64 
+ 11  review_scores_communication  977 non-null    float64 
+ 12  review_scores_location       976 non-null    float64 
+ 13  review_scores_value          976 non-null    float64 
+ 14  property_count               981 non-null    int64   
+ 15  geometry                     981 non-null    geometry
+ 16  BOROUGH                      981 non-null    object  
+ 17  GSS_CODE                     981 non-null    object  
+dtypes: float64(13), geometry(1), int64(1), object(3)
+memory usage: 138.1+ KB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="keep-inner-london">
+<h2>Keep Inner London<a class="headerlink" href="#keep-inner-london" title="Permalink to this headline">¶</a></h2>
+<p>To keep only MSOAs with higher density of properties, we restrict the dataset to <a class="reference external" href="https://en.wikipedia.org/wiki/Inner_London">Inner London</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">il</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;City of London&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Camden&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Greenwich&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Hackney&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Hammersmith and Fulham&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Islington&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Kensington and Chelsea&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Lambeth&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Lewisham&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Southwark&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Tower Hamlets&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Wandsworth&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Westminster&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fltr</span> <span class="o">=</span> <span class="n">abb</span><span class="p">[</span><span class="s2">&quot;BOROUGH&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">il</span><span class="p">)</span>
+<span class="n">abb_il</span> <span class="o">=</span> <span class="n">abb</span><span class="p">[</span><span class="n">fltr</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is why we keep Inner London only:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">abb</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;property_count&quot;</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;quantiles&quot;</span><span class="p">)</span>
+<span class="n">geopandas</span><span class="o">.</span><span class="n">GeoSeries</span><span class="p">(</span><span class="n">abb_il</span><span class="o">.</span><span class="n">unary_union</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../../_images/london_abb_prep_31_1.png" src="../../_images/london_abb_prep_31_1.png" />
+</div>
+</div>
+<p>Let’s also use the Inner London borough list to write them into a separate file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> rm -f london_inner_boroughs.geojson
+<span class="n">boroughs</span><span class="p">[</span><span class="n">boroughs</span><span class="p">[</span><span class="s2">&quot;NAME&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">il</span><span class="p">)]</span>\
+        <span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">4326</span><span class="p">)</span>\
+        <span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s2">&quot;london_inner_boroughs.geojson&quot;</span><span class="p">,</span> 
+                 <span class="n">driver</span><span class="o">=</span><span class="s2">&quot;GeoJSON&quot;</span>
+                <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="write-out-and-clean-up">
+<h2>Write out and clean up<a class="headerlink" href="#write-out-and-clean-up" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> rm -f london_abb.gpkg
+<span class="n">abb_il</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">4326</span><span class="p">)</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s2">&quot;london_abb.gpkg&quot;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s2">&quot;GPKG&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> du -h london_abb.gpkg
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.0M	london_abb.gpkg
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> rm -rf statistical-gis-boundaries-london.zip statistical-gis-boundaries-london/
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/data"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Dani Arribas-Bel<br/>
+        
+          <div class="extra_footer">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-6032674-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

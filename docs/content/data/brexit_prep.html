@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title> &#8212; A course on Geographic Data Science</title>
+    <title>Prepare Brexit dataset &#8212; A course on Geographic Data Science</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -212,17 +212,17 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="concepts_E.html">
+  <a class="reference internal" href="../bE/concepts_E.html">
    Concepts
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="lab_E.html">
+  <a class="reference internal" href="../bE/lab_E.html">
    Hands-on
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="diy_E.html">
+  <a class="reference internal" href="../bE/diy_E.html">
    Do-It-Yourself
   </a>
  </li>
@@ -330,9 +330,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/bE/slides_E_ii.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/data/brexit_prep.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -350,6 +350,23 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/darribas/gds_course/master?urlpath=tree/content/data/brexit_prep.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -360,86 +377,24 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#referendum-results">
+   Referendum results
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#geographic-data-science">
-     Geographic Data Science
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#local-authorities">
+   Local authorities
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-is-a-neighbor">
-     <em>
-      What is a neighbor?
-     </em>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#contiguity-based-weights">
-     Contiguity-based weights
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-background-figs-l05-queen-png">
-     {data-background=../figs/l05_queen.png}
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#distance-based-weights">
-     Distance-based weights
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-background-figs-l05-dist-png">
-     {data-background=..//figs/l05_dist.png}
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#block-weights">
-     Block weights
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-background-figs-l05-block-png">
-     {data-background=../figs/l05_block.png}
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-much-of-a-neighbor">
-     <em>
-      How much of a neighbor?
-     </em>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#choice-of-w">
-     Choice of
-     <span class="math notranslate nohighlight">
-      \(W\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#standardization">
-     Standardization
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#join">
+   Join
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#write-out">
+   Write out
   </a>
  </li>
 </ul>
@@ -453,125 +408,173 @@
         
               <div>
                 
-  <div class="section" id="id1">
-<h1><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="geographic-data-science">
-<h2>Geographic Data Science<a class="headerlink" href="#geographic-data-science" title="Permalink to this headline">¶</a></h2>
-<CENTER>
-Types of $W$
-</CENTER>
-<CENTER>
-[Dani Arribas-Bel](http://darribas.org)
-</CENTER>
+  <div class="section" id="prepare-brexit-dataset">
+<h1>Prepare Brexit dataset<a class="headerlink" href="#prepare-brexit-dataset" title="Permalink to this headline">¶</a></h1>
+<p>This notebook shows how the table with results from the EU referendum has been assembled for this course.</p>
+<p>The dataset is the same as the Brexit data used in the GDS Book <a class="bibtex reference internal" href="../bibliography.html#reyabwolf" id="id1">[RABWng]</a>, but here we have just assembled it into a single file that can be read remotely. For more details on sources, please refer to:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://geographicdata.science/book/data/brexit/README.html">https://geographicdata.science/book/data/brexit/README.html</a></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span><span class="o">,</span> <span class="nn">geopandas</span>
+</pre></div>
 </div>
 </div>
-<div class="section" id="id2">
-<h1><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="what-is-a-neighbor">
-<h2><em>What is a neighbor?</em><a class="headerlink" href="#what-is-a-neighbor" title="Permalink to this headline">¶</a></h2>
-<p>A neighbor is “somebody” who is:</p>
-<ul class="simple">
-<li><p>Next door <span class="fragment"> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <strong>Contiguity</strong>-based <span class="math notranslate nohighlight">\(W\)</span>s</p></li>
-<li><p>Close <span class="fragment"> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <strong>Distance</strong>-based <span class="math notranslate nohighlight">\(W\)</span>s</p></li>
-<li><p>In the same “place” as us <span class="fragment"> <span class="math notranslate nohighlight">\(\rightarrow\)</span>
-<strong>Block</strong> weights</p></li>
-<li><p>…</p></li>
-</ul>
-<span class='fragment'>
-See [Anselin & Rey (2014)](http://www.amazon.com/Modern-Spatial-Econometrics-Practice-GeoDaSpace/dp/0986342106/ref=sr_1_1?ie=UTF8&qid=1421531753&sr=8-1&keywords=anselin+spatial+econometrics) for an in-detail discussion and more types of $W$.
-</span>
 </div>
-<div class="section" id="contiguity-based-weights">
-<h2>Contiguity-based weights<a class="headerlink" href="#contiguity-based-weights" title="Permalink to this headline">¶</a></h2>
-<p><strong>Sharing boundaries</strong> to any extent</p>
-<ul class="simple">
-<li><p>Rook</p></li>
-<li><p>Queen</p></li>
-<li><p>…</p></li>
-</ul>
-</div>
-<div class="section" id="data-background-figs-l05-queen-png">
-<h2>{data-background=../figs/l05_queen.png}<a class="headerlink" href="#data-background-figs-l05-queen-png" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="distance-based-weights">
-<h2>Distance-based weights<a class="headerlink" href="#distance-based-weights" title="Permalink to this headline">¶</a></h2>
-<p>Weight is (inversely) proportional to distance between observations</p>
-<ul class="simple">
-<li><p>Inverse distance (threshold)</p></li>
-<li><p>KNN (fixed number of neighbors)</p></li>
-<li><p>…</p></li>
-</ul>
-</div>
-<div class="section" id="data-background-figs-l05-dist-png">
-<h2>{data-background=..//figs/l05_dist.png}<a class="headerlink" href="#data-background-figs-l05-dist-png" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="id3">
-<h2><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<center>
-<img src="../figs/l05_queen.png" alt=""
-style="width:400px;height:400px;"/>
-<img src="../figs/l05_dist.png" alt=""
-style="width:400px;height:400px;"/>
-</center>
-</div>
-<div class="section" id="block-weights">
-<h2>Block weights<a class="headerlink" href="#block-weights" title="Permalink to this headline">¶</a></h2>
-<p>Weights are assigned based on discretionary rules loosely related to geography</p>
-<p>For example:</p>
-<ul class="simple">
-<li><p>LSOAs into MSOAs</p></li>
-<li><p>Post-codes within city boundaries</p></li>
-<li><p>Counties within states</p></li>
-<li><p>…</p></li>
-</ul>
-</div>
-<div class="section" id="data-background-figs-l05-block-png">
-<h2>{data-background=../figs/l05_block.png}<a class="headerlink" href="#data-background-figs-l05-block-png" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="how-much-of-a-neighbor">
-<h2><em>How much of a neighbor?</em><a class="headerlink" href="#how-much-of-a-neighbor" title="Permalink to this headline">¶</a></h2>
-<p>No neighbors receive zero weight: <span class="math notranslate nohighlight">\(w_{ij} = 0\)</span></p>
-<p>Neighbors, it depends, <span class="math notranslate nohighlight">\(w_{ij}\)</span> can be:</p>
-<ul class="simple">
-<li><p>One <span class="math notranslate nohighlight">\(w_{ij} = 1\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <span class='hlg'>Binary</span></p></li>
-<li><p>Some proportion (<span class="math notranslate nohighlight">\(0 &lt; w_{ij} &lt; 1\)</span>, <span class='hlg'>continuous</span>) which can be a function of:</p>
-<ul>
-<li><p>Distance</p></li>
-<li><p>Strength of interaction (e.g. commuting flows, trade, etc.)</p></li>
-<li><p>…</p></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="choice-of-w">
-<h2>Choice of <span class="math notranslate nohighlight">\(W\)</span><a class="headerlink" href="#choice-of-w" title="Permalink to this headline">¶</a></h2>
-<p>Should be based on and reflect the <strong>underlying channels of interaction</strong> for
-the question at hand.</p>
-<p>Examples:</p>
-<ul class="simple">
-<li><p>Processes propagated by inmediate contact (e.g. disease contagion) <span class="math notranslate nohighlight">\(\rightarrow\)</span>
-Contiguity weights</p></li>
-<li><p>Accessibility <span class="math notranslate nohighlight">\(\rightarrow\)</span> Distance weights</p></li>
-<li><p>Effects of county differences in laws <span class="math notranslate nohighlight">\(\rightarrow\)</span> Block weights</p></li>
-</ul>
-</div>
-<div class="section" id="standardization">
-<h2>Standardization<a class="headerlink" href="#standardization" title="Permalink to this headline">¶</a></h2>
-<p>In some applications (e.g. spatial autocorrelation) it is common to
-<em>standardize</em> <span class="math notranslate nohighlight">\(W\)</span></p>
-<p>The most widely used standardization is <strong>row-based</strong>: divide every element by the sum of
-the row:</p>
-<p>
-<script type="math/tex; mode=display">
-\bar{w_{ij}} = \dfrac{w_{ij}}{w_{i\cdotp}}
-</script>
-</p>
-<p>where <span class="math notranslate nohighlight">\(w_{i\cdotp}\)</span> is the sum of a row.</p>
+<div class="section" id="referendum-results">
+<h2>Referendum results<a class="headerlink" href="#referendum-results" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Updated to work on Sep. 15th 2020</span>
+<span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;https://www.electoralcommission.org.uk/sites/default/&quot;</span>
+       <span class="s2">&quot;files/2019-07/EU-referendum-result-data.csv&quot;</span><span class="p">)</span>
+<span class="n">url</span>
+</pre></div>
 </div>
 </div>
-<div class="section" id="id4">
-<h1><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h1>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;https://www.electoralcommission.org.uk/sites/default/files/2019-07/EU-referendum-result-data.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ref_res</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">ref_res</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 382 entries, 0 to 381
+Data columns (total 21 columns):
+ #   Column                   Non-Null Count  Dtype  
+---  ------                   --------------  -----  
+ 0   id                       382 non-null    int64  
+ 1   Region_Code              382 non-null    object 
+ 2   Region                   382 non-null    object 
+ 3   Area_Code                382 non-null    object 
+ 4   Area                     382 non-null    object 
+ 5   Electorate               382 non-null    int64  
+ 6   ExpectedBallots          382 non-null    int64  
+ 7   VerifiedBallotPapers     382 non-null    int64  
+ 8   Pct_Turnout              382 non-null    float64
+ 9   Votes_Cast               382 non-null    int64  
+ 10  Valid_Votes              382 non-null    int64  
+ 11  Remain                   382 non-null    int64  
+ 12  Leave                    382 non-null    int64  
+ 13  Rejected_Ballots         382 non-null    int64  
+ 14  No_official_mark         382 non-null    int64  
+ 15  Voting_for_both_answers  382 non-null    int64  
+ 16  Writing_or_mark          382 non-null    int64  
+ 17  Unmarked_or_void         382 non-null    int64  
+ 18  Pct_Remain               382 non-null    float64
+ 19  Pct_Leave                382 non-null    float64
+ 20  Pct_Rejected             382 non-null    float64
+dtypes: float64(4), int64(13), object(4)
+memory usage: 62.8+ KB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="local-authorities">
+<h2>Local authorities<a class="headerlink" href="#local-authorities" title="Permalink to this headline">¶</a></h2>
+<p>As of Sep. 15th 2020, the local authority boundaries could be accessed from the following site:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://data.gov.uk/dataset/65f48bab-e65f-491c-90f5-729eef098196/local-authority-districts-december-2016-generalised-clipped-boundaries-in-the-uk-wgs84">https://data.gov.uk/dataset/65f48bab-e65f-491c-90f5-729eef098196/local-authority-districts-december-2016-generalised-clipped-boundaries-in-the-uk-wgs84</a></p>
+</div></blockquote>
+<p>We pull the GeoJSON:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;http://geoportal1-ons.opendata.arcgis.com/datasets/&quot;</span>\
+       <span class="s2">&quot;e3634984fe1143da9fb31671627f5443_2.geojson&quot;</span>\
+       <span class="s2">&quot;?outSR={</span><span class="si">%22la</span><span class="s2">testWkid%22:4326,%22wkid%22:4326}&quot;</span><span class="p">)</span>
+<span class="n">url</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;http://geoportal1-ons.opendata.arcgis.com/datasets/e3634984fe1143da9fb31671627f5443_2.geojson?outSR={%22latestWkid%22:4326,%22wkid%22:4326}&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lads</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">lads</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
+RangeIndex: 391 entries, 0 to 390
+Data columns (total 11 columns):
+ #   Column          Non-Null Count  Dtype   
+---  ------          --------------  -----   
+ 0   objectid        391 non-null    int64   
+ 1   lad16cd         391 non-null    object  
+ 2   lad16nm         391 non-null    object  
+ 3   lad16nmw        391 non-null    object  
+ 4   bng_e           391 non-null    int64   
+ 5   bng_n           391 non-null    int64   
+ 6   long            391 non-null    float64 
+ 7   lat             391 non-null    float64 
+ 8   st_areashape    391 non-null    float64 
+ 9   st_lengthshape  391 non-null    float64 
+ 10  geometry        391 non-null    geometry
+dtypes: float64(4), geometry(1), int64(3), object(3)
+memory usage: 33.7+ KB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="join">
+<h2>Join<a class="headerlink" href="#join" title="Permalink to this headline">¶</a></h2>
+<p>Link up both tables, keep only required columns for a simpler and slimmer table, and drop areas without values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span> <span class="o">=</span> <span class="n">lads</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ref_res</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Area_Code&quot;</span><span class="p">),</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;lad16cd&quot;</span><span class="p">)</span>\
+         <span class="p">[[</span><span class="s1">&#39;objectid&#39;</span><span class="p">,</span> <span class="s1">&#39;lad16cd&#39;</span><span class="p">,</span> <span class="s1">&#39;lad16nm&#39;</span><span class="p">,</span> <span class="s1">&#39;Pct_Leave&#39;</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]]</span>\
+         <span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">db</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
+Int64Index: 380 entries, 0 to 390
+Data columns (total 5 columns):
+ #   Column     Non-Null Count  Dtype   
+---  ------     --------------  -----   
+ 0   objectid   380 non-null    int64   
+ 1   lad16cd    380 non-null    object  
+ 2   lad16nm    380 non-null    object  
+ 3   Pct_Leave  380 non-null    float64 
+ 4   geometry   380 non-null    geometry
+dtypes: float64(1), geometry(1), int64(1), object(2)
+memory usage: 17.8+ KB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="write-out">
+<h2>Write out<a class="headerlink" href="#write-out" title="Permalink to this headline">¶</a></h2>
+<p>We save as a Geopackage:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> rm -f brexit.gpkg
+<span class="n">db</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s2">&quot;brexit.gpkg&quot;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s2">&quot;GPKG&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -587,7 +590,7 @@ the row:</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/bE"
+            path: "./content/data"
         },
         predefinedOutput: true
     }
