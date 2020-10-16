@@ -5,6 +5,7 @@
     - file: content/overview
     - file: content/infrastructure
     - file: content/assessment
+    - file: content/datasets
     - file: content/bibliography
 
 - chapter: A - Introduction
