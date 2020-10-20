@@ -26,6 +26,13 @@ Three routes (today):
 - Effective in small datasets
 - Limited as size increases until useless
 
+## One-to-one
+    
+<center>
+<img src="../figs/l09_liv_pts.png" alt=""
+style="width:400px;height:500px;"/>
+</center>
+   
 #
 ## Aggregation
 ##
@@ -91,7 +98,7 @@ $+$
 
 <div class="fragment">
 Points usually represent events that affect only **part** of the population
-and hence are best considered as **rates** (see Lecture 4)
+and hence are best considered as **rates**
 </div>
 
 #
