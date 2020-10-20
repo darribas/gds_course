@@ -60,9 +60,7 @@ that the points follow **over space**
 
 [[Source](http://jillhubley.com/project/nyctrees/)]
 
-## Geo-tagged tweets
-
-<iframe width="100%" height="500px" frameBorder="0" src="https://api.tiles.mapbox.com/v4/enf.c3a2de35/page.html?access_token=pk.eyJ1IjoiZW5mIiwiYSI6IkNJek92bnMifQ.xn2_Uj9RkYTGRuCGg4DXZQ#12/53.4155/-2.9680"></iframe>
+## {data-background=../figs/locals.png data-background-size=contain}
 
 #
 ## Point patterns
