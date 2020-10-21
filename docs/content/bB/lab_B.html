@@ -395,6 +395,11 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#structure">
+     Structure
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#inspect">
      Inspect
     </a>
@@ -536,7 +541,147 @@
 </div>
 <div class="section" id="data-sliced-and-diced">
 <span id="lab-b-slices"></span><h2>Data, sliced and diced<a class="headerlink" href="#data-sliced-and-diced" title="Permalink to this headline">¶</a></h2>
-<p>Now we are ready to start playing and interrogating the dataset! What we have at our fingertips is a table that summarizes, for each of the LSOAs in Liverpool, how many people live in each, by the region of the world where they were born. Now, let us learn a few cool tricks built into <code class="docutils literal notranslate"><span class="pre">pandas</span></code> that work out-of-the box with a table like ours.</p>
+<p>Now we are ready to start playing and interrogating the dataset! What we have at our fingertips is a table that summarizes, for each of the LSOAs in Liverpool, how many people live in each, by the region of the world where they were born. We call these tables <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> objects, and they have a lot of functionality built-in to explore and manipulate the data they contain. Let’s explore a few of those cool tricks!</p>
+<div class="section" id="structure">
+<h3>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h3>
+<p>The first aspect worth spending a bit of time is the structure of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. We can print it by simply typing its name:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Europe</th>
+      <th>Africa</th>
+      <th>Middle East and Asia</th>
+      <th>The Americas and the Caribbean</th>
+      <th>Antarctica and Oceania</th>
+    </tr>
+    <tr>
+      <th>GeographyCode</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E01006512</th>
+      <td>910</td>
+      <td>106</td>
+      <td>840</td>
+      <td>24</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>E01006513</th>
+      <td>2225</td>
+      <td>61</td>
+      <td>595</td>
+      <td>53</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>E01006514</th>
+      <td>1786</td>
+      <td>63</td>
+      <td>193</td>
+      <td>61</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>E01006515</th>
+      <td>974</td>
+      <td>29</td>
+      <td>185</td>
+      <td>18</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E01006518</th>
+      <td>1531</td>
+      <td>69</td>
+      <td>73</td>
+      <td>19</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>E01033764</th>
+      <td>2106</td>
+      <td>32</td>
+      <td>49</td>
+      <td>15</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>E01033765</th>
+      <td>1277</td>
+      <td>21</td>
+      <td>33</td>
+      <td>17</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>E01033766</th>
+      <td>1028</td>
+      <td>12</td>
+      <td>20</td>
+      <td>8</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>E01033767</th>
+      <td>1003</td>
+      <td>29</td>
+      <td>29</td>
+      <td>5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>E01033768</th>
+      <td>1016</td>
+      <td>69</td>
+      <td>111</td>
+      <td>21</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+<p>298 rows × 5 columns</p>
+</div></div></div>
+</div>
+<p>Note the printing is cut to keep a nice and compact view, but enough to see its structure. Since they represent a table of data, <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> objects have two dimensions: rows and columns. Each of these is automatically assigned a name in what we will call its <em>index</em>. When printing, the index of each dimension is rendered in bold, as opposed to the standard rendering for the content. In the example above, we can see how the column index is automatically picked up from the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file’s column names. For rows, we have specified when reading the file we wanted the column <code class="docutils literal notranslate"><span class="pre">GeographyCode</span></code>, so that is used. If we hadn’t specified any, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> will automatically generate a sequence starting in <code class="docutils literal notranslate"><span class="pre">0</span></code> and going all the way to the number of rows minus one. This is the standard structure of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object, so we will come to it over and over. Importantly, even when we move to spatial data, our datasets will have a similar structure.</p>
+<p>One final feature that is worth mentioning about these tables is that they can hold columns with different types of data. In our example, this is not used as we have counts (or <code class="docutils literal notranslate"><span class="pre">int</span></code>, for integer, types) for each column. But it is useful to keep in mind we can combine this with columns that hold other type of data such as categories, text (<code class="docutils literal notranslate"><span class="pre">str</span></code>, for string), dates or, as we will see later in the course, geographic features.</p>
+</div>
 <div class="section" id="inspect">
 <h3>Inspect<a class="headerlink" href="#inspect" title="Permalink to this headline">¶</a></h3>
 <p>Inspecting what it looks like. We can check the top (bottom) X lines of the table by passing X to the method <code class="docutils literal notranslate"><span class="pre">head</span></code> (<code class="docutils literal notranslate"><span class="pre">tail</span></code>). For example, for the top/bottom five lines:</p>
@@ -1429,7 +1574,7 @@ dtype: int64
 </div>
 <div class="section" id="index-based-queries">
 <span id="lab-b-index-queries"></span><h3>Index-based queries<a class="headerlink" href="#index-based-queries" title="Permalink to this headline">¶</a></h3>
-<p>We have already seen how to subset parts of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> if we know exactly which bits we want. For example, if we want to extract the total and European population of the first four areas in the table, we use <code class="docutils literal notranslate"><span class="pre">loc</span></code> with lists:</p>
+<p>Here we explore how we can subset parts of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> if we know exactly which bits we want. For example, if we want to extract the total and European population of the first four areas in the table, we use <code class="docutils literal notranslate"><span class="pre">loc</span></code> with lists:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eu_tot_first4</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;E01006512&#39;</span><span class="p">,</span> <span class="s1">&#39;E01006513&#39;</span><span class="p">,</span> <span class="s1">&#39;E01006514&#39;</span><span class="p">,</span> <span class="s1">&#39;E01006515&#39;</span><span class="p">],</span> \
@@ -1486,6 +1631,135 @@ dtype: int64
       <th>E01006515</th>
       <td>1208</td>
       <td>974</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Note that we use squared brackets (<code class="docutils literal notranslate"><span class="pre">[]</span></code>) to delineate the index of the items we want to subset. In Python, this sequence of items is called a list. Hence we can see how we can create a list with the names (index IDs) along each of the two dimensions of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> (rows and columns), and <code class="docutils literal notranslate"><span class="pre">loc</span></code> will return a subset of the original table <em>only</em> with the elements queried for.</p>
+<p>An alternative to list-based queries is what is called “range-based” queries. These work on the indices of the table but, instead of requiring the ID of each item we want to retrieve, the operate by requiring only two IDs: the first and last element in a <em>range</em> of items. Range queries are expressed with a colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>). For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">range_qry</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;E01006514&quot;</span><span class="p">:</span><span class="s2">&quot;E01006518&quot;</span><span class="p">,</span> <span class="s2">&quot;Europe&quot;</span><span class="p">:</span><span class="s2">&quot;Antarctica and Oceania&quot;</span><span class="p">]</span>
+<span class="n">range_qry</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Europe</th>
+      <th>Africa</th>
+      <th>Middle East and Asia</th>
+      <th>The Americas and the Caribbean</th>
+      <th>Antarctica and Oceania</th>
+    </tr>
+    <tr>
+      <th>GeographyCode</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E01006514</th>
+      <td>1786</td>
+      <td>63</td>
+      <td>193</td>
+      <td>61</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>E01006515</th>
+      <td>974</td>
+      <td>29</td>
+      <td>185</td>
+      <td>18</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E01006518</th>
+      <td>1531</td>
+      <td>69</td>
+      <td>73</td>
+      <td>19</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We see how the range query picks up <em>all</em> the elements in between the two IDs specificed. Note that, for this to work, the first ID in the range needs to be placed <em>before</em> the second one in the table’s index.</p>
+<p>Once we know about list and range based queries, we can combine them both! For example, we can specify a range of rows and a list of columns:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">range_list_qry</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;E01006514&quot;</span><span class="p">:</span><span class="s2">&quot;E01006518&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Europe&quot;</span><span class="p">,</span> <span class="s2">&quot;Total&quot;</span><span class="p">]]</span>
+<span class="n">range_list_qry</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Europe</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <th>GeographyCode</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E01006514</th>
+      <td>1786</td>
+      <td>2108</td>
+    </tr>
+    <tr>
+      <th>E01006515</th>
+      <td>974</td>
+      <td>1208</td>
+    </tr>
+    <tr>
+      <th>E01006518</th>
+      <td>1531</td>
+      <td>1696</td>
     </tr>
   </tbody>
 </table>
@@ -1988,7 +2262,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_B_52_0.png" src="../../_images/lab_B_52_0.png" />
+<img alt="../../_images/lab_B_59_0.png" src="../../_images/lab_B_59_0.png" />
 </div>
 </div>
 <p>Note we are using <code class="docutils literal notranslate"><span class="pre">sns</span></code> instead of <code class="docutils literal notranslate"><span class="pre">pd</span></code>, as the function belongs to <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> instead of <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
@@ -2001,7 +2275,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_B_54_0.png" src="../../_images/lab_B_54_0.png" />
+<img alt="../../_images/lab_B_61_0.png" src="../../_images/lab_B_61_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -2015,7 +2289,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_B_56_0.png" src="../../_images/lab_B_56_0.png" />
+<img alt="../../_images/lab_B_63_0.png" src="../../_images/lab_B_63_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -2033,7 +2307,7 @@ dtype: int64
   ax.set_xticklabels(xticklabels)
 </pre></div>
 </div>
-<img alt="../../_images/lab_B_58_1.png" src="../../_images/lab_B_58_1.png" />
+<img alt="../../_images/lab_B_65_1.png" src="../../_images/lab_B_65_1.png" />
 </div>
 </div>
 <p>For a bar plot all we need to do is to change from <code class="docutils literal notranslate"><span class="pre">plot</span></code> to <code class="docutils literal notranslate"><span class="pre">plot.bar</span></code>. Since there are many neighbourhoods, let us plot only the ten largest ones (which we can retrieve with <code class="docutils literal notranslate"><span class="pre">head</span></code>):</p>
@@ -2046,7 +2320,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_B_60_0.png" src="../../_images/lab_B_60_0.png" />
+<img alt="../../_images/lab_B_67_0.png" src="../../_images/lab_B_67_0.png" />
 </div>
 </div>
 <p>We can turn the plot around by displaying the bars horizontally (see how it’s just changing <code class="docutils literal notranslate"><span class="pre">bar</span></code> for <code class="docutils literal notranslate"><span class="pre">barh</span></code>). Let’s display now the top 50 areas and, to make it more readable, let us expand the plot’s height:</p>
@@ -2059,7 +2333,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_B_62_0.png" src="../../_images/lab_B_62_0.png" />
+<img alt="../../_images/lab_B_69_0.png" src="../../_images/lab_B_69_0.png" />
 </div>
 </div>
 </div>
@@ -2521,7 +2795,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f840a5cf5d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f3d01696ad0&gt;
 </pre></div>
 </div>
 </div>
