@@ -480,13 +480,6 @@
 <p>For a line layer, we are going to use a different bit of <code class="docutils literal notranslate"><span class="pre">osmnx</span></code> functionality that will allow us to extract all the highways</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bikepaths</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">geocode_to_gdf</span><span class="p">(</span><span class="s2">&quot;Liverpool, UK&quot;</span><span class="p">,</span> <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bikepaths</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">graph_from_place</span><span class="p">(</span><span class="s2">&quot;Liverpool, UK&quot;</span><span class="p">,</span> <span class="n">network_type</span><span class="o">=</span><span class="s2">&quot;bike&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -499,7 +492,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23460
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23990
 </pre></div>
 </div>
 </div>
