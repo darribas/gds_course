@@ -465,12 +465,22 @@
 <h2>Task I<a class="headerlink" href="#task-i" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">liv</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;#525252&quot;</span><span class="p">,</span>
-              <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;#B9EBE3&quot;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">liv</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;#525252&quot;</span><span class="p">,</span>
               <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
               <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
               <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
              <span class="p">)</span>
+<span class="n">osmnx</span><span class="o">.</span><span class="n">graph_to_gdfs</span><span class="p">(</span><span class="n">bikepaths</span><span class="p">,</span> <span class="n">nodes</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>\
+     <span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">liv</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>\
+     <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> 
+           <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> 
+           <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#B9EBE3&quot;</span>
+          <span class="p">)</span>
+<span class="n">pubs</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">liv</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> 
+          <span class="n">color</span><span class="o">=</span><span class="s2">&quot;yellow&quot;</span><span class="p">,</span> 
+          <span class="n">markersize</span><span class="o">=</span><span class="mi">1</span>
+         <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Liverpool&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
 <span class="n">contextily</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> 
