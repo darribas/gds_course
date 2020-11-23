@@ -30,6 +30,7 @@ jobs:
         run: |
           conda update -y -n base -c defaults conda
           conda --version
+          conda remove -y -n gds
           conda env create -f https://raw.githubusercontent.com/darribas/gds_env/master/gds_py/gds_py.yml
           pip install -r https://github.com/darribas/gds_env/raw/master/gds_py/gds_py_pip.txt
 
