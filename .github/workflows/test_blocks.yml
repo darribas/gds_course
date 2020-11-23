@@ -13,11 +13,13 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         env:
+          - ""
+        yml:
           - https://raw.githubusercontent.com/darribas/gds_env/master/gds_py/gds_py.yml
         include:
-          - env: https://raw.githubusercontent.com/darribas/gds_env/master/gds_py/gds_py.yml
+          - yml: https://raw.githubusercontent.com/darribas/gds_env/master/gds_py/gds_py.yml
             os: windows-latest
-          - env: https://raw.githubusercontent.com/darribas/gds_env/master/gds_py/gds_py.yml
+          - yml: https://raw.githubusercontent.com/darribas/gds_env/master/gds_py/gds_py.yml
             os: macos-latest
 
     steps:
@@ -29,14 +31,14 @@ jobs:
             auto-update-conda: true
             auto-activate-base: false
             activate-environment: gds
-            environment-file: ${{ matrix.env }}
+            environment-file: ${{ matrix.yml }}
 
       - name: Set up GDS Env
         shell: bash -l {0}
         run: |
           conda update -y -n base -c defaults conda
           conda list
-          conda env create -f ${{ matrix.env }}
+          conda env create -f ${{ matrix.yml }}
           pip install -r https://github.com/darribas/gds_env/raw/master/gds_py/gds_py_pip.txt
 
       - name: Check and Log Environment
