@@ -13,33 +13,35 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         env:
-          - https://github.com/darribas/gds_env/raw/master/gds_py/gds_py.yml
+          - https://raw.githubusercontent.com/darribas/gds_env/master/gds_py/gds_py.yml
         include:
-          - env: https://github.com/darribas/gds_env/raw/master/gds_py/gds_py.yml
+          - env: https://raw.githubusercontent.com/darribas/gds_env/master/gds_py/gds_py.yml
             os: windows-latest
-          - env: https://github.com/darribas/gds_env/raw/master/gds_py/gds_py.yml
+          - env: https://raw.githubusercontent.com/darribas/gds_env/master/gds_py/gds_py.yml
             os: macos-latest
 
     steps:
       - uses: actions/checkout@v2
 
       - name: Setup Conda
-        uses: s-weigand/setup-conda@v1
+        uses: conda-incubator/setup-miniconda@v2
         with:
-          activate-conda: false
+            auto-update-conda: true
+            auto-activate-base: false
+            activate-environment: gds
+            environment-file: ${{ matrix.env }}
 
-      - name: Install GDS Env
+      - name: Set up GDS Env
         shell: bash -l {0}
         run: |
-          conda install -c conda-forge requests
-          python -c "import requests; env=requests.get('https://raw.githubusercontent.com/darribas/gds_env/master/gds_py/gds_py.yml').text; fo=open('env.yml', 'w'); fo.write(env); fo.close();print('env.yml downloaded successfully');"
-          conda env create -f env.yml
+          conda update -y -n base -c defaults conda
+          conda list
+          conda env create -f ${{ matrix.env }}
           pip install -r https://github.com/darribas/gds_env/raw/master/gds_py/gds_py_pip.txt
 
       - name: Check and Log Environment
         shell: bash -l {0}
         run: |
-          source activate gds
           conda info
           # Print conda list
           conda list
@@ -48,5 +50,4 @@ jobs:
         shell: bash
         continue-on-error: false
         run: |
-          source activate gds
           make test
