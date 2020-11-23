@@ -12,8 +12,6 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        env:
-          - ""
 
     steps:
       - uses: actions/checkout@v2
@@ -29,7 +27,6 @@ jobs:
         run: |
           conda update -y -n base -c defaults conda
           conda --version
-          conda env remove -y -n gds
           conda env create -f https://raw.githubusercontent.com/darribas/gds_env/master/gds_py/gds_py.yml
           conda activate gds
           pip install -r https://github.com/darribas/gds_env/raw/master/gds_py/gds_py_pip.txt
@@ -43,7 +40,7 @@ jobs:
           conda list
           
       - name: Test Blocks
-        shell: bash
+        shell: bash -l {0}
         continue-on-error: false
         run: |
           conda activate gds
