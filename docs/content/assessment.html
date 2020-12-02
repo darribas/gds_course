@@ -393,6 +393,23 @@
   <a class="reference internal nav-link" href="#computational-essay-50">
    Computational essay (50%)
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data">
+     Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-i-common">
+     Part I - Common
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-ii-choose-your-own-adventure">
+     Part II - Choose your own adventure
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -420,15 +437,370 @@
 </div>
 <div class="section" id="test-i-20">
 <h2>Test I (20%)<a class="headerlink" href="#test-i-20" title="Permalink to this headline">¶</a></h2>
-<p>More information to be announced soon.</p>
+<p>Information provided on labs.</p>
 </div>
 <div class="section" id="test-ii-25">
 <h2>Test II (25%)<a class="headerlink" href="#test-ii-25" title="Permalink to this headline">¶</a></h2>
-<p>More information to be announced soon.</p>
+<p>Information provided on labs.</p>
 </div>
 <div class="section" id="computational-essay-50">
 <span id="computational-essay"></span><h2>Computational essay (50%)<a class="headerlink" href="#computational-essay-50" title="Permalink to this headline">¶</a></h2>
-<p>More information to be announced soon.</p>
+<p>Here’s the premise. You will take the role of a real-world data scientist tasked to explore a dataset on the city of Toronto (Canada) and find useful insights for a variety of decision-makers. It does not matter if you have never been to Toronto. In fact, this will help you focus on what you can learn about the city <em>through</em> the data, without the influence of prior knowledge. Furthermore, the assessment will <em>not</em> be marked based on how much you know about Toronto but instead about how much you can show you have learned through analysing data.</p>
+<p>A computational essay is an essay whose narrative is supported by code and computational results that are included in the essay itself. This piece of assessment is <em>equivalent</em> to 2,500 words. However, this is the overall weight. Since you will need to create not only English narrative but also code and figures, here are the requirements:</p>
+<ul class="simple">
+<li><p>Maximum of 750 words (bibliography, if included, does <em>not</em> contribute to the word count)</p></li>
+<li><p>Up to three maps or figures (a figure may include more than one map and will only count as one but needs to be integrated in the same <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> figure)</p></li>
+<li><p>Up to one table</p></li>
+</ul>
+<p>The assignment relies on two datasets provided below, and has two parts. Each of these pieces are explained with more detail below.</p>
+<div class="section" id="data">
+<h3>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h3>
+<p>To complete the assignment, the following two datasets are provided. Below we show how you can download them and what they contain.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span><span class="o">,</span> <span class="nn">pandas</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p><em>Socio-economic characteristics of Toronto neighbourhoods</em></p></li>
+</ol>
+<p>This dataset contains a set of polygons representing the official neighbourhoods, as well as socio-economic information attached to each neighbourhood.</p>
+<p>You can read the main file by running:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neis</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;https://darribas.org/gds_course/_downloads/a2bdb4c2a088e602c3bd6490ab1d26fa/toronto_socio-economic.gpkg&quot;</span><span class="p">)</span>
+<span class="n">neis</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
+RangeIndex: 140 entries, 0 to 139
+Data columns (total 24 columns):
+ #   Column                Non-Null Count  Dtype   
+---  ------                --------------  -----   
+ 0   _id                   140 non-null    int64   
+ 1   AREA_NAME             140 non-null    object  
+ 2   Shape__Area           140 non-null    float64 
+ 3   neighbourhood_name    140 non-null    object  
+ 4   population2016        140 non-null    float64 
+ 5   population_sqkm       140 non-null    float64 
+ 6   pop_0-14_yearsold     140 non-null    float64 
+ 7   pop_15-24_yearsold    140 non-null    float64 
+ 8   pop_25-54_yearsold    140 non-null    float64 
+ 9   pop_55-64_yearsold    140 non-null    float64 
+ 10  pop_65+_yearsold      140 non-null    float64 
+ 11  pop_85+_yearsold      140 non-null    float64 
+ 12  hh_median_income2015  140 non-null    float64 
+ 13  canadian_citizens     140 non-null    float64 
+ 14  deg_bachelor          140 non-null    float64 
+ 15  deg_medics            140 non-null    float64 
+ 16  deg_phd               140 non-null    float64 
+ 17  employed              140 non-null    float64 
+ 18  bedrooms_0            140 non-null    float64 
+ 19  bedrooms_1            140 non-null    float64 
+ 20  bedrooms_2            140 non-null    float64 
+ 21  bedrooms_3            140 non-null    float64 
+ 22  bedrooms_4+           140 non-null    float64 
+ 23  geometry              140 non-null    geometry
+dtypes: float64(20), geometry(1), int64(1), object(2)
+memory usage: 26.4+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can find more information on each of the socio-economic variables in the variable list file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://darribas.org/gds_course/_downloads/8944151f1b7df7b1f38b79b7a73eb2d0/toronto_socio-economic_vars.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>_id</th>
+      <th>name</th>
+      <th>Category</th>
+      <th>Topic</th>
+      <th>Data Source</th>
+      <th>Characteristic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>population2016</td>
+      <td>Population</td>
+      <td>Population and dwellings</td>
+      <td>Census Profile 98-316-X2016001</td>
+      <td>Population, 2016</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>8</td>
+      <td>population_sqkm</td>
+      <td>Population</td>
+      <td>Population and dwellings</td>
+      <td>Census Profile 98-316-X2016001</td>
+      <td>Population density per square kilometre</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10</td>
+      <td>pop_0-14_yearsold</td>
+      <td>Population</td>
+      <td>Age characteristics</td>
+      <td>Census Profile 98-316-X2016001</td>
+      <td>Children (0-14 years)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>11</td>
+      <td>pop_15-24_yearsold</td>
+      <td>Population</td>
+      <td>Age characteristics</td>
+      <td>Census Profile 98-316-X2016001</td>
+      <td>Youth (15-24 years)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>12</td>
+      <td>pop_25-54_yearsold</td>
+      <td>Population</td>
+      <td>Age characteristics</td>
+      <td>Census Profile 98-316-X2016001</td>
+      <td>Working Age (25-54 years)</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>13</td>
+      <td>pop_55-64_yearsold</td>
+      <td>Population</td>
+      <td>Age characteristics</td>
+      <td>Census Profile 98-316-X2016001</td>
+      <td>Pre-retirement (55-64 years)</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>14</td>
+      <td>pop_65+_yearsold</td>
+      <td>Population</td>
+      <td>Age characteristics</td>
+      <td>Census Profile 98-316-X2016001</td>
+      <td>Seniors (65+ years)</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>15</td>
+      <td>pop_85+_yearsold</td>
+      <td>Population</td>
+      <td>Age characteristics</td>
+      <td>Census Profile 98-316-X2016001</td>
+      <td>Older Seniors (85+ years)</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1018</td>
+      <td>hh_median_income2015</td>
+      <td>Income</td>
+      <td>Income of households in 2015</td>
+      <td>Census Profile 98-316-X2016001</td>
+      <td>Total - Income statistics in 2015 for private ...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1149</td>
+      <td>canadian_citizens</td>
+      <td>Immigration and citizenship</td>
+      <td>Citizenship</td>
+      <td>Census Profile 98-316-X2016001</td>
+      <td>Canadian citizens aged 18 and over</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>1711</td>
+      <td>deg_bachelor</td>
+      <td>Education</td>
+      <td>Highest certificate, diploma or degree</td>
+      <td>Census Profile 98-316-X2016001</td>
+      <td>Bachelor's degree</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>1713</td>
+      <td>deg_medics</td>
+      <td>Education</td>
+      <td>Highest certificate, diploma or degree</td>
+      <td>Census Profile 98-316-X2016001</td>
+      <td>Degree in medicine, dentistry, veterinar...</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>1714</td>
+      <td>deg_phd</td>
+      <td>Education</td>
+      <td>Highest certificate, diploma or degree</td>
+      <td>Census Profile 98-316-X2016001</td>
+      <td>Earned doctorate</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>1887</td>
+      <td>employed</td>
+      <td>Labour</td>
+      <td>Labour force status</td>
+      <td>Census Profile 98-316-X2016001</td>
+      <td>Employed</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>1636</td>
+      <td>bedrooms_0</td>
+      <td>Housing</td>
+      <td>Household characteristics</td>
+      <td>Census Profile 98-316-X2016001</td>
+      <td>No bedrooms</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>1637</td>
+      <td>bedrooms_1</td>
+      <td>Housing</td>
+      <td>Household characteristics</td>
+      <td>Census Profile 98-316-X2016001</td>
+      <td>1 bedroom</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>1638</td>
+      <td>bedrooms_2</td>
+      <td>Housing</td>
+      <td>Household characteristics</td>
+      <td>Census Profile 98-316-X2016001</td>
+      <td>2 bedrooms</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>1639</td>
+      <td>bedrooms_3</td>
+      <td>Housing</td>
+      <td>Household characteristics</td>
+      <td>Census Profile 98-316-X2016001</td>
+      <td>3 bedrooms</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>1641</td>
+      <td>bedrooms_4+</td>
+      <td>Housing</td>
+      <td>Household characteristics</td>
+      <td>Census Profile 98-316-X2016001</td>
+      <td>4 or more bedrooms</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ol class="simple">
+<li><p><em>Flickr photographs sample</em></p></li>
+</ol>
+<p>This is a similar dataset to the Tokyo photographs we use in <a class="reference internal" href="bH/lab_H.html"><span class="doc std std-doc">Block H</span></a> but for the city of Toronto. It is a subsample of the <a class="reference external" href="http://projects.dfki.uni-kl.de/yfcc100m/">100 million Yahoo dataset</a> that contains the location of photographs contributed to the Flickr service by its users. You can read it with:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">photos</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://darribas.org/gds_course/_downloads/fc771c3b1b9e0ee00e875bb2d293adcd/toronto_flickr_subset.csv&quot;</span><span class="p">)</span>
+<span class="n">photos</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 2000 entries, 0 to 1999
+Data columns (total 11 columns):
+ #   Column                Non-Null Count  Dtype  
+---  ------                --------------  -----  
+ 0   id                    2000 non-null   int64  
+ 1   user_id               2000 non-null   object 
+ 2   user_nickname         2000 non-null   object 
+ 3   date_taken            2000 non-null   object 
+ 4   date_uploaded         2000 non-null   int64  
+ 5   title                 1932 non-null   object 
+ 6   longitude             2000 non-null   float64
+ 7   latitude              2000 non-null   float64
+ 8   accuracy_coordinates  2000 non-null   float64
+ 9   page_url              2000 non-null   object 
+ 10  video_url             2000 non-null   object 
+dtypes: float64(3), int64(2), object(6)
+memory usage: 172.0+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>IMPORTANT</strong> - Students of <code class="docutils literal notranslate"><span class="pre">ENVS563</span></code> will need to source, at least, <em>two</em> additional datasets relating to Toronto. You can use any dataset that will help you complete the tasks below but, if you need some inspiration, have a look at the Toronto Open Data Portal:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://open.toronto.ca/"><code class="docutils literal notranslate"><span class="pre">https://open.toronto.ca/</span></code></a></p>
+</div></blockquote>
+</div>
+<div class="section" id="part-i-common">
+<h3>Part I - Common<a class="headerlink" href="#part-i-common" title="Permalink to this headline">¶</a></h3>
+<p>This is the one everyone has to do in the same way. Complete the following tasks:</p>
+<ol class="simple">
+<li><p>Select two variables from the socio-economic dataset</p></li>
+<li><p>Explore the spatial distribution of the data using choropleths. Comment on the details of your maps and interpret the results</p></li>
+<li><p>Explore the degree of spatial autocorrelation. Describe the concepts behind your approach and interpret your results</p></li>
+</ol>
+</div>
+<div class="section" id="part-ii-choose-your-own-adventure">
+<h3>Part II - Choose your own adventure<a class="headerlink" href="#part-ii-choose-your-own-adventure" title="Permalink to this headline">¶</a></h3>
+<p>For this one, you need to pick <em>one</em> of the following three options. Only one, and make the most of it.</p>
+<ol class="simple">
+<li><p>Create a geodemographic classification and interpret the results. In the process, answer the following questions:</p>
+<ul class="simple">
+<li><p>What are the main types of neighborhoods you identify?</p></li>
+<li><p>Which characteristics help you delineate this typology?</p></li>
+<li><p>If you had to use this classification to target areas in most need, how would you use it? why?</p></li>
+</ul>
+</li>
+<li><p>Create a regionalisation and interpret the results. In the process, answer at least the following questions:</p>
+<ul class="simple">
+<li><p>How is the city partitioned by your data?</p></li>
+<li><p>What do you learn about the geography of the city from the regionalisation?</p></li>
+<li><p>What would one useful application of this regionalisation in the context of urban policy?</p></li>
+</ul>
+</li>
+<li><p>Using the photographs, complete the following tasks:</p>
+<ul class="simple">
+<li><p>Visualise the dataset appropriately and discuss why you have taken your specific approach</p></li>
+<li><p>Use DBSCAN to identify areas of the city with high density of photographs, which we will call areas of interest (AOI). In completing this, answer the following questions:</p>
+<ul>
+<li><p>What parameters have you used to run DBSCAN? Why?</p></li>
+<li><p>What do the clusters help you learn about areas of interest in the city?</p></li>
+<li><p>Name one example of how these AOIs can be of use for the city. You can take the perspective of an urban planner, a policy maker, an operational practitioner (e.g. police, trash collection), an urban entrepreneur, or any other role you envision.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</div>
 </div>
 </div>
 
