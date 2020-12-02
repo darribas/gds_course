@@ -44,12 +44,12 @@ pdf:
 test:
 	rm -rf tests
 	mkdir tests
-	jupyter nbconvert --to html \
+	jupyter nbconvert --to markdown \
                       --execute \
                       --output-dir tests \
                       --ExecutePreprocessor.timeout=600 \
                       content/b*/*.ipynb 
-	jupyter nbconvert --to html \
+	jupyter nbconvert --to markdown \
                       --execute \
                       --output-dir tests \
                       --ExecutePreprocessor.timeout=600 \
