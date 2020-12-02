@@ -20,6 +20,7 @@ More information to be announced soon.
 
 More information to be announced soon.
 
+(computational_essay)=
 ### Computational essay (50%)
 
 More information to be announced soon.

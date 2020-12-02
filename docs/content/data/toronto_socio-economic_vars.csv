@@ -1,0 +1,20 @@
+,_id,name,Category,Topic,Data Source,Characteristic
+0,3,population2016,Population,Population and dwellings,Census Profile 98-316-X2016001,"Population, 2016"
+1,8,population_sqkm,Population,Population and dwellings,Census Profile 98-316-X2016001,Population density per square kilometre
+2,10,pop_0-14_yearsold,Population,Age characteristics,Census Profile 98-316-X2016001,Children (0-14 years)
+3,11,pop_15-24_yearsold,Population,Age characteristics,Census Profile 98-316-X2016001,Youth (15-24 years)
+4,12,pop_25-54_yearsold,Population,Age characteristics,Census Profile 98-316-X2016001,Working Age (25-54 years)
+5,13,pop_55-64_yearsold,Population,Age characteristics,Census Profile 98-316-X2016001,Pre-retirement (55-64 years)
+6,14,pop_65+_yearsold,Population,Age characteristics,Census Profile 98-316-X2016001,Seniors (65+ years)
+7,15,pop_85+_yearsold,Population,Age characteristics,Census Profile 98-316-X2016001,Older Seniors (85+ years)
+8,1018,hh_median_income2015,Income,Income of households in 2015,Census Profile 98-316-X2016001,Total - Income statistics in 2015 for private households by household size - 100% data
+9,1149,canadian_citizens,Immigration and citizenship,Citizenship,Census Profile 98-316-X2016001,    Canadian citizens aged 18 and over
+10,1711,deg_bachelor,Education,"Highest certificate, diploma or degree",Census Profile 98-316-X2016001,      Bachelor's degree
+11,1713,deg_medics,Education,"Highest certificate, diploma or degree",Census Profile 98-316-X2016001,"      Degree in medicine, dentistry, veterinary medicine or optometry"
+12,1714,deg_phd,Education,"Highest certificate, diploma or degree",Census Profile 98-316-X2016001,      Earned doctorate
+13,1887,employed,Labour,Labour force status,Census Profile 98-316-X2016001,    Employed
+14,1636,bedrooms_0,Housing,Household characteristics,Census Profile 98-316-X2016001,  No bedrooms
+15,1637,bedrooms_1,Housing,Household characteristics,Census Profile 98-316-X2016001,  1 bedroom
+16,1638,bedrooms_2,Housing,Household characteristics,Census Profile 98-316-X2016001,  2 bedrooms
+17,1639,bedrooms_3,Housing,Household characteristics,Census Profile 98-316-X2016001,  3 bedrooms
+18,1641,bedrooms_4+,Housing,Household characteristics,Census Profile 98-316-X2016001,  4 or more bedrooms
