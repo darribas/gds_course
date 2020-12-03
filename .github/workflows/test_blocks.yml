@@ -29,6 +29,7 @@ jobs:
           conda --version
           conda env create -f https://raw.githubusercontent.com/darribas/gds_env/master/gds_py/gds_py.yml
           conda activate gds
+          conda install pip==20.2.4
           pip install -r https://github.com/darribas/gds_env/raw/master/gds_py/gds_py_pip.txt
 
       - name: Check and Log Environment
