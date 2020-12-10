@@ -1,0 +1,827 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Solutions for block H &#8212; A course on Geographic Data Science</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">A course on Geographic Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Information
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../infrastructure.html">
+   Infrastructure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assessment.html">
+   Assessment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasets.html">
+   Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  A - Introduction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bA/concepts_A.html">
+   Concepts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bA/lab_A.html">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bA/diy_A.html">
+   Do-It-Yourself
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  B - Open Science
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bB/concepts_B.html">
+   Concepts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bB/lab_B.html">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bB/diy_B.html">
+   Do-It-Yourself
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  C - Spatial Data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bC/concepts_C.html">
+   Concepts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bC/lab_C.html">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bC/diy_C.html">
+   Do-It-Yourself
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  D - Mapping Data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bD/concepts_D.html">
+   Concepts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bD/lab_D.html">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bD/diy_D.html">
+   Do-It-Yourself
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  E - Spatial Weights
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bE/concepts_E.html">
+   Concepts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bE/lab_E.html">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bE/diy_E.html">
+   Do-It-Yourself
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  F - ESDA
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bF/concepts_F.html">
+   Concepts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bF/lab_F.html">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bF/diy_F.html">
+   Do-It-Yourself
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  G - Clustering
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bG/concepts_G.html">
+   Concepts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bG/lab_G.html">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bG/diy_G.html">
+   Do-It-Yourself
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  H - Points
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bH/concepts_H.html">
+   Concepts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bH/lab_H.html">
+   Hands-on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bH/diy_H.html">
+   Do-It-Yourself
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/solutions/bH_solutions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/darribas/gds_course/master?urlpath=tree/content/solutions/bH_solutions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-i">
+   Task I
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-ii">
+   Task II
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="solutions-for-block-h">
+<h1>Solutions for block H<a class="headerlink" href="#solutions-for-block-h" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">geopandas</span>
+<span class="kn">import</span> <span class="nn">contextily</span> <span class="k">as</span> <span class="nn">cx</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">DBSCAN</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">fixed</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="task-i">
+<h2>Task I<a class="headerlink" href="#task-i" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Read the data</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#url for Beijing AirBnb data</span>
+<span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;http://data.insideairbnb.com/china/beijing/beijing/&quot;</span>\
+       <span class="s2">&quot;2019-08-15/visualisations/listings.csv&quot;</span><span class="p">)</span>
+<span class="n">abb</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="c1">#Neighbourhoods geography</span>
+<span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;http://data.insideairbnb.com/china/beijing/beijing/&quot;</span>\
+       <span class="s2">&quot;2019-08-15/visualisations/neighbourhoods.geojson&quot;</span><span class="p">)</span>
+<span class="n">neis</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Hex binning of property locations</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="c1"># Add hexagon layer that displays count of points in each polygon</span>
+<span class="n">hb</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hexbin</span><span class="p">(</span><span class="n">abb</span><span class="p">[</span><span class="s2">&quot;longitude&quot;</span><span class="p">],</span> 
+               <span class="n">abb</span><span class="p">[</span><span class="s2">&quot;latitude&quot;</span><span class="p">],</span> 
+               <span class="n">gridsize</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> 
+               <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
+               <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+               <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;RdPu&quot;</span>
+              <span class="p">)</span>
+<span class="c1"># Add a colorbar (optional)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">hb</span><span class="p">)</span>
+<span class="c1"># Remove axis</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="c1"># Add basemap</span>
+<span class="n">cx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> 
+               <span class="n">crs</span><span class="o">=</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">,</span>
+               <span class="n">source</span><span class="o">=</span><span class="n">cx</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">CartoDB</span><span class="o">.</span><span class="n">Voyager</span>
+              <span class="p">)</span>
+<span class="c1"># Add title of the map</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Hex-binning of AirBnb properties in Beijing&quot;</span><span class="p">)</span>
+<span class="c1"># Draw map</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/bH_solutions_6_0.png" src="../../_images/bH_solutions_6_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Compute and display a kernel density estimate (KDE) of the distribution of the properties</p></li>
+</ul>
+<p><strong>NOTE</strong> - We first randomly subset the locations to a sample of 1,000</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Random subset to make computation faster</span>
+<span class="n">abb_sub</span> <span class="o">=</span> <span class="n">abb</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">12345</span><span class="p">)</span>
+
+<span class="c1"># Setup figure and axis</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<span class="c1"># Add KDE layer that displays probability surface</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">abb_sub</span><span class="p">[</span><span class="s2">&quot;longitude&quot;</span><span class="p">],</span> 
+            <span class="n">abb_sub</span><span class="p">[</span><span class="s2">&quot;latitude&quot;</span><span class="p">],</span> 
+            <span class="n">n_levels</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> 
+            <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
+            <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;RdPu&quot;</span>
+           <span class="p">)</span>
+<span class="c1"># Remove axis</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="c1"># Add basemap</span>
+<span class="n">cx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> 
+               <span class="n">crs</span><span class="o">=</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">,</span>
+               <span class="n">source</span><span class="o">=</span><span class="n">cx</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">CartoDB</span><span class="o">.</span><span class="n">Voyager</span>
+              <span class="p">)</span>
+<span class="c1"># Add title of the map</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;KDE of AirBnb properties in Beijing&quot;</span><span class="p">)</span>
+<span class="c1"># Draw map</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/bH_solutions_8_0.png" src="../../_images/bH_solutions_8_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Neighbourhood-level</p></li>
+</ul>
+<p>Property count:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nei_count</span> <span class="o">=</span> <span class="n">abb</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;neighbourhood&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+<span class="n">nei_count</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>neighbourhood
+东城区                  3414
+丰台区 / Fengtai        2049
+大兴区 / Daxing         1051
+密云县 / Miyun          1565
+平谷区 / Pinggu          208
+延庆县 / Yanqing        2169
+怀柔区 / Huairou        1226
+房山区                   810
+昌平区                  1393
+朝阳区 / Chaoyang      11816
+海淀区                  3524
+石景山区                  252
+西城区                  1935
+通州区 / Tongzhou       1467
+门头沟区 / Mentougou      221
+顺义区 / Shunyi         1300
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Choropleth of the raw count:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neis</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;neighbourhood&quot;</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">abb_count</span><span class="o">=</span><span class="n">nei_count</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;abb_count&quot;</span><span class="p">,</span>
+          <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;quantiles&quot;</span><span class="p">,</span>
+          <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+          <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+          <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+         <span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/bH_solutions_12_0.png" src="../../_images/bH_solutions_12_0.png" />
+</div>
+</div>
+<p>Choropleth of density:</p>
+<p><strong>NOTE</strong> - We use a <a class="reference external" href="http://epsg.io/4589">projection</a> suitable for Beijing and expressed in metres</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note we calculate areas in Sq. metres and then convert to Sq. Km</span>
+<span class="n">density</span> <span class="o">=</span> <span class="n">nei_count</span> <span class="o">/</span> <span class="n">neis</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;neighbourhood&quot;</span><span class="p">)</span>\
+                          <span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">4589</span><span class="p">)</span>\
+                          <span class="o">.</span><span class="n">area</span> <span class="o">*</span> <span class="mf">1e6</span>
+<span class="n">neis</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;neighbourhood&quot;</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">abb_density</span><span class="o">=</span><span class="n">density</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;abb_density&quot;</span><span class="p">,</span>
+          <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;quantiles&quot;</span><span class="p">,</span>
+          <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+          <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+          <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+         <span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/bH_solutions_14_0.png" src="../../_images/bH_solutions_14_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="task-ii">
+<h2>Task II<a class="headerlink" href="#task-ii" title="Permalink to this headline">¶</a></h2>
+<p>Use the DBSCAN algorithm to identify clusters</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup the path to your data</span>
+<span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;https://d2ad6b4ur7yvpq.cloudfront.net/&quot;</span>\
+       <span class="s2">&quot;naturalearth-3.3.0/&quot;</span>\
+       <span class="s2">&quot;ne_50m_populated_places_simple.geojson&quot;</span>
+      <span class="p">)</span>
+
+<span class="c1"># Read your data in a GeoPandas DataFrame and crop it to only show places for India as the original</span>
+<span class="c1"># data set covers the whole world. </span>
+<span class="n">places</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;adm0name == &#39;India&#39;&quot;</span><span class="p">)</span>
+
+<span class="c1"># Change the Coordinate Reference system </span>
+<span class="n">places_m</span> <span class="o">=</span> <span class="n">places</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">24378</span><span class="p">)</span>
+<span class="n">places_m</span><span class="o">.</span><span class="n">crs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Projected CRS: EPSG:24378&gt;
+Name: Kalianpur 1975 / India zone I
+Axis Info [cartesian]:
+- E[east]: Easting (metre)
+- N[north]: Northing (metre)
+Area of Use:
+- name: India - north of 28°N
+- bounds: (70.35, 28.0, 81.64, 35.51)
+Coordinate Operation:
+- name: India zone I (1975 metres)
+- method: Lambert Conic Conformal (1SP)
+Datum: Kalianpur 1975
+- Ellipsoid: Everest 1830 (1975 Definition)
+- Prime Meridian: Greenwich
+</pre></div>
+</div>
+</div>
+</div>
+<p>A bit more prep for the task:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write the X and Y coordinates of the points into separate columns</span>
+<span class="n">places_m</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">places_m</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">x</span>
+<span class="n">places_m</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">places_m</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Start with the following parameters: at least five cities for a cluster (<code class="docutils literal notranslate"><span class="pre">min_samples</span></code>) and a maximum of 1,000Km (<code class="docutils literal notranslate"><span class="pre">eps</span></code>)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up algorithm with distance = 1000 km and minimum of 5 cities</span>
+<span class="n">algo</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="mi">1000000</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note how, since our CRS is expressed in metres, we need to convert 1,000km into metres (1,000,000).</p>
+<p>Now let’s fit it to our data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit the algorithm to the dataframe coordinates</span>
+<span class="n">algo</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">places_m</span><span class="p">[[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span><span class="s1">&#39;Y&#39;</span><span class="p">]])</span>
+
+<span class="c1"># Assign the labels</span>
+<span class="n">lbls</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">algo</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">places_m</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And explore the output:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="c1"># Assign labels to tokyo table dynamically and</span>
+<span class="c1"># subset points that are not part of any cluster (noise)</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="n">places_m</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">lbls</span><span class="o">=</span><span class="n">lbls</span><span class="p">)</span>\
+             <span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;lbls == -1&quot;</span><span class="p">)</span>
+<span class="c1"># Plot noise in grey</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">noise</span><span class="p">[</span><span class="s2">&quot;X&quot;</span><span class="p">],</span> 
+           <span class="n">noise</span><span class="p">[</span><span class="s2">&quot;Y&quot;</span><span class="p">],</span> 
+           <span class="n">c</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> 
+           <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> 
+           <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span>
+          <span class="p">)</span>
+<span class="c1"># Plot all points that are not noise in red</span>
+<span class="c1"># NOTE how this is done through some fancy indexing, where</span>
+<span class="c1">#      we take the index of all points (tw) and substract from</span>
+<span class="c1">#      it the index of those that are noise</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">places_m</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">places_m</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">noise</span><span class="o">.</span><span class="n">index</span><span class="p">),</span> 
+                     <span class="s2">&quot;X&quot;</span>
+                    <span class="p">],</span> 
+           <span class="n">places_m</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">places_m</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">noise</span><span class="o">.</span><span class="n">index</span><span class="p">),</span> 
+                     <span class="s2">&quot;Y&quot;</span>
+                    <span class="p">],</span>
+           <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> 
+           <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span>
+          <span class="p">)</span>
+<span class="c1"># Display the figure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/bH_solutions_24_0.png" src="../../_images/bH_solutions_24_0.png" />
+</div>
+</div>
+<p>Because our <code class="docutils literal notranslate"><span class="pre">eps</span></code> is large and our <code class="docutils literal notranslate"><span class="pre">min_samples</span></code> small, every city is part of a (the same) cluster. This is not <em>wrong</em>, but it’s also not very useful in terms of understanding and partitioning our data.</p>
+<p>If you have spent enough time tweaking the values of the parameters, you may have arrived at more interesting results. Rather than posting a single solution, here we will explore how to generate an interactive widget that allows us to tinker with values and get responses without writing code in-between.</p>
+<div class="tip admonition">
+<p class="admonition-title">Note</p>
+<p>The following is more advanced than expected for the level of the course and is only provided as an illustration of what is possible to do with a bit more Python chops. If it helps you learn new concepts, great! If it doesn’t, do not worry, this is beyond the programming scope of the course.</p>
+</div>
+<p>We first need to define a function that’ll cluster the points for us with a given pair of parameters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">clusters</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="n">min_samples</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Compute and visualize DBSCAN clusters    </span>
+<span class="sd">    ...</span>
+<span class="sd">    </span>
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">    db          : (Geo)DataFrame</span>
+<span class="sd">                  Table with at least columns `X` and `Y` for point coordinates</span>
+<span class="sd">    eps         : float</span>
+<span class="sd">                  Maximum radious to search for points within a cluster</span>
+<span class="sd">    min_samples : int</span>
+<span class="sd">                  Minimum number of points in a cluster</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">algo</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="n">min_samples</span><span class="p">)</span>
+    <span class="n">algo</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">db</span><span class="p">[[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">]])</span>
+    <span class="n">lbls</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">algo</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+    <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">noise</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">lbls</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">]]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">noise</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">noise</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">db</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">noise</span><span class="o">.</span><span class="n">index</span><span class="p">),</span> <span class="s1">&#39;X&#39;</span><span class="p">],</span> \
+               <span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">db</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">noise</span><span class="o">.</span><span class="n">index</span><span class="p">),</span> <span class="s1">&#39;Y&#39;</span><span class="p">],</span> \
+               <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> 
+               <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span>
+              <span class="p">)</span>
+    <span class="k">return</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As an illustration, the solution computed above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clusters</span><span class="p">(</span><span class="n">places_m</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mi">1000000</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/bH_solutions_28_0.png" src="../../_images/bH_solutions_28_0.png" />
+</div>
+</div>
+<p>Now we can turn it into an interactive widget with the help of <code class="docutils literal notranslate"><span class="pre">interact</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span>
+    <span class="n">clusters</span><span class="p">,</span>                   <span class="c1"># Method to make interactive</span>
+    <span class="n">db</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="n">places_m</span><span class="p">),</span>         <span class="c1"># Data to pass on db (does not change)</span>
+    <span class="n">eps</span><span class="o">=</span><span class="p">(</span><span class="mi">50000</span><span class="p">,</span> <span class="mi">600000</span><span class="p">,</span> <span class="mi">25000</span><span class="p">),</span> <span class="c1"># Range start/end/step of eps</span>
+    <span class="n">min_samples</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>      <span class="c1"># Range start/end/step of min_samples</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "af6a2f602d7c44f7848ea35166b46283", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/solutions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Dani Arribas-Bel<br/>
+        
+          <div class="extra_footer">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-6032674-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>
