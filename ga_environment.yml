@@ -12,3 +12,4 @@ dependencies:
   - pip:
       - jupyter-book==0.7.3
       - pyppeteer>=0.2.2
+      - sphinxcontrib-bibtex==1.0.0
