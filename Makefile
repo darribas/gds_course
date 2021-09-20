@@ -48,11 +48,13 @@ test:
                       --execute \
                       --output-dir tests \
                       --ExecutePreprocessor.timeout=600 \
+                      --ExecutePreprocessor.ipython_hist_file='' \
                       content/b*/*.ipynb 
 	jupyter nbconvert --to notebook \
                       --execute \
                       --output-dir tests \
                       --ExecutePreprocessor.timeout=600 \
+                      --ExecutePreprocessor.ipython_hist_file='' \
                       content/assessment.ipynb                      
 	rm -rf tests
 	echo "###########################\n\nAll blocks passed\n\n###########################"
