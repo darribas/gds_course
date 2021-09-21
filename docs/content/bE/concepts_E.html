@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Concepts &#8212; A course on Geographic Data Science</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
@@ -22,13 +22,15 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
@@ -36,154 +38,13 @@
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -223,7 +84,14 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../home.html">
+   ENVS363/563
+  </a>
+ </li>
+</ul>
+<p class="caption">
  <span class="caption-text">
   Information
  </span>
@@ -255,7 +123,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   A - Introduction
  </span>
@@ -277,7 +145,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   B - Open Science
  </span>
@@ -299,7 +167,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   C - Spatial Data
  </span>
@@ -321,7 +189,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   D - Mapping Data
  </span>
@@ -343,7 +211,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   E - Spatial Weights
  </span>
@@ -365,7 +233,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   F - ESDA
  </span>
@@ -387,7 +255,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   G - Clustering
  </span>
@@ -409,7 +277,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   H - Points
  </span>
@@ -434,6 +302,10 @@
 
     </div>
 </nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
 
 </div>
 
@@ -550,20 +422,20 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="concepts">
+  <div class="section" id="concepts">
 <h1>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h1>
 <p>This block is about how we pull off the trick to turn geography into numbers statistics can understand. At this point, we dive right into the more methodological part of the course; so you can expect a bit of a ramp up in the conceptual sections. Take a deep breath and jump in, it’s well worth the effort! At the same time, the coding side of each block will start looking more and more familiar because we are starting to repeat concepts and we will introduce less <em>new</em> building blocks and instead rely more and more on what we have seen, just adding small bits here and there.</p>
-<section id="space-formally">
+<div class="section" id="space-formally">
 <h2>Space, formally<a class="headerlink" href="#space-formally" title="Permalink to this headline">¶</a></h2>
 <p><em>How do you express geographical relations between objects (e.g. areas, points) in a way that can be used in statistical analysis?</em> This is exactly the core of what we get into in here. There are several ways, of course, but one of the most widespread approaches is what is termed spatial weights matrices. We motivate their role and define them in the following clip.</p>
-<aside class="sidebar">
+<div class="sidebar">
 <p class="sidebar-title">Slides</p>
 <p>The slides used in the clip are available at:</p>
 <ul class="simple">
 <li><p><a href="../slides/block_E_i.html"> <code class="docutils literal notranslate"><span class="pre">[HTML]</span></code> </a></p></li>
 <li><p><a href="../slides/pdf/block_E_i.pdf"> <code class="docutils literal notranslate"><span class="pre">[PDF]</span></code> </a></p></li>
 </ul>
-</aside>
+</div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html">
@@ -597,18 +469,18 @@
 <p class="admonition-title">Solution</p>
 <p>It is nine rows by nine columns. To see why, remember that spatial weights matrices are <span class="math notranslate nohighlight">\(N \times N\)</span>, as they need to record the spatial relationship between every single observation (regions in the example above), with every other single observation on the dataset.</p>
 </div>
-</section>
-<section id="types-of-weights">
+</div>
+<div class="section" id="types-of-weights">
 <h2>Types of Weights<a class="headerlink" href="#types-of-weights" title="Permalink to this headline">¶</a></h2>
 <p>Once we know what spatial weights are generally, in this clip we dive into some of the specific types we can build for our analyses.</p>
-<aside class="sidebar">
+<div class="sidebar">
 <p class="sidebar-title">Slides</p>
 <p>The slides used in the clip are available at:</p>
 <ul class="simple">
 <li><p><a href="../slides/block_E_ii.html"> <code class="docutils literal notranslate"><span class="pre">[HTML]</span></code> </a></p></li>
 <li><p><a href="../slides/pdf/block_E_ii.pdf"> <code class="docutils literal notranslate"><span class="pre">[PDF]</span></code> </a></p></li>
 </ul>
-</aside>
+</div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html">
@@ -630,18 +502,18 @@
 <p>Here it is:</p>
 <a class="bg-primary reference internal image-reference" href="../../_images/l05_geo_w.png"><img alt="regions" class="bg-primary align-center" src="../../_images/l05_geo_w.png" style="width: 500px;" /></a>
 </div>
-</section>
-<section id="the-spatial-lag">
+</div>
+<div class="section" id="the-spatial-lag">
 <h2>The Spatial Lag<a class="headerlink" href="#the-spatial-lag" title="Permalink to this headline">¶</a></h2>
 <p>We wrap up the the set of concepts in this block with one of the applications that makes spatial weights matrices so important: the spatial lag. Watch the clip to find out what it is and then jump over the <a class="reference internal" href="lab_E.html"><span class="doc std std-doc">next part</span></a> to see how all of these ideas translate into delicious, juicy Python code!</p>
-<aside class="sidebar">
+<div class="sidebar">
 <p class="sidebar-title">Slides</p>
 <p>The slides used in the clip are available at:</p>
 <ul class="simple">
 <li><p><a href="../slides/block_E_iii.html"> <code class="docutils literal notranslate"><span class="pre">[HTML]</span></code> </a></p></li>
 <li><p><a href="../slides/pdf/block_E_iii.pdf"> <code class="docutils literal notranslate"><span class="pre">[PDF]</span></code> </a></p></li>
 </ul>
-</aside>
+</div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html">
@@ -654,8 +526,8 @@
 ></iframe>
 </div></div>
 </div>
-</section>
-<section id="more-materials">
+</div>
+<div class="section" id="more-materials">
 <h2>More materials<a class="headerlink" href="#more-materials" title="Permalink to this headline">¶</a></h2>
 <p>If you want a similar but slightly different take on spatial weights by Luc Anselin, one of the biggest minds in the field of spatial analysis, I strongly recommend you watch the following two clips, part of the course offered by the Spatial Data Center at the University of Chicago:</p>
 <ul class="simple">
@@ -688,20 +560,20 @@
 ></iframe>
 </div></div>
 </div>
-</section>
-<section id="further-readings">
+</div>
+<div class="section" id="further-readings">
 <h2>Further readings<a class="headerlink" href="#further-readings" title="Permalink to this headline">¶</a></h2>
 <p>If you liked what you saw in this section and would like to digg deeper into spatial weights, the following readings are good next steps:</p>
-<aside class="margin sidebar">
+<div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>The chapter is available for free <a class="reference external" href="https://geographicdata.science/book/notebooks/04_spatial_weights.html">here</a></p>
-</aside>
+</div>
 <ul class="simple">
-<li><p>Spatial weights chapter on the GDS book (in progress) <a class="bibtex reference internal" href="../bibliography.html#reyabwolf" id="id1">[RABWng]</a>.</p></li>
-<li><p>For a more advanced and detailed treatment, the chapters on spatial weights in the Anselin &amp; Rey book <a class="bibtex reference internal" href="../bibliography.html#anselin2014modern" id="id2">[AR14]</a> are the best source.</p></li>
+<li><p>Spatial weights chapter on the GDS book (in progress) <a href="#id1"><span class="problematic" id="id2">:cite:`reyABwolf`</span></a>.</p></li>
+<li><p>For a more advanced and detailed treatment, the chapters on spatial weights in the Anselin &amp; Rey book <a href="#id3"><span class="problematic" id="id4">:cite:`anselin2014modern`</span></a> are the best source.</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

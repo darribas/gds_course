@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hands-on &#8212; A course on Geographic Data Science</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
@@ -22,13 +22,15 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
@@ -36,301 +38,11 @@
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -370,7 +82,14 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../home.html">
+   ENVS363/563
+  </a>
+ </li>
+</ul>
+<p class="caption">
  <span class="caption-text">
   Information
  </span>
@@ -402,7 +121,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   A - Introduction
  </span>
@@ -424,7 +143,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   B - Open Science
  </span>
@@ -446,7 +165,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   C - Spatial Data
  </span>
@@ -468,7 +187,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   D - Mapping Data
  </span>
@@ -490,7 +209,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   E - Spatial Weights
  </span>
@@ -512,7 +231,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   F - ESDA
  </span>
@@ -534,7 +253,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   G - Clustering
  </span>
@@ -556,7 +275,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   H - Points
  </span>
@@ -581,6 +300,10 @@
 
     </div>
 </nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
 
 </div>
 
@@ -745,13 +468,13 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="hands-on">
+  <div class="section" id="hands-on">
 <h1>Hands-on<a class="headerlink" href="#hands-on" title="Permalink to this headline">¶</a></h1>
-<section id="points">
+<div class="section" id="points">
 <h2>Points<a class="headerlink" href="#points" title="Permalink to this headline">¶</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>This is an adapted version, with a bit less content and detail, of the chapter on points by Rey, Arribas-Bel and Wolf (<em>in progress</em>) <a class="bibtex reference internal" href="../bibliography.html#reyabwolf" id="id1">[RABWng]</a>. Check out the full chapter, available for free at:</p>
+<p>This is an adapted version, with a bit less content and detail, of the chapter on points by Rey, Arribas-Bel and Wolf (<em>in progress</em>) <a href="#id1"><span class="problematic" id="id2">:cite:`reyABwolf`</span></a>. Check out the full chapter, available for free at:</p>
 <blockquote>
 <div><p><a class="reference external" href="https://geographicdata.science/book/notebooks/08_point_pattern_analysis.html">https://geographicdata.science/book/notebooks/08_point_pattern_analysis.html</a></p>
 </div></blockquote>
@@ -774,24 +497,24 @@
 </div>
 </div>
 </div>
-</section>
-<section id="data">
+</div>
+<div class="section" id="data">
 <h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
-<section id="photographs">
+<div class="section" id="photographs">
 <h3>Photographs<a class="headerlink" href="#photographs" title="Permalink to this headline">¶</a></h3>
-<aside class="margin sidebar">
+<div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>You can read more about the dataset on <a class="reference external" href="https://geographicdata.science/book/data/tokyo/tokyo_cleaning.html">its page at the GDS Book</a> website</p>
-</aside>
-<p>We are going to dip our toes in the lake of point data by looking at a sample of geo-referenced photographs in Tokyo. The dataset comes from the GDS Book <a class="bibtex reference internal" href="../bibliography.html#reyabwolf" id="id2">[RABWng]</a> and contains photographs voluntarily uploaded to the Flickr service.</p>
+</div>
+<p>We are going to dip our toes in the lake of point data by looking at a sample of geo-referenced photographs in Tokyo. The dataset comes from the GDS Book <a href="#id3"><span class="problematic" id="id4">:cite:`reyABwolf`</span></a> and contains photographs voluntarily uploaded to the Flickr service.</p>
 <p>Let’s read the dataset first:</p>
-<aside class="margin sidebar">
+<div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition-important admonition">
 <p class="admonition-title">Important</p>
 <p>Make sure you are connected to the internet when you run this cell</p>
 </div>
-</aside>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read remote file</span>
@@ -814,17 +537,17 @@
 </pre></div>
 </div>
 </div>
-</section>
-<section id="administrative-areas">
+</div>
+<div class="section" id="administrative-areas">
 <h3>Administrative areas<a class="headerlink" href="#administrative-areas" title="Permalink to this headline">¶</a></h3>
 <p>We will later use administrative areas for aggregation. Let’s load them upfront first. These are provided with the course and available online:</p>
-<aside class="margin sidebar">
+<div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition-important admonition">
 <p class="admonition-title">Important</p>
 <p>Make sure you are connected to the internet when you run this cell</p>
 </div>
-</aside>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the file in</span>
@@ -848,10 +571,10 @@
 </div>
 </div>
 <p>The final bit we need to get out of the way is attaching the administrative area code where a photo is located to each area. This can be done with a GIS operation called “spatial join”.</p>
-<aside class="margin sidebar">
+<div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Click the cell below if you are interested in finding out how it works. In the interest of the narrative of this section, we present it collapsed</p>
-</aside>
+</div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokyo_gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span>
@@ -868,12 +591,12 @@
 </div>
 </div>
 <p>Now we are good to go!</p>
-</section>
-</section>
-<section id="visualization-of-a-point-pattern">
+</div>
+</div>
+<div class="section" id="visualization-of-a-point-pattern">
 <h2>Visualization of a Point Pattern<a class="headerlink" href="#visualization-of-a-point-pattern" title="Permalink to this headline">¶</a></h2>
 <p>We will spend the rest of this notebook learning different ways to visualize a point pattern. In particular, we will consider to main strategies: one relies on aggregating the points into polygons, while the second one is based on creating continuous surfaces using kernel density estimation.</p>
-<section id="one-to-one">
+<div class="section" id="one-to-one">
 <h3>One-to-one<a class="headerlink" href="#one-to-one" title="Permalink to this headline">¶</a></h3>
 <p>The first approach we review here is the one-to-one approach, where we place a dot on the screen for every point to visualise. In Python, one way to do this is with the <code class="docutils literal notranslate"><span class="pre">scatter</span></code> method in the Pandas visualisation layer:</p>
 <div class="cell docutils container">
@@ -917,12 +640,12 @@
 <img alt="../../_images/lab_H_16_0.png" src="../../_images/lab_H_16_0.png" />
 </div>
 </div>
-</section>
-<section id="points-meet-polygons">
+</div>
+<div class="section" id="points-meet-polygons">
 <h3>Points meet polygons<a class="headerlink" href="#points-meet-polygons" title="Permalink to this headline">¶</a></h3>
 <p>The approach presented above works until a certain number of points to plot; tweaking dot transparency and size only gets us so far and, at some point, we need to shift the focus. Having learned about visualizing lattice (polygon) data, an option is to “turn” points into polygons and apply techniques like choropleth mapping to visualize their spatial distribution. To do that, we will overlay a polygon layer on top of the point pattern, <em>join</em> the points to the polygons by assigning to each point the polygon where they fall into, and create a choropleth of the counts by polygon.</p>
 <p>This approach is intuitive but of course raises the following question: <em>what polygons do we use to aggregate the points?</em> Ideally, we want a boundary delineation that matches as closely as possible the point generating process and partitions the space into areas with a similar internal intensity of points. However, that is usually not the case, no less because one of the main reasons we typically want to visualize the point pattern is to learn about such generating process, so we would typically not know a priori whether a set of polygons match it. If we cannot count on the ideal set of polygons to begin with, we can adopt two more realistic approaches: using a set of pre-existing irregular areas or create a artificial set of regular polygons. Let’s explore both.</p>
-<section id="irregular-lattices">
+<div class="section" id="irregular-lattices">
 <h4>Irregular lattices<a class="headerlink" href="#irregular-lattices" title="Permalink to this headline">¶</a></h4>
 <p>To exemplify this approach, we will use the administrative areas we have loaded above. Let’s add them to the figure above to get better context (unfold the code if you are interested in seeing exactly how we do this):</p>
 <div class="cell tag_hide-input docutils container">
@@ -973,13 +696,13 @@
 </div>
 </div>
 <p>The lines above have created a new column in our <code class="docutils literal notranslate"><span class="pre">areas</span></code> table that contains the number of photos that have been taken within each of the polygons in the table.</p>
-<aside class="margin sidebar">
+<div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Check out <span class="xref myst">Block D</span> if you need a refresher of choropleth maps</p>
 </div>
-</aside>
+</div>
 <p>At this point, we are ready to map the counts. Technically speaking, this is a choropleth just as we have seen many times before:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1014,11 +737,11 @@
 </div>
 <p>The map above clearly shows a concentration of photos in the centre of Tokyo. However, it is important to remember that the map is showing <em>raw</em> counts of tweets. In the case to photos, as with many other phenomena, it is crucial to keep in mind the “container geography” (see <a class="reference internal" href="../bD/concepts_D.html"><span class="doc std std-doc">Block D</span></a> for a refresher of the term). In this case, different administrative areas have different sizes. Everything else equal, a larger polygon may contain more photos, simply because it covers a larger space. To obtain a more accurate picture of the <em>intensity</em> of photos by area, what we would like to see is a map of the <em>density</em> of photos, not of raw counts. To do this, we can divide the count per polygon by the area of the polygon.</p>
 <p>Let’s first calculate the area in Sq. metres of each administrative delineation:</p>
-<aside class="margin sidebar">
+<div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Note how we need to convert our polygons into a projected CRS. Same as we did with the <a class="reference internal" href="../bE/diy_E.html#diy-e-jp-cities"><span class="std std-ref">Japanese functional urban areas</span></a>, we use the <a class="reference external" href="http://epsg.io/2459">Japan Plane Rectangular CS XVII system</a></p>
 <p>Also, we multiply the area by <code class="docutils literal notranslate"><span class="pre">1e-6</span></code> to express the area in squared Km instead of sw. metres</p>
-</aside>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">areas</span><span class="p">[</span><span class="s2">&quot;area_sqm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">areas</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">2459</span><span class="p">)</span><span class="o">.</span><span class="n">area</span> <span class="o">*</span> <span class="mf">1e-6</span>
@@ -1067,8 +790,8 @@
 </div>
 </div>
 <p>The pattern in the raw counts is similar to that of density, but we can see how some peripheral, large areas are “downgraded” when correcting for their size, while some smaller polygons in the centre display a higher value.</p>
-</section>
-<section id="regular-lattices-hex-binning">
+</div>
+<div class="section" id="regular-lattices-hex-binning">
 <h4>Regular lattices: hex-binning<a class="headerlink" href="#regular-lattices-hex-binning" title="Permalink to this headline">¶</a></h4>
 <p>Sometimes we either do not have any polygon layer to use or the ones we have are not particularly well suited to aggregate points into them. In these cases, a sensible alternative is to create an artificial topology of polygons that we can use to aggregate points. There are several ways to do this but the most common one is to create a grid of hexagons. This provides a regular topology (every polygon is of the same size and shape) that, unlike circles, cleanly exhausts all the space without overlaps and has more edges than squares, which alleviates edge problems.</p>
 <p>Python has a simplified way to create this hexagon layer <em>and</em> aggregate points into it in one shot thanks to the method <code class="docutils literal notranslate"><span class="pre">hexbin</span></code>, which is available in every axis object (e.g. <code class="docutils literal notranslate"><span class="pre">ax</span></code>). Let us first see how you could create a map of the hexagon layer alone:</p>
@@ -1129,9 +852,9 @@
 <img alt="../../_images/lab_H_34_0.png" src="../../_images/lab_H_34_0.png" />
 </div>
 </div>
-</section>
-</section>
-<section id="kernel-density-estimation">
+</div>
+</div>
+<div class="section" id="kernel-density-estimation">
 <h3>Kernel Density Estimation<a class="headerlink" href="#kernel-density-estimation" title="Permalink to this headline">¶</a></h3>
 <p>Using a hexagonal binning can be a quick solution when we do not have a good polygon layer to overlay the points directly and some of its properties, such as the equal size of each polygon, can help alleviate some of the problems with a “bad” irregular topology (one that does not fit the underlying point generating process). However, it does not get around the issue of the modifiable areal unit problem (M.A.U.P., see <a class="reference internal" href="../bD/concepts_D.html"><span class="doc std std-doc">Block D</span></a>: at the end of the day, we are still imposing arbitrary boundary lines and aggregating based on them, so the possibility of mismatch with the underlying distribution of the point pattern is very real.</p>
 <p>One way to work around this problem is to avoid aggregating into another geography altogether. Instead, we can aim at estimating the <em>continuous</em> observed probability distribution. The most commonly used method to do this is the so called <em>kernel density estimate</em> (KDE). The idea behind KDEs is to count the number of points in a <em>continious</em> way. Instead of using discrete counting, where you include a point in the count if it is inside a certain boundary and ignore it otherwise, KDEs use functions (kernels) that include points but give different weights to each one depending of how far of the location where we are counting the point is.</p>
@@ -1204,9 +927,9 @@
 <img alt="../../_images/lab_H_40_1.png" src="../../_images/lab_H_40_1.png" />
 </div>
 </div>
-</section>
-</section>
-<section id="clusters-of-points">
+</div>
+</div>
+<div class="section" id="clusters-of-points">
 <h2>Clusters of points<a class="headerlink" href="#clusters-of-points" title="Permalink to this headline">¶</a></h2>
 <p>In this final section, we will learn a method to identify clusters of points, based on their density across space. To do this, we will use the widely used <code class="docutils literal notranslate"><span class="pre">DBSCAN</span></code> algorithm. For this method, a cluster is a concentration of at least <code class="docutils literal notranslate"><span class="pre">m</span></code> points, each of them within a distance of <code class="docutils literal notranslate"><span class="pre">r</span></code> of at least another point in the cluster. Points in the dataset are then divided into three categories:</p>
 <ul class="simple">
@@ -1215,7 +938,7 @@
 <li><p><em>Borders</em> for points inside a cluster with less than <code class="docutils literal notranslate"><span class="pre">m</span></code> other points in the cluster within distance <code class="docutils literal notranslate"><span class="pre">r</span></code>.</p></li>
 </ul>
 <p>Both <code class="docutils literal notranslate"><span class="pre">m</span></code> and <code class="docutils literal notranslate"><span class="pre">r</span></code> need to be prespecified by the user before running <code class="docutils literal notranslate"><span class="pre">DBSCAN</span></code>. This is a critical point, as their value can influence significantly the final result. Before exploring this in greater depth, let us get a first run at computing <code class="docutils literal notranslate"><span class="pre">DBSCAN</span></code> in Python.</p>
-<section id="basics">
+<div class="section" id="basics">
 <h3>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h3>
 <p>The heavy lifting is done by the method <code class="docutils literal notranslate"><span class="pre">DBSCAN</span></code>, part of the excellent machine learning library <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>. Running the algorithm is similar to how we ran K-Means when <a class="reference internal" href="../bG/lab_G.html"><span class="doc std std-doc">clustering</span></a>. We first set up the details:</p>
 <div class="cell docutils container">
@@ -1381,8 +1104,8 @@
 </div>
 </div>
 <p>The output is now very different, isn’t it? This exemplifies how different parameters can give rise to substantially different outcomes, even if the same data and algorithm are applied.</p>
-</section>
-<section id="advanced-plotting">
+</div>
+<div class="section" id="advanced-plotting">
 <h3>Advanced plotting<a class="headerlink" href="#advanced-plotting" title="Permalink to this headline">¶</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1469,9 +1192,9 @@
 <li><p>In the case of <code class="docutils literal notranslate"><span class="pre">min_samples</span></code>, we take a similar approach and say we want the minimum number of points to go from 50 to 300, in steps of 50 points at a time.</p></li>
 </ul>
 <p>The above results in a little interactive tool that allows us to play easily and quickly with different values for the parameters and to explore how they affect the final outcome.</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

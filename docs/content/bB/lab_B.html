@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hands-on &#8212; A course on Geographic Data Science</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
@@ -22,13 +22,15 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
@@ -36,70 +38,11 @@
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -139,7 +82,14 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../home.html">
+   ENVS363/563
+  </a>
+ </li>
+</ul>
+<p class="caption">
  <span class="caption-text">
   Information
  </span>
@@ -171,7 +121,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   A - Introduction
  </span>
@@ -193,7 +143,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   B - Open Science
  </span>
@@ -215,7 +165,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   C - Spatial Data
  </span>
@@ -237,7 +187,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   D - Mapping Data
  </span>
@@ -259,7 +209,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   E - Spatial Weights
  </span>
@@ -281,7 +231,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   F - ESDA
  </span>
@@ -303,7 +253,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   G - Clustering
  </span>
@@ -325,7 +275,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   H - Points
  </span>
@@ -350,6 +300,10 @@
 
     </div>
 </nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
 
 </div>
 
@@ -525,11 +479,11 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="hands-on">
+  <div class="section" id="hands-on">
 <h1>Hands-on<a class="headerlink" href="#hands-on" title="Permalink to this headline">¶</a></h1>
 <p>Once we know a bit about what computational notebooks are and why we should care about them, let’s jump to using them! This section introduces you to using Python for manipulating tabular data. Please read through it carefully and pay attention to how ideas about manipulating data are translated into Python code that “does stuff”. For this part, you can read directly from the course website, although it is recommended you follow the section interactively by running code on your own.</p>
 <p>Once you have read through and have a bit of a sense of how things work, jump on the <a class="reference internal" href="diy_B.html"><span class="doc std std-doc">Do-It-Yourself section</span></a>, which will provide you with a challenge to complete it on your own, and will allow you to put what you have already learnt to good use. Happy hacking!</p>
-<section id="data-munging">
+<div class="section" id="data-munging">
 <span id="lab-a-data-munging"></span><h2>Data munging<a class="headerlink" href="#data-munging" title="Permalink to this headline">¶</a></h2>
 <p>Real world datasets are messy. There is no way around it: datasets have “holes” (missing data), the amount of formats in which data can be stored is endless, and the best structure to share data is not always the optimum to analyze them, hence the need to <a class="reference external" href="http://dictionary.reference.com/browse/munge">munge</a> them. As has been correctly pointed out in many outlets (<a class="reference external" href="http://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html?_r=0">e.g.</a>), much of the time <a class="reference external" href="https://twitter.com/BigDataBorat/status/306596352991830016">spent</a> in what is called (Geo-)Data Science is related not only to sophisticated modeling and insight, but has to do with much more basic and less exotic tasks such as obtaining data, processing, turning them into a shape that makes analysis possible, and exploring it to get to know their basic properties.</p>
 <p>For how labor intensive and relevant this aspect is, there is surprisingly very little published on patterns, techniques, and best practices for quick and efficient data cleaning, manipulation, and transformation. In this session, you will use a few real world datasets and learn how to process them into Python so they can be transformed and manipulated, if necessary, and analyzed. For this, we will introduce some of the bread and butter of data analysis and scientific computing in Python. These are fundamental tools that are constantly used in almost any task relating to data analysis.</p>
@@ -548,18 +502,18 @@
 </div>
 </div>
 </div>
-</section>
-<section id="dataset">
+</div>
+<div class="section" id="dataset">
 <h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h2>
 <p>We will be exploring some demographic characteristics in Liverpool. To do that, we will use a dataset that contains population counts, split by ethnic origin. These counts are aggregated at the <a class="reference external" href="http://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeography#output-area-oa">Lower Layer Super Output Area</a> (LSOA from now on). LSOAs are an official Census geography defined by the Office of National Statistics. You can think of them, more or less, as neighbourhoods. Many data products (Census, deprivation indices, etc.) use LSOAs as one of their main geographies.</p>
 <p>To make things easier, we will read data from a file posted online so, for now, you do not need to download any dataset:</p>
-<aside class="margin sidebar">
+<div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition-important admonition">
 <p class="admonition-title">Important</p>
 <p>Make sure you are connected to the internet when you run this cell</p>
 </div>
-</aside>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read table</span>
@@ -589,11 +543,11 @@
 </pre></div>
 </div>
 </div>
-</section>
-<section id="data-sliced-and-diced">
+</div>
+<div class="section" id="data-sliced-and-diced">
 <span id="lab-b-slices"></span><h2>Data, sliced and diced<a class="headerlink" href="#data-sliced-and-diced" title="Permalink to this headline">¶</a></h2>
 <p>Now we are ready to start playing and interrogating the dataset! What we have at our fingertips is a table that summarizes, for each of the LSOAs in Liverpool, how many people live in each, by the region of the world where they were born. We call these tables <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> objects, and they have a lot of functionality built-in to explore and manipulate the data they contain. Let’s explore a few of those cool tricks!</p>
-<section id="structure">
+<div class="section" id="structure">
 <h3>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h3>
 <p>The first aspect worth spending a bit of time is the structure of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. We can print it by simply typing its name:</p>
 <div class="cell docutils container">
@@ -732,8 +686,8 @@
 </div>
 <p>Note the printing is cut to keep a nice and compact view, but enough to see its structure. Since they represent a table of data, <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> objects have two dimensions: rows and columns. Each of these is automatically assigned a name in what we will call its <em>index</em>. When printing, the index of each dimension is rendered in bold, as opposed to the standard rendering for the content. In the example above, we can see how the column index is automatically picked up from the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file’s column names. For rows, we have specified when reading the file we wanted the column <code class="docutils literal notranslate"><span class="pre">GeographyCode</span></code>, so that is used. If we hadn’t specified any, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> will automatically generate a sequence starting in <code class="docutils literal notranslate"><span class="pre">0</span></code> and going all the way to the number of rows minus one. This is the standard structure of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object, so we will come to it over and over. Importantly, even when we move to spatial data, our datasets will have a similar structure.</p>
 <p>One final feature that is worth mentioning about these tables is that they can hold columns with different types of data. In our example, this is not used as we have counts (or <code class="docutils literal notranslate"><span class="pre">int</span></code>, for integer, types) for each column. But it is useful to keep in mind we can combine this with columns that hold other type of data such as categories, text (<code class="docutils literal notranslate"><span class="pre">str</span></code>, for string), dates or, as we will see later in the course, geographic features.</p>
-</section>
-<section id="inspect">
+</div>
+<div class="section" id="inspect">
 <h3>Inspect<a class="headerlink" href="#inspect" title="Permalink to this headline">¶</a></h3>
 <p>Inspecting what it looks like. We can check the top (bottom) X lines of the table by passing X to the method <code class="docutils literal notranslate"><span class="pre">head</span></code> (<code class="docutils literal notranslate"><span class="pre">tail</span></code>). For example, for the top/bottom five lines:</p>
 <div class="cell docutils container">
@@ -930,8 +884,8 @@ memory usage: 14.0+ KB
 </div>
 </div>
 </div>
-</section>
-<section id="summarise">
+</div>
+<div class="section" id="summarise">
 <h3>Summarise<a class="headerlink" href="#summarise" title="Permalink to this headline">¶</a></h3>
 <p>Or of the <em>values</em> of the table:</p>
 <div class="cell docutils container">
@@ -1180,8 +1134,8 @@ dtype: int64
 </div>
 </div>
 </div>
-</section>
-<section id="create-new-columns">
+</div>
+<div class="section" id="create-new-columns">
 <span id="lab-b-new-columns"></span><h3>Create new columns<a class="headerlink" href="#create-new-columns" title="Permalink to this headline">¶</a></h3>
 <p>We can generate new variables by applying operations on existing ones. For example, we can calculate the total population by area. Here is a couple of ways to do it:</p>
 <div class="cell docutils container">
@@ -1525,8 +1479,8 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="delete-columns">
+</div>
+<div class="section" id="delete-columns">
 <h3>Delete columns<a class="headerlink" href="#delete-columns" title="Permalink to this headline">¶</a></h3>
 <p>Permanently deleting variables is also within reach of one command:</p>
 <div class="cell docutils container">
@@ -1622,8 +1576,8 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="index-based-queries">
+</div>
+<div class="section" id="index-based-queries">
 <span id="lab-b-index-queries"></span><h3>Index-based queries<a class="headerlink" href="#index-based-queries" title="Permalink to this headline">¶</a></h3>
 <p>Here we explore how we can subset parts of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> if we know exactly which bits we want. For example, if we want to extract the total and European population of the first four areas in the table, we use <code class="docutils literal notranslate"><span class="pre">loc</span></code> with lists:</p>
 <div class="cell docutils container">
@@ -1816,8 +1770,8 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="condition-based-queries">
+</div>
+<div class="section" id="condition-based-queries">
 <span id="lab-b-condition-queries"></span><h3>Condition-based queries<a class="headerlink" href="#condition-based-queries" title="Permalink to this headline">¶</a></h3>
 <p>However, sometimes, we do not know exactly which observations we want, but we do know what conditions they need to satisfy (e.g. areas with more than 2,000 inhabitants). For these cases, <code class="docutils literal notranslate"><span class="pre">DataFrames</span></code> support selection based on conditions. Let us see a few examples. Suppose we want to select…</p>
 <p><em>… areas with more than 2,500 people in Total</em>:</p>
@@ -2070,10 +2024,10 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-<aside class="margin sidebar">
+<div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>If you are interested, more detail about <code class="docutils literal notranslate"><span class="pre">query</span></code> is available on the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#the-query-method">official <code class="docutils literal notranslate"><span class="pre">pandas</span></code> documentation</a>.</p>
-</aside>
+</div>
 <p>All the condition-based queries above are expressed using the <code class="docutils literal notranslate"><span class="pre">loc</span></code> operator. This is a powerful way and, since it shares syntax with index-based queries, it is also easier to remember. However, sometimes querying using <code class="docutils literal notranslate"><span class="pre">loc</span></code> involves a lot of quotation marks, parenthesis, etc. A more streamlined approach for condition-based queries of rows is provided by the <code class="docutils literal notranslate"><span class="pre">query</span></code> engine. Using this approach, we express everything in our query on a single string, or piece of text, and that is evaluated in the table at once. For example, we can run the same operation as in the first query above with the following syntax:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2091,8 +2045,8 @@ dtype: int64
 </div>
 </div>
 <p>Note that, in these cases, using <code class="docutils literal notranslate"><span class="pre">query</span></code> results in code that is much more streamlined and easier to read. However, <code class="docutils literal notranslate"><span class="pre">query</span></code> is not perfect and, particularly for more sophisticated queries, it does not afford the same degree of flexibility. For example, the last query we had using <code class="docutils literal notranslate"><span class="pre">loc</span></code> would not be possible using <code class="docutils literal notranslate"><span class="pre">query</span></code>.</p>
-</section>
-<section id="combining-queries">
+</div>
+<div class="section" id="combining-queries">
 <h3>Combining queries<a class="headerlink" href="#combining-queries" title="Permalink to this headline">¶</a></h3>
 <p>Now all of these queries can be combined with each other, for further flexibility. For example, imagine we want areas with more than 25 people from the Americas and Caribbean, but less than 1,500 in total:</p>
 <div class="cell docutils container">
@@ -2198,8 +2152,8 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="sorting">
+</div>
+<div class="section" id="sorting">
 <h3>Sorting<a class="headerlink" href="#sorting" title="Permalink to this headline">¶</a></h3>
 <p>Among the many operations <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> objects support, one of the most useful ones is to sort a table based on a given column. For example, imagine we want to sort the table by total population:</p>
 <div class="cell docutils container">
@@ -2296,9 +2250,9 @@ dtype: int64
 </div></div></div>
 </div>
 <p>If you inspect the help of <code class="docutils literal notranslate"><span class="pre">db.sort_values</span></code>, you will find that you can pass more than one column to sort the table by. This allows you to do so-called hiearchical sorting: sort first based on one column, if equal then based on another column, etc.</p>
-</section>
-</section>
-<section id="visual-exploration">
+</div>
+</div>
+<div class="section" id="visual-exploration">
 <h2>Visual exploration<a class="headerlink" href="#visual-exploration" title="Permalink to this headline">¶</a></h2>
 <p>The next step to continue exploring a dataset is to get a feel for what it looks like, visually. We have already learnt how to unconver and inspect specific parts of the data, to check for particular cases we might be intersted in. Now we will see how to plot the data to get a sense of the overall distribution of values. For that, we will be using the Python library <a class="reference external" href="http://stanford.edu/~mwaskom/software/seaborn/index.html"><code class="docutils literal notranslate"><span class="pre">seaborn</span></code></a>.</p>
 <ul class="simple">
@@ -2387,8 +2341,8 @@ dtype: int64
 <img alt="../../_images/lab_B_69_0.png" src="../../_images/lab_B_69_0.png" />
 </div>
 </div>
-</section>
-<section id="un-tidy-data">
+</div>
+<div class="section" id="un-tidy-data">
 <h2>Un/tidy data<a class="headerlink" href="#un-tidy-data" title="Permalink to this headline">¶</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -2829,7 +2783,7 @@ dtype: int64
 </div></div></div>
 </div>
 <p>Now our table is fully tidied up!</p>
-<section id="grouping-transforming-aggregating">
+<div class="section" id="grouping-transforming-aggregating">
 <h3>Grouping, transforming, aggregating<a class="headerlink" href="#grouping-transforming-aggregating" title="Permalink to this headline">¶</a></h3>
 <p>One of the advantage of tidy datasets is they allow to perform advanced transformations in a more direct way. One of the most common ones is what is called “group-by” operations. Originated in the world of databases, these operations allow you to group observations in a table by one of its labels, index, or category, and apply operations on the data group by group.</p>
 <p>For example, given our tidy table with population subgroups, we might want to compute the total sum of population by each group. This task can be split into two different ones:</p>
@@ -3025,19 +2979,19 @@ dtype: int64
 </div></div></div>
 </div>
 <p>We will not get into it today as it goes beyond the basics we want to conver, but keep in mind that <code class="docutils literal notranslate"><span class="pre">groupby</span></code> allows you to not only call generic functions (like <code class="docutils literal notranslate"><span class="pre">sum</span></code> or <code class="docutils literal notranslate"><span class="pre">describe</span></code>), but also your own functions. This opens the door for virtually any kind of transformation and aggregation possible.</p>
-</section>
-</section>
-<section id="additional-lab-materials">
+</div>
+</div>
+<div class="section" id="additional-lab-materials">
 <h2>Additional lab materials<a class="headerlink" href="#additional-lab-materials" title="Permalink to this headline">¶</a></h2>
 <p>The following provide a good “next step” from some of the concepts and tools covered in the <a class="reference internal" href="#"><span class="doc std std-doc">lab</span></a> and <a class="reference internal" href="diy_B.html"><span class="doc std std-doc">DIY</span></a> sections of this block:</p>
 <ul class="simple">
 <li><p>This <a class="reference external" href="http://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html?_r=0">NY Times article</a> does a good job at conveying the relevance of data “cleaning” and <a class="reference internal" href="#lab-a-data-munging"><span class="std std-ref">munging</span></a>.</p></li>
-<li><p>A good introduction to data manipulation in Python is Wes McKinney’s “Python for Data Analysis” <a class="bibtex reference internal" href="../bibliography.html#mckinney2012python" id="id1">[McK12]</a>.</p></li>
+<li><p>A good introduction to data manipulation in Python is Wes McKinney’s “Python for Data Analysis” <a href="#id1"><span class="problematic" id="id2">:cite:`mckinney2012python`</span></a>.</p></li>
 <li><p>To explore further some of the visualization capabilities in at your fingertips, the Python library <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> is an excellent choice. Its online <a class="reference external" href="http://stanford.edu/~mwaskom/software/seaborn/tutorial.html">tutorial</a> is a fantastic place to start.</p></li>
-<li><p>A good extension is Hadley Wickham’ “Tidy data” paper <a class="bibtex reference internal" href="../bibliography.html#wickham-2014-jssobk-v59i10" id="id2">[Wic14]</a>, which presents a very popular way of organising tabular data for efficient manipulation.</p></li>
+<li><p>A good extension is Hadley Wickham’ “Tidy data” paper <a href="#id3"><span class="problematic" id="id4">:cite:`Wickham:2014:JSSOBK:v59i10`</span></a>, which presents a very popular way of organising tabular data for efficient manipulation.</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
