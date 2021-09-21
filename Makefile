@@ -61,3 +61,14 @@ test:
 reset_docs:
 	rm -r docs/*
 	git checkout HEAD docs/
+    
+pack_site: pack
+	rm -f gds_course_site.zip
+	cd docs && zip -r ../gds_course_site.zip ./
+
+pack_content:
+	rm -f gds_course_content.zip
+	rm -rf gds_course_content
+	cp -r content gds_course_content
+	cd gds_course_content && zip -r ../gds_course_content.zip ./
+	rm -r gds_course_content
