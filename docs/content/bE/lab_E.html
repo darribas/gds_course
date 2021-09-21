@@ -653,7 +653,9 @@ w_{N1} &amp; \dots &amp; \dots &amp; 0
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the file in</span>
-<span class="n">db</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;https://darribas.org/gds_course/content/data/liv_lsoas.gpkg&quot;</span><span class="p">)</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span>
+    <span class="s2">&quot;https://darribas.org/gds_course/content/data/liv_lsoas.gpkg&quot;</span>
+<span class="p">)</span>
 <span class="c1"># Index table on the LSOA ID</span>
 <span class="n">db</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;LSOA11CD&quot;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="c1"># Display summary</span>
@@ -672,6 +674,10 @@ Data columns (total 3 columns):
  2   geometry  298 non-null    geometry
 dtypes: geometry(1), object(2)
 memory usage: 9.3+ KB
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/geopandas/geodataframe.py:577: RuntimeWarning: Sequential read of iterator was interrupted. Resetting iterator. This can negatively impact the performance.
+  for feature in features_lst:
 </pre></div>
 </div>
 </div>
@@ -706,7 +712,7 @@ memory usage: 9.3+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;libpysal.weights.contiguity.Queen at 0x7fa705616dd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;libpysal.weights.contiguity.Queen at 0x7fba3879f910&gt;
 </pre></div>
 </div>
 </div>
@@ -720,13 +726,13 @@ memory usage: 9.3+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;E01033763&#39;: 1.0,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;E01006697&#39;: 1.0,
  &#39;E01006692&#39;: 1.0,
- &#39;E01006697&#39;: 1.0,
+ &#39;E01033763&#39;: 1.0,
  &#39;E01006759&#39;: 1.0,
- &#39;E01006691&#39;: 1.0,
+ &#39;E01006695&#39;: 1.0,
  &#39;E01006720&#39;: 1.0,
- &#39;E01006695&#39;: 1.0}
+ &#39;E01006691&#39;: 1.0}
 </pre></div>
 </div>
 </div>
@@ -752,13 +758,13 @@ memory usage: 9.3+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;E01033763&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;E01006697&#39;,
  &#39;E01006692&#39;,
- &#39;E01006697&#39;,
+ &#39;E01033763&#39;,
  &#39;E01006759&#39;,
- &#39;E01006691&#39;,
+ &#39;E01006695&#39;,
  &#39;E01006720&#39;,
- &#39;E01006695&#39;]
+ &#39;E01006691&#39;]
 </pre></div>
 </div>
 </div>
@@ -815,10 +821,14 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/seaborn/distributions.py:2557: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
+  warnings.warn(msg, FutureWarning)
 </pre></div>
 </div>
-<img alt="../../_images/lab_E_23_1.png" src="../../_images/lab_E_23_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Density&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/lab_E_23_2.png" src="../../_images/lab_E_23_2.png" />
 </div>
 </div>
 <p>The figure above shows how most observations have around five neighbors, but there is some variation around it. The distribution also seems to follow a symmetric form, where deviations from the average occur both in higher and lower values almost evenly.</p>
@@ -944,7 +954,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;libpysal.weights.contiguity.Rook at 0x7fa6b9fe39d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;libpysal.weights.contiguity.Rook at 0x7fba38676df0&gt;
 </pre></div>
 </div>
 </div>
@@ -967,7 +977,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;libpysal.weights.distance.KNN at 0x7fa6bc57fc90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;libpysal.weights.distance.KNN at 0x7fba34e3dfd0&gt;
 </pre></div>
 </div>
 </div>
@@ -978,9 +988,9 @@ dtype: int64
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract centroids</span>
 <span class="n">cents</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">centroid</span>
 <span class="c1"># Extract coordinates into an array</span>
-<span class="n">pts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="n">cents</span><span class="o">.</span><span class="n">x</span><span class="p">,</span>
-                    <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="n">cents</span><span class="o">.</span><span class="n">y</span>
-                   <span class="p">})</span><span class="o">.</span><span class="n">values</span>
+<span class="n">pts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="n">cents</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="n">cents</span><span class="o">.</span><span class="n">y</span><span class="p">}</span>
+<span class="p">)</span><span class="o">.</span><span class="n">values</span>
 <span class="c1"># Compute KNN weights</span>
 <span class="n">knn5_from_pts</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">KNN</span><span class="o">.</span><span class="n">from_array</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">knn5_from_pts</span>
@@ -988,7 +998,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;libpysal.weights.distance.KNN at 0x7fa6abad1ed0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;libpysal.weights.distance.KNN at 0x7fba386707f0&gt;
 </pre></div>
 </div>
 </div>
@@ -1005,7 +1015,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.7/site-packages/libpysal/weights/weights.py:172: UserWarning: The weights matrix is not fully connected: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/libpysal/weights/weights.py:172: UserWarning: The weights matrix is not fully connected: 
  There are 2 disconnected components.
   warnings.warn(message)
 </pre></div>
@@ -1066,7 +1076,7 @@ Datum: OSGB 1936
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.7/site-packages/scipy/sparse/data.py:117: RuntimeWarning: divide by zero encountered in reciprocal
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/scipy/sparse/data.py:117: RuntimeWarning: divide by zero encountered in reciprocal
   return self._with_data(data ** n)
 </pre></div>
 </div>
@@ -1205,7 +1215,7 @@ w_{ij} = \dfrac{1}{d_{ij}}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.7/site-packages/libpysal/weights/weights.py:172: UserWarning: The weights matrix is not fully connected: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/libpysal/weights/weights.py:172: UserWarning: The weights matrix is not fully connected: 
  There are 61 disconnected components.
   warnings.warn(message)
 </pre></div>
@@ -1259,13 +1269,13 @@ w_{ij} = \dfrac{1}{d_{ij}}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;E01033763&#39;: 1.0,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;E01006697&#39;: 1.0,
  &#39;E01006692&#39;: 1.0,
- &#39;E01006697&#39;: 1.0,
+ &#39;E01033763&#39;: 1.0,
  &#39;E01006759&#39;: 1.0,
- &#39;E01006691&#39;: 1.0,
+ &#39;E01006695&#39;: 1.0,
  &#39;E01006720&#39;: 1.0,
- &#39;E01006695&#39;: 1.0}
+ &#39;E01006691&#39;: 1.0}
 </pre></div>
 </div>
 </div>
@@ -1299,13 +1309,13 @@ w_{ij} = \dfrac{1}{d_{ij}}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;E01033763&#39;: 0.14285714285714285,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;E01006697&#39;: 0.14285714285714285,
  &#39;E01006692&#39;: 0.14285714285714285,
- &#39;E01006697&#39;: 0.14285714285714285,
+ &#39;E01033763&#39;: 0.14285714285714285,
  &#39;E01006759&#39;: 0.14285714285714285,
- &#39;E01006691&#39;: 0.14285714285714285,
+ &#39;E01006695&#39;: 0.14285714285714285,
  &#39;E01006720&#39;: 0.14285714285714285,
- &#39;E01006695&#39;: 0.14285714285714285}
+ &#39;E01006691&#39;: 0.14285714285714285}
 </pre></div>
 </div>
 </div>
@@ -1338,13 +1348,13 @@ w_{ij} = \dfrac{1}{d_{ij}}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;E01033763&#39;: 1.0,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;E01006697&#39;: 1.0,
  &#39;E01006692&#39;: 1.0,
- &#39;E01006697&#39;: 1.0,
+ &#39;E01033763&#39;: 1.0,
  &#39;E01006759&#39;: 1.0,
- &#39;E01006691&#39;: 1.0,
+ &#39;E01006695&#39;: 1.0,
  &#39;E01006720&#39;: 1.0,
- &#39;E01006695&#39;: 1.0}
+ &#39;E01006691&#39;: 1.0}
 </pre></div>
 </div>
 </div>
@@ -1392,7 +1402,7 @@ w_{ij} = \dfrac{1}{d_{ij}}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;libpysal.weights.weights.W at 0x7fa6adde0410&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;libpysal.weights.weights.W at 0x7fba351d76a0&gt;
 </pre></div>
 </div>
 </div>
@@ -1422,9 +1432,9 @@ w_{ij} = \dfrac{1}{d_{ij}}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.7/site-packages/libpysal/io/iohandlers/gwt.py:148: RuntimeWarning: DBF relating to GWT was not found, proceeding with unordered string ids.
-  warn(&quot;DBF relating to GWT was not found, proceeding with unordered string ids.&quot;, RuntimeWarning)
-/opt/conda/lib/python3.7/site-packages/libpysal/weights/weights.py:172: UserWarning: The weights matrix is not fully connected: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/libpysal/io/iohandlers/gwt.py:204: RuntimeWarning: DBF relating to GWT was not found, proceeding with unordered string IDs.
+  warn(msg, RuntimeWarning)
+/opt/conda/lib/python3.8/site-packages/libpysal/weights/weights.py:172: UserWarning: The weights matrix is not fully connected: 
  There are 2 disconnected components.
   warnings.warn(message)
 </pre></div>
@@ -1526,7 +1536,9 @@ z_i = \dfrac{y - \bar{y}}{\sigma_y}
 <span class="n">std_db</span> <span class="o">=</span> <span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 <span class="c1"># Compute the spatial lag of the standardized version and save is as a </span>
 <span class="c1"># Series indexed as the original variable</span>
-<span class="n">std_w_db</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">weights</span><span class="o">.</span><span class="n">lag_spatial</span><span class="p">(</span><span class="n">w_queen</span><span class="p">,</span> <span class="n">std_db</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">std_db</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">std_w_db</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
+    <span class="n">weights</span><span class="o">.</span><span class="n">lag_spatial</span><span class="p">(</span><span class="n">w_queen</span><span class="p">,</span> <span class="n">std_db</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">std_db</span><span class="o">.</span><span class="n">index</span>
+<span class="p">)</span>
 <span class="c1"># Setup the figure and axis</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
 <span class="c1"># Plot values</span>

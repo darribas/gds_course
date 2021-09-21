@@ -591,13 +591,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;/home/jovyan/pysal_data/NYC_Socio-Demographics/NYC_Tract_ACS2008_12.prj&#39;,
- &#39;/home/jovyan/pysal_data/NYC_Socio-Demographics/NYC_Tract_ACS2008_12.dbf&#39;,
- &#39;/home/jovyan/pysal_data/NYC_Socio-Demographics/__MACOSX/._NYC_Tract_ACS2008_12.dbf&#39;,
- &#39;/home/jovyan/pysal_data/NYC_Socio-Demographics/__MACOSX/._NYC_Tract_ACS2008_12.shp&#39;,
- &#39;/home/jovyan/pysal_data/NYC_Socio-Demographics/__MACOSX/._NYC_Tract_ACS2008_12.shx&#39;,
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading NYC Socio-Demographics to /home/jovyan/pysal_data/NYC_Socio-Demographics
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;/home/jovyan/pysal_data/NYC_Socio-Demographics/__MACOSX/._NYC_Tract_ACS2008_12.shp&#39;,
  &#39;/home/jovyan/pysal_data/NYC_Socio-Demographics/__MACOSX/._NYC_Tract_ACS2008_12.prj&#39;,
+ &#39;/home/jovyan/pysal_data/NYC_Socio-Demographics/__MACOSX/._NYC_Tract_ACS2008_12.shx&#39;,
+ &#39;/home/jovyan/pysal_data/NYC_Socio-Demographics/__MACOSX/._NYC_Tract_ACS2008_12.dbf&#39;,
  &#39;/home/jovyan/pysal_data/NYC_Socio-Demographics/NYC_Tract_ACS2008_12.shp&#39;,
+ &#39;/home/jovyan/pysal_data/NYC_Socio-Demographics/NYC_Tract_ACS2008_12.dbf&#39;,
+ &#39;/home/jovyan/pysal_data/NYC_Socio-Demographics/NYC_Tract_ACS2008_12.prj&#39;,
  &#39;/home/jovyan/pysal_data/NYC_Socio-Demographics/NYC_Tract_ACS2008_12.shx&#39;]
 </pre></div>
 </div>
@@ -637,7 +640,9 @@
 <p>The data is available over the web on the following addres and we can read it straight into a <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jp_cities</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;http://www.oecd.org/cfe/regionaldevelopment/Japan.zip&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jp_cities</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span>
+    <span class="s2">&quot;http://www.oecd.org/cfe/regionaldevelopment/Japan.zip&quot;</span>
+<span class="p">)</span>
 <span class="n">jp_cities</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -751,7 +756,7 @@ Axis Info [ellipsoidal]:
 - Lat[north]: Geodetic latitude (degree)
 - Lon[east]: Geodetic longitude (degree)
 Area of Use:
-- name: World
+- name: World.
 - bounds: (-180.0, -90.0, 180.0, 90.0)
 Datum: World Geodetic System 1984
 - Ellipsoid: WGS 84
@@ -782,7 +787,7 @@ Axis Info [cartesian]:
 - X[north]: Northing (metre)
 - Y[east]: Easting (metre)
 Area of Use:
-- name: Japan - zone XVII
+- name: Japan - onshore Okinawa-ken east of 130°E.
 - bounds: (131.12, 24.4, 131.38, 26.01)
 Coordinate Operation:
 - name: Japan Plane Rectangular CS zone XVII
@@ -854,7 +859,7 @@ Datum: Japanese Geodetic Datum 2000
 <p>If all goes well, your figure should look, more or less, like:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.7/site-packages/libpysal/weights/weights.py:172: UserWarning: The weights matrix is not fully connected: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/libpysal/weights/weights.py:172: UserWarning: The weights matrix is not fully connected: 
  There are 9 disconnected components.
  There are 4 islands with ids: 14, 17, 30, 54.
   warnings.warn(message)

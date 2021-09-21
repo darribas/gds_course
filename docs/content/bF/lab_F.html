@@ -641,13 +641,13 @@
 <p>Tools for <em>local</em> spatial autocorrelation instead focus on spatial instability: the departure of parts of a map from the general trend. The idea here is that, even though there is a given trend for the data in terms of the nature and strength of spatial association, some particular areas can diverege quite substantially from the general pattern. Regardless of the overall degree of concentration in the values, we can observe pockets of unusually high (low) values close to other high (low) values, in what we will call hot(cold)spots. Additionally, it is also possible to observe some high (low) values surrounded by low (high) values, and we will name these “spatial outliers”. The main technique we will review in this session to explore local spatial autocorrelation is the Local Indicators of Spatial Association (LISA).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">esda</span>
 <span class="kn">from</span> <span class="nn">pysal.lib</span> <span class="kn">import</span> <span class="n">weights</span>
-<span class="kn">from</span> <span class="nn">splot.esda</span> <span class="kn">import</span> <span class="n">moran_scatterplot</span><span class="p">,</span> <span class="n">lisa_cluster</span><span class="p">,</span> <span class="n">plot_local_autocorrelation</span>
+<span class="kn">from</span> <span class="nn">splot.esda</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">moran_scatterplot</span><span class="p">,</span> <span class="n">lisa_cluster</span><span class="p">,</span> <span class="n">plot_local_autocorrelation</span>
+<span class="p">)</span>
 <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">contextily</span> <span class="k">as</span> <span class="nn">ctx</span>
@@ -671,7 +671,15 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the file in</span>
-<span class="n">br</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;http://darribas.org/gds_course/content/data/brexit.gpkg&quot;</span><span class="p">)</span>
+<span class="n">br</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span>
+    <span class="s2">&quot;http://darribas.org/gds_course/content/data/brexit.gpkg&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/geopandas/geodataframe.py:577: RuntimeWarning: Sequential read of iterator was interrupted. Resetting iterator. This can negatively impact the performance.
+  for feature in features_lst:
 </pre></div>
 </div>
 </div>
@@ -746,11 +754,11 @@ memory usage: 17.8+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.09 s, sys: 258 ms, total: 4.35 s
-Wall time: 4.34 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.6 s, sys: 76.4 ms, total: 2.68 s
+Wall time: 2.68 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.7/site-packages/libpysal/weights/weights.py:172: UserWarning: The weights matrix is not fully connected: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/libpysal/weights/weights.py:172: UserWarning: The weights matrix is not fully connected: 
  There are 7 disconnected components.
  There are 6 islands with ids: E06000046, E06000053, S12000013, S12000023, S12000027, W06000001.
   warnings.warn(message)
@@ -803,8 +811,8 @@ Wall time: 4.34 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.99 s, sys: 88.6 ms, total: 3.08 s
-Wall time: 3.06 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.08 s, sys: 58.4 ms, total: 2.14 s
+Wall time: 2.15 s
 </pre></div>
 </div>
 </div>
@@ -818,7 +826,7 @@ Wall time: 3.06 s
 </div>
 </div>
 </div>
-<p>Now, because we have row-standardize them, the weight given to each of the four neighbors is 0.33 which, all together, sum up to one.</p>
+<p>Now, because we have row-standardize them, the weight given to each of the three neighbors is 0.33 which, all together, sum up to one.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">[</span><span class="s1">&#39;E08000012&#39;</span><span class="p">]</span>
@@ -963,7 +971,9 @@ Name: Pct_Leave, dtype: float64
 <p>For some of the techniques we will be seeing below, it makes more sense to operate with the standardized version of a variable, rather than with the raw one. Standardizing means to substract the average value and divide by the standard deviation each observation of the column. This can be done easily with a bit of basic algebra in Python:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave_std&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave_std&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="p">)</span> <span class="o">/</span> <span class="n">br</span><span class="p">[</span><span class="s1">&#39;Pct_Leave&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1140,7 +1150,7 @@ Name: significant, dtype: bool
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.191, 0.087, 0.097, 0.039, 0.212])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.199, 0.107, 0.113, 0.046, 0.22 ])
 </pre></div>
 </div>
 </div>

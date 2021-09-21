@@ -688,14 +688,16 @@
 <p>In this task, you will explore patterns in the distribution of the location of AirBnb properties in Beijing. For that, we will use data from the same provider as we did for the <a class="reference internal" href="../bG/lab_G.html"><span class="doc std std-doc">clustering</span></a> block: <a class="reference external" href="http://insideairbnb.com">Inside AirBnb</a>. We are going to read in a file with the locations of the properties available as of August 15th. 2019:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;http://data.insideairbnb.com/china/beijing/beijing/&quot;</span>\
-       <span class="s2">&quot;2019-08-15/visualisations/listings.csv&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;http://data.insideairbnb.com/china/beijing/beijing/&quot;</span>
+    <span class="s2">&quot;2021-07-17/visualisations/listings.csv&quot;</span>
+<span class="p">)</span>
 <span class="n">url</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;http://data.insideairbnb.com/china/beijing/beijing/2019-08-15/visualisations/listings.csv&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;http://data.insideairbnb.com/china/beijing/beijing/2021-07-17/visualisations/listings.csv&#39;
 </pre></div>
 </div>
 </div>
@@ -726,6 +728,16 @@
 </pre></div>
 </div>
 </div>
+<hr class="docutils" />
+<p>Note the code cell above requires internet connectivity. If you are not online but have a full copy of the GDS course in your computer (downloaded as suggested in the <a class="reference internal" href="../infrastructure.html"><span class="doc std std-doc">infrastructure page</span></a>), you can read the data with the following line of code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">abb</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/web_cache/abb_listings.csv.zip&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
 <p>This gives us a table with the following information:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -735,28 +747,28 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 34400 entries, 0 to 34399
+RangeIndex: 21448 entries, 0 to 21447
 Data columns (total 16 columns):
  #   Column                          Non-Null Count  Dtype  
 ---  ------                          --------------  -----  
- 0   id                              34400 non-null  int64  
- 1   name                            34399 non-null  object 
- 2   host_id                         34400 non-null  int64  
- 3   host_name                       34393 non-null  object 
+ 0   id                              21448 non-null  int64  
+ 1   name                            21448 non-null  object 
+ 2   host_id                         21448 non-null  int64  
+ 3   host_name                       21428 non-null  object 
  4   neighbourhood_group             0 non-null      float64
- 5   neighbourhood                   34400 non-null  object 
- 6   latitude                        34400 non-null  float64
- 7   longitude                       34400 non-null  float64
- 8   room_type                       34400 non-null  object 
- 9   price                           34400 non-null  int64  
- 10  minimum_nights                  34400 non-null  int64  
- 11  number_of_reviews               34400 non-null  int64  
- 12  last_review                     20961 non-null  object 
- 13  reviews_per_month               20961 non-null  float64
- 14  calculated_host_listings_count  34400 non-null  int64  
- 15  availability_365                34400 non-null  int64  
+ 5   neighbourhood                   21448 non-null  object 
+ 6   latitude                        21448 non-null  float64
+ 7   longitude                       21448 non-null  float64
+ 8   room_type                       21448 non-null  object 
+ 9   price                           21448 non-null  int64  
+ 10  minimum_nights                  21448 non-null  int64  
+ 11  number_of_reviews               21448 non-null  int64  
+ 12  last_review                     12394 non-null  object 
+ 13  reviews_per_month               12394 non-null  float64
+ 14  calculated_host_listings_count  21448 non-null  int64  
+ 15  availability_365                21448 non-null  int64  
 dtypes: float64(4), int64(7), object(5)
-memory usage: 4.2+ MB
+memory usage: 2.6+ MB
 </pre></div>
 </div>
 </div>
@@ -764,14 +776,16 @@ memory usage: 4.2+ MB
 <p>Also, for an ancillary geography, we will use the neighbourhoods provided by the same source:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;http://data.insideairbnb.com/china/beijing/beijing/&quot;</span>\
-       <span class="s2">&quot;2019-08-15/visualisations/neighbourhoods.geojson&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;http://data.insideairbnb.com/china/beijing/beijing/&quot;</span>
+    <span class="s2">&quot;2021-07-17/visualisations/neighbourhoods.geojson&quot;</span>
+<span class="p">)</span>
 <span class="n">url</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;http://data.insideairbnb.com/china/beijing/beijing/2019-08-15/visualisations/neighbourhoods.geojson&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;http://data.insideairbnb.com/china/beijing/beijing/2021-07-17/visualisations/neighbourhoods.geojson&#39;
 </pre></div>
 </div>
 </div>
@@ -802,6 +816,22 @@ memory usage: 4.2+ MB
 </pre></div>
 </div>
 </div>
+<hr class="docutils" />
+<p>Note the code cell above requires internet connectivity. If you are not online but have a full copy of the GDS course in your computer (downloaded as suggested in the <a class="reference internal" href="../infrastructure.html"><span class="doc std std-doc">infrastructure page</span></a>), you can read the data with the following line of code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neis</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;../data/web_cache/abb_neis.gpkg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/geopandas/geodataframe.py:577: RuntimeWarning: Sequential read of iterator was interrupted. Resetting iterator. This can negatively impact the performance.
+  for feature in features_lst:
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neis</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -841,8 +871,10 @@ memory usage: 512.0+ bytes
 <p>For this one, we are going to use a dataset on the location of populated places in India provided by <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">http://geojson.xyz</span></code></span>. The original table covers the entire world so, to get it ready for you to work on it, we need to prepare it:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/&quot;</span>\
-       <span class="s2">&quot;ne_50m_populated_places_simple.geojson&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/&quot;</span>
+    <span class="s2">&quot;ne_50m_populated_places_simple.geojson&quot;</span>
+<span class="p">)</span>
 <span class="n">url</span>
 </pre></div>
 </div>
@@ -880,6 +912,18 @@ memory usage: 512.0+ bytes
 </pre></div>
 </div>
 </div>
+<hr class="docutils" />
+<p>Note the code cell above requires internet connectivity. If you are not online but have a full copy of the GDS course in your computer (downloaded as suggested in the <a class="reference internal" href="../infrastructure.html"><span class="doc std std-doc">infrastructure page</span></a>), you can read the data with the following line of code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">places</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span>
+    <span class="s2">&quot;../data/web_cache/places.gpkg&quot;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;adm0name == &#39;India&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
 <p>By defaul, place locations come expressed in longitude and latitude. Because you will be working with distances, it makes sense to convert the table into a system expressed in metres. For India, this can be the <a class="reference external" href="http://epsg.io/24378">“Kalianpur 1975 / India zone I”</a> (<code class="docutils literal notranslate"><span class="pre">EPSG:24378</span></code>) projection.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -891,18 +935,19 @@ memory usage: 512.0+ bytes
 <p>This is what we have to work with then:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">places_m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;xkcd:bright yellow&quot;</span><span class="p">,</span>
-                 <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
-                <span class="p">)</span>
-<span class="n">contextily</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> 
-                       <span class="n">crs</span><span class="o">=</span><span class="n">places_m</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span>
-                       <span class="n">source</span><span class="o">=</span><span class="n">contextily</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">CartoDB</span><span class="o">.</span><span class="n">DarkMatter</span>
-                      <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">places_m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;xkcd:bright yellow&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">contextily</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span>
+    <span class="n">ax</span><span class="p">,</span> 
+    <span class="n">crs</span><span class="o">=</span><span class="n">places_m</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span>
+    <span class="n">source</span><span class="o">=</span><span class="n">contextily</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">CartoDB</span><span class="o">.</span><span class="n">DarkMatter</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/diy_H_24_0.png" src="../../_images/diy_H_24_0.png" />
+<img alt="../../_images/diy_H_33_0.png" src="../../_images/diy_H_33_0.png" />
 </div>
 </div>
 <p>With this at hand, get to work:</p>

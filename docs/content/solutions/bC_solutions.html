@@ -819,16 +819,17 @@
 <p><strong>Note</strong> this will probably look slightly different on your computer, based on where you’ve placed the dataset yourself</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;../../../data/Census_Residential_Data_Pack_2011/&quot;</span>\
-     <span class="s2">&quot;Local_Authority_Districts/&quot;</span>\
-     <span class="s2">&quot;E08000012/shapefiles/E08000012.shp&quot;</span>
-    <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;../../data/Census_Residential_Data_Pack_2011/&quot;</span>
+    <span class="s2">&quot;Local_Authority_Districts/&quot;</span>
+    <span class="s2">&quot;E08000012/shapefiles/E08000012.shp&quot;</span>
+<span class="p">)</span>
 <span class="n">p</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;../../../data/Census_Residential_Data_Pack_2011/Local_Authority_Districts/E08000012/shapefiles/E08000012.shp&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;../../data/Census_Residential_Data_Pack_2011/Local_Authority_Districts/E08000012/shapefiles/E08000012.shp&#39;
 </pre></div>
 </div>
 </div>
@@ -850,49 +851,86 @@
 </div>
 </div>
 </div>
+<hr class="docutils" />
+<p>Note the code cell above requires internet connectivity. If you are not online but have a full copy of the GDS course in your computer (downloaded as suggested in the <a class="reference internal" href="../infrastructure.html"><span class="doc std std-doc">infrastructure page</span></a>), you can read the data with the following line of code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bikepaths</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">load_graphml</span><span class="p">(</span><span class="s2">&quot;../data/web_cache/bikepaths_liverpool.graphml&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
 <ul class="simple">
 <li><p>Points</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pubs</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">pois</span><span class="o">.</span><span class="n">pois_from_place</span><span class="p">(</span><span class="s2">&quot;Liverpool, UK&quot;</span><span class="p">,</span>
-                                  <span class="n">tags</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;amenity&quot;</span><span class="p">:</span> <span class="s2">&quot;pub&quot;</span><span class="p">}</span>
-                                 <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pubs</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">geometries_from_place</span><span class="p">(</span>
+    <span class="s2">&quot;Liverpool, UK&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;amenity&quot;</span><span class="p">:</span> <span class="s2">&quot;pub&quot;</span><span class="p">}</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section id="task-i">
-<h2>Task I<a class="headerlink" href="#task-i" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>Note the code cell above requires internet connectivity. If you are not online but have a full copy of the GDS course in your computer (downloaded as suggested in the <a class="reference internal" href="../infrastructure.html"><span class="doc std std-doc">infrastructure page</span></a>), you can read the data with the following line of code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">liv</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;#525252&quot;</span><span class="p">,</span>
-              <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
-              <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
-              <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
-             <span class="p">)</span>
-<span class="n">osmnx</span><span class="o">.</span><span class="n">graph_to_gdfs</span><span class="p">(</span><span class="n">bikepaths</span><span class="p">,</span> <span class="n">nodes</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>\
-     <span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">liv</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>\
-     <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> 
-           <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> 
-           <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#B9EBE3&quot;</span>
-          <span class="p">)</span>
-<span class="n">pubs</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">liv</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>\
-    <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> 
-          <span class="n">color</span><span class="o">=</span><span class="s2">&quot;yellow&quot;</span><span class="p">,</span> 
-          <span class="n">markersize</span><span class="o">=</span><span class="mi">1</span>
-         <span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Liverpool&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
-<span class="n">contextily</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> 
-                       <span class="n">crs</span><span class="o">=</span><span class="n">liv</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span>
-                       <span class="n">source</span><span class="o">=</span><span class="n">contextily</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">Stamen</span><span class="o">.</span><span class="n">Watercolor</span>
-                      <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pubs</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="s2">&quot;../data/web_cache/pois_bars_liverpool.parquet&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/bC_solutions_10_0.png" src="../../_images/bC_solutions_10_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/ipykernel/ipkernel.py:283: DeprecationWarning: `should_run_async` will not call `transform_cell` automatically in the future. Please pass the result to `transformed_cell` argument and any exception that happen during thetransform in `preprocessing_exc_tuple` in IPython 7.17 and above.
+  and should_run_async(code)
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<section id="task-i">
+<h2>Task I<a class="headerlink" href="#task-i" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">liv</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#525252&quot;</span><span class="p">,</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">osmnx</span><span class="o">.</span><span class="n">graph_to_gdfs</span><span class="p">(</span>
+    <span class="n">bikepaths</span><span class="p">,</span> <span class="n">nodes</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span>
+    <span class="n">liv</span><span class="o">.</span><span class="n">crs</span>
+<span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> 
+    <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> 
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#B9EBE3&quot;</span>
+<span class="p">)</span>
+<span class="n">pubs</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span>
+    <span class="n">liv</span><span class="o">.</span><span class="n">crs</span>
+<span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> 
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;yellow&quot;</span><span class="p">,</span> 
+    <span class="n">markersize</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Liverpool&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">contextily</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span>
+    <span class="n">ax</span><span class="p">,</span> 
+    <span class="n">crs</span><span class="o">=</span><span class="n">liv</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span>
+    <span class="n">source</span><span class="o">=</span><span class="n">contextily</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">Stamen</span><span class="o">.</span><span class="n">Watercolor</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/ipykernel/ipkernel.py:283: DeprecationWarning: `should_run_async` will not call `transform_cell` automatically in the future. Please pass the result to `transformed_cell` argument and any exception that happen during thetransform in `preprocessing_exc_tuple` in IPython 7.17 and above.
+  and should_run_async(code)
+</pre></div>
+</div>
+<img alt="../../_images/bC_solutions_17_1.png" src="../../_images/bC_solutions_17_1.png" />
 </div>
 </div>
 </section>
@@ -919,6 +957,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/ipykernel/ipkernel.py:283: DeprecationWarning: `should_run_async` will not call `transform_cell` automatically in the future. Please pass the result to `transformed_cell` argument and any exception that happen during thetransform in `preprocessing_exc_tuple` in IPython 7.17 and above.
+  and should_run_async(code)
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>295    62937.688835
 286    74808.839471
 296    75800.597457
@@ -944,7 +986,7 @@ dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../../_images/bC_solutions_17_1.png" src="../../_images/bC_solutions_17_1.png" />
+<img alt="../../_images/bC_solutions_24_1.png" src="../../_images/bC_solutions_24_1.png" />
 </div>
 </div>
 </section>
@@ -955,9 +997,17 @@ dtype: float64
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;https://github.com/geochicasosm/lascallesdelasmujeres&quot;</span>\
-       <span class="s2">&quot;/raw/master/data/zaragoza/final_tile.geojson&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;https://github.com/geochicasosm/lascallesdelasmujeres&quot;</span>
+    <span class="s2">&quot;/raw/master/data/zaragoza/final_tile.geojson&quot;</span>
+<span class="p">)</span>
 <span class="n">streets</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">25830</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/ipykernel/ipkernel.py:283: DeprecationWarning: `should_run_async` will not call `transform_cell` automatically in the future. Please pass the result to `transformed_cell` argument and any exception that happen during thetransform in `preprocessing_exc_tuple` in IPython 7.17 and above.
+  and should_run_async(code)
 </pre></div>
 </div>
 </div>
@@ -991,7 +1041,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>398.1856550745486
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>398.18565507454537
 </pre></div>
 </div>
 </div>
@@ -1003,7 +1053,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>89.06923496394091
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>89.06923496393888
 </pre></div>
 </div>
 </div>
