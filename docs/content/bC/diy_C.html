@@ -525,6 +525,19 @@
 </div>
 </div>
 </div>
+<div class="dropdown admonition attention">
+<p class="admonition-title">Attention</p>
+<p>If you are using an old version of <code class="docutils literal notranslate"><span class="pre">osmnx</span></code> (&lt;1.0), replace the code in the cell above for:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pubs</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">pois</span><span class="o">.</span><span class="n">pois_from_place</span><span class="p">(</span>
+    <span class="s2">&quot;Liverpool, UK&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;amenity&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>You can check the version you are using with the following snipet:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">osmnx</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
 <hr class="docutils" />
 <p>Note the code cell above requires internet connectivity. If you are not online but have a full copy of the GDS course in your computer (downloaded as suggested in the <a class="reference internal" href="../infrastructure.html"><span class="doc std std-doc">infrastructure page</span></a>), you can read the data with the following line of code:</p>
 <div class="cell docutils container">
