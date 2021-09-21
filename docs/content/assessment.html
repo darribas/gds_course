@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Assessment &#8212; A course on Geographic Data Science</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -22,13 +22,15 @@
       
 
     
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
@@ -36,14 +38,11 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -83,7 +82,14 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="home.html">
+   ENVS363/563
+  </a>
+ </li>
+</ul>
+<p class="caption">
  <span class="caption-text">
   Information
  </span>
@@ -115,7 +121,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   A - Introduction
  </span>
@@ -137,7 +143,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   B - Open Science
  </span>
@@ -159,7 +165,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   C - Spatial Data
  </span>
@@ -181,7 +187,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   D - Mapping Data
  </span>
@@ -203,7 +209,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   E - Spatial Weights
  </span>
@@ -225,7 +231,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   F - ESDA
  </span>
@@ -247,7 +253,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   G - Clustering
  </span>
@@ -269,7 +275,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   H - Points
  </span>
@@ -294,6 +300,10 @@
 
     </div>
 </nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
 
 </div>
 
@@ -427,10 +437,10 @@
         
               <div>
                 
-  <section id="assessment">
+  <div class="section" id="assessment">
 <h1>Assessment<a class="headerlink" href="#assessment" title="Permalink to this headline">¶</a></h1>
 <p>This course is assessed through four components, each with different weight.</p>
-<section id="teams-contribution-5">
+<div class="section" id="teams-contribution-5">
 <h2>Teams contribution (5%)<a class="headerlink" href="#teams-contribution-5" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Type: <code class="docutils literal notranslate"><span class="pre">Coursework</span></code></p></li>
@@ -439,16 +449,16 @@
 <li><p>Electronic submission only.</p></li>
 </ul>
 <p>Students are encouraged to contribute to the online discussion forum set up for the module. The contribution to the discussion forum is assessed as an all-or-nothing 5% of the mark that can be obtained by contributing <em>meaninfully</em> to the online discussion board setup for the course <strong>before the end of the first month of the course</strong>. <em>Meaningful</em> contributions include both questions and answers that demonstrate the student is committed to make the forum a more useful resource for the rest of the group.</p>
-</section>
-<section id="test-i-20">
+</div>
+<div class="section" id="test-i-20">
 <h2>Test I (20%)<a class="headerlink" href="#test-i-20" title="Permalink to this headline">¶</a></h2>
 <p>Information provided on labs.</p>
-</section>
-<section id="test-ii-25">
+</div>
+<div class="section" id="test-ii-25">
 <h2>Test II (25%)<a class="headerlink" href="#test-ii-25" title="Permalink to this headline">¶</a></h2>
 <p>Information provided on labs.</p>
-</section>
-<section id="computational-essay-50">
+</div>
+<div class="section" id="computational-essay-50">
 <span id="computational-essay"></span><h2>Computational essay (50%)<a class="headerlink" href="#computational-essay-50" title="Permalink to this headline">¶</a></h2>
 <p>Here’s the premise. You will take the role of a real-world data scientist tasked to explore a dataset on the city of Toronto (Canada) and find useful insights for a variety of decision-makers. It does not matter if you have never been to Toronto. In fact, this will help you focus on what you can learn about the city <em>through</em> the data, without the influence of prior knowledge. Furthermore, the assessment will <em>not</em> be marked based on how much you know about Toronto but instead about how much you can show you have learned through analysing data.</p>
 <p>A computational essay is an essay whose narrative is supported by code and computational results that are included in the essay itself. This piece of assessment is <em>equivalent</em> to 2,500 words. However, this is the overall weight. Since you will need to create not only English narrative but also code and figures, here are the requirements:</p>
@@ -458,7 +468,7 @@
 <li><p>Up to one table</p></li>
 </ul>
 <p>The assignment relies on two datasets provided below, and has two parts. Each of these pieces are explained with more detail below.</p>
-<section id="data">
+<div class="section" id="data">
 <h3>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h3>
 <p>To complete the assignment, the following two datasets are provided. Below we show how you can download them and what they contain.</p>
 <div class="cell docutils container">
@@ -764,8 +774,8 @@ memory usage: 172.0+ KB
 <blockquote>
 <div><p><a class="reference external" href="https://open.toronto.ca/"><code class="docutils literal notranslate"><span class="pre">https://open.toronto.ca/</span></code></a></p>
 </div></blockquote>
-</section>
-<section id="part-i-common">
+</div>
+<div class="section" id="part-i-common">
 <h3>Part I - Common<a class="headerlink" href="#part-i-common" title="Permalink to this headline">¶</a></h3>
 <p>This is the one everyone has to do in the same way. Complete the following tasks:</p>
 <ol class="simple">
@@ -773,8 +783,8 @@ memory usage: 172.0+ KB
 <li><p>Explore the spatial distribution of the data using choropleths. Comment on the details of your maps and interpret the results</p></li>
 <li><p>Explore the degree of spatial autocorrelation. Describe the concepts behind your approach and interpret your results</p></li>
 </ol>
-</section>
-<section id="part-ii-choose-your-own-adventure">
+</div>
+<div class="section" id="part-ii-choose-your-own-adventure">
 <h3>Part II - Choose your own adventure<a class="headerlink" href="#part-ii-choose-your-own-adventure" title="Permalink to this headline">¶</a></h3>
 <p>For this one, you need to pick <em>one</em> of the following three options. Only one, and make the most of it.</p>
 <ol class="simple">
@@ -805,8 +815,8 @@ memory usage: 172.0+ KB
 </ul>
 </li>
 </ol>
-</section>
-<section id="marking-criteria">
+</div>
+<div class="section" id="marking-criteria">
 <h3>Marking criteria<a class="headerlink" href="#marking-criteria" title="Permalink to this headline">¶</a></h3>
 <p>This course follows the standard marking criteria (the general ones and those relating to GIS assignments in particular) set by the School of Environmental Sciences. In addition to these generic criteria, the following specific criteria relating to the code provided will be used:</p>
 <ul class="simple">
@@ -818,9 +828,9 @@ memory usage: 172.0+ KB
 <li><p><strong>70-79</strong>: all as above, plus the code design includes clear evidence of skills presented in advanced sections of the course (e.g. custom methods, list comprehensions, etc.).</p></li>
 <li><p><strong>80-100</strong>: all as above, plus the code contains novel contributions that extend/improve the functionality the student was provided with (e.g. algorithm optimizations, novel methods to perform the task, etc.).</p></li>
 </ul>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

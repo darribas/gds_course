@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Concepts &#8212; A course on Geographic Data Science</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
@@ -22,13 +22,15 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
@@ -36,21 +38,11 @@
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -90,7 +82,14 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../home.html">
+   ENVS363/563
+  </a>
+ </li>
+</ul>
+<p class="caption">
  <span class="caption-text">
   Information
  </span>
@@ -122,7 +121,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   A - Introduction
  </span>
@@ -144,7 +143,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   B - Open Science
  </span>
@@ -166,7 +165,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   C - Spatial Data
  </span>
@@ -188,7 +187,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   D - Mapping Data
  </span>
@@ -210,7 +209,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   E - Spatial Weights
  </span>
@@ -232,7 +231,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   F - ESDA
  </span>
@@ -254,7 +253,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   G - Clustering
  </span>
@@ -276,7 +275,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   H - Points
  </span>
@@ -301,6 +300,10 @@
 
     </div>
 </nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
 
 </div>
 
@@ -411,20 +414,20 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="concepts">
+  <div class="section" id="concepts">
 <h1>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h1>
 <p>Here’s where it all starts. In this section we introduce the course and what Geographic Data Science is. We top it up with a few (optional) further readings for the interested and curious mind.</p>
-<section id="this-course">
+<div class="section" id="this-course">
 <h2>This course<a class="headerlink" href="#this-course" title="Permalink to this headline">¶</a></h2>
 <p>Let us start from the beginning, here is a snapshot of what this course is about! In the following clip, you will find out about the philosophy behind the course, how the content is structured, and why this is all designed like this. And, also, a little bit about the assessment…</p>
-<aside class="sidebar">
+<div class="sidebar">
 <p class="sidebar-title">Slides</p>
 <p>The slides used in the clip are available at:</p>
 <ul class="simple">
 <li><p><a href="../slides/block_A_i.html"> <code class="docutils literal notranslate"><span class="pre">[HTML]</span></code> </a></p></li>
 <li><p><a href="../slides/pdf/block_A_i.pdf"> <code class="docutils literal notranslate"><span class="pre">[PDF]</span></code> </a></p></li>
 </ul>
-</aside>
+</div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html">
@@ -450,18 +453,18 @@
 ></iframe>
 </div></div>
 </div>
-</section>
-<section id="what-is-geographic-data-science">
+</div>
+<div class="section" id="what-is-geographic-data-science">
 <h2>What is <em>Geographic Data Science</em>?<a class="headerlink" href="#what-is-geographic-data-science" title="Permalink to this headline">¶</a></h2>
 <p>Once it is clearer how this course is going to run, let’s dive right into why this course is necessary. The following clip is taken from a keynote response by Dani Arribas-Bel at the first <a class="reference external" href="https://carto.com/spatial-data-conference/2017/">Spatial Data Science Conference</a>, organised by <a class="reference external" href="https://carto.com/">CARTO</a> and held in Brooklyn in 2017. The talk provides a bit of background and context, which will hopefully help you understand a bit better what Geographic Data Science is.</p>
-<aside class="sidebar">
+<div class="sidebar">
 <p class="sidebar-title">Slides</p>
 <p>The slides used in the clip are available at:</p>
 <ul class="simple">
 <li><p><a href="../slides/block_A_ii.html"> <code class="docutils literal notranslate"><span class="pre">[HTML]</span></code> </a></p></li>
 <li><p><a href="../slides/pdf/block_A_ii.pdf"> <code class="docutils literal notranslate"><span class="pre">[PDF]</span></code> </a></p></li>
 </ul>
-</aside>
+</div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html">
@@ -474,21 +477,21 @@
 ></iframe>
 </div></div>
 </div>
-</section>
-<section id="further-readings">
+</div>
+<div class="section" id="further-readings">
 <h2>Further readings<a class="headerlink" href="#further-readings" title="Permalink to this headline">¶</a></h2>
 <p>To get a better picture, the following readings complement the overview provided above very well:</p>
-<aside class="margin sidebar">
+<div class="margin sidebar">
 <p class="sidebar-title">Bonus</p>
 <p>The chapter is available free online <a class="reference external" href="http://shop.oreilly.com/product/0636920028529.do"><code class="docutils literal notranslate"><span class="pre">HTML</span></code></a> | <a class="reference external" href="http://cdn.oreillystatic.com/oreilly/booksamplers/9781449358655_sampler.pdf"><code class="docutils literal notranslate"><span class="pre">PDF</span></code></a></p>
-</aside>
+</div>
 <ol class="simple">
-<li><p>The introductory chapter to “Doing Data Science” <a class="bibtex reference internal" href="../bibliography.html#schutt2013doing" id="id1">[SONeil13]</a>, by Cathy O’Neil and Rachel Schutt is general overview of why we needed Data Science and where if came from.</p></li>
-<li><p>A slightly more technical historical perspective on where Data Science came from and where it might go can be found in David Donoho’s recent overview <a class="bibtex reference internal" href="../bibliography.html#donoho201750" id="id2">[Don17]</a>.</p></li>
-<li><p>A geographic take on Data Science, proposing more interaction between Geography and Data Science <a class="bibtex reference internal" href="../bibliography.html#singleton2019geographic" id="id3">[SAB19]</a>.</p></li>
+<li><p>The introductory chapter to “Doing Data Science” <a href="#id1"><span class="problematic" id="id2">:cite:`schutt2013doing`</span></a>, by Cathy O’Neil and Rachel Schutt is general overview of why we needed Data Science and where if came from.</p></li>
+<li><p>A slightly more technical historical perspective on where Data Science came from and where it might go can be found in David Donoho’s recent overview <a href="#id3"><span class="problematic" id="id4">:cite:`donoho201750`</span></a>.</p></li>
+<li><p>A geographic take on Data Science, proposing more interaction between Geography and Data Science <a href="#id5"><span class="problematic" id="id6">:cite:`singleton2019geographic`</span></a>.</p></li>
 </ol>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
