@@ -632,13 +632,13 @@ Data used in Rey, S.J. and M.L. Sastre Gutierrez. (2010) &quot;Interregional ine
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;/opt/conda/lib/python3.7/site-packages/libpysal/examples/mexico/mexicojoin.shp&#39;,
- &#39;/opt/conda/lib/python3.7/site-packages/libpysal/examples/mexico/mexico.csv&#39;,
- &#39;/opt/conda/lib/python3.7/site-packages/libpysal/examples/mexico/README.md&#39;,
- &#39;/opt/conda/lib/python3.7/site-packages/libpysal/examples/mexico/mexicojoin.dbf&#39;,
- &#39;/opt/conda/lib/python3.7/site-packages/libpysal/examples/mexico/mexicojoin.prj&#39;,
- &#39;/opt/conda/lib/python3.7/site-packages/libpysal/examples/mexico/mexico.gal&#39;,
- &#39;/opt/conda/lib/python3.7/site-packages/libpysal/examples/mexico/mexicojoin.shx&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;/opt/conda/lib/python3.8/site-packages/libpysal/examples/mexico/mexicojoin.shx&#39;,
+ &#39;/opt/conda/lib/python3.8/site-packages/libpysal/examples/mexico/README.md&#39;,
+ &#39;/opt/conda/lib/python3.8/site-packages/libpysal/examples/mexico/mexico.gal&#39;,
+ &#39;/opt/conda/lib/python3.8/site-packages/libpysal/examples/mexico/mexico.csv&#39;,
+ &#39;/opt/conda/lib/python3.8/site-packages/libpysal/examples/mexico/mexicojoin.shp&#39;,
+ &#39;/opt/conda/lib/python3.8/site-packages/libpysal/examples/mexico/mexicojoin.prj&#39;,
+ &#39;/opt/conda/lib/python3.8/site-packages/libpysal/examples/mexico/mexicojoin.dbf&#39;]
 </pre></div>
 </div>
 </div>
@@ -728,7 +728,7 @@ Axis Info [ellipsoidal]:
 - Lat[north]: Geodetic latitude (degree)
 - Lon[east]: Geodetic longitude (degree)
 Area of Use:
-- name: World
+- name: World.
 - bounds: (-180.0, -90.0, 180.0, 90.0)
 Datum: World Geodetic System 1984
 - Ellipsoid: WGS 84
@@ -747,10 +747,11 @@ Datum: World Geodetic System 1984
 <p>In Python, creating categorical choropleths is possible with one line of code. To demonstrate this, we can plot the Mexican states and the region each belongs to based on the Mexican Statistics Institute (coded in our table as the <code class="docutils literal notranslate"><span class="pre">INEGI</span></code> variable):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;INEGI&quot;</span><span class="p">,</span> 
-        <span class="n">categorical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
-        <span class="n">legend</span><span class="o">=</span><span class="kc">True</span>
-       <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">column</span><span class="o">=</span><span class="s2">&quot;INEGI&quot;</span><span class="p">,</span> 
+    <span class="n">categorical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+    <span class="n">legend</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -775,12 +776,13 @@ Datum: World Geodetic System 1984
 <p>Creating the choropleth is relatively straightforward in Python. For example, to create an equal interval on the GDP per capita in 2000 (<code class="docutils literal notranslate"><span class="pre">PCGDP2000</span></code>), we can run a similar command as above:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">,</span> 
-        <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;equal_interval&quot;</span><span class="p">,</span> 
-        <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
-        <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGn&quot;</span><span class="p">,</span>
-        <span class="n">legend</span><span class="o">=</span><span class="kc">True</span>
-       <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">column</span><span class="o">=</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">,</span> 
+    <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;equal_interval&quot;</span><span class="p">,</span> 
+    <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGn&quot;</span><span class="p">,</span>
+    <span class="n">legend</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -866,12 +868,13 @@ Datum: World Geodetic System 1984
 <p>The code required to create the choropleth mirrors that needed above for equal intervals:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">,</span> 
-        <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;quantiles&quot;</span><span class="p">,</span> 
-        <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
-        <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGn&quot;</span><span class="p">,</span>
-        <span class="n">legend</span><span class="o">=</span><span class="kc">True</span>
-       <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">column</span><span class="o">=</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">,</span> 
+    <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;quantiles&quot;</span><span class="p">,</span> 
+    <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGn&quot;</span><span class="p">,</span>
+    <span class="n">legend</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -948,12 +951,13 @@ Datum: World Geodetic System 1984
 <p>Equal interval and quantiles are only two examples of very many classification schemes to encode values into colors. Although not all of them are integrated into <code class="docutils literal notranslate"><span class="pre">geopandas</span></code>, <code class="docutils literal notranslate"><span class="pre">PySAL</span></code> includes several other classification schemes (for a detailed list, have a look at this <a class="reference external" href="https://pysal.org/mapclassify/notebooks/01_maximum_breaks.html">link</a>). As an example of a more sophisticated one, let us create a Fisher-Jenks choropleth:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">,</span> 
-        <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;fisher_jenks&quot;</span><span class="p">,</span> 
-        <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
-        <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGn&quot;</span><span class="p">,</span>
-        <span class="n">legend</span><span class="o">=</span><span class="kc">True</span>
-       <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">column</span><span class="o">=</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">,</span> 
+    <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;fisher_jenks&quot;</span><span class="p">,</span> 
+    <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGn&quot;</span><span class="p">,</span>
+    <span class="n">legend</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1033,12 +1037,13 @@ Datum: World Geodetic System 1984
 <p>As an example, let us consider the quantile map produced above:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">,</span> 
-        <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;quantiles&quot;</span><span class="p">,</span> 
-        <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
-        <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGn&quot;</span><span class="p">,</span>
-        <span class="n">legend</span><span class="o">=</span><span class="kc">False</span>
-       <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">column</span><span class="o">=</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">,</span> 
+    <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;quantiles&quot;</span><span class="p">,</span> 
+    <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGn&quot;</span><span class="p">,</span>
+    <span class="n">legend</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1055,13 +1060,14 @@ Datum: World Geodetic System 1984
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup the figure</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Draw the choropleth</span>
-<span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">,</span> 
-        <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;quantiles&quot;</span><span class="p">,</span> 
-        <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
-        <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGn&quot;</span><span class="p">,</span>
-        <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
-       <span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">column</span><span class="o">=</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">,</span> 
+    <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;quantiles&quot;</span><span class="p">,</span> 
+    <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGn&quot;</span><span class="p">,</span>
+    <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
+<span class="p">)</span>
 <span class="c1"># Redimensionate X and Y axes to desired bounds</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">102</span><span class="p">,</span> <span class="o">-</span><span class="mi">97</span><span class="p">)</span>
@@ -1101,12 +1107,13 @@ Datum: World Geodetic System 1984
 <p>Since the result is a <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> itself, we can create a choropleth that is based only on the data in the subset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subset</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">,</span> 
-            <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;quantiles&quot;</span><span class="p">,</span> 
-            <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
-            <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGn&quot;</span><span class="p">,</span>
-            <span class="n">legend</span><span class="o">=</span><span class="kc">False</span>
-           <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subset</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">column</span><span class="o">=</span><span class="s2">&quot;PCGDP2000&quot;</span><span class="p">,</span> 
+    <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;quantiles&quot;</span><span class="p">,</span> 
+    <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGn&quot;</span><span class="p">,</span>
+    <span class="n">legend</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>

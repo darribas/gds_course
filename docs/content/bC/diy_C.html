@@ -542,7 +542,7 @@
 </section>
 <section id="lines">
 <h3>Lines<a class="headerlink" href="#lines" title="Permalink to this headline">¶</a></h3>
-<p>For a line layer, we are going to use a different bit of <code class="docutils literal notranslate"><span class="pre">osmnx</span></code> functionality that will allow us to extract all the highways</p>
+<p>For a line layer, we are going to use a different bit of <code class="docutils literal notranslate"><span class="pre">osmnx</span></code> functionality that will allow us to extract all the highways:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bikepaths</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">graph_from_place</span><span class="p">(</span><span class="s2">&quot;Liverpool, UK&quot;</span><span class="p">,</span> <span class="n">network_type</span><span class="o">=</span><span class="s2">&quot;bike&quot;</span><span class="p">)</span>
@@ -550,6 +550,16 @@
 </div>
 </div>
 </div>
+<hr class="docutils" />
+<p>Note the code cell above requires internet connectivity. If you are not online but have a full copy of the GDS course in your computer (downloaded as suggested in the <a class="reference internal" href="../infrastructure.html"><span class="doc std std-doc">infrastructure page</span></a>), you can read the data with the following line of code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bikepaths</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">load_graphml</span><span class="p">(</span><span class="s2">&quot;../data/web_cache/bikepaths_liverpool.graphml&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">bikepaths</span><span class="p">)</span>
@@ -557,7 +567,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23990
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23481
 </pre></div>
 </div>
 </div>
@@ -565,27 +575,34 @@
 </section>
 <section id="points">
 <h3>Points<a class="headerlink" href="#points" title="Permalink to this headline">¶</a></h3>
-<p>For points, we will use an analogue of the POI layer we have used in the <a class="reference internal" href="lab_C.html"><span class="doc std std-doc">Lab</span></a>: pubs in Liverpool, as recorded by OpenStreetMap.</p>
-<p>Let’s import <code class="docutils literal notranslate"><span class="pre">osmnx</span></code>:</p>
+<p>For points, we will use an analogue of the POI layer we have used in the <a class="reference internal" href="lab_C.html"><span class="doc std std-doc">Lab</span></a>: pubs in Liverpool, as recorded by OpenStreetMap. We can make a similar query to retrieve the table:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">osmnx</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pubs</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">geometries_from_place</span><span class="p">(</span>
+    <span class="s2">&quot;Liverpool, UK&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;amenity&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">}</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>And make a similar query to retrieve the table:</p>
+<hr class="docutils" />
+<p>Note the code cell above requires internet connectivity. If you are not online but have a full copy of the GDS course in your computer (downloaded as suggested in the <a class="reference internal" href="../infrastructure.html"><span class="doc std std-doc">infrastructure page</span></a>), you can read the data with the following line of code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pubs</span> <span class="o">=</span> <span class="n">osmnx</span><span class="o">.</span><span class="n">pois</span><span class="o">.</span><span class="n">pois_from_place</span><span class="p">(</span><span class="s2">&quot;Liverpool, UK&quot;</span><span class="p">,</span>
-                                  <span class="n">tags</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;amenity&quot;</span><span class="p">:</span> <span class="s2">&quot;pub&quot;</span><span class="p">}</span>
-                                 <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pubs</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="s2">&quot;../data/web_cache/pois_bars_liverpool.parquet&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/ipykernel/ipkernel.py:283: DeprecationWarning: `should_run_async` will not call `transform_cell` automatically in the future. Please pass the result to `transformed_cell` argument and any exception that happen during thetransform in `preprocessing_exc_tuple` in IPython 7.17 and above.
+  and should_run_async(code)
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 </section>
+<hr class="docutils" />
 <section id="tasks">
 <h2>Tasks<a class="headerlink" href="#tasks" title="Permalink to this headline">¶</a></h2>
 <section id="task-i-tweak-your-map">
