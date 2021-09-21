@@ -3,7 +3,7 @@
 
 ## Geographic Data Science
 
-Welcome to Geographic Data Science, a course taught by Dr. Dani Arribas-Bel in the Autumn of 2020 at the University of Liverpool.
+Welcome to Geographic Data Science, a course designed by Dr. Dani Arribas-Bel and delivered in its latest instance at the University of Liverpool in the Autumn of 2021.
 
 ````{margin}
 ```{note}
