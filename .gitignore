@@ -13,6 +13,7 @@
 website/content/
 website/_build/
 content/b*/zaragoza_bars.png
+content/b*/madrid_bars.png
 content/data/*.pbf
 tests/
 cache/
