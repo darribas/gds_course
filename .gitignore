@@ -15,3 +15,5 @@ website/_build/
 content/b*/zaragoza_bars.png
 content/data/*.pbf
 tests/
+cache/
+*/*/cache
