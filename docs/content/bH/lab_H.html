@@ -1,589 +1,433 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Hands-on &#8212; A course on Geographic Data Science</title>
-    
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
-    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-6032674-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-6032674-1');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/bH/lab_H';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Do-It-Yourself" href="diy_H.html" />
     <link rel="prev" title="Concepts" href="concepts_H.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-6032674-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">A course on Geographic Data Science</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../home.html">
-   ENVS363/563
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Information
- </span>
-</p>
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../home.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">A course on Geographic Data Science</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../home.html">
+                    ENVS363/563
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Information</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../overview.html">
-   Overview
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../infrastructure.html">
-   Infrastructure
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../assessment.html">
-   Assessment
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../datasets.html">
-   Datasets
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bibliography.html">
-   Bibliography
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../infrastructure.html">Infrastructure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  A - Introduction
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">A - Introduction</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bA/concepts_A.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bA/lab_A.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bA/diy_A.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bA/concepts_A.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bA/lab_A.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bA/diy_A.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  B - Open Science
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">B - Open Science</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bB/concepts_B.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bB/lab_B.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bB/diy_B.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bB/concepts_B.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bB/lab_B.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bB/diy_B.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  C - Spatial Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">C - Spatial Data</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bC/concepts_C.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bC/lab_C.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bC/diy_C.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bC/concepts_C.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bC/lab_C.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bC/diy_C.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  D - Mapping Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">D - Mapping Data</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bD/concepts_D.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bD/lab_D.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bD/diy_D.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bD/concepts_D.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bD/lab_D.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bD/diy_D.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  E - Spatial Weights
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">E - Spatial Weights</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bE/concepts_E.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bE/lab_E.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bE/diy_E.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bE/concepts_E.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bE/lab_E.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bE/diy_E.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  F - ESDA
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">F - ESDA</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bF/concepts_F.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bF/lab_F.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bF/diy_F.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bF/concepts_F.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bF/lab_F.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bF/diy_F.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  G - Clustering
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">G - Clustering</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bG/concepts_G.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bG/lab_G.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bG/diy_G.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bG/concepts_G.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bG/lab_G.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bG/diy_G.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  H - Points
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">H - Points</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="concepts_H.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="diy_H.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="concepts_H.html">Concepts</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diy_H.html">Do-It-Yourself</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
-<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
 <div class="sbt-scroll-pixel-helper"></div>
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            <div class="topbar-left">
-                
-                <label class="nav-toggle-button" for="__navigation">
-                    <div class="visually-hidden">Toggle navigation</div>
-                    <i class="fas fa-bars"></i>
-                </label>
-                
-            </div>
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
 
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/bH/lab_H.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/darribas/gds_course/master?urlpath=tree/content/bH/lab_H.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Source interaction buttons -->
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/darribas/gds_course/master?urlpath=tree/content/bH/lab_H.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-        
-    </div>
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/content/bH/lab_H.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-        </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Hands-on</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#points">
-   Points
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data">
-   Data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#photographs">
-     Photographs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#administrative-areas">
-     Administrative areas
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visualization-of-a-point-pattern">
-   Visualization of a Point Pattern
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#one-to-one">
-     One-to-one
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#points-meet-polygons">
-     Points meet polygons
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#irregular-lattices">
-       Irregular lattices
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#regular-lattices-hex-binning">
-       Regular lattices: hex-binning
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#kernel-density-estimation">
-     Kernel Density Estimation
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#clusters-of-points">
-   Clusters of points
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#basics">
-     Basics
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#advanced-plotting">
-     Advanced plotting
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#points">Points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#photographs">Photographs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#administrative-areas">Administrative areas</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-a-point-pattern">Visualization of a Point Pattern</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-to-one">One-to-one</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#points-meet-polygons">Points meet polygons</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#irregular-lattices">Irregular lattices</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#regular-lattices-hex-binning">Regular lattices: hex-binning</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-density-estimation">Kernel Density Estimation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clusters-of-points">Clusters of points</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-plotting">Advanced plotting</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Hands-on</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#points">
-   Points
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data">
-   Data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#photographs">
-     Photographs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#administrative-areas">
-     Administrative areas
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visualization-of-a-point-pattern">
-   Visualization of a Point Pattern
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#one-to-one">
-     One-to-one
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#points-meet-polygons">
-     Points meet polygons
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#irregular-lattices">
-       Irregular lattices
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#regular-lattices-hex-binning">
-       Regular lattices: hex-binning
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#kernel-density-estimation">
-     Kernel Density Estimation
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#clusters-of-points">
-   Clusters of points
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#basics">
-     Basics
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#advanced-plotting">
-     Advanced plotting
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
-  <div class="section" id="hands-on">
-<h1>Hands-on<a class="headerlink" href="#hands-on" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="points">
-<h2>Points<a class="headerlink" href="#points" title="Permalink to this headline">¶</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="hands-on">
+<h1>Hands-on<a class="headerlink" href="#hands-on" title="Permalink to this headline">#</a></h1>
+<section id="points">
+<h2>Points<a class="headerlink" href="#points" title="Permalink to this headline">#</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>This is an adapted version, with a bit less content and detail, of the chapter on points by Rey, Arribas-Bel and Wolf (<em>in progress</em>) <a href="#id1"><span class="problematic" id="id2">:cite:`reyABwolf`</span></a>. Check out the full chapter, available for free at:</p>
+<p>This is an adapted version, with a bit less content and detail, of the chapter on points by Rey, Arribas-Bel and Wolf (<em>in progress</em>) <a href="#id1"><span class="problematic" id="id2">reyABwolf</span></a>. Check out the full chapter, available for free at:</p>
 <blockquote>
 <div><p><a class="reference external" href="https://geographicdata.science/book/notebooks/08_point_pattern_analysis.html">https://geographicdata.science/book/notebooks/08_point_pattern_analysis.html</a></p>
 </div></blockquote>
@@ -605,25 +449,37 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_14977/1645228579.py:3: UserWarning: Shapely 2.0 is installed, but because PyGEOS is also installed, GeoPandas will still use PyGEOS by default for now. To force to use and test Shapely 2.0, you have to set the environment variable USE_PYGEOS=0. You can do this before starting the Python process, or in your code before importing geopandas:
+
+import os
+os.environ[&#39;USE_PYGEOS&#39;] = &#39;0&#39;
+import geopandas
+
+In a future release, GeoPandas will switch to using Shapely by default. If you are using PyGEOS directly (calling PyGEOS functions on geometries from GeoPandas), this will then stop working and you are encouraged to migrate from PyGEOS to Shapely 2.0 (https://shapely.readthedocs.io/en/latest/migration_pygeos.html).
+  import geopandas as gpd
+</pre></div>
 </div>
 </div>
-<div class="section" id="data">
-<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="photographs">
-<h3>Photographs<a class="headerlink" href="#photographs" title="Permalink to this headline">¶</a></h3>
-<div class="margin sidebar">
+</div>
+</section>
+<section id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h2>
+<section id="photographs">
+<h3>Photographs<a class="headerlink" href="#photographs" title="Permalink to this headline">#</a></h3>
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>You can read more about the dataset on <a class="reference external" href="https://geographicdata.science/book/data/tokyo/tokyo_cleaning.html">its page at the GDS Book</a> website</p>
-</div>
-<p>We are going to dip our toes in the lake of point data by looking at a sample of geo-referenced photographs in Tokyo. The dataset comes from the GDS Book <a href="#id3"><span class="problematic" id="id4">:cite:`reyABwolf`</span></a> and contains photographs voluntarily uploaded to the Flickr service.</p>
+</aside>
+<p>We are going to dip our toes in the lake of point data by looking at a sample of geo-referenced photographs in Tokyo. The dataset comes from the GDS Book <a href="#id3"><span class="problematic" id="id4">reyABwolf</span></a> and contains photographs voluntarily uploaded to the Flickr service.</p>
 <p>Let’s read the dataset first:</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition-important admonition">
 <p class="admonition-title">Important</p>
 <p>Make sure you are connected to the internet when you run this cell</p>
 </div>
-</div>
+</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read remote file</span>
@@ -637,7 +493,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="admonition-alternative admonition">
 <p class="admonition-title">Alternative</p>
 <p>Instead of reading the file directly off the web, it is possible to download it manually, store it on your computer, and read it locally. To do that, you can follow these steps:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Download the file by right-clicking on <a class="reference external" href="https://geographicdata.science/book/_downloads/7fb86b605af15b3c9cbd9bfcbead23e9/tokyo_clean.csv">this link</a> and saving the file</p></li>
 <li><p>Place the file on the <em>same folder as the notebook</em> where you intend to read it</p></li>
 <li><p>Replace the code in the cell above by:</p></li>
@@ -646,17 +502,17 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="administrative-areas">
-<h3>Administrative areas<a class="headerlink" href="#administrative-areas" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="administrative-areas">
+<h3>Administrative areas<a class="headerlink" href="#administrative-areas" title="Permalink to this headline">#</a></h3>
 <p>We will later use administrative areas for aggregation. Let’s load them upfront first. These are provided with the course and available online:</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition-important admonition">
 <p class="admonition-title">Important</p>
 <p>Make sure you are connected to the internet when you run this cell</p>
 </div>
-</div>
+</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the file in</span>
@@ -670,8 +526,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="admonition-alternative admonition">
 <p class="admonition-title">Alternative</p>
 <p>Instead of reading the file directly off the web, it is possible to download it manually, store it on your computer, and read it locally. To do that, you can follow these steps:</p>
-<ol class="simple">
-<li><p>Download the file by right-clicking on <span class="xref myst">this link</span> and saving the file</p></li>
+<ol class="arabic simple">
+<li><p>Download the file by right-clicking on <a class="reference download internal" download="" href="../../_downloads/9a7c837a130b00312df50cb2339d72c9/tokyo_admin_boundaries.geojson"><span class="xref download myst">this link</span></a> and saving the file</p></li>
 <li><p>Place the file on the <em>same folder as the notebook</em> where you intend to read it</p></li>
 <li><p>Replace the code in the cell above by:</p></li>
 </ol>
@@ -680,11 +536,16 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>The final bit we need to get out of the way is attaching the administrative area code where a photo is located to each area. This can be done with a GIS operation called “spatial join”.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Click the cell below if you are interested in finding out how it works. In the interest of the narrative of this section, we present it collapsed</p>
-</div>
+</aside>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokyo_gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span>
     <span class="p">{</span>
@@ -698,15 +559,16 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>Now we are good to go!</p>
-</div>
-</div>
-<div class="section" id="visualization-of-a-point-pattern">
-<h2>Visualization of a Point Pattern<a class="headerlink" href="#visualization-of-a-point-pattern" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="visualization-of-a-point-pattern">
+<h2>Visualization of a Point Pattern<a class="headerlink" href="#visualization-of-a-point-pattern" title="Permalink to this headline">#</a></h2>
 <p>We will spend the rest of this notebook learning different ways to visualize a point pattern. In particular, we will consider to main strategies: one relies on aggregating the points into polygons, while the second one is based on creating continuous surfaces using kernel density estimation.</p>
-<div class="section" id="one-to-one">
-<h3>One-to-one<a class="headerlink" href="#one-to-one" title="Permalink to this headline">¶</a></h3>
+<section id="one-to-one">
+<h3>One-to-one<a class="headerlink" href="#one-to-one" title="Permalink to this headline">#</a></h3>
 <p>The first approach we review here is the one-to-one approach, where we place a dot on the screen for every point to visualise. In Python, one way to do this is with the <code class="docutils literal notranslate"><span class="pre">scatter</span></code> method in the Pandas visualisation layer:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -716,10 +578,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;longitude&#39;, ylabel=&#39;latitude&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;longitude&#39;, ylabel=&#39;latitude&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/lab_H_14_1.png" src="../../_images/lab_H_14_1.png" />
+<img alt="../../_images/c94edacc921294abbb0ed97adec497faefb826bca36d1ee74bbc2a162042b3d0.png" src="../../_images/c94edacc921294abbb0ed97adec497faefb826bca36d1ee74bbc2a162042b3d0.png" />
 </div>
 </div>
 <p>However this does not give us much geographical context and, since there are many points, it is hard to see any pattern in areas of high density. Let’s tweak the dot display and add a basemap:</p>
@@ -746,18 +608,23 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_H_16_0.png" src="../../_images/lab_H_16_0.png" />
+<img alt="../../_images/e43d80bf7aa9a4165a59ab442dbc0ff29ed7197088409bc40d79e02c42e896f6.png" src="../../_images/e43d80bf7aa9a4165a59ab442dbc0ff29ed7197088409bc40d79e02c42e896f6.png" />
 </div>
 </div>
-</div>
-<div class="section" id="points-meet-polygons">
-<h3>Points meet polygons<a class="headerlink" href="#points-meet-polygons" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="points-meet-polygons">
+<h3>Points meet polygons<a class="headerlink" href="#points-meet-polygons" title="Permalink to this headline">#</a></h3>
 <p>The approach presented above works until a certain number of points to plot; tweaking dot transparency and size only gets us so far and, at some point, we need to shift the focus. Having learned about visualizing lattice (polygon) data, an option is to “turn” points into polygons and apply techniques like choropleth mapping to visualize their spatial distribution. To do that, we will overlay a polygon layer on top of the point pattern, <em>join</em> the points to the polygons by assigning to each point the polygon where they fall into, and create a choropleth of the counts by polygon.</p>
 <p>This approach is intuitive but of course raises the following question: <em>what polygons do we use to aggregate the points?</em> Ideally, we want a boundary delineation that matches as closely as possible the point generating process and partitions the space into areas with a similar internal intensity of points. However, that is usually not the case, no less because one of the main reasons we typically want to visualize the point pattern is to learn about such generating process, so we would typically not know a priori whether a set of polygons match it. If we cannot count on the ideal set of polygons to begin with, we can adopt two more realistic approaches: using a set of pre-existing irregular areas or create a artificial set of regular polygons. Let’s explore both.</p>
-<div class="section" id="irregular-lattices">
-<h4>Irregular lattices<a class="headerlink" href="#irregular-lattices" title="Permalink to this headline">¶</a></h4>
+<section id="irregular-lattices">
+<h4>Irregular lattices<a class="headerlink" href="#irregular-lattices" title="Permalink to this headline">#</a></h4>
 <p>To exemplify this approach, we will use the administrative areas we have loaded above. Let’s add them to the figure above to get better context (unfold the code if you are interested in seeing exactly how we do this):</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot photographs with smaller, more translucent dots</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">tokyo</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
@@ -785,8 +652,9 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_H_19_0.png" src="../../_images/lab_H_19_0.png" />
+<img alt="../../_images/f2c1fd17cfa0114e09d978512800d72eb56ed73ab005a73104dcb1d106607c4b.png" src="../../_images/f2c1fd17cfa0114e09d978512800d72eb56ed73ab005a73104dcb1d106607c4b.png" />
 </div>
 </div>
 <p>Now we need to know how many photographs each are contains. Our photograph table already contains the area ID, so all we need to do here is counting by area and attaching the count to the <code class="docutils literal notranslate"><span class="pre">areas</span></code> table. We rely here on the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> operator which takes all the photos in the table and “groups” them “by” their administrative ID. Once grouped, we apply the method <code class="docutils literal notranslate"><span class="pre">size</span></code>, which counts how many elements each group has and returns a column indexed on the LSOA code with all the counts as its values. We end by assigning the counts to a newly created column in the <code class="docutils literal notranslate"><span class="pre">areas</span></code> table.</p>
@@ -805,13 +673,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>The lines above have created a new column in our <code class="docutils literal notranslate"><span class="pre">areas</span></code> table that contains the number of photos that have been taken within each of the polygons in the table.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Check out <span class="xref myst">Block D</span> if you need a refresher of choropleth maps</p>
 </div>
-</div>
+</aside>
 <p>At this point, we are ready to map the counts. Technically speaking, this is a choropleth just as we have seen many times before:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -841,16 +709,16 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_H_23_0.png" src="../../_images/lab_H_23_0.png" />
+<img alt="../../_images/b83e0a2b9472759e03b124607c0d03dbacdb6ce9135249341f853fd2e8a8e6b9.png" src="../../_images/b83e0a2b9472759e03b124607c0d03dbacdb6ce9135249341f853fd2e8a8e6b9.png" />
 </div>
 </div>
 <p>The map above clearly shows a concentration of photos in the centre of Tokyo. However, it is important to remember that the map is showing <em>raw</em> counts of tweets. In the case to photos, as with many other phenomena, it is crucial to keep in mind the “container geography” (see <a class="reference internal" href="../bD/concepts_D.html"><span class="doc std std-doc">Block D</span></a> for a refresher of the term). In this case, different administrative areas have different sizes. Everything else equal, a larger polygon may contain more photos, simply because it covers a larger space. To obtain a more accurate picture of the <em>intensity</em> of photos by area, what we would like to see is a map of the <em>density</em> of photos, not of raw counts. To do this, we can divide the count per polygon by the area of the polygon.</p>
 <p>Let’s first calculate the area in Sq. metres of each administrative delineation:</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Note how we need to convert our polygons into a projected CRS. Same as we did with the <a class="reference internal" href="../bE/diy_E.html#diy-e-jp-cities"><span class="std std-ref">Japanese functional urban areas</span></a>, we use the <a class="reference external" href="http://epsg.io/2459">Japan Plane Rectangular CS XVII system</a></p>
 <p>Also, we multiply the area by <code class="docutils literal notranslate"><span class="pre">1e-6</span></code> to express the area in squared Km instead of sw. metres</p>
-</div>
+</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">areas</span><span class="p">[</span><span class="s2">&quot;area_sqm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">areas</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">2459</span><span class="p">)</span><span class="o">.</span><span class="n">area</span> <span class="o">*</span> <span class="mf">1e-6</span>
@@ -868,6 +736,11 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>With the density at hand, creating the new choropleth is similar as above (check the code in the expandable):</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up figure and axis</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
@@ -894,14 +767,15 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_H_29_0.png" src="../../_images/lab_H_29_0.png" />
+<img alt="../../_images/119572a1a07d6700680887ad5c91606331c25dd37732356ef2e4d235748788a5.png" src="../../_images/119572a1a07d6700680887ad5c91606331c25dd37732356ef2e4d235748788a5.png" />
 </div>
 </div>
 <p>The pattern in the raw counts is similar to that of density, but we can see how some peripheral, large areas are “downgraded” when correcting for their size, while some smaller polygons in the centre display a higher value.</p>
-</div>
-<div class="section" id="regular-lattices-hex-binning">
-<h4>Regular lattices: hex-binning<a class="headerlink" href="#regular-lattices-hex-binning" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="regular-lattices-hex-binning">
+<h4>Regular lattices: hex-binning<a class="headerlink" href="#regular-lattices-hex-binning" title="Permalink to this headline">#</a></h4>
 <p>Sometimes we either do not have any polygon layer to use or the ones we have are not particularly well suited to aggregate points into them. In these cases, a sensible alternative is to create an artificial topology of polygons that we can use to aggregate points. There are several ways to do this but the most common one is to create a grid of hexagons. This provides a regular topology (every polygon is of the same size and shape) that, unlike circles, cleanly exhausts all the space without overlaps and has more edges than squares, which alleviates edge problems.</p>
 <p>Python has a simplified way to create this hexagon layer <em>and</em> aggregate points into it in one shot thanks to the method <code class="docutils literal notranslate"><span class="pre">hexbin</span></code>, which is available in every axis object (e.g. <code class="docutils literal notranslate"><span class="pre">ax</span></code>). Let us first see how you could create a map of the hexagon layer alone:</p>
 <div class="cell docutils container">
@@ -920,15 +794,20 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7fd7186df1f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7fc4590dec50&gt;
 </pre></div>
 </div>
-<img alt="../../_images/lab_H_32_1.png" src="../../_images/lab_H_32_1.png" />
+<img alt="../../_images/a0e212f3a09b6f3e23c77714b52d0a948d7bf198edc8af0fd16cb878008e4ad1.png" src="../../_images/a0e212f3a09b6f3e23c77714b52d0a948d7bf198edc8af0fd16cb878008e4ad1.png" />
 </div>
 </div>
 <p>See how all it takes is to set up the figure and call <code class="docutils literal notranslate"><span class="pre">hexbin</span></code> directly using the set of coordinate columns (<code class="docutils literal notranslate"><span class="pre">tokyo[&quot;longitude&quot;]</span></code> and <code class="docutils literal notranslate"><span class="pre">tokyo[&quot;latitude&quot;]</span></code>). Additional arguments we include is the number of hexagons by axis (<code class="docutils literal notranslate"><span class="pre">gridsize</span></code>, 50 for a 50 by 50 layer), and the transparency we want (80%). Additionally, we include a colorbar to get a sense of how counts are mapped to colors. Note that we need to pass the name of the object that includes the <code class="docutils literal notranslate"><span class="pre">hexbin</span></code> (<code class="docutils literal notranslate"><span class="pre">hb</span></code> in our case), but keep in mind this is optional, you do not need to always create one.</p>
 <p>Once we know the basics, we can dress it up a bit more for better results (expand to see code):</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
@@ -957,14 +836,15 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_H_34_0.png" src="../../_images/lab_H_34_0.png" />
+<img alt="../../_images/e58299fa62c970e49b7adb3dba79f1291aa3310181ee8e6bce84671d30eff89e.png" src="../../_images/e58299fa62c970e49b7adb3dba79f1291aa3310181ee8e6bce84671d30eff89e.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="kernel-density-estimation">
-<h3>Kernel Density Estimation<a class="headerlink" href="#kernel-density-estimation" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="kernel-density-estimation">
+<h3>Kernel Density Estimation<a class="headerlink" href="#kernel-density-estimation" title="Permalink to this headline">#</a></h3>
 <p>Using a hexagonal binning can be a quick solution when we do not have a good polygon layer to overlay the points directly and some of its properties, such as the equal size of each polygon, can help alleviate some of the problems with a “bad” irregular topology (one that does not fit the underlying point generating process). However, it does not get around the issue of the modifiable areal unit problem (M.A.U.P., see <a class="reference internal" href="../bD/concepts_D.html"><span class="doc std std-doc">Block D</span></a>: at the end of the day, we are still imposing arbitrary boundary lines and aggregating based on them, so the possibility of mismatch with the underlying distribution of the point pattern is very real.</p>
 <p>One way to work around this problem is to avoid aggregating into another geography altogether. Instead, we can aim at estimating the <em>continuous</em> observed probability distribution. The most commonly used method to do this is the so called <em>kernel density estimate</em> (KDE). The idea behind KDEs is to count the number of points in a <em>continious</em> way. Instead of using discrete counting, where you include a point in the count if it is inside a certain boundary and ignore it otherwise, KDEs use functions (kernels) that include points but give different weights to each one depending of how far of the location where we are counting the point is.</p>
 <p>The actual algorithm to estimate a kernel density is not trivial but its application in Python is rather simplified by the use of Seaborn. KDE’s however are fairly computationally intensive. When you have a large point pattern like we do in the <code class="docutils literal notranslate"><span class="pre">tokyo</span></code> example (10,000 points), its computation can take a bit long. To get around this issue, we create a random subset, which retains the overall structure of the pattern, but with much fewer points. Let’s take a subset of 1,000 random points from our original table:</p>
@@ -981,35 +861,38 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span>
-    <span class="n">tokyo_sub</span><span class="p">[</span><span class="s2">&quot;longitude&quot;</span><span class="p">],</span> 
-    <span class="n">tokyo_sub</span><span class="p">[</span><span class="s2">&quot;latitude&quot;</span><span class="p">],</span> 
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span> 
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">tokyo_sub</span><span class="p">,</span>
     <span class="n">n_levels</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> 
-    <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+    <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
     <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;BuPu&#39;</span>
 <span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variable as a keyword arg: y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
-  warnings.warn(
-</pre></div>
-</div>
-<img alt="../../_images/lab_H_38_1.png" src="../../_images/lab_H_38_1.png" />
+<img alt="../../_images/cfc7e370d04a317016e035c917a7ae5fdfd4a5d1a67066452c8e2ff6e41c52c0.png" src="../../_images/cfc7e370d04a317016e035c917a7ae5fdfd4a5d1a67066452c8e2ff6e41c52c0.png" />
 </div>
 </div>
 <p>Seaborn greatly streamlines the process and boils it down to a single line. The method <code class="docutils literal notranslate"><span class="pre">sns.kdeplot</span></code> (which we can also use to create a KDE of a single variable) takes the X and Y coordinate of the points as the only compulsory attributes. In addition, we specify the number of levels we want the color gradient to have (<code class="docutils literal notranslate"><span class="pre">n_levels</span></code>), whether we want to color the space in between each level (<code class="docutils literal notranslate"><span class="pre">share</span></code>, yes), and the colormap of choice.</p>
 <p>Once we know how the basic logic works, we can insert it into the usual mapping machinery to create a more complete plot. The main difference here is that we now have to tell <code class="docutils literal notranslate"><span class="pre">sns.kdeplot</span></code> where we want the surface to be added (<code class="docutils literal notranslate"><span class="pre">ax</span></code> in this case). Toggle the expandable to find out the code that produces the figure below:</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
 <span class="c1"># Add KDE layer that displays probability surface</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span>
-    <span class="n">tokyo_sub</span><span class="p">[</span><span class="s2">&quot;longitude&quot;</span><span class="p">],</span> 
-    <span class="n">tokyo_sub</span><span class="p">[</span><span class="s2">&quot;latitude&quot;</span><span class="p">],</span> 
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> 
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> 
+    <span class="n">data</span><span class="o">=</span><span class="n">tokyo_sub</span><span class="p">,</span>
     <span class="n">n_levels</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> 
-    <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
     <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span>
 <span class="p">)</span>
@@ -1028,18 +911,15 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variable as a keyword arg: y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
-  warnings.warn(
-</pre></div>
-</div>
-<img alt="../../_images/lab_H_40_1.png" src="../../_images/lab_H_40_1.png" />
+<img alt="../../_images/fc349c8ef2ddb5e465c578ef687b78d25dc818a4f6254f80d1fbd1b011114836.png" src="../../_images/fc349c8ef2ddb5e465c578ef687b78d25dc818a4f6254f80d1fbd1b011114836.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="clusters-of-points">
-<h2>Clusters of points<a class="headerlink" href="#clusters-of-points" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="clusters-of-points">
+<h2>Clusters of points<a class="headerlink" href="#clusters-of-points" title="Permalink to this headline">#</a></h2>
 <p>In this final section, we will learn a method to identify clusters of points, based on their density across space. To do this, we will use the widely used <code class="docutils literal notranslate"><span class="pre">DBSCAN</span></code> algorithm. For this method, a cluster is a concentration of at least <code class="docutils literal notranslate"><span class="pre">m</span></code> points, each of them within a distance of <code class="docutils literal notranslate"><span class="pre">r</span></code> of at least another point in the cluster. Points in the dataset are then divided into three categories:</p>
 <ul class="simple">
 <li><p><em>Noise</em>, for those points outside a cluster.</p></li>
@@ -1047,8 +927,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><em>Borders</em> for points inside a cluster with less than <code class="docutils literal notranslate"><span class="pre">m</span></code> other points in the cluster within distance <code class="docutils literal notranslate"><span class="pre">r</span></code>.</p></li>
 </ul>
 <p>Both <code class="docutils literal notranslate"><span class="pre">m</span></code> and <code class="docutils literal notranslate"><span class="pre">r</span></code> need to be prespecified by the user before running <code class="docutils literal notranslate"><span class="pre">DBSCAN</span></code>. This is a critical point, as their value can influence significantly the final result. Before exploring this in greater depth, let us get a first run at computing <code class="docutils literal notranslate"><span class="pre">DBSCAN</span></code> in Python.</p>
-<div class="section" id="basics">
-<h3>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h3>
+<section id="basics">
+<h3>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">#</a></h3>
 <p>The heavy lifting is done by the method <code class="docutils literal notranslate"><span class="pre">DBSCAN</span></code>, part of the excellent machine learning library <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>. Running the algorithm is similar to how we ran K-Means when <a class="reference internal" href="../bG/lab_G.html"><span class="doc std std-doc">clustering</span></a>. We first set up the details:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1084,10 +964,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DBSCAN(eps=100, min_samples=50)
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>DBSCAN(eps=100, min_samples=50)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">DBSCAN</label><div class="sk-toggleable__content"><pre>DBSCAN(eps=100, min_samples=50)</pre></div></div></div></div></div></div></div>
 </div>
 <p>Once fit, we can recover the labels:</p>
 <div class="cell docutils container">
@@ -1158,7 +1035,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_H_53_0.png" src="../../_images/lab_H_53_0.png" />
+<img alt="../../_images/688397eb181a519437f3e05bba62586e6f5f4ad2c1b7b2b2d9807c2db5612623.png" src="../../_images/688397eb181a519437f3e05bba62586e6f5f4ad2c1b7b2b2d9807c2db5612623.png" />
 </div>
 </div>
 <p>This is a first good pass. The algorithm is able to identify a few clusters with high density of photos. However, as we mentioned <a class="reference internal" href="concepts_H.html#concepts-h-dbscan"><span class="std std-ref">when discussing DBSCAN</span></a>, this is all contingent on the parameters we arbitrarily set. Depending on the maximum radious (<code class="docutils literal notranslate"><span class="pre">eps</span></code>) we set, we will pick one type of cluster or another: a higher (lower) radious will translate in less (more) local clusters. Equally, the minimum number of points required for a cluster (<code class="docutils literal notranslate"><span class="pre">min_samples</span></code>) will affect the implicit size of the cluster. Both parameters need to be set before running the algorithm, so our decision will affect the final outcome quite significantly.</p>
@@ -1177,6 +1054,11 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>And let’s now visualise the result (toggle the expandable to see the code):</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup figure and axis</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -1208,14 +1090,15 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_H_57_0.png" src="../../_images/lab_H_57_0.png" />
+<img alt="../../_images/131eaf422757d286cc2ccacba1889067c98573db2d3907da6f5e37e8ebb34cd5.png" src="../../_images/131eaf422757d286cc2ccacba1889067c98573db2d3907da6f5e37e8ebb34cd5.png" />
 </div>
 </div>
 <p>The output is now very different, isn’t it? This exemplifies how different parameters can give rise to substantially different outcomes, even if the same data and algorithm are applied.</p>
-</div>
-<div class="section" id="advanced-plotting">
-<h3>Advanced plotting<a class="headerlink" href="#advanced-plotting" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="advanced-plotting">
+<h3>Advanced plotting<a class="headerlink" href="#advanced-plotting" title="Permalink to this headline">#</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Please keep in mind this final section of the tutorial is <strong>OPTIONAL</strong>, so do not feel forced to complete it. This will not be covered in the assignment and you will still be able to get a good mark without completing it (also, including any of the following in the assignment does NOT guarantee a better mark).</p>
@@ -1225,7 +1108,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">clusters</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="n">min_samples</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Compute and visualize DBSCAN clusters    </span>
 <span class="sd">    ...</span>
 <span class="sd">    </span>
@@ -1257,7 +1140,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>The function takes the following three arguments:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">db</span></code>: a <code class="docutils literal notranslate"><span class="pre">(Geo)DataFrame</span></code> containing the points on which we will try to find the clusters.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">eps</span></code>: a number (maybe with decimals, hence the <code class="docutils literal notranslate"><span class="pre">float</span></code> label in the documentation of the function) specifying the maximum distance to look for neighbors that will be part of a cluster.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">min_samples</span></code>: a count of the minimum number of points required to form a cluster.</p></li>
@@ -1270,7 +1153,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_H_61_0.png" src="../../_images/lab_H_61_0.png" />
+<img alt="../../_images/131eaf422757d286cc2ccacba1889067c98573db2d3907da6f5e37e8ebb34cd5.png" src="../../_images/131eaf422757d286cc2ccacba1889067c98573db2d3907da6f5e37e8ebb34cd5.png" />
 </div>
 </div>
 <p>Voila! With just one line of code, we can create a map of <code class="docutils literal notranslate"><span class="pre">DBSCAN</span></code> clusters. How cool is that?</p>
@@ -1287,9 +1170,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "d3c08ba731864fcc851e2b17cc11ad78", "version_major": 2, "version_minor": 0}
-</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "baf6963d99eb4c36a878015839369eed", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>Phew! That is cool, isn’t it? Once passed the first excitement, let us have a look at how we built it, and how you can modify it further on. A few points on this:</p>
 <ul class="simple">
@@ -1301,9 +1182,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>In the case of <code class="docutils literal notranslate"><span class="pre">min_samples</span></code>, we take a similar approach and say we want the minimum number of points to go from 50 to 300, in steps of 50 points at a time.</p></li>
 </ul>
 <p>The above results in a little interactive tool that allows us to play easily and quickly with different values for the parameters and to explore how they affect the final outcome.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1317,7 +1198,7 @@ const thebe_selector_output = ".output, .cell_output"
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./content/bH"
         },
         predefinedOutput: true
@@ -1325,47 +1206,122 @@ const thebe_selector_output = ".output, .cell_output"
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="concepts_H.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Concepts</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="concepts_H.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Concepts</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="diy_H.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="diy_H.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Do-It-Yourself</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
-</div>
-            
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By Dani Arribas-Bel<br/>
-    
-      <div class="extra_footer">
-        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-
-      </div>
-  </p>
-</footer>
-</main>
-
-
-      </div>
-    </div>
+</div></div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+</div>
 
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#points">Points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#photographs">Photographs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#administrative-areas">Administrative areas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-a-point-pattern">Visualization of a Point Pattern</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-to-one">One-to-one</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#points-meet-polygons">Points meet polygons</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#irregular-lattices">Irregular lattices</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#regular-lattices-hex-binning">Regular lattices: hex-binning</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-density-estimation">Kernel Density Estimation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clusters-of-points">Clusters of points</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-plotting">Advanced plotting</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dani Arribas-Bel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

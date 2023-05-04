@@ -1,558 +1,424 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Hands-on &#8212; A course on Geographic Data Science</title>
-    
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
-    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-6032674-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-6032674-1');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/bG/lab_G';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Do-It-Yourself" href="diy_G.html" />
     <link rel="prev" title="Concepts" href="concepts_G.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-6032674-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">A course on Geographic Data Science</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../home.html">
-   ENVS363/563
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Information
- </span>
-</p>
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../home.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">A course on Geographic Data Science</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../home.html">
+                    ENVS363/563
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Information</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../overview.html">
-   Overview
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../infrastructure.html">
-   Infrastructure
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../assessment.html">
-   Assessment
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../datasets.html">
-   Datasets
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bibliography.html">
-   Bibliography
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../infrastructure.html">Infrastructure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  A - Introduction
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">A - Introduction</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bA/concepts_A.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bA/lab_A.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bA/diy_A.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bA/concepts_A.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bA/lab_A.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bA/diy_A.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  B - Open Science
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">B - Open Science</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bB/concepts_B.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bB/lab_B.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bB/diy_B.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bB/concepts_B.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bB/lab_B.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bB/diy_B.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  C - Spatial Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">C - Spatial Data</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bC/concepts_C.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bC/lab_C.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bC/diy_C.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bC/concepts_C.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bC/lab_C.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bC/diy_C.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  D - Mapping Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">D - Mapping Data</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bD/concepts_D.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bD/lab_D.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bD/diy_D.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bD/concepts_D.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bD/lab_D.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bD/diy_D.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  E - Spatial Weights
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">E - Spatial Weights</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bE/concepts_E.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bE/lab_E.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bE/diy_E.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bE/concepts_E.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bE/lab_E.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bE/diy_E.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  F - ESDA
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">F - ESDA</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bF/concepts_F.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bF/lab_F.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bF/diy_F.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bF/concepts_F.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bF/lab_F.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bF/diy_F.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  G - Clustering
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">G - Clustering</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="concepts_G.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="diy_G.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="concepts_G.html">Concepts</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diy_G.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  H - Points
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">H - Points</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bH/concepts_H.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bH/lab_H.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bH/diy_H.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bH/concepts_H.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bH/lab_H.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bH/diy_H.html">Do-It-Yourself</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
-<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
 <div class="sbt-scroll-pixel-helper"></div>
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            <div class="topbar-left">
-                
-                <label class="nav-toggle-button" for="__navigation">
-                    <div class="visually-hidden">Toggle navigation</div>
-                    <i class="fas fa-bars"></i>
-                </label>
-                
-            </div>
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
 
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/bG/lab_G.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/darribas/gds_course/master?urlpath=tree/content/bG/lab_G.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Source interaction buttons -->
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/darribas/gds_course/master?urlpath=tree/content/bG/lab_G.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-        
-    </div>
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/content/bG/lab_G.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-        </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Hands-on</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#clustering-spatial-clustering-and-geodemographics">
-   Clustering, spatial clustering, and geodemographics
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data">
-   Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#getting-to-know-the-data">
-   Getting to know the data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#an-airbnb-geodemographic-classification-of-inner-london-using-k-means">
-   An AirBnb geodemographic classification of Inner London using K-means
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mapping-the-categories">
-     Mapping the categories
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exploring-the-nature-of-the-categories">
-     Exploring the nature of the categories
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#regionalization-algorithms">
-   Regionalization algorithms
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#defining-space-formally">
-     Defining space formally
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#creating-regions-from-areas">
-     Creating regions from areas
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mapping-the-resulting-regions">
-     Mapping the resulting regions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#comparing-organic-and-administrative-delineations">
-     Comparing organic and administrative delineations
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-spatial-clustering-and-geodemographics">Clustering, spatial clustering, and geodemographics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-to-know-the-data">Getting to know the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-airbnb-geodemographic-classification-of-inner-london-using-k-means">An AirBnb geodemographic classification of Inner London using K-means</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-the-categories">Mapping the categories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-nature-of-the-categories">Exploring the nature of the categories</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regionalization-algorithms">Regionalization algorithms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-space-formally">Defining space formally</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-regions-from-areas">Creating regions from areas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-the-resulting-regions">Mapping the resulting regions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-organic-and-administrative-delineations">Comparing organic and administrative delineations</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Hands-on</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#clustering-spatial-clustering-and-geodemographics">
-   Clustering, spatial clustering, and geodemographics
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data">
-   Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#getting-to-know-the-data">
-   Getting to know the data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#an-airbnb-geodemographic-classification-of-inner-london-using-k-means">
-   An AirBnb geodemographic classification of Inner London using K-means
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mapping-the-categories">
-     Mapping the categories
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exploring-the-nature-of-the-categories">
-     Exploring the nature of the categories
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#regionalization-algorithms">
-   Regionalization algorithms
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#defining-space-formally">
-     Defining space formally
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#creating-regions-from-areas">
-     Creating regions from areas
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mapping-the-resulting-regions">
-     Mapping the resulting regions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#comparing-organic-and-administrative-delineations">
-     Comparing organic and administrative delineations
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
-  <div class="section" id="hands-on">
-<h1>Hands-on<a class="headerlink" href="#hands-on" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="clustering-spatial-clustering-and-geodemographics">
-<h2>Clustering, spatial clustering, and geodemographics<a class="headerlink" href="#clustering-spatial-clustering-and-geodemographics" title="Permalink to this headline">¶</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="hands-on">
+<h1>Hands-on<a class="headerlink" href="#hands-on" title="Permalink to this headline">#</a></h1>
+<section id="clustering-spatial-clustering-and-geodemographics">
+<h2>Clustering, spatial clustering, and geodemographics<a class="headerlink" href="#clustering-spatial-clustering-and-geodemographics" title="Permalink to this headline">#</a></h2>
 <p>This session covers statistical clustering of spatial observations. Many questions and topics are complex phenomena that involve several dimensions and are hard to summarize into a single variable. In statistical terms, we call this family of problems <em>multivariate</em>, as oposed to <em>univariate</em> cases where only a single variable is considered in the analysis. Clustering tackles this kind of questions by reducing their dimensionality -the number of relevant variables the analyst needs to look at- and converting it into a more intuitive set of classes that even non-technical audiences can look at and make sense of. For this reason, it is widely use in applied contexts such as policymaking or marketting. In addition, since these methods do not require many preliminar assumptions about the structure of the data, it is a commonly used exploratory tool, as it can quickly give clues about the shape, form and content of a dataset.</p>
 <p>The basic idea of statistical clustering is to summarize the information contained in several variables by creating a relatively small number of categories. Each observation in the dataset is then assigned to one, and only one, category depending on its values for the variables originally considered in the classification. If done correctly, the exercise reduces the complexity of a multi-dimensional problem while retaining all the meaningful information contained in the original dataset. This is because, once classified, the analyst only needs to look at in which category every observation falls into, instead of considering the multiple values associated with each of the variables and trying to figure out how to put them together in a coherent sense. When the clustering is performed on observations that represent areas, the technique is often called geodemographic analysis.</p>
 <p>Although there exist many techniques to statistically group observations in a dataset, all of them are based on the premise of using a set of attributes to define classes or categories of observations that are similar <em>within</em> each of them, but differ <em>between</em> groups. How similarity within groups and dissimilarity between them is defined and how the classification algorithm is operationalized is what makes techniques differ and also what makes each of them particularly well suited for specific problems or types of data. As an illustration, we will only dip our toes into one of these methods, K-means, which is probably the most commonly used technique for statistical clustering.</p>
@@ -573,20 +439,20 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="data">
-<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h2>
 <p>The dataset we will use in this occasion is an extract from the online website <a class="reference external" href="http://www.airbnb.com">AirBnb</a>. AirBnb is a company that provides a meeting point for people looking for an alternative to a hotel when they visit a city, and locals who want to rent (part of) their house to make some extra money. The website has a continuously updated listing of all the available properties in a given city that customers can check and book through. In addition, the website also provides a feedback mechanism by which both ends, hosts and guests, can rate their experience. Aggregating ratings from guests about the properties where they have stayed, AirBnb provides additional information for every property, such as an overall cleanliness score or an index of how good the host is at communicating with the guests.</p>
 <p>The original data are provided at the property level and for the entire London. However, since the total number of properties is very large for the purposes of this notebook, they have been aggregated at the Middle Super Output Area (MSOA), a geographical unit created by the Office of National Statistics. Although the original source contains information for the Greater London, the vast majority of properties are located in Inner London, so the data we will use is restricted to that extent. Even in this case, not every polygon has at least one property. To avoid cases of missing values, the final dataset only contains those MSOAs with at least one property, so there can be average ratings associated with them.</p>
 <p>Our goal in this notebook is to create a classification of areas (MSOAs) in Inner London based on the ratings of the AirBnb locations. This will allow us to create a typology for the geography of AirBnb in London and, to the extent the AirBnb locations can say something about the areas where they are located, the classification will help us understand the geography of residential London a bit better. One general caveat about the conclusions we can draw from an analysis like this one that derives from the nature of AirBnb data. On the one hand, this dataset is a good example of the kind of analyses that the data revolution is making possible as, only a few years ago, it would have been very hard to obtain a similarly large survey of properties with ratings like this one. On the other hand, it is important to keep in mind the kinds of biases that these data are subject to and thus the limitations in terms of generalizing findings to the general population. At any rate, this dataset is a great example to learn about statistical clustering of spatial observations, both in a geodemographic as well as in a regionalization.</p>
 <p>Let’s start by reading the main table of MSOAs in:</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition-important admonition">
 <p class="admonition-title">Important</p>
 <p>Make sure you are connected to the internet when you run this cell</p>
 </div>
-</div>
+</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the file in</span>
@@ -606,7 +472,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="admonition-alternative admonition">
 <p class="admonition-title">Alternative</p>
 <p>Instead of reading the file directly off the web, it is possible to download it manually, store it on your computer, and read it locally. To do that, you can follow these steps:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Download the file by right-clicking on <a href="../data/london_abb.gpkg"> this link </a> and saving the file</p></li>
 <li><p>Place the file on the <em>same folder as the notebook</em> where you intend to read it</p></li>
 <li><p>Replace the code in the cell above by:</p></li>
@@ -669,13 +535,13 @@ memory usage: 49.8+ KB
 </div>
 </div>
 <p>Later in the section, we will also use what AirBnb calls neighborhoods. Let’s load them in so they are ready when we need them.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition-important admonition">
 <p class="admonition-title">Important</p>
 <p>Make sure you are connected to the internet when you run this cell</p>
 </div>
-</div>
+</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boroughs</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span>
@@ -686,9 +552,9 @@ memory usage: 49.8+ KB
 </div>
 </div>
 <p>Note that, in comparison to previous datasets, this one is provided in a new format, <code class="docutils literal notranslate"><span class="pre">.geojson</span></code>. GeoJSON files are a plain text file (you can open it on any text editor and see its contents) that follows the structure of the JSON format, widely used to exchange information over the web, adapted for geographic data, hence the <code class="docutils literal notranslate"><span class="pre">geo</span></code> at the front. GeoJSON files have gained much popularity with the rise of web mapping and are quickly becoming a de-facto standard for small datasets because they are readable by humans and by many different platforms. As you can see above, reading them in Python is exactly the same as reading a shapefile, for example.</p>
-</div>
-<div class="section" id="getting-to-know-the-data">
-<h2>Getting to know the data<a class="headerlink" href="#getting-to-know-the-data" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="getting-to-know-the-data">
+<h2>Getting to know the data<a class="headerlink" href="#getting-to-know-the-data" title="Permalink to this headline">#</a></h2>
 <p>The best way to start exploring the geography of AirBnb ratings is by plotting each of them into a different map. This will give us a univariate perspective on each of the variables we are interested in.</p>
 <p>Since we have many columns to plot, we will create a loop that generates each map for us and places it on a “subplot” of the main figure:</p>
 <div class="cell docutils container">
@@ -720,7 +586,7 @@ memory usage: 49.8+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_G_12_0.png" src="../../_images/lab_G_12_0.png" />
+<img alt="../../_images/88edb1d69b876e59f7a72154d78257deb53ad6910b2d44353dd4e7cdfbf01cb4.png" src="../../_images/88edb1d69b876e59f7a72154d78257deb53ad6910b2d44353dd4e7cdfbf01cb4.png" />
 </div>
 </div>
 <p>Before we delve into the substantive interpretation of the map, let us walk through the process of creating the figure above, which involves several subplots inside the same figure:</p>
@@ -741,13 +607,13 @@ memory usage: 49.8+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_G_14_0.png" src="../../_images/lab_G_14_0.png" />
+<img alt="../../_images/9183edb8c804bb5977f9fdca63ed91fc07dd450fb83458737eb4e9999f57265b.png" src="../../_images/9183edb8c804bb5977f9fdca63ed91fc07dd450fb83458737eb4e9999f57265b.png" />
 </div>
 </div>
 <p>This is helpful to consider uni and bivariate questions such as: <em>what is the relationship between the overall (<code class="docutils literal notranslate"><span class="pre">rating</span></code>) and location scores?</em> (Positive) <em>Are the overall ratings more correlated with location or with cleanliness?</em> (Cleanliness) However, sometimes, this is not enough and we are interested in more sophisticated questions that are truly multivariate and, in these cases, the figure above cannot help us. For example, it is not straightforward to answer questions like: <em>what are the main characteristics of the South of London?</em> <em>What areas are similar to the core of the city?</em> <em>Are the East and West of London similar in terms of the kind of AirBnb properties you can find in them?</em> For these kinds of multi-dimensional questions -involving multiple variables at the same time- we require a truly multidimensional method like statistical clustering.</p>
-</div>
-<div class="section" id="an-airbnb-geodemographic-classification-of-inner-london-using-k-means">
-<h2>An AirBnb geodemographic classification of Inner London using K-means<a class="headerlink" href="#an-airbnb-geodemographic-classification-of-inner-london-using-k-means" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="an-airbnb-geodemographic-classification-of-inner-london-using-k-means">
+<h2>An AirBnb geodemographic classification of Inner London using K-means<a class="headerlink" href="#an-airbnb-geodemographic-classification-of-inner-london-using-k-means" title="Permalink to this headline">#</a></h2>
 <p>A geodemographic analysis involves the classification of the areas that make up a greographical map into groups or categories of observations that are similar within each other but different between them. The classification is carried out using a statistical clustering algorithm that takes as input a set of attributes and returns the group (“labels” in the terminology) each observation belongs to. Depending on the particular algorithm employed, additional parameters, such as the desired number of clusters employed or more advanced tuning parameters (e.g. bandwith, radius, etc.), also need to be entered as inputs. For our geodemographic classification of AirBnb ratings in Inner London, we will use one of the most popular clustering algorithms: K-means. This technique only requires as input the observation attributes and the final number of groups that we want it to cluster the observations into. In our case, we will use five to begin with as this will allow us to have a closer look into each of them.</p>
 <p>Although the underlying algorithm is not trivial, running K-means in Python is streamlined thanks to <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>. Similar to the extensive set of available algorithms in the library, its computation is a matter of two lines of code. First, we need to specify the parameters in the <code class="docutils literal notranslate"><span class="pre">KMeans</span></code> method (which is part of <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>’s <code class="docutils literal notranslate"><span class="pre">cluster</span></code> submodule). Note that, at this point, we do not even need to pass the data:</p>
 <div class="cell docutils container">
@@ -804,8 +670,8 @@ memory usage: 49.8+ KB
 </div>
 </div>
 </div>
-<div class="section" id="mapping-the-categories">
-<h3>Mapping the categories<a class="headerlink" href="#mapping-the-categories" title="Permalink to this headline">¶</a></h3>
+<section id="mapping-the-categories">
+<h3>Mapping the categories<a class="headerlink" href="#mapping-the-categories" title="Permalink to this headline">#</a></h3>
 <p>To get a better understanding of the classification we have just performed, it is useful to display the categories created on a map. For this, we will use a unique values choropleth, which will automatically assign a different color to each category:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -825,13 +691,13 @@ memory usage: 49.8+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_G_27_0.png" src="../../_images/lab_G_27_0.png" />
+<img alt="../../_images/530b579cdde72fd6f36083806d49a2df0c2f3b7fb070d7bf1425f1b6053fe924.png" src="../../_images/530b579cdde72fd6f36083806d49a2df0c2f3b7fb070d7bf1425f1b6053fe924.png" />
 </div>
 </div>
 <p>The map above represents the geographical distribution of the five categories created by the K-means algorithm. A quick glance shows a strong spatial structure in the distribution of the colors: group zero (blue) is mostly found in the city centre and barely in the periphery, while group one (green) is concentrated in the south mostly. Group four (turquoise) is an intermediate one, while group two (brown)is much smaller, containing only a handful of observations.</p>
-</div>
-<div class="section" id="exploring-the-nature-of-the-categories">
-<h3>Exploring the nature of the categories<a class="headerlink" href="#exploring-the-nature-of-the-categories" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="exploring-the-nature-of-the-categories">
+<h3>Exploring the nature of the categories<a class="headerlink" href="#exploring-the-nature-of-the-categories" title="Permalink to this headline">#</a></h3>
 <p>Once we have a sense of where and how the categories are distributed over space, it is also useful to explore them statistically. This will allow us to characterize them, giving us an idea of the kind of observations subsumed into each of them. As a first step, let us find how many observations are in each category. To do that, we will make use of the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> operator introduced before, combined with the function <code class="docutils literal notranslate"><span class="pre">size</span></code>, which returns the number of elements in a subgroup:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -860,7 +726,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_G_31_0.png" src="../../_images/lab_G_31_0.png" />
+<img alt="../../_images/3fbaa0be5495876851afd20feb124e70d9f72d7414790b68495519e465b81693.png" src="../../_images/3fbaa0be5495876851afd20feb124e70d9f72d7414790b68495519e465b81693.png" />
 </div>
 </div>
 <p>As we suspected from the map, groups varying sizes, with groups one, two and three being over 70 observations each, and four being under 25.</p>
@@ -962,15 +828,15 @@ dtype: int64
 </div></div></div>
 </div>
 <p>This concludes the section on geodemographics. As we have seen, the essence of this approach is to group areas based on a purely statistical basis: <em>where</em> each area is located is irrelevant for the label it receives from the clustering algorithm. In many contexts, this is not only permissible but even desirable, as the interest is to see if particular combinations of values are distributed over space in any discernible way. However, in other context, we may be interested in created groups of observations that follow certain spatial constraints. For that, we now turn into regionalization techniques.</p>
-</div>
-</div>
-<div class="section" id="regionalization-algorithms">
-<h2>Regionalization algorithms<a class="headerlink" href="#regionalization-algorithms" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="regionalization-algorithms">
+<h2>Regionalization algorithms<a class="headerlink" href="#regionalization-algorithms" title="Permalink to this headline">#</a></h2>
 <p>Regionalization is the subset of clustering techniques that impose a spatial constraint on the classification. In other words, the result of a regionalization algorithm contains areas that are spatially contiguous. Efectively, what this means is that these techniques aggregate areas into a smaller set of larger ones, called regions. In this context then, areas are <em>nested</em> within regions. Real world examples of this phenomenon includes counties within states or, in the UK, local super output areas (LSOAs) into middle super output areas (MSOAs). The difference between those examples and the output of a regionalization algorithm is that while the former are aggregated based on administrative principles, the latter follows a statistical technique that, very much the same as in the standard statistical clustering, groups together areas that are similar on the basis of a set of attributes. Only that now, such statistical clustering is spatially constrained.</p>
 <p>As in the non-spatial case, there are many different algorithms to perform regionalization, and they all differ on details relating to the way they measure (dis)similarity, the process to regionalize, etc. However, same as above too, they all share a few common aspects. In particular, they all take a set of input attributes <em>and</em> a representation of space in the form of a binary spatial weights matrix. Depending on the algorithm, they also require the desired number of output regions into which the areas are aggregated.</p>
 <p>To illustrate these concepts, we will run a regionalization algorithm on the AirBnb data we have been using. In this case, the goal will be to re-delineate the boundary lines of the Inner London boroughs following a rationale based on the different average ratings on AirBnb proeperties, instead of the administrative reasons behind the existing boundary lines. In this way, the resulting regions will represent a consistent set of areas that are similar with each other in terms of the ratings received.</p>
-<div class="section" id="defining-space-formally">
-<h3>Defining space formally<a class="headerlink" href="#defining-space-formally" title="Permalink to this headline">¶</a></h3>
+<section id="defining-space-formally">
+<h3>Defining space formally<a class="headerlink" href="#defining-space-formally" title="Permalink to this headline">#</a></h3>
 <p>Very much in the same way as with ESDA techniques, regionalization methods require a formal representation of space that is statistics-friendly. In practice, this means that we will need to create a spatial weights matrix for the areas to be aggregated.</p>
 <p>Technically speaking, this is the same process as we have seen before, thanks to <code class="docutils literal notranslate"><span class="pre">PySAL</span></code>. The difference in this case is that we did not begin with a shapefile, but with a GeoJSON. Fortunately, <code class="docutils literal notranslate"><span class="pre">PySAL</span></code> supports the construction of spatial weights matrices “on-the-fly”, that is from a table. This is a one-liner:</p>
 <div class="cell docutils container">
@@ -980,9 +846,9 @@ dtype: int64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="creating-regions-from-areas">
-<h3>Creating regions from areas<a class="headerlink" href="#creating-regions-from-areas" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="creating-regions-from-areas">
+<h3>Creating regions from areas<a class="headerlink" href="#creating-regions-from-areas" title="Permalink to this headline">#</a></h3>
 <p>At this point, we have all the pieces needed to run a regionalization algorithm. For this example, we will use a spatially-constrained version of the agglomerative algorithm. This is a similar approach to that used above (the inner-workings of the algorithm are different however) with the difference that, in this case, observations can only be labelled in the same group if they are spatial neighbors, as defined by our spatial weights matrix <code class="docutils literal notranslate"><span class="pre">w</span></code>. The way to interact with the algorithm is very similar to that above. We first set the parameters:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1016,9 +882,9 @@ dtype: int64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="mapping-the-resulting-regions">
-<h3>Mapping the resulting regions<a class="headerlink" href="#mapping-the-resulting-regions" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="mapping-the-resulting-regions">
+<h3>Mapping the resulting regions<a class="headerlink" href="#mapping-the-resulting-regions" title="Permalink to this headline">#</a></h3>
 <p>At this point, the column <code class="docutils literal notranslate"><span class="pre">sagg13cls</span></code> is no different than <code class="docutils literal notranslate"><span class="pre">k5cls</span></code>: a categorical variable that can be mapped into a unique values choropleth. In fact the following code snippett is exactly the same as before, only replacing the name of the variable to be mapped and the title:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1038,17 +904,17 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_G_45_0.png" src="../../_images/lab_G_45_0.png" />
+<img alt="../../_images/23465c7df11d6eacb4cfbc4868ff11c267819eb03aa7e36d490e15316a896ef5.png" src="../../_images/23465c7df11d6eacb4cfbc4868ff11c267819eb03aa7e36d490e15316a896ef5.png" />
 </div>
 </div>
-</div>
-<div class="section" id="comparing-organic-and-administrative-delineations">
-<h3>Comparing organic and administrative delineations<a class="headerlink" href="#comparing-organic-and-administrative-delineations" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="comparing-organic-and-administrative-delineations">
+<h3>Comparing organic and administrative delineations<a class="headerlink" href="#comparing-organic-and-administrative-delineations" title="Permalink to this headline">#</a></h3>
 <p>The map above gives a very clear impression of the boundary delineation of the algorithm. However, it is still based on the small area polygons. To create the new boroughs “properly”, we need to dissolve all the polygons in each category into a single one. This is a standard GIS operation that is supported by <code class="docutils literal notranslate"><span class="pre">geopandas</span></code> and that can be easily actioned with the same <code class="docutils literal notranslate"><span class="pre">groupby</span></code> operator we used before. The only additional complication is that we need to wrap it into a separate function to be able to pass it on to <code class="docutils literal notranslate"><span class="pre">groupby</span></code>. We first the define the function <code class="docutils literal notranslate"><span class="pre">dissolve</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dissolve</span><span class="p">(</span><span class="n">gs</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Take a series of polygons and dissolve them into a single one</span>
 <span class="sd">    </span>
 <span class="sd">    Arguments</span>
@@ -1097,7 +963,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_G_51_0.png" src="../../_images/lab_G_51_0.png" />
+<img alt="../../_images/157620cdcc43bf37472576de4b5b06cb3d8f62a723c3cf935a1b61013628fb93.png" src="../../_images/157620cdcc43bf37472576de4b5b06cb3d8f62a723c3cf935a1b61013628fb93.png" />
 </div>
 </div>
 <p>The delineation above provides a view into the geography of AirBnb properties. Each region delineated contains houses that, according to our regionalisation algorithm, are more similar with each other than those in the neighboring areas. Now let’s compare this geography that we have organically drawn from our data with that of the official set of administrative boundaries. For example, with the London boroughs.</p>
@@ -1217,15 +1083,20 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_G_55_0.png" src="../../_images/lab_G_55_0.png" />
+<img alt="../../_images/14717617d07a66195c5e662e7f94a4660156b53ba2d79f0932d8c8409ecc8c37.png" src="../../_images/14717617d07a66195c5e662e7f94a4660156b53ba2d79f0932d8c8409ecc8c37.png" />
 </div>
 </div>
 <p>In order to more easily compare the administrative and the “regionalized” boundary lines, we can overlay them:</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>The code to create this figure is hidden to facilitate the flow of the narrative but you can toggle it open. It combines building blocks we have seen previously in this course</p>
-</div>
+</aside>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up figure</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
@@ -1265,14 +1136,15 @@ dtype: int64
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_G_57_0.png" src="../../_images/lab_G_57_0.png" />
+<img alt="../../_images/6ea2a2a0b5b6400686acbee2cb818cc195bfaa3e14dd11a151537ac6609bcdf7.png" src="../../_images/6ea2a2a0b5b6400686acbee2cb818cc195bfaa3e14dd11a151537ac6609bcdf7.png" />
 </div>
 </div>
 <p>Looking at the figure, there are several differences between the two maps. The clearest one is that, while the administrative boundaries have a very balanced size (with the exception of the city of London), the regions created with the spatial agglomerative algorithm are very different in terms of size between each other. This is a consequence of both the nature of the underlying data and the algorithm itself. Substantively, this shows how, based on AirBnb, we can observe large areas that are similar and hence are grouped into the same region, while there also exist pockets with characteristics different enough to be assigned into a different region.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1286,7 +1158,7 @@ dtype: int64
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./content/bG"
         },
         predefinedOutput: true
@@ -1294,47 +1166,116 @@ dtype: int64
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="concepts_G.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Concepts</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="concepts_G.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Concepts</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="diy_G.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="diy_G.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Do-It-Yourself</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
-</div>
-            
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By Dani Arribas-Bel<br/>
-    
-      <div class="extra_footer">
-        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-
-      </div>
-  </p>
-</footer>
-</main>
-
-
-      </div>
-    </div>
+</div></div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+</div>
 
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-spatial-clustering-and-geodemographics">Clustering, spatial clustering, and geodemographics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-to-know-the-data">Getting to know the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-airbnb-geodemographic-classification-of-inner-london-using-k-means">An AirBnb geodemographic classification of Inner London using K-means</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-the-categories">Mapping the categories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-nature-of-the-categories">Exploring the nature of the categories</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regionalization-algorithms">Regionalization algorithms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-space-formally">Defining space formally</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-regions-from-areas">Creating regions from areas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-the-resulting-regions">Mapping the resulting regions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-organic-and-administrative-delineations">Comparing organic and administrative delineations</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dani Arribas-Bel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

@@ -1,610 +1,431 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Hands-on &#8212; A course on Geographic Data Science</title>
-    
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
-    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-6032674-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-6032674-1');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/bB/lab_B';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Do-It-Yourself" href="diy_B.html" />
     <link rel="prev" title="Concepts" href="concepts_B.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-6032674-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">A course on Geographic Data Science</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../home.html">
-   ENVS363/563
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Information
- </span>
-</p>
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../home.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">A course on Geographic Data Science</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../home.html">
+                    ENVS363/563
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Information</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../overview.html">
-   Overview
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../infrastructure.html">
-   Infrastructure
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../assessment.html">
-   Assessment
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../datasets.html">
-   Datasets
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bibliography.html">
-   Bibliography
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../infrastructure.html">Infrastructure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  A - Introduction
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">A - Introduction</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bA/concepts_A.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bA/lab_A.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bA/diy_A.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bA/concepts_A.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bA/lab_A.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bA/diy_A.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  B - Open Science
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">B - Open Science</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="concepts_B.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="diy_B.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="concepts_B.html">Concepts</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diy_B.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  C - Spatial Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">C - Spatial Data</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bC/concepts_C.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bC/lab_C.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bC/diy_C.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bC/concepts_C.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bC/lab_C.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bC/diy_C.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  D - Mapping Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">D - Mapping Data</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bD/concepts_D.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bD/lab_D.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bD/diy_D.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bD/concepts_D.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bD/lab_D.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bD/diy_D.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  E - Spatial Weights
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">E - Spatial Weights</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bE/concepts_E.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bE/lab_E.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bE/diy_E.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bE/concepts_E.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bE/lab_E.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bE/diy_E.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  F - ESDA
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">F - ESDA</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bF/concepts_F.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bF/lab_F.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bF/diy_F.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bF/concepts_F.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bF/lab_F.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bF/diy_F.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  G - Clustering
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">G - Clustering</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bG/concepts_G.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bG/lab_G.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bG/diy_G.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bG/concepts_G.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bG/lab_G.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bG/diy_G.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  H - Points
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">H - Points</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bH/concepts_H.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bH/lab_H.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bH/diy_H.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bH/concepts_H.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bH/lab_H.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bH/diy_H.html">Do-It-Yourself</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
-<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
 <div class="sbt-scroll-pixel-helper"></div>
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            <div class="topbar-left">
-                
-                <label class="nav-toggle-button" for="__navigation">
-                    <div class="visually-hidden">Toggle navigation</div>
-                    <i class="fas fa-bars"></i>
-                </label>
-                
-            </div>
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
 
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/bB/lab_B.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/darribas/gds_course/master?urlpath=tree/content/bB/lab_B.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Source interaction buttons -->
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/darribas/gds_course/master?urlpath=tree/content/bB/lab_B.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-        
-    </div>
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/content/bB/lab_B.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-        </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Hands-on</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-munging">
-   Data munging
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dataset">
-   Dataset
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-sliced-and-diced">
-   Data, sliced and diced
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#structure">
-     Structure
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#inspect">
-     Inspect
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#summarise">
-     Summarise
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-new-columns">
-     Create new columns
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#delete-columns">
-     Delete columns
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#index-based-queries">
-     Index-based queries
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#condition-based-queries">
-     Condition-based queries
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#combining-queries">
-     Combining queries
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sorting">
-     Sorting
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visual-exploration">
-   Visual exploration
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#un-tidy-data">
-   Un/tidy data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#grouping-transforming-aggregating">
-     Grouping, transforming, aggregating
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#additional-lab-materials">
-   Additional lab materials
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-munging">Data munging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sliced-and-diced">Data, sliced and diced</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structure">Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect">Inspect</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summarise">Summarise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-new-columns">Create new columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-columns">Delete columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#index-based-queries">Index-based queries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-based-queries">Condition-based queries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-queries">Combining queries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting">Sorting</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-exploration">Visual exploration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#un-tidy-data">Un/tidy data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-transforming-aggregating">Grouping, transforming, aggregating</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-lab-materials">Additional lab materials</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Hands-on</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-munging">
-   Data munging
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dataset">
-   Dataset
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-sliced-and-diced">
-   Data, sliced and diced
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#structure">
-     Structure
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#inspect">
-     Inspect
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#summarise">
-     Summarise
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-new-columns">
-     Create new columns
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#delete-columns">
-     Delete columns
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#index-based-queries">
-     Index-based queries
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#condition-based-queries">
-     Condition-based queries
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#combining-queries">
-     Combining queries
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sorting">
-     Sorting
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visual-exploration">
-   Visual exploration
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#un-tidy-data">
-   Un/tidy data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#grouping-transforming-aggregating">
-     Grouping, transforming, aggregating
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#additional-lab-materials">
-   Additional lab materials
-  </a>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
-  <div class="section" id="hands-on">
-<h1>Hands-on<a class="headerlink" href="#hands-on" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="hands-on">
+<h1>Hands-on<a class="headerlink" href="#hands-on" title="Permalink to this headline">#</a></h1>
 <p>Once we know a bit about what computational notebooks are and why we should care about them, let’s jump to using them! This section introduces you to using Python for manipulating tabular data. Please read through it carefully and pay attention to how ideas about manipulating data are translated into Python code that “does stuff”. For this part, you can read directly from the course website, although it is recommended you follow the section interactively by running code on your own.</p>
 <p>Once you have read through and have a bit of a sense of how things work, jump on the <a class="reference internal" href="diy_B.html"><span class="doc std std-doc">Do-It-Yourself section</span></a>, which will provide you with a challenge to complete it on your own, and will allow you to put what you have already learnt to good use. Happy hacking!</p>
-<div class="section" id="data-munging">
-<span id="lab-a-data-munging"></span><h2>Data munging<a class="headerlink" href="#data-munging" title="Permalink to this headline">¶</a></h2>
+<section id="data-munging">
+<span id="lab-a-data-munging"></span><h2>Data munging<a class="headerlink" href="#data-munging" title="Permalink to this headline">#</a></h2>
 <p>Real world datasets are messy. There is no way around it: datasets have “holes” (missing data), the amount of formats in which data can be stored is endless, and the best structure to share data is not always the optimum to analyze them, hence the need to <a class="reference external" href="http://dictionary.reference.com/browse/munge">munge</a> them. As has been correctly pointed out in many outlets (<a class="reference external" href="http://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html?_r=0">e.g.</a>), much of the time <a class="reference external" href="https://twitter.com/BigDataBorat/status/306596352991830016">spent</a> in what is called (Geo-)Data Science is related not only to sophisticated modeling and insight, but has to do with much more basic and less exotic tasks such as obtaining data, processing, turning them into a shape that makes analysis possible, and exploring it to get to know their basic properties.</p>
 <p>For how labor intensive and relevant this aspect is, there is surprisingly very little published on patterns, techniques, and best practices for quick and efficient data cleaning, manipulation, and transformation. In this session, you will use a few real world datasets and learn how to process them into Python so they can be transformed and manipulated, if necessary, and analyzed. For this, we will introduce some of the bread and butter of data analysis and scientific computing in Python. These are fundamental tools that are constantly used in almost any task relating to data analysis.</p>
 <p>This notebook covers the basic and the content that is expected to be learnt by every student. We use a prepared dataset that saves us much of the more intricate processing that goes beyond the introductory level the session is aimed at. As a companion to this introduction, there is an additional notebook (see link on the website page for Lab 01) that covers how the dataset used here was prepared from raw data downloaded from the internet, and includes some additional exercises you can do if you want dig deeper into the content of this lab.</p>
@@ -622,18 +443,18 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="dataset">
-<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">#</a></h2>
 <p>We will be exploring some demographic characteristics in Liverpool. To do that, we will use a dataset that contains population counts, split by ethnic origin. These counts are aggregated at the <a class="reference external" href="http://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeography#output-area-oa">Lower Layer Super Output Area</a> (LSOA from now on). LSOAs are an official Census geography defined by the Office of National Statistics. You can think of them, more or less, as neighbourhoods. Many data products (Census, deprivation indices, etc.) use LSOAs as one of their main geographies.</p>
 <p>To make things easier, we will read data from a file posted online so, for now, you do not need to download any dataset:</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition-important admonition">
 <p class="admonition-title">Important</p>
 <p>Make sure you are connected to the internet when you run this cell</p>
 </div>
-</div>
+</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read table</span>
@@ -654,7 +475,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="admonition-alternative admonition">
 <p class="admonition-title">Alternative</p>
 <p>Instead of reading the file directly off the web, it is possible to download it manually, store it on your computer, and read it locally. To do that, you can follow these steps:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Download the file by right-clicking on <a href="../data/liv_pop.csv"> this link </a> and saving the file</p></li>
 <li><p>Place the file on the <em>same folder as the notebook</em> where you intend to read it</p></li>
 <li><p>Replace the code in the cell above by:</p></li>
@@ -663,12 +484,12 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="data-sliced-and-diced">
-<span id="lab-b-slices"></span><h2>Data, sliced and diced<a class="headerlink" href="#data-sliced-and-diced" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="data-sliced-and-diced">
+<span id="lab-b-slices"></span><h2>Data, sliced and diced<a class="headerlink" href="#data-sliced-and-diced" title="Permalink to this headline">#</a></h2>
 <p>Now we are ready to start playing and interrogating the dataset! What we have at our fingertips is a table that summarizes, for each of the LSOAs in Liverpool, how many people live in each, by the region of the world where they were born. We call these tables <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> objects, and they have a lot of functionality built-in to explore and manipulate the data they contain. Let’s explore a few of those cool tricks!</p>
-<div class="section" id="structure">
-<h3>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h3>
+<section id="structure">
+<h3>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">#</a></h3>
 <p>The first aspect worth spending a bit of time is the structure of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. We can print it by simply typing its name:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -806,9 +627,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>Note the printing is cut to keep a nice and compact view, but enough to see its structure. Since they represent a table of data, <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> objects have two dimensions: rows and columns. Each of these is automatically assigned a name in what we will call its <em>index</em>. When printing, the index of each dimension is rendered in bold, as opposed to the standard rendering for the content. In the example above, we can see how the column index is automatically picked up from the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file’s column names. For rows, we have specified when reading the file we wanted the column <code class="docutils literal notranslate"><span class="pre">GeographyCode</span></code>, so that is used. If we hadn’t specified any, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> will automatically generate a sequence starting in <code class="docutils literal notranslate"><span class="pre">0</span></code> and going all the way to the number of rows minus one. This is the standard structure of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object, so we will come to it over and over. Importantly, even when we move to spatial data, our datasets will have a similar structure.</p>
 <p>One final feature that is worth mentioning about these tables is that they can hold columns with different types of data. In our example, this is not used as we have counts (or <code class="docutils literal notranslate"><span class="pre">int</span></code>, for integer, types) for each column. But it is useful to keep in mind we can combine this with columns that hold other type of data such as categories, text (<code class="docutils literal notranslate"><span class="pre">str</span></code>, for string), dates or, as we will see later in the course, geographic features.</p>
-</div>
-<div class="section" id="inspect">
-<h3>Inspect<a class="headerlink" href="#inspect" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="inspect">
+<h3>Inspect<a class="headerlink" href="#inspect" title="Permalink to this headline">#</a></h3>
 <p>Inspecting what it looks like. We can check the top (bottom) X lines of the table by passing X to the method <code class="docutils literal notranslate"><span class="pre">head</span></code> (<code class="docutils literal notranslate"><span class="pre">tail</span></code>). For example, for the top/bottom five lines:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1004,9 +825,9 @@ memory usage: 14.0+ KB
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="summarise">
-<h3>Summarise<a class="headerlink" href="#summarise" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="summarise">
+<h3>Summarise<a class="headerlink" href="#summarise" title="Permalink to this headline">#</a></h3>
 <p>Or of the <em>values</em> of the table:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1254,9 +1075,9 @@ dtype: int64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="create-new-columns">
-<span id="lab-b-new-columns"></span><h3>Create new columns<a class="headerlink" href="#create-new-columns" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="create-new-columns">
+<span id="lab-b-new-columns"></span><h3>Create new columns<a class="headerlink" href="#create-new-columns" title="Permalink to this headline">#</a></h3>
 <p>We can generate new variables by applying operations on existing ones. For example, we can calculate the total population by area. Here is a couple of ways to do it:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1599,9 +1420,9 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="delete-columns">
-<h3>Delete columns<a class="headerlink" href="#delete-columns" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="delete-columns">
+<h3>Delete columns<a class="headerlink" href="#delete-columns" title="Permalink to this headline">#</a></h3>
 <p>Permanently deleting variables is also within reach of one command:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1696,9 +1517,9 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="index-based-queries">
-<span id="lab-b-index-queries"></span><h3>Index-based queries<a class="headerlink" href="#index-based-queries" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="index-based-queries">
+<span id="lab-b-index-queries"></span><h3>Index-based queries<a class="headerlink" href="#index-based-queries" title="Permalink to this headline">#</a></h3>
 <p>Here we explore how we can subset parts of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> if we know exactly which bits we want. For example, if we want to extract the total and European population of the first four areas in the table, we use <code class="docutils literal notranslate"><span class="pre">loc</span></code> with lists:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1890,9 +1711,9 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="condition-based-queries">
-<span id="lab-b-condition-queries"></span><h3>Condition-based queries<a class="headerlink" href="#condition-based-queries" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="condition-based-queries">
+<span id="lab-b-condition-queries"></span><h3>Condition-based queries<a class="headerlink" href="#condition-based-queries" title="Permalink to this headline">#</a></h3>
 <p>However, sometimes, we do not know exactly which observations we want, but we do know what conditions they need to satisfy (e.g. areas with more than 2,000 inhabitants). For these cases, <code class="docutils literal notranslate"><span class="pre">DataFrames</span></code> support selection based on conditions. Let us see a few examples. Suppose we want to select…</p>
 <p><em>… areas with more than 2,500 people in Total</em>:</p>
 <div class="cell docutils container">
@@ -2144,10 +1965,10 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>If you are interested, more detail about <code class="docutils literal notranslate"><span class="pre">query</span></code> is available on the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#the-query-method">official <code class="docutils literal notranslate"><span class="pre">pandas</span></code> documentation</a>.</p>
-</div>
+</aside>
 <p>All the condition-based queries above are expressed using the <code class="docutils literal notranslate"><span class="pre">loc</span></code> operator. This is a powerful way and, since it shares syntax with index-based queries, it is also easier to remember. However, sometimes querying using <code class="docutils literal notranslate"><span class="pre">loc</span></code> involves a lot of quotation marks, parenthesis, etc. A more streamlined approach for condition-based queries of rows is provided by the <code class="docutils literal notranslate"><span class="pre">query</span></code> engine. Using this approach, we express everything in our query on a single string, or piece of text, and that is evaluated in the table at once. For example, we can run the same operation as in the first query above with the following syntax:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2165,9 +1986,9 @@ dtype: int64
 </div>
 </div>
 <p>Note that, in these cases, using <code class="docutils literal notranslate"><span class="pre">query</span></code> results in code that is much more streamlined and easier to read. However, <code class="docutils literal notranslate"><span class="pre">query</span></code> is not perfect and, particularly for more sophisticated queries, it does not afford the same degree of flexibility. For example, the last query we had using <code class="docutils literal notranslate"><span class="pre">loc</span></code> would not be possible using <code class="docutils literal notranslate"><span class="pre">query</span></code>.</p>
-</div>
-<div class="section" id="combining-queries">
-<h3>Combining queries<a class="headerlink" href="#combining-queries" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="combining-queries">
+<h3>Combining queries<a class="headerlink" href="#combining-queries" title="Permalink to this headline">#</a></h3>
 <p>Now all of these queries can be combined with each other, for further flexibility. For example, imagine we want areas with more than 25 people from the Americas and Caribbean, but less than 1,500 in total:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2272,9 +2093,9 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="sorting">
-<h3>Sorting<a class="headerlink" href="#sorting" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="sorting">
+<h3>Sorting<a class="headerlink" href="#sorting" title="Permalink to this headline">#</a></h3>
 <p>Among the many operations <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> objects support, one of the most useful ones is to sort a table based on a given column. For example, imagine we want to sort the table by total population:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2370,10 +2191,10 @@ dtype: int64
 </div></div></div>
 </div>
 <p>If you inspect the help of <code class="docutils literal notranslate"><span class="pre">db.sort_values</span></code>, you will find that you can pass more than one column to sort the table by. This allows you to do so-called hiearchical sorting: sort first based on one column, if equal then based on another column, etc.</p>
-</div>
-</div>
-<div class="section" id="visual-exploration">
-<h2>Visual exploration<a class="headerlink" href="#visual-exploration" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="visual-exploration">
+<h2>Visual exploration<a class="headerlink" href="#visual-exploration" title="Permalink to this headline">#</a></h2>
 <p>The next step to continue exploring a dataset is to get a feel for what it looks like, visually. We have already learnt how to unconver and inspect specific parts of the data, to check for particular cases we might be intersted in. Now we will see how to plot the data to get a sense of the overall distribution of values. For that, we will be using the Python library <a class="reference external" href="http://stanford.edu/~mwaskom/software/seaborn/index.html"><code class="docutils literal notranslate"><span class="pre">seaborn</span></code></a>.</p>
 <ul class="simple">
 <li><p>Histograms.</p></li>
@@ -2387,7 +2208,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_B_59_0.png" src="../../_images/lab_B_59_0.png" />
+<img alt="../../_images/31f24476466afbbe4b491ad58fdced34db16926a9e91fa64727d08c1ec4b9201.png" src="../../_images/31f24476466afbbe4b491ad58fdced34db16926a9e91fa64727d08c1ec4b9201.png" />
 </div>
 </div>
 <p>Note we are using <code class="docutils literal notranslate"><span class="pre">sns</span></code> instead of <code class="docutils literal notranslate"><span class="pre">pd</span></code>, as the function belongs to <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> instead of <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
@@ -2400,7 +2221,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_B_61_0.png" src="../../_images/lab_B_61_0.png" />
+<img alt="../../_images/6ec27037154e865630ff43cdb2e80d0da8c5226ebc6d929a3e822e04eb5041bc.png" src="../../_images/6ec27037154e865630ff43cdb2e80d0da8c5226ebc6d929a3e822e04eb5041bc.png" />
 </div>
 </div>
 <ul class="simple">
@@ -2414,7 +2235,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_B_63_0.png" src="../../_images/lab_B_63_0.png" />
+<img alt="../../_images/fc7f3216c5050764e1271ce45f992e9e04910dedf70f8a29e6f9921fc00ce158.png" src="../../_images/fc7f3216c5050764e1271ce45f992e9e04910dedf70f8a29e6f9921fc00ce158.png" />
 </div>
 </div>
 <ul class="simple">
@@ -2432,7 +2253,7 @@ dtype: int64
   ax.set_xticklabels(xticklabels)
 </pre></div>
 </div>
-<img alt="../../_images/lab_B_65_1.png" src="../../_images/lab_B_65_1.png" />
+<img alt="../../_images/f61d4042a18519e0baa653d5f09a797dd4fe25016f45fca1a535e4cddcc6eb7c.png" src="../../_images/f61d4042a18519e0baa653d5f09a797dd4fe25016f45fca1a535e4cddcc6eb7c.png" />
 </div>
 </div>
 <p>For a bar plot all we need to do is to change from <code class="docutils literal notranslate"><span class="pre">plot</span></code> to <code class="docutils literal notranslate"><span class="pre">plot.bar</span></code>. Since there are many neighbourhoods, let us plot only the ten largest ones (which we can retrieve with <code class="docutils literal notranslate"><span class="pre">head</span></code>):</p>
@@ -2445,7 +2266,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_B_67_0.png" src="../../_images/lab_B_67_0.png" />
+<img alt="../../_images/be5e1225969e506b97fe1d828c468283f5887d6484ef823f22d2a04a7088d7f4.png" src="../../_images/be5e1225969e506b97fe1d828c468283f5887d6484ef823f22d2a04a7088d7f4.png" />
 </div>
 </div>
 <p>We can turn the plot around by displaying the bars horizontally (see how it’s just changing <code class="docutils literal notranslate"><span class="pre">bar</span></code> for <code class="docutils literal notranslate"><span class="pre">barh</span></code>). Let’s display now the top 50 areas and, to make it more readable, let us expand the plot’s height:</p>
@@ -2458,12 +2279,12 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_B_69_0.png" src="../../_images/lab_B_69_0.png" />
+<img alt="../../_images/5b804427589997c00ffc17c2a247da42424a168363bd9c9e0cc86bf3da8d3e14.png" src="../../_images/5b804427589997c00ffc17c2a247da42424a168363bd9c9e0cc86bf3da8d3e14.png" />
 </div>
 </div>
-</div>
-<div class="section" id="un-tidy-data">
-<h2>Un/tidy data<a class="headerlink" href="#un-tidy-data" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="un-tidy-data">
+<h2>Un/tidy data<a class="headerlink" href="#un-tidy-data" title="Permalink to this headline">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This section is a bit more advanced and hence considered optional. Fell free to skip it, move to the next, and return later when you feel more confident.</p>
@@ -2482,7 +2303,7 @@ messy or tidy depending on how rows, columns and tables are matched up with obse
 variables and types.</em></p>
 </div></blockquote>
 <p>He then goes on to list the three fundamental characteristics of <em>“tidy data”</em>:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Each variable forms a column.</p></li>
 <li><p>Each observation forms a row.</p></li>
 <li><p>Each type of observational unit forms a table.</p></li>
@@ -2903,8 +2724,8 @@ dtype: int64
 </div></div></div>
 </div>
 <p>Now our table is fully tidied up!</p>
-<div class="section" id="grouping-transforming-aggregating">
-<h3>Grouping, transforming, aggregating<a class="headerlink" href="#grouping-transforming-aggregating" title="Permalink to this headline">¶</a></h3>
+<section id="grouping-transforming-aggregating">
+<h3>Grouping, transforming, aggregating<a class="headerlink" href="#grouping-transforming-aggregating" title="Permalink to this headline">#</a></h3>
 <p>One of the advantage of tidy datasets is they allow to perform advanced transformations in a more direct way. One of the most common ones is what is called “group-by” operations. Originated in the world of databases, these operations allow you to group observations in a table by one of its labels, index, or category, and apply operations on the data group by group.</p>
 <p>For example, given our tidy table with population subgroups, we might want to compute the total sum of population by each group. This task can be split into two different ones:</p>
 <ul class="simple">
@@ -3099,19 +2920,19 @@ dtype: int64
 </div></div></div>
 </div>
 <p>We will not get into it today as it goes beyond the basics we want to conver, but keep in mind that <code class="docutils literal notranslate"><span class="pre">groupby</span></code> allows you to not only call generic functions (like <code class="docutils literal notranslate"><span class="pre">sum</span></code> or <code class="docutils literal notranslate"><span class="pre">describe</span></code>), but also your own functions. This opens the door for virtually any kind of transformation and aggregation possible.</p>
-</div>
-</div>
-<div class="section" id="additional-lab-materials">
-<h2>Additional lab materials<a class="headerlink" href="#additional-lab-materials" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="additional-lab-materials">
+<h2>Additional lab materials<a class="headerlink" href="#additional-lab-materials" title="Permalink to this headline">#</a></h2>
 <p>The following provide a good “next step” from some of the concepts and tools covered in the <a class="reference internal" href="#"><span class="doc std std-doc">lab</span></a> and <a class="reference internal" href="diy_B.html"><span class="doc std std-doc">DIY</span></a> sections of this block:</p>
 <ul class="simple">
 <li><p>This <a class="reference external" href="http://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html?_r=0">NY Times article</a> does a good job at conveying the relevance of data “cleaning” and <a class="reference internal" href="#lab-a-data-munging"><span class="std std-ref">munging</span></a>.</p></li>
-<li><p>A good introduction to data manipulation in Python is Wes McKinney’s “Python for Data Analysis” <a href="#id1"><span class="problematic" id="id2">:cite:`mckinney2012python`</span></a>.</p></li>
+<li><p>A good introduction to data manipulation in Python is Wes McKinney’s “Python for Data Analysis” <a href="#id1"><span class="problematic" id="id2">mckinney2012python</span></a>.</p></li>
 <li><p>To explore further some of the visualization capabilities in at your fingertips, the Python library <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> is an excellent choice. Its online <a class="reference external" href="http://stanford.edu/~mwaskom/software/seaborn/tutorial.html">tutorial</a> is a fantastic place to start.</p></li>
-<li><p>A good extension is Hadley Wickham’ “Tidy data” paper <a href="#id3"><span class="problematic" id="id4">:cite:`Wickham:2014:JSSOBK:v59i10`</span></a>, which presents a very popular way of organising tabular data for efficient manipulation.</p></li>
+<li><p>A good extension is Hadley Wickham’ “Tidy data” paper <a href="#id3"><span class="problematic" id="id4">Wickham:2014:JSSOBK:v59i10</span></a>, which presents a very popular way of organising tabular data for efficient manipulation.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -3125,7 +2946,7 @@ dtype: int64
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./content/bB"
         },
         predefinedOutput: true
@@ -3133,47 +2954,121 @@ dtype: int64
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="concepts_B.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Concepts</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="concepts_B.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Concepts</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="diy_B.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="diy_B.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Do-It-Yourself</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
-</div>
-            
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By Dani Arribas-Bel<br/>
-    
-      <div class="extra_footer">
-        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-
-      </div>
-  </p>
-</footer>
-</main>
-
-
-      </div>
-    </div>
+</div></div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+</div>
 
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-munging">Data munging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sliced-and-diced">Data, sliced and diced</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structure">Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect">Inspect</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summarise">Summarise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-new-columns">Create new columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-columns">Delete columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#index-based-queries">Index-based queries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-based-queries">Condition-based queries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-queries">Combining queries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting">Sorting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-exploration">Visual exploration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#un-tidy-data">Un/tidy data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-transforming-aggregating">Grouping, transforming, aggregating</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-lab-materials">Additional lab materials</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dani Arribas-Bel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

@@ -1,540 +1,424 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Hands-on &#8212; A course on Geographic Data Science</title>
-    
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
-    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-6032674-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-6032674-1');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/bF/lab_F';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Do-It-Yourself" href="diy_F.html" />
     <link rel="prev" title="Concepts" href="concepts_F.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-6032674-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">A course on Geographic Data Science</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../home.html">
-   ENVS363/563
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Information
- </span>
-</p>
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../home.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">A course on Geographic Data Science</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../home.html">
+                    ENVS363/563
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Information</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../overview.html">
-   Overview
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../infrastructure.html">
-   Infrastructure
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../assessment.html">
-   Assessment
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../datasets.html">
-   Datasets
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bibliography.html">
-   Bibliography
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../infrastructure.html">Infrastructure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  A - Introduction
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">A - Introduction</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bA/concepts_A.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bA/lab_A.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bA/diy_A.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bA/concepts_A.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bA/lab_A.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bA/diy_A.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  B - Open Science
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">B - Open Science</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bB/concepts_B.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bB/lab_B.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bB/diy_B.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bB/concepts_B.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bB/lab_B.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bB/diy_B.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  C - Spatial Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">C - Spatial Data</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bC/concepts_C.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bC/lab_C.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bC/diy_C.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bC/concepts_C.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bC/lab_C.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bC/diy_C.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  D - Mapping Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">D - Mapping Data</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bD/concepts_D.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bD/lab_D.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bD/diy_D.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bD/concepts_D.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bD/lab_D.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bD/diy_D.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  E - Spatial Weights
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">E - Spatial Weights</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bE/concepts_E.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bE/lab_E.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bE/diy_E.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bE/concepts_E.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bE/lab_E.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bE/diy_E.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  F - ESDA
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">F - ESDA</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="concepts_F.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="diy_F.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="concepts_F.html">Concepts</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diy_F.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  G - Clustering
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">G - Clustering</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bG/concepts_G.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bG/lab_G.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bG/diy_G.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bG/concepts_G.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bG/lab_G.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bG/diy_G.html">Do-It-Yourself</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  H - Points
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">H - Points</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bH/concepts_H.html">
-   Concepts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bH/lab_H.html">
-   Hands-on
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bH/diy_H.html">
-   Do-It-Yourself
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bH/concepts_H.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bH/lab_H.html">Hands-on</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bH/diy_H.html">Do-It-Yourself</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
-<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
 <div class="sbt-scroll-pixel-helper"></div>
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            <div class="topbar-left">
-                
-                <label class="nav-toggle-button" for="__navigation">
-                    <div class="visually-hidden">Toggle navigation</div>
-                    <i class="fas fa-bars"></i>
-                </label>
-                
-            </div>
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
 
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/bF/lab_F.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/darribas/gds_course/master?urlpath=tree/content/bF/lab_F.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Source interaction buttons -->
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/darribas/gds_course/master?urlpath=tree/content/bF/lab_F.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-        
-    </div>
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/content/bF/lab_F.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-        </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Hands-on</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#spatial-autocorrelation-and-exploratory-spatial-data-analysis">
-   Spatial autocorrelation and Exploratory Spatial Data Analysis
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data">
-   Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#preparing-the-data">
-   Preparing the data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#spatial-weights-matrix">
-     Spatial weights matrix
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#spatial-lag">
-     Spatial lag
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#global-spatial-autocorrelation">
-   Global Spatial autocorrelation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#moran-plot">
-     Moran Plot
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#moran-s-i">
-     Moran’s I
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#local-spatial-autocorrelation">
-   Local Spatial autocorrelation
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-autocorrelation-and-exploratory-spatial-data-analysis">Spatial autocorrelation and Exploratory Spatial Data Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-the-data">Preparing the data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-weights-matrix">Spatial weights matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-lag">Spatial lag</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-spatial-autocorrelation">Global Spatial autocorrelation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moran-plot">Moran Plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moran-s-i">Moran’s I</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-spatial-autocorrelation">Local Spatial autocorrelation</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Hands-on</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#spatial-autocorrelation-and-exploratory-spatial-data-analysis">
-   Spatial autocorrelation and Exploratory Spatial Data Analysis
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data">
-   Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#preparing-the-data">
-   Preparing the data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#spatial-weights-matrix">
-     Spatial weights matrix
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#spatial-lag">
-     Spatial lag
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#global-spatial-autocorrelation">
-   Global Spatial autocorrelation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#moran-plot">
-     Moran Plot
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#moran-s-i">
-     Moran’s I
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#local-spatial-autocorrelation">
-   Local Spatial autocorrelation
-  </a>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
-  <div class="section" id="hands-on">
-<h1>Hands-on<a class="headerlink" href="#hands-on" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="spatial-autocorrelation-and-exploratory-spatial-data-analysis">
-<h2>Spatial autocorrelation and Exploratory Spatial Data Analysis<a class="headerlink" href="#spatial-autocorrelation-and-exploratory-spatial-data-analysis" title="Permalink to this headline">¶</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="hands-on">
+<h1>Hands-on<a class="headerlink" href="#hands-on" title="Permalink to this headline">#</a></h1>
+<section id="spatial-autocorrelation-and-exploratory-spatial-data-analysis">
+<h2>Spatial autocorrelation and Exploratory Spatial Data Analysis<a class="headerlink" href="#spatial-autocorrelation-and-exploratory-spatial-data-analysis" title="Permalink to this headline">#</a></h2>
 <p>Spatial autocorrelation has to do with the degree to which the similarity in values between observations in a dataset is related to the similarity in locations of such observations. Not completely unlike the traditional correlation between two variables -which informs us about how the values in one variable change as a function of those in the other- and analogous to its time-series counterpart -which relates the value of a variable at a given point in time with those in previous periods-, spatial autocorrelation relates the value of the variable of interest in a given location, with values of the same variable in surrounding locations.</p>
 <p>A key idea in this context is that of spatial randomness: a situation in which the location of an observation gives no information whatsoever about its value. In other words, a variable is spatially random if it is distributed following no discernible pattern over space. Spatial autocorrelation can thus be formally defined as the “absence of spatial randomness”, which gives room for two main classes of autocorrelation, similar to the traditional case: <em>positive</em> spatial autocorrelation, when similar values tend to group together in similar locations; and <em>negative</em> spatial autocorrelation, in cases where similar values tend to be dispersed and further apart from each other.</p>
 <p>In this session we will learn how to explore spatial autocorrelation in a given dataset, interrogating the data about its presence, nature, and strength. To do this, we will use a set of tools collectively known as Exploratory Spatial Data Analysis (ESDA), specifically designed for this purpose. The range of ESDA methods is very wide and spans from less sophisticated approaches like choropleths and general table querying, to more advanced and robust methodologies that include statistical inference and an explicit recognition of the geographical dimension of the data. The purpose of this session is to dip our toes into the latter group.</p>
@@ -557,18 +441,18 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="data">
-<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h2>
 <p>For this session, we will use the results of the 2016 referendum vote to leave the EU, at the local authority level. In particular, we will focus on the spatial distribution of the vote to Leave, which ended up winning. From a technical point of view, you will be working with polygons which have a value (the percentage of the electorate that voted to Leave the EU) attached to them.</p>
 <p>All the necessary data have been assembled for convenience in a single file that contains geographic information about each local authority in England, Wales and Scotland, as well as the vote attributes. The file is in the geospatial format <a class="reference external" href="http://www.geopackage.org/">GeoPackage</a>, which presents several advantages over the more traditional shapefile (chief among them, the need of a single file instead of several). The file is available as a download from the course website.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition-important admonition">
 <p class="admonition-title">Important</p>
 <p>Make sure you are connected to the internet when you run this cell</p>
 </div>
-</div>
+</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the file in</span>
@@ -588,7 +472,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="admonition-alternative admonition">
 <p class="admonition-title">Alternative</p>
 <p>Instead of reading the file directly off the web, it is possible to download it manually, store it on your computer, and read it locally. To do that, you can follow these steps:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Download the file by right-clicking on <a href="../data/brexit.gpkg"> this link </a> and saving the file</p></li>
 <li><p>Place the file on the <em>same folder as the notebook</em> where you intend to read it</p></li>
 <li><p>Replace the code in the cell above by:</p></li>
@@ -624,9 +508,9 @@ memory usage: 17.8+ KB
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="preparing-the-data">
-<h2>Preparing the data<a class="headerlink" href="#preparing-the-data" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="preparing-the-data">
+<h2>Preparing the data<a class="headerlink" href="#preparing-the-data" title="Permalink to this headline">#</a></h2>
 <p>Let’s get a first view of the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -639,11 +523,11 @@ memory usage: 17.8+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_F_9_0.png" src="../../_images/lab_F_9_0.png" />
+<img alt="../../_images/a75eeca66e65ce906369a48444537de26d166d944e4a5a61add9fc7b52ae5b43.png" src="../../_images/a75eeca66e65ce906369a48444537de26d166d944e4a5a61add9fc7b52ae5b43.png" />
 </div>
 </div>
-<div class="section" id="spatial-weights-matrix">
-<h3>Spatial weights matrix<a class="headerlink" href="#spatial-weights-matrix" title="Permalink to this headline">¶</a></h3>
+<section id="spatial-weights-matrix">
+<h3>Spatial weights matrix<a class="headerlink" href="#spatial-weights-matrix" title="Permalink to this headline">#</a></h3>
 <p>As discused before, a spatial weights matrix is the way geographical space is formally encoded into a numerical form so it is easy for a computer (or a statistical method) to understand. We have seen already many of the conceptual ways in which we can define a spatial weights matrix, such as contiguity, distance-based, or block.</p>
 <p>For this example, we will show how to build a queen contiguity matrix, which considers two observations as neighbors if they share at least one point of their boundary. In other words, for a pair of local authorities in the dataset to be considered neighbours under this <span class="math notranslate nohighlight">\(W\)</span>, they will need to be sharing border or, in other words, “touching” each other to some degree.</p>
 <p>Technically speaking, we will approach building the contiguity matrix in the same way we did in Lab 5. We will begin with a <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> and pass it on to the queen contiguity weights builder in <code class="docutils literal notranslate"><span class="pre">PySAL</span></code> (<code class="docutils literal notranslate"><span class="pre">ps.weights.Queen.from_dataframe</span></code>). We will also make sure our table of data is previously indexed on the local authority code, so the <span class="math notranslate nohighlight">\(W\)</span> is also indexed on that form.</p>
@@ -689,7 +573,7 @@ Wall time: 2.68 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_F_16_0.png" src="../../_images/lab_F_16_0.png" />
+<img alt="../../_images/977b4a40eb03d1967085c0028859361b82c52c97217db59803e49ed621a08e64.png" src="../../_images/977b4a40eb03d1967085c0028859361b82c52c97217db59803e49ed621a08e64.png" />
 </div>
 </div>
 <p>In this case, all the islands are indeed “real” islands. These cases can create issues in the analysis and distort the results. There are several solutions to this situation such as connecting the islands to other observations through a different criterium (e.g. nearest neighbor), and then combining both spatial weights matrices. For convenience, we will remove them from the dataset because they are a small sample and their removal is likely not to have a large impact in the calculations.</p>
@@ -742,9 +626,9 @@ Wall time: 2.15 s
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="spatial-lag">
-<h3>Spatial lag<a class="headerlink" href="#spatial-lag" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="spatial-lag">
+<h3>Spatial lag<a class="headerlink" href="#spatial-lag" title="Permalink to this headline">#</a></h3>
 <p>Once we have the data and the spatial weights matrix ready, we can start by computing the spatial lag of the percentage of votes that went to leave the EU. Remember the spatial lag is the product of the spatial weights matrix and a given variable and that, if <span class="math notranslate nohighlight">\(W\)</span> is row-standardized, the result amounts to the average value of the variable in the neighborhood of each observation.</p>
 <p>We can calculate the spatial lag for the variable <code class="docutils literal notranslate"><span class="pre">Pct_Leave</span></code> and store it directly in the main table with the following line of code:</p>
 <div class="cell docutils container">
@@ -887,13 +771,13 @@ Name: Pct_Leave, dtype: float64
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="global-spatial-autocorrelation">
-<h2>Global Spatial autocorrelation<a class="headerlink" href="#global-spatial-autocorrelation" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="global-spatial-autocorrelation">
+<h2>Global Spatial autocorrelation<a class="headerlink" href="#global-spatial-autocorrelation" title="Permalink to this headline">#</a></h2>
 <p>Global spatial autocorrelation relates to the overall geographical pattern present in the data. Statistics designed to measure this trend thus characterize a map in terms of its degree of clustering and summarize it. This summary can be visual or numerical. In this section, we will walk through an example of each of them: the Moran Plot, and Moran’s I statistic of spatial autocorrelation.</p>
-<div class="section" id="moran-plot">
-<h3>Moran Plot<a class="headerlink" href="#moran-plot" title="Permalink to this headline">¶</a></h3>
+<section id="moran-plot">
+<h3>Moran Plot<a class="headerlink" href="#moran-plot" title="Permalink to this headline">#</a></h3>
 <p>The moran plot is a way of visualizing a spatial dataset to explore the nature and strength of spatial autocorrelation. It is essentially a traditional scatter plot in which the variable of interest is displayed against its spatial lag. In order to be able to interpret values as above or below the mean, and their quantities in terms of standard deviations, the variable of interest is usually standardized by substracting its mean and dividing it by its standard deviation.</p>
 <p>Technically speaking, creating a Moran Plot is very similar to creating any other scatter plot in Python, provided we have standardized the variable and calculated its spatial lag beforehand:</p>
 <div class="cell docutils container">
@@ -911,15 +795,15 @@ Name: Pct_Leave, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_F_41_0.png" src="../../_images/lab_F_41_0.png" />
+<img alt="../../_images/321ed7ea14938d0b2c2762b83f9f570ea5eaf2bf893b9bd53e4c6ceca8781ab8.png" src="../../_images/321ed7ea14938d0b2c2762b83f9f570ea5eaf2bf893b9bd53e4c6ceca8781ab8.png" />
 </div>
 </div>
 <p>The figure above displays the relationship between the standardized percentage which voted to Leave the EU (<code class="docutils literal notranslate"><span class="pre">Pct_Leave_std</span></code>) and its spatial lag which, because the <span class="math notranslate nohighlight">\(W\)</span> that was used is row-standardized, can be interpreted as the average percentage which voted to Leave in the surrounding areas of a given Local Authority. In order to guide the interpretation of the plot, a linear fit is also included in the post. This line represents the best linear fit to the scatter plot or, in other words, what is the best way to represent the relationship between the two variables as a straight line.</p>
 <p>The plot displays a positive relationship between both variables. This is associated with the presence of <em>positive</em> spatial autocorrelation: similar values tend to be located close to each other. This means that the <em>overall trend</em> is for high values to be close to other high values, and for low values to be surrounded by other low values. This however does not mean that this is only situation in the dataset: there can of course be particular cases where high values are surrounded by low ones, and viceversa. But it means that, if we had to summarize the main pattern of the data in terms of how clustered similar values are, the best way would be to say they are positively correlated and, hence, clustered over space.</p>
 <p>In the context of the example, this can be interpreted along the lines of: local authorities display positive spatial autocorrelation in the way they voted in the EU referendum. This means that local authorities with high percentage of Leave voters tend to be located nearby other local authorities where a significant share of the electorate also voted to Leave, and viceversa.</p>
-</div>
-<div class="section" id="moran-s-i">
-<h3>Moran’s I<a class="headerlink" href="#moran-s-i" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="moran-s-i">
+<h3>Moran’s I<a class="headerlink" href="#moran-s-i" title="Permalink to this headline">#</a></h3>
 <p>The Moran Plot is an excellent tool to explore the data and get a good sense of how much values are clustered over space. However, because it is a graphical device, it is sometimes hard to condense its insights into a more concise way. For these cases, a good approach is to come up with a statistical measure that summarizes the figure. This is exactly what Moran’s I is meant to do.</p>
 <p>Very much in the same way the mean summarizes a crucial element of the distribution of values in a non-spatial setting, so does Moran’s I for a spatial dataset. Continuing the comparison, we can think of the mean as a single numerical value summarizing a histogram or a kernel density plot. Similarly, Moran’s I captures much of the essence of the Moran Plot. In fact, there is an even close connection between the two: the value of Moran’s I corresponds with the slope of the linear fit overlayed on top of the Moran Plot.</p>
 <p>In order to calculate Moran’s I in our dataset, we can call a specific function in <code class="docutils literal notranslate"><span class="pre">PySAL</span></code> directly:</p>
@@ -968,14 +852,14 @@ Name: Pct_Leave, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_F_51_0.png" src="../../_images/lab_F_51_0.png" />
+<img alt="../../_images/1403acc8b823fd57bc20fbb65cdfd7a0dbda466904010dbcc7e3e0b3659ee02a.png" src="../../_images/1403acc8b823fd57bc20fbb65cdfd7a0dbda466904010dbcc7e3e0b3659ee02a.png" />
 </div>
 </div>
 <p>As a first step, the global autocorrelation analysis can teach us that observations do seem to be positively correlated over space. In terms of our initial goal to find spatial structure in the attitude towards Brexit, this view seems to align: if the vote had no such structure, it should not show a pattern over space -technically, it would show a random one.</p>
-</div>
-</div>
-<div class="section" id="local-spatial-autocorrelation">
-<h2>Local Spatial autocorrelation<a class="headerlink" href="#local-spatial-autocorrelation" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="local-spatial-autocorrelation">
+<h2>Local Spatial autocorrelation<a class="headerlink" href="#local-spatial-autocorrelation" title="Permalink to this headline">#</a></h2>
 <p>Moran’s I is good tool to summarize a dataset into a single value that informs about its degree of <em>clustering</em>. However, it is not an appropriate measure to identify areas within the map where specific values are located. In other words, Moran’s I can tell us values are clustered overall, but it will not inform us about <em>where</em> the clusters are. For that purpose, we need to use a <em>local</em> measure of spatial autocorrelation. Local measures consider each single observation in a dataset and operate on them, as oposed to on the overall data, as <em>global</em> measures do. Because of that, they are not good a summarizing a map, but they allow to obtain further insight.</p>
 <p>In this session, we will consider <a class="reference external" href="http://onlinelibrary.wiley.com/doi/10.1111/j.1538-4632.1995.tb00338.x/abstract">Local Indicators of Spatial Association</a> (LISAs), a local counter-part of global measures like Moran’s I. At the core of these method is a classification of the observations in a dataset into four groups derived from the Moran Plot: high values surrounded by high values (HH), low values nearby other low values (LL), high values among low values (HL), and viceversa (LH). Each of these groups are typically called “quadrants”. An illustration of where each of these groups fall into the Moran Plot can be seen below:</p>
 <div class="cell docutils container">
@@ -997,7 +881,7 @@ Name: Pct_Leave, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_F_54_0.png" src="../../_images/lab_F_54_0.png" />
+<img alt="../../_images/580b886ba90dfdc6498f1002fb815834a10e1affc5a8dbd922fd6647e78345b3.png" src="../../_images/580b886ba90dfdc6498f1002fb815834a10e1affc5a8dbd922fd6647e78345b3.png" />
 </div>
 </div>
 <p>So far we have classified each observation in the dataset depending on its value and that of its neighbors. This is only half way into identifying areas of unusual concentration of values. To know whether each of the locations is a <em>statistically significant</em> cluster of a given kind, we again need to compare it with what we would expect if the data were allocated in a completely random way. After all, by definition, every observation will be of one kind of another, based on the comparison above. However, what we are interested in is whether the strength with which the values are concentrated is unusually high.</p>
@@ -1092,7 +976,7 @@ Name: quadrant, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_F_67_0.png" src="../../_images/lab_F_67_0.png" />
+<img alt="../../_images/abd1db17995ee48a46964c30dea00995bff91abb8c098f41e8d2b6b8332c39fb.png" src="../../_images/abd1db17995ee48a46964c30dea00995bff91abb8c098f41e8d2b6b8332c39fb.png" />
 </div>
 </div>
 <p>Or, if we want to have more control over what is being displayed, and how each component is presented, we can “cook” the plot ourselves:</p>
@@ -1124,7 +1008,7 @@ Name: quadrant, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_F_69_0.png" src="../../_images/lab_F_69_0.png" />
+<img alt="../../_images/4f97a8d21c373919869c163c875347ae032b5d8dc79a0a97d5e661b5ad5f78ca.png" src="../../_images/4f97a8d21c373919869c163c875347ae032b5d8dc79a0a97d5e661b5ad5f78ca.png" />
 </div>
 </div>
 <p>The map above displays the LISA results of the Brexit vote. In bright red, we find those local authorities with an unusual concentration of high Leave voters surrounded also by high levels of Leave vote. This corresponds with areas in the East of England, the Black Country, and East of London. In light red, we find the first type of <em>spatial outliers</em>. These are areas with high Leave vote but surrounded by areas with low support for leaving the EU (e.g. central London). Finally, in light blue we find the other type of spatial outlier: local authorities with low Leave support surrounded by other authorities with high support.</p>
@@ -1137,11 +1021,11 @@ Name: quadrant, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lab_F_72_0.png" src="../../_images/lab_F_72_0.png" />
+<img alt="../../_images/5a4a97dac073bdbe5f2477ee2a0d4f6001d0733cb2f28a9711f045d92b278e65.png" src="../../_images/5a4a97dac073bdbe5f2477ee2a0d4f6001d0733cb2f28a9711f045d92b278e65.png" />
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1155,7 +1039,7 @@ Name: quadrant, dtype: int64
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./content/bF"
         },
         predefinedOutput: true
@@ -1163,47 +1047,114 @@ Name: quadrant, dtype: int64
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="concepts_F.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Concepts</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="concepts_F.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Concepts</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="diy_F.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="diy_F.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Do-It-Yourself</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
-</div>
-            
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By Dani Arribas-Bel<br/>
-    
-      <div class="extra_footer">
-        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-
-      </div>
-  </p>
-</footer>
-</main>
-
-
-      </div>
-    </div>
+</div></div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+</div>
 
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-autocorrelation-and-exploratory-spatial-data-analysis">Spatial autocorrelation and Exploratory Spatial Data Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-the-data">Preparing the data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-weights-matrix">Spatial weights matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-lag">Spatial lag</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-spatial-autocorrelation">Global Spatial autocorrelation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moran-plot">Moran Plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moran-s-i">Moran’s I</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-spatial-autocorrelation">Local Spatial autocorrelation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dani Arribas-Bel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

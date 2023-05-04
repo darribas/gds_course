@@ -1,57 +1,50 @@
-- file: content/home
-
-- chapter: Information
-  sections:
-    - file: content/overview
-    - file: content/infrastructure
-    - file: content/assessment
-    - file: content/datasets
-    - file: content/bibliography
-
-- chapter: A - Introduction
-  sections:
-    - file: content/bA/concepts_A
-    - file: content/bA/lab_A
-    - file: content/bA/diy_A
-
-- chapter: B - Open Science
-  sections:
-    - file: content/bB/concepts_B
-    - file: content/bB/lab_B
-    - file: content/bB/diy_B
-
-- chapter: C - Spatial Data
-  sections:
-    - file: content/bC/concepts_C
-    - file: content/bC/lab_C
-    - file: content/bC/diy_C
-
-- chapter: D - Mapping Data
-  sections:
-    - file: content/bD/concepts_D
-    - file: content/bD/lab_D
-    - file: content/bD/diy_D
-
-- chapter: E - Spatial Weights
-  sections:
-    - file: content/bE/concepts_E
-    - file: content/bE/lab_E
-    - file: content/bE/diy_E
-    
-- chapter: F - ESDA
-  sections:
-    - file: content/bF/concepts_F
-    - file: content/bF/lab_F
-    - file: content/bF/diy_F
-    
-- chapter: G - Clustering
-  sections:
-    - file: content/bG/concepts_G
-    - file: content/bG/lab_G
-    - file: content/bG/diy_G
-    
-- chapter: H - Points
-  sections:
-    - file: content/bH/concepts_H
-    - file: content/bH/lab_H
-    - file: content/bH/diy_H
+format: jb-book
+root: content/home
+parts:
+- caption: Information
+  chapters:
+  - file: content/overview
+  - file: content/infrastructure
+  - file: content/assessment
+  - file: content/datasets
+  - file: content/bibliography
+- caption: A - Introduction
+  chapters:
+  - file: content/bA/concepts_A
+  - file: content/bA/lab_A
+  - file: content/bA/diy_A
+- caption: B - Open Science
+  chapters:
+  - file: content/bB/concepts_B
+  - file: content/bB/lab_B
+  - file: content/bB/diy_B
+- caption: C - Spatial Data
+  chapters:
+  - file: content/bC/concepts_C
+  - file: content/bC/lab_C
+  - file: content/bC/diy_C
+- caption: D - Mapping Data
+  chapters:
+  - file: content/bD/concepts_D
+  - file: content/bD/lab_D
+  - file: content/bD/diy_D
+- caption: E - Spatial Weights
+  chapters:
+  - file: content/bE/concepts_E
+  - file: content/bE/lab_E
+  - file: content/bE/diy_E
+- caption: F - ESDA
+  chapters:
+  - file: content/bF/concepts_F
+  - file: content/bF/lab_F
+  - file: content/bF/diy_F
+- caption: G - Clustering
+  chapters:
+  - file: content/bG/concepts_G
+  - file: content/bG/lab_G
+  - file: content/bG/diy_G
+- caption: H - Points
+  chapters:
+  - file: content/bH/concepts_H
+  - file: content/bH/lab_H
+  - file: content/bH/diy_H
