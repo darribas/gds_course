@@ -2,13 +2,13 @@
 # For end-users, the gds_env (darribas.org/gds_env) is recommended
 name: book
 channels:
-  - default
   - conda-forge
+  - default
 dependencies:
-  - python=3.7.*
-  - sphinx=3.4.2
-  - pip=20.3.3
-  - nbconvert=5.6.1
+  - python
+  - sphinx
+  - pip
+  - nbconvert
   - pip:
-      - jupyter-book>=0.9.1,<0.11
-      - pyppeteer>=0.2.2
+      - jupyter-book
+      - pyppeteer
