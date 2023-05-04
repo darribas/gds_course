@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Prepare Brexit dataset &#8212; A course on Geographic Data Science</title>
   
@@ -45,6 +45,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -72,7 +73,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -403,7 +404,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="prepare-brexit-dataset">
-<h1>Prepare Brexit dataset<a class="headerlink" href="#prepare-brexit-dataset" title="Permalink to this headline">#</a></h1>
+<h1>Prepare Brexit dataset<a class="headerlink" href="#prepare-brexit-dataset" title="Permalink to this heading">#</a></h1>
 <p>This notebook shows how the table with results from the EU referendum has been assembled for this course.</p>
 <p>The dataset is the same as the Brexit data used in the GDS Book <a href="#id1"><span class="problematic" id="id2">reyABwolf</span></a>, but here we have just assembled it into a single file that can be read remotely. For more details on sources, please refer to:</p>
 <blockquote>
@@ -417,7 +418,7 @@ document.write(`
 </div>
 </div>
 <section id="referendum-results">
-<h2>Referendum results<a class="headerlink" href="#referendum-results" title="Permalink to this headline">#</a></h2>
+<h2>Referendum results<a class="headerlink" href="#referendum-results" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Updated to work on Sep. 15th 2020</span>
@@ -475,7 +476,7 @@ memory usage: 62.8+ KB
 </div>
 </section>
 <section id="local-authorities">
-<h2>Local authorities<a class="headerlink" href="#local-authorities" title="Permalink to this headline">#</a></h2>
+<h2>Local authorities<a class="headerlink" href="#local-authorities" title="Permalink to this heading">#</a></h2>
 <p>As of Sep. 15th 2020, the local authority boundaries could be accessed from the following site:</p>
 <blockquote>
 <div><p><a class="reference external" href="https://data.gov.uk/dataset/65f48bab-e65f-491c-90f5-729eef098196/local-authority-districts-december-2016-generalised-clipped-boundaries-in-the-uk-wgs84">https://data.gov.uk/dataset/65f48bab-e65f-491c-90f5-729eef098196/local-authority-districts-december-2016-generalised-clipped-boundaries-in-the-uk-wgs84</a></p>
@@ -528,7 +529,7 @@ memory usage: 33.7+ KB
 </div>
 </section>
 <section id="join">
-<h2>Join<a class="headerlink" href="#join" title="Permalink to this headline">#</a></h2>
+<h2>Join<a class="headerlink" href="#join" title="Permalink to this heading">#</a></h2>
 <p>Link up both tables, keep only required columns for a simpler and slimmer table, and drop areas without values:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -558,7 +559,7 @@ memory usage: 17.8+ KB
 </div>
 </section>
 <section id="write-out">
-<h2>Write out<a class="headerlink" href="#write-out" title="Permalink to this headline">#</a></h2>
+<h2>Write out<a class="headerlink" href="#write-out" title="Permalink to this heading">#</a></h2>
 <p>We save as a Geopackage:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

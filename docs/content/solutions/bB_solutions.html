@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Solutions for block B &#8212; A course on Geographic Data Science</title>
   
@@ -45,6 +45,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -72,7 +73,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -406,7 +407,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="solutions-for-block-b">
-<h1>Solutions for block B<a class="headerlink" href="#solutions-for-block-b" title="Permalink to this headline">#</a></h1>
+<h1>Solutions for block B<a class="headerlink" href="#solutions-for-block-b" title="Permalink to this heading">#</a></h1>
 <p>From DIY, we get how to read and prep the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -423,7 +424,7 @@ document.write(`
 </div>
 </div>
 <section id="tasks">
-<h2>Tasks<a class="headerlink" href="#tasks" title="Permalink to this headline">#</a></h2>
+<h2>Tasks<a class="headerlink" href="#tasks" title="Permalink to this heading">#</a></h2>
 <p>An important aspect to realise is that, at the bottom of the table, there’s the totals:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -702,7 +703,7 @@ document.write(`
 </div></div></div>
 </div>
 <section id="obtain-the-minimum-number-of-civilian-casualties-in-what-month-was-that">
-<h3>Obtain the minimum number of civilian casualties (in what month was that?)<a class="headerlink" href="#obtain-the-minimum-number-of-civilian-casualties-in-what-month-was-that" title="Permalink to this headline">#</a></h3>
+<h3>Obtain the minimum number of civilian casualties (in what month was that?)<a class="headerlink" href="#obtain-the-minimum-number-of-civilian-casualties-in-what-month-was-that" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">db</span><span class="p">[</span><span class="s2">&quot;Civilians&quot;</span><span class="p">]</span><span class="o">==</span><span class="n">db</span><span class="p">[</span><span class="s2">&quot;Civilians&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="p">:]</span>
@@ -754,7 +755,7 @@ document.write(`
 </div>
 </section>
 <section id="how-many-nato-casualties-were-registered-in-august-2008">
-<h3>How many NATO casualties were registered in August 2008?<a class="headerlink" href="#how-many-nato-casualties-were-registered-in-august-2008" title="Permalink to this headline">#</a></h3>
+<h3>How many NATO casualties were registered in August 2008?<a class="headerlink" href="#how-many-nato-casualties-were-registered-in-august-2008" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;(Month == &#39;August&#39;) &amp; (Year == 2008)&quot;</span><span class="p">)</span>
@@ -806,7 +807,7 @@ document.write(`
 </div>
 </section>
 <section id="what-is-the-month-with-the-most-total-number-of-casualties">
-<h3>What is the month with the most total number of casualties?<a class="headerlink" href="#what-is-the-month-with-the-most-total-number-of-casualties" title="Permalink to this headline">#</a></h3>
+<h3>What is the month with the most total number of casualties?<a class="headerlink" href="#what-is-the-month-with-the-most-total-number-of-casualties" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="n">db_wo_total1</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;Taliban&quot;</span><span class="p">:</span> <span class="s2">&quot;Nato (detailed in spreadsheet)&quot;</span><span class="p">]</span>\
@@ -867,7 +868,7 @@ document.write(`
 </ul>
 </section>
 <section id="can-you-make-a-plot-of-the-distribution-of-casualties-over-time">
-<h3>Can you make a plot of the distribution of casualties over time?<a class="headerlink" href="#can-you-make-a-plot-of-the-distribution-of-casualties-over-time" title="Permalink to this headline">#</a></h3>
+<h3>Can you make a plot of the distribution of casualties over time?<a class="headerlink" href="#can-you-make-a-plot-of-the-distribution-of-casualties-over-time" title="Permalink to this heading">#</a></h3>
 <p>Here again, there are many ways to interpret the solution, and many more to implement it. So do not think your approach is necessarily wrong if it’s not the same of what’s below. This solution is provided as guidance.</p>
 <p>To make a plot of casualties, we need two things:</p>
 <ol class="arabic simple">

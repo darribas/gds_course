@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Concepts &#8212; A course on Geographic Data Science</title>
   
@@ -45,6 +45,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -74,7 +75,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Hands-on" href="lab_G.html" />
     <link rel="prev" title="Do-It-Yourself" href="../bF/diy_F.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -409,10 +410,10 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="concepts">
-<h1>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">#</a></h1>
+<h1>Concepts<a class="headerlink" href="#concepts" title="Permalink to this heading">#</a></h1>
 <p>This block is all about grouping; grouping of <em>similar</em> observations, areas, records… We start by discussing why grouping, or clustering in statistical parlance, is important and what it can do for us. Then we move on different types of clustering. We focus on two: one is traditional non-spatial clustering, or unsupervised learning, for which we cover the most popular technique; the other one is explicitly spatial clustering, or regionalisation, which imposes additional (geographic) constraints when grouping observations.</p>
 <section id="the-need-to-group-data">
-<h2>The need to group data<a class="headerlink" href="#the-need-to-group-data" title="Permalink to this headline">#</a></h2>
+<h2>The need to group data<a class="headerlink" href="#the-need-to-group-data" title="Permalink to this heading">#</a></h2>
 <p>This video motivates the block: <em>what do we mean by “grouping data” and why is it useful?</em></p>
 <aside class="sidebar">
 <p class="sidebar-title">Slides</p>
@@ -436,7 +437,7 @@ document.write(`
 </div>
 </section>
 <section id="non-spatial-clustering">
-<h2>Non-spatial clustering<a class="headerlink" href="#non-spatial-clustering" title="Permalink to this headline">#</a></h2>
+<h2>Non-spatial clustering<a class="headerlink" href="#non-spatial-clustering" title="Permalink to this heading">#</a></h2>
 <p>Non-spatial clustering is the most common form of data grouping. In this section, we cover the basics and mention a few approaches. We wrap it up with an example of clustering very dear to human geography: geodemographics.</p>
 <aside class="sidebar">
 <p class="sidebar-title">Slides</p>
@@ -459,7 +460,7 @@ document.write(`
         </div></div>
 </div>
 <section id="k-means">
-<h3>K-Means<a class="headerlink" href="#k-means" title="Permalink to this headline">#</a></h3>
+<h3>K-Means<a class="headerlink" href="#k-means" title="Permalink to this heading">#</a></h3>
 <p>In the clip above, we talk about K-Means, by far the most common clustering algorithm. Watch the video on the expandable to get the intuition behind the algorithm and better understand how it does its “magic”.</p>
 <div class="cell tag_remove-input tag_hide-output docutils container">
 <details class="hide above-output">
@@ -490,7 +491,7 @@ document.write(`
 </div>
 </section>
 <section id="geodemographics">
-<h3>Geodemographics<a class="headerlink" href="#geodemographics" title="Permalink to this headline">#</a></h3>
+<h3>Geodemographics<a class="headerlink" href="#geodemographics" title="Permalink to this heading">#</a></h3>
 <p>If you are interested in Geodemographics, a very good reference to get a broader perspective on the idea, origins and history of the field is “The Predictive Postcode” <a href="#id1"><span class="problematic" id="id2">webber2018predictive</span></a>, by Richard Webber and Roger Burrows. In particular, the first four chapters provide an excellent overview.</p>
 <p>Furthermore, the clip mentions the Output Area Classification (OAC), which you can access, for example, through the CDRC Maps platform:</p>
 <aside class="margin sidebar">
@@ -512,7 +513,7 @@ document.write(`
 </section>
 </section>
 <section id="regionalisation">
-<h2>Regionalisation<a class="headerlink" href="#regionalisation" title="Permalink to this headline">#</a></h2>
+<h2>Regionalisation<a class="headerlink" href="#regionalisation" title="Permalink to this heading">#</a></h2>
 <p>Regionalisation is explicitly spatial clustering. We cover the conceptual basics in the following clip:</p>
 <aside class="sidebar">
 <p class="sidebar-title">Slides</p>
@@ -537,7 +538,7 @@ document.write(`
 <p>If you are interested in the idea of regionalisation, a very good place to continue reading is Duque et al. (2007) <a href="#id3"><span class="problematic" id="id4">duque2007supervised</span></a>, which was an important inspiration in structuring the clip.</p>
 </section>
 <section id="further-readings">
-<h2>Further readings<a class="headerlink" href="#further-readings" title="Permalink to this headline">#</a></h2>
+<h2>Further readings<a class="headerlink" href="#further-readings" title="Permalink to this heading">#</a></h2>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>The chapter is available for free <a class="reference external" href="https://geographicdata.science/book/notebooks/10_clustering_and_regionalization.html">here</a></p>

@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Hands-on &#8212; A course on Geographic Data Science</title>
   
@@ -45,6 +45,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -74,7 +75,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Do-It-Yourself" href="diy_H.html" />
     <link rel="prev" title="Concepts" href="concepts_H.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -422,9 +423,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="hands-on">
-<h1>Hands-on<a class="headerlink" href="#hands-on" title="Permalink to this headline">#</a></h1>
+<h1>Hands-on<a class="headerlink" href="#hands-on" title="Permalink to this heading">#</a></h1>
 <section id="points">
-<h2>Points<a class="headerlink" href="#points" title="Permalink to this headline">#</a></h2>
+<h2>Points<a class="headerlink" href="#points" title="Permalink to this heading">#</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>This is an adapted version, with a bit less content and detail, of the chapter on points by Rey, Arribas-Bel and Wolf (<em>in progress</em>) <a href="#id1"><span class="problematic" id="id2">reyABwolf</span></a>. Check out the full chapter, available for free at:</p>
@@ -464,9 +465,9 @@ In a future release, GeoPandas will switch to using Shapely by default. If you a
 </div>
 </section>
 <section id="data">
-<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h2>
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h2>
 <section id="photographs">
-<h3>Photographs<a class="headerlink" href="#photographs" title="Permalink to this headline">#</a></h3>
+<h3>Photographs<a class="headerlink" href="#photographs" title="Permalink to this heading">#</a></h3>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>You can read more about the dataset on <a class="reference external" href="https://geographicdata.science/book/data/tokyo/tokyo_cleaning.html">its page at the GDS Book</a> website</p>
@@ -504,7 +505,7 @@ In a future release, GeoPandas will switch to using Shapely by default. If you a
 </div>
 </section>
 <section id="administrative-areas">
-<h3>Administrative areas<a class="headerlink" href="#administrative-areas" title="Permalink to this headline">#</a></h3>
+<h3>Administrative areas<a class="headerlink" href="#administrative-areas" title="Permalink to this heading">#</a></h3>
 <p>We will later use administrative areas for aggregation. Let’s load them upfront first. These are provided with the course and available online:</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -565,10 +566,10 @@ In a future release, GeoPandas will switch to using Shapely by default. If you a
 </section>
 </section>
 <section id="visualization-of-a-point-pattern">
-<h2>Visualization of a Point Pattern<a class="headerlink" href="#visualization-of-a-point-pattern" title="Permalink to this headline">#</a></h2>
+<h2>Visualization of a Point Pattern<a class="headerlink" href="#visualization-of-a-point-pattern" title="Permalink to this heading">#</a></h2>
 <p>We will spend the rest of this notebook learning different ways to visualize a point pattern. In particular, we will consider to main strategies: one relies on aggregating the points into polygons, while the second one is based on creating continuous surfaces using kernel density estimation.</p>
 <section id="one-to-one">
-<h3>One-to-one<a class="headerlink" href="#one-to-one" title="Permalink to this headline">#</a></h3>
+<h3>One-to-one<a class="headerlink" href="#one-to-one" title="Permalink to this heading">#</a></h3>
 <p>The first approach we review here is the one-to-one approach, where we place a dot on the screen for every point to visualise. In Python, one way to do this is with the <code class="docutils literal notranslate"><span class="pre">scatter</span></code> method in the Pandas visualisation layer:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -613,11 +614,11 @@ In a future release, GeoPandas will switch to using Shapely by default. If you a
 </div>
 </section>
 <section id="points-meet-polygons">
-<h3>Points meet polygons<a class="headerlink" href="#points-meet-polygons" title="Permalink to this headline">#</a></h3>
+<h3>Points meet polygons<a class="headerlink" href="#points-meet-polygons" title="Permalink to this heading">#</a></h3>
 <p>The approach presented above works until a certain number of points to plot; tweaking dot transparency and size only gets us so far and, at some point, we need to shift the focus. Having learned about visualizing lattice (polygon) data, an option is to “turn” points into polygons and apply techniques like choropleth mapping to visualize their spatial distribution. To do that, we will overlay a polygon layer on top of the point pattern, <em>join</em> the points to the polygons by assigning to each point the polygon where they fall into, and create a choropleth of the counts by polygon.</p>
 <p>This approach is intuitive but of course raises the following question: <em>what polygons do we use to aggregate the points?</em> Ideally, we want a boundary delineation that matches as closely as possible the point generating process and partitions the space into areas with a similar internal intensity of points. However, that is usually not the case, no less because one of the main reasons we typically want to visualize the point pattern is to learn about such generating process, so we would typically not know a priori whether a set of polygons match it. If we cannot count on the ideal set of polygons to begin with, we can adopt two more realistic approaches: using a set of pre-existing irregular areas or create a artificial set of regular polygons. Let’s explore both.</p>
 <section id="irregular-lattices">
-<h4>Irregular lattices<a class="headerlink" href="#irregular-lattices" title="Permalink to this headline">#</a></h4>
+<h4>Irregular lattices<a class="headerlink" href="#irregular-lattices" title="Permalink to this heading">#</a></h4>
 <p>To exemplify this approach, we will use the administrative areas we have loaded above. Let’s add them to the figure above to get better context (unfold the code if you are interested in seeing exactly how we do this):</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -775,7 +776,7 @@ In a future release, GeoPandas will switch to using Shapely by default. If you a
 <p>The pattern in the raw counts is similar to that of density, but we can see how some peripheral, large areas are “downgraded” when correcting for their size, while some smaller polygons in the centre display a higher value.</p>
 </section>
 <section id="regular-lattices-hex-binning">
-<h4>Regular lattices: hex-binning<a class="headerlink" href="#regular-lattices-hex-binning" title="Permalink to this headline">#</a></h4>
+<h4>Regular lattices: hex-binning<a class="headerlink" href="#regular-lattices-hex-binning" title="Permalink to this heading">#</a></h4>
 <p>Sometimes we either do not have any polygon layer to use or the ones we have are not particularly well suited to aggregate points into them. In these cases, a sensible alternative is to create an artificial topology of polygons that we can use to aggregate points. There are several ways to do this but the most common one is to create a grid of hexagons. This provides a regular topology (every polygon is of the same size and shape) that, unlike circles, cleanly exhausts all the space without overlaps and has more edges than squares, which alleviates edge problems.</p>
 <p>Python has a simplified way to create this hexagon layer <em>and</em> aggregate points into it in one shot thanks to the method <code class="docutils literal notranslate"><span class="pre">hexbin</span></code>, which is available in every axis object (e.g. <code class="docutils literal notranslate"><span class="pre">ax</span></code>). Let us first see how you could create a map of the hexagon layer alone:</p>
 <div class="cell docutils container">
@@ -844,7 +845,7 @@ In a future release, GeoPandas will switch to using Shapely by default. If you a
 </section>
 </section>
 <section id="kernel-density-estimation">
-<h3>Kernel Density Estimation<a class="headerlink" href="#kernel-density-estimation" title="Permalink to this headline">#</a></h3>
+<h3>Kernel Density Estimation<a class="headerlink" href="#kernel-density-estimation" title="Permalink to this heading">#</a></h3>
 <p>Using a hexagonal binning can be a quick solution when we do not have a good polygon layer to overlay the points directly and some of its properties, such as the equal size of each polygon, can help alleviate some of the problems with a “bad” irregular topology (one that does not fit the underlying point generating process). However, it does not get around the issue of the modifiable areal unit problem (M.A.U.P., see <a class="reference internal" href="../bD/concepts_D.html"><span class="doc std std-doc">Block D</span></a>: at the end of the day, we are still imposing arbitrary boundary lines and aggregating based on them, so the possibility of mismatch with the underlying distribution of the point pattern is very real.</p>
 <p>One way to work around this problem is to avoid aggregating into another geography altogether. Instead, we can aim at estimating the <em>continuous</em> observed probability distribution. The most commonly used method to do this is the so called <em>kernel density estimate</em> (KDE). The idea behind KDEs is to count the number of points in a <em>continious</em> way. Instead of using discrete counting, where you include a point in the count if it is inside a certain boundary and ignore it otherwise, KDEs use functions (kernels) that include points but give different weights to each one depending of how far of the location where we are counting the point is.</p>
 <p>The actual algorithm to estimate a kernel density is not trivial but its application in Python is rather simplified by the use of Seaborn. KDE’s however are fairly computationally intensive. When you have a large point pattern like we do in the <code class="docutils literal notranslate"><span class="pre">tokyo</span></code> example (10,000 points), its computation can take a bit long. To get around this issue, we create a random subset, which retains the overall structure of the pattern, but with much fewer points. Let’s take a subset of 1,000 random points from our original table:</p>
@@ -919,7 +920,7 @@ In a future release, GeoPandas will switch to using Shapely by default. If you a
 </section>
 </section>
 <section id="clusters-of-points">
-<h2>Clusters of points<a class="headerlink" href="#clusters-of-points" title="Permalink to this headline">#</a></h2>
+<h2>Clusters of points<a class="headerlink" href="#clusters-of-points" title="Permalink to this heading">#</a></h2>
 <p>In this final section, we will learn a method to identify clusters of points, based on their density across space. To do this, we will use the widely used <code class="docutils literal notranslate"><span class="pre">DBSCAN</span></code> algorithm. For this method, a cluster is a concentration of at least <code class="docutils literal notranslate"><span class="pre">m</span></code> points, each of them within a distance of <code class="docutils literal notranslate"><span class="pre">r</span></code> of at least another point in the cluster. Points in the dataset are then divided into three categories:</p>
 <ul class="simple">
 <li><p><em>Noise</em>, for those points outside a cluster.</p></li>
@@ -928,7 +929,7 @@ In a future release, GeoPandas will switch to using Shapely by default. If you a
 </ul>
 <p>Both <code class="docutils literal notranslate"><span class="pre">m</span></code> and <code class="docutils literal notranslate"><span class="pre">r</span></code> need to be prespecified by the user before running <code class="docutils literal notranslate"><span class="pre">DBSCAN</span></code>. This is a critical point, as their value can influence significantly the final result. Before exploring this in greater depth, let us get a first run at computing <code class="docutils literal notranslate"><span class="pre">DBSCAN</span></code> in Python.</p>
 <section id="basics">
-<h3>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">#</a></h3>
+<h3>Basics<a class="headerlink" href="#basics" title="Permalink to this heading">#</a></h3>
 <p>The heavy lifting is done by the method <code class="docutils literal notranslate"><span class="pre">DBSCAN</span></code>, part of the excellent machine learning library <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>. Running the algorithm is similar to how we ran K-Means when <a class="reference internal" href="../bG/lab_G.html"><span class="doc std std-doc">clustering</span></a>. We first set up the details:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1098,7 +1099,7 @@ In a future release, GeoPandas will switch to using Shapely by default. If you a
 <p>The output is now very different, isn’t it? This exemplifies how different parameters can give rise to substantially different outcomes, even if the same data and algorithm are applied.</p>
 </section>
 <section id="advanced-plotting">
-<h3>Advanced plotting<a class="headerlink" href="#advanced-plotting" title="Permalink to this headline">#</a></h3>
+<h3>Advanced plotting<a class="headerlink" href="#advanced-plotting" title="Permalink to this heading">#</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Please keep in mind this final section of the tutorial is <strong>OPTIONAL</strong>, so do not feel forced to complete it. This will not be covered in the assignment and you will still be able to get a good mark without completing it (also, including any of the following in the assignment does NOT guarantee a better mark).</p>

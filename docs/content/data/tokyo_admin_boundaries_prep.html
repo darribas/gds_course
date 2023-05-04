@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Tokyo districts administrative boundaries &#8212; A course on Geographic Data Science</title>
   
@@ -45,6 +45,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -72,7 +73,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -403,7 +404,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tokyo-districts-administrative-boundaries">
-<h1>Tokyo districts administrative boundaries<a class="headerlink" href="#tokyo-districts-administrative-boundaries" title="Permalink to this headline">#</a></h1>
+<h1>Tokyo districts administrative boundaries<a class="headerlink" href="#tokyo-districts-administrative-boundaries" title="Permalink to this heading">#</a></h1>
 <p>Here we prepare a GeoJSON for the administrative areas the <a class="reference external" href="https://geographicdata.science/book/data/tokyo/tokyo_clean.csv">Flickr dataset for Tokyo</a> covers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -413,7 +414,7 @@ document.write(`
 </div>
 </div>
 <section id="get-extent-of-photos">
-<h2>Get extent of photos<a class="headerlink" href="#get-extent-of-photos" title="Permalink to this headline">#</a></h2>
+<h2>Get extent of photos<a class="headerlink" href="#get-extent-of-photos" title="Permalink to this heading">#</a></h2>
 <p>Read table in:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -454,7 +455,7 @@ memory usage: 547.0+ KB
 </div>
 </section>
 <section id="access-boundaries-for-japan">
-<h2>Access boundaries for Japan<a class="headerlink" href="#access-boundaries-for-japan" title="Permalink to this headline">#</a></h2>
+<h2>Access boundaries for Japan<a class="headerlink" href="#access-boundaries-for-japan" title="Permalink to this heading">#</a></h2>
 <p>We rely on the excellent <a class="reference external" href="https://gadm.org">GADM</a> project for the Japan file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -515,7 +516,7 @@ gadm36_JPN_gpkg.zip 100%[===================&gt;]  11.48M  1.54MB/s    in 8.5s
 </div>
 </section>
 <section id="clip-areas">
-<h2>Clip areas<a class="headerlink" href="#clip-areas" title="Permalink to this headline">#</a></h2>
+<h2>Clip areas<a class="headerlink" href="#clip-areas" title="Permalink to this heading">#</a></h2>
 <p>Identify areas with at least one photo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -563,7 +564,7 @@ memory usage: 2.1+ KB
 </div>
 </section>
 <section id="write-out">
-<h2>Write out<a class="headerlink" href="#write-out" title="Permalink to this headline">#</a></h2>
+<h2>Write out<a class="headerlink" href="#write-out" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>tokyo_admin_boundaries.geojson

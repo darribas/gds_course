@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Hands-on &#8212; A course on Geographic Data Science</title>
   
@@ -45,6 +45,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -74,7 +75,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Do-It-Yourself" href="diy_D.html" />
     <link rel="prev" title="Concepts" href="concepts_D.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -415,9 +416,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="hands-on">
-<h1>Hands-on<a class="headerlink" href="#hands-on" title="Permalink to this headline">#</a></h1>
+<h1>Hands-on<a class="headerlink" href="#hands-on" title="Permalink to this heading">#</a></h1>
 <section id="choropleths-in-python">
-<h2>Choropleths in Python<a class="headerlink" href="#choropleths-in-python" title="Permalink to this headline">#</a></h2>
+<h2>Choropleths in Python<a class="headerlink" href="#choropleths-in-python" title="Permalink to this heading">#</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>This is an adapted version, with a bit less content and detail, of the chapter on choropleth mapping by Rey, Arribas-Bel and Wolf (<em>in progress</em>) <a href="#id1"><span class="problematic" id="id2">reyABwolf</span></a>. Check out the full chapter, available for free at:</p>
@@ -450,7 +451,7 @@ document.write(`
 </div>
 </section>
 <section id="data">
-<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h2>
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h2>
 <p>To mirror the <a class="reference external" href="https://geographicdata.science/book/notebooks/05_choropleth.html">original chapter</a> this section is based on, we will use the same dataset: the <a class="reference external" href="https://geographicdata.science/book/data/mexico/README.html">Mexico GDP per capita dataset</a>, which we can access as a PySAL example dataset.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -603,9 +604,9 @@ Datum: World Geodetic System 1984
 <p>Now we are fully ready to map!</p>
 </section>
 <section id="choropleths">
-<h2>Choropleths<a class="headerlink" href="#choropleths" title="Permalink to this headline">#</a></h2>
+<h2>Choropleths<a class="headerlink" href="#choropleths" title="Permalink to this heading">#</a></h2>
 <section id="unique-values">
-<h3>Unique values<a class="headerlink" href="#unique-values" title="Permalink to this headline">#</a></h3>
+<h3>Unique values<a class="headerlink" href="#unique-values" title="Permalink to this heading">#</a></h3>
 <p>A choropleth for categorical variables simply assigns a different color to every potential value in the series. The main requirement in this case is then for the color scheme to reflect the fact that different values are not ordered or follow a particular scale.</p>
 <p>In Python, creating categorical choropleths is possible with one line of code. To demonstrate this, we can plot the Mexican states and the region each belongs to based on the Mexican Statistics Institute (coded in our table as the <code class="docutils literal notranslate"><span class="pre">INEGI</span></code> variable):</p>
 <div class="cell docutils container">
@@ -634,7 +635,7 @@ Datum: World Geodetic System 1984
 </ul>
 </section>
 <section id="equal-interval">
-<h3>Equal interval<a class="headerlink" href="#equal-interval" title="Permalink to this headline">#</a></h3>
+<h3>Equal interval<a class="headerlink" href="#equal-interval" title="Permalink to this heading">#</a></h3>
 <p>If, instead of categorical variables, we want to display the geographical distribution of a continuous phenomenon, we need to select a way to encode each value into a color. One potential solution is applying what is usually called “equal intervals”. The intuition of this method is to split the <em>range</em> of the distribution, the difference between the minimum and maximum value, into equally large segments and to assign a different color to each of them according to a palette that reflects the fact that values are ordered.</p>
 <p>Creating the choropleth is relatively straightforward in Python. For example, to create an equal interval on the GDP per capita in 2000 (<code class="docutils literal notranslate"><span class="pre">PCGDP2000</span></code>), we can run a similar command as above:</p>
 <div class="cell docutils container">
@@ -732,7 +733,7 @@ Datum: World Geodetic System 1984
 <p>Technically speaking, the figure is created by overlaying a KDE plot with vertical bars for each of the break points. This makes much more explicit the issue highlighed by which the first bin contains a large amount of observations while the one with top values only encompasses a handful of them.</p>
 </section>
 <section id="quantiles">
-<h3>Quantiles<a class="headerlink" href="#quantiles" title="Permalink to this headline">#</a></h3>
+<h3>Quantiles<a class="headerlink" href="#quantiles" title="Permalink to this heading">#</a></h3>
 <p>One solution to obtain a more balanced classification scheme is using quantiles. This, by definition, assigns the same amount of values to each bin: the entire series is laid out in order and break points are assigned in a way that leaves exactly the same amount of observations between each of them. This “observation-based” approach contrasts with the “value-based” method of equal intervals and, although it can obscure the magnitude of extreme values, it can be more informative in cases with skewed distributions.</p>
 <p>The code required to create the choropleth mirrors that needed above for equal intervals:</p>
 <div class="cell docutils container">
@@ -822,7 +823,7 @@ Datum: World Geodetic System 1984
 </div>
 </section>
 <section id="fisher-jenks">
-<h3>Fisher-Jenks<a class="headerlink" href="#fisher-jenks" title="Permalink to this headline">#</a></h3>
+<h3>Fisher-Jenks<a class="headerlink" href="#fisher-jenks" title="Permalink to this heading">#</a></h3>
 <p>Equal interval and quantiles are only two examples of very many classification schemes to encode values into colors. Although not all of them are integrated into <code class="docutils literal notranslate"><span class="pre">geopandas</span></code>, <code class="docutils literal notranslate"><span class="pre">PySAL</span></code> includes several other classification schemes (for a detailed list, have a look at this <a class="reference external" href="https://pysal.org/mapclassify/notebooks/01_maximum_breaks.html">link</a>). As an example of a more sophisticated one, let us create a Fisher-Jenks choropleth:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -911,9 +912,9 @@ Datum: World Geodetic System 1984
 </section>
 </section>
 <section id="zooming-into-the-map">
-<h2>Zooming into the map<a class="headerlink" href="#zooming-into-the-map" title="Permalink to this headline">#</a></h2>
+<h2>Zooming into the map<a class="headerlink" href="#zooming-into-the-map" title="Permalink to this heading">#</a></h2>
 <section id="zoom-into-full-map">
-<h3>Zoom into full map<a class="headerlink" href="#zoom-into-full-map" title="Permalink to this headline">#</a></h3>
+<h3>Zoom into full map<a class="headerlink" href="#zoom-into-full-map" title="Permalink to this heading">#</a></h3>
 <p>A general map of an entire region, or urban area, can sometimes obscure local patterns because they happen at a much smaller scale that cannot be perceived in the global view. One way to solve this is by providing a focus of a smaller part of the map in a separate figure. Although there are many ways to do this in Python, the most straightforward one is to reset the limits of the axes to center them in the area of interest.</p>
 <p>As an example, let us consider the quantile map produced above:</p>
 <div class="cell docutils container">
@@ -964,7 +965,7 @@ Datum: World Geodetic System 1984
 </div>
 </section>
 <section id="partial-map">
-<h3>Partial map<a class="headerlink" href="#partial-map" title="Permalink to this headline">#</a></h3>
+<h3>Partial map<a class="headerlink" href="#partial-map" title="Permalink to this heading">#</a></h3>
 <p>The approach above is straightforward, but not necessarily the most efficient one: not that, to generate a map of a potentially very small area, we effectively draw the entire (potentially very large) map, and discard everything except the section we want. This is not straightforward to notice at first sight, but what Python is doing in the code cell above is plottin the entire <code class="docutils literal notranslate"><span class="pre">db</span></code> object, and only then focusing the figure on the X and Y ranges specified in <code class="docutils literal notranslate"><span class="pre">set_xlim</span></code>/<code class="docutils literal notranslate"><span class="pre">set_ylim</span></code>.</p>
 <p>Sometimes, this is required. For example, if we want to retain the same coloring used for the national map, but focus on the region around Mexico DF, this approach is the easiest one.</p>
 <p>However, sometimes, we only need to plot the <em>geographical features</em> within a given range, and we either don’t need to keep the national coloring (e.g. we are using a single color), or we want a classification performed <em>only</em> with the features in the region.</p>

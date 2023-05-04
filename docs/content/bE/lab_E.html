@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Hands-on &#8212; A course on Geographic Data Science</title>
   
@@ -45,6 +45,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -76,7 +77,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Do-It-Yourself" href="diy_E.html" />
     <link rel="prev" title="Concepts" href="concepts_E.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -415,9 +416,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="hands-on">
-<h1>Hands-on<a class="headerlink" href="#hands-on" title="Permalink to this headline">#</a></h1>
+<h1>Hands-on<a class="headerlink" href="#hands-on" title="Permalink to this heading">#</a></h1>
 <section id="spatial-weights">
-<h2>Spatial weights<a class="headerlink" href="#spatial-weights" title="Permalink to this headline">#</a></h2>
+<h2>Spatial weights<a class="headerlink" href="#spatial-weights" title="Permalink to this heading">#</a></h2>
 <p>In this session we will be learning the ins and outs of one of the key pieces in spatial analysis: spatial weights matrices. These are structured sets of numbers that formalize geographical relationships between the observations in a dataset. Essentially, a spatial weights matrix of a given geography is a positive definite matrix of dimensions <span class="math notranslate nohighlight">\(N\)</span> by <span class="math notranslate nohighlight">\(N\)</span>, where <span class="math notranslate nohighlight">\(N\)</span> is the total number of observations:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -447,7 +448,7 @@ w_{N1} &amp; \dots &amp; \dots &amp; 0
 </div>
 </section>
 <section id="data">
-<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h2>
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h2>
 <p>For this tutorial, we will use a dataset of Liverpool small areas (or Lower layer Super Output Areas, LSOAs) for Liverpool. The table is available as part of this course, so can be accessed remotely through the web. If you want to see how the table was created, a notebook is available <a class="reference internal" href="../data/liv_lsoas_prep.html"><span class="doc std std-doc">here</span></a>.</p>
 <p>To make things easier, we will read data from a file posted online so, for now, you do not need to download any dataset:</p>
 <aside class="margin sidebar">
@@ -503,9 +504,9 @@ memory usage: 9.3+ KB
 </div>
 </section>
 <section id="building-spatial-weights-in-pysal">
-<h2>Building spatial weights in <code class="docutils literal notranslate"><span class="pre">PySAL</span></code><a class="headerlink" href="#building-spatial-weights-in-pysal" title="Permalink to this headline">#</a></h2>
+<h2>Building spatial weights in <code class="docutils literal notranslate"><span class="pre">PySAL</span></code><a class="headerlink" href="#building-spatial-weights-in-pysal" title="Permalink to this heading">#</a></h2>
 <section id="contiguity">
-<h3>Contiguity<a class="headerlink" href="#contiguity" title="Permalink to this headline">#</a></h3>
+<h3>Contiguity<a class="headerlink" href="#contiguity" title="Permalink to this heading">#</a></h3>
 <p>Contiguity weights matrices define spatial connections through the existence of common boundaries. This makes it directly suitable to use with polygons: if two polygons share boundaries to some degree, they will be labeled as neighbors under these kinds of weights. Exactly how much they need to share is what differenciates the two approaches we will learn: queen and rook.</p>
 <ul class="simple">
 <li><p><strong>Queen</strong></p></li>
@@ -769,7 +770,7 @@ dtype: int64
 <p>The output is of the same type as before, a <code class="docutils literal notranslate"><span class="pre">W</span></code> object that can be queried and used in very much the same way as any other one.</p>
 </section>
 <section id="distance">
-<h3>Distance<a class="headerlink" href="#distance" title="Permalink to this headline">#</a></h3>
+<h3>Distance<a class="headerlink" href="#distance" title="Permalink to this heading">#</a></h3>
 <p>Distance based matrices assign the weight to each pair of observations as a function of how far from each other they are. How this is translated into an actual weight varies across types and variants, but they all share that the ultimate reason why two observations are assigned some weight is due to the distance between them.</p>
 <ul class="simple">
 <li><p><strong>K-Nearest Neighbors</strong></p></li>
@@ -940,7 +941,7 @@ w_{ij} = \dfrac{1}{d_{ij}}
 </div>
 </section>
 <section id="block-weights">
-<h3>Block weights<a class="headerlink" href="#block-weights" title="Permalink to this headline">#</a></h3>
+<h3>Block weights<a class="headerlink" href="#block-weights" title="Permalink to this heading">#</a></h3>
 <p>Block weights connect every observation in a dataset that belongs to the same category in a list provided ex-ante. Usually, this list will have some relation to geography an the location of the observations but, technically speaking, all one needs to create block weights is a list of memberships. In this class of weights, neighboring observations, those in the same group, are assigned a weight of one, and the rest receive a weight of zero.</p>
 <p>In this example, we will build a spatial weights matrix that connects every LSOA with all the other ones in the same MSOA. See how the MSOA code is expressed for every LSOA:</p>
 <div class="cell docutils container">
@@ -1066,7 +1067,7 @@ w_{ij} = \dfrac{1}{d_{ij}}
 </section>
 </section>
 <section id="standardizing-w-matrices">
-<h2>Standardizing <code class="docutils literal notranslate"><span class="pre">W</span></code> matrices<a class="headerlink" href="#standardizing-w-matrices" title="Permalink to this headline">#</a></h2>
+<h2>Standardizing <code class="docutils literal notranslate"><span class="pre">W</span></code> matrices<a class="headerlink" href="#standardizing-w-matrices" title="Permalink to this heading">#</a></h2>
 <p>In the context of many spatial analysis techniques, a spatial weights matrix with raw values (e.g. ones and zeros for the binary case) is not always the best suiting one for analysis and some sort of transformation is required. This implies modifying each weight so they conform to certain rules. <code class="docutils literal notranslate"><span class="pre">PySAL</span></code> has transformations baked right into the <code class="docutils literal notranslate"><span class="pre">W</span></code> object, so it is possible to check the state of an object as well as to modify it.</p>
 <p>Consider the original queen weights, for observation <code class="docutils literal notranslate"><span class="pre">E01006690</span></code>:</p>
 <div class="cell docutils container">
@@ -1175,7 +1176,7 @@ w_{ij} = \dfrac{1}{d_{ij}}
 </ul>
 </section>
 <section id="reading-and-writing-spatial-weights-in-pysal">
-<h2>Reading and Writing spatial weights in <code class="docutils literal notranslate"><span class="pre">PySAL</span></code><a class="headerlink" href="#reading-and-writing-spatial-weights-in-pysal" title="Permalink to this headline">#</a></h2>
+<h2>Reading and Writing spatial weights in <code class="docutils literal notranslate"><span class="pre">PySAL</span></code><a class="headerlink" href="#reading-and-writing-spatial-weights-in-pysal" title="Permalink to this heading">#</a></h2>
 <p>Sometimes, if a dataset is very detailed or large, it can be costly to build the spatial weights matrix of a given geography and, despite the optimizations in the <code class="docutils literal notranslate"><span class="pre">PySAL</span></code> code, the computation time can quickly grow out of hand. In these contexts, it is useful to not have to re-build a matrix from scratch every time we need to re-run the analysis. A useful solution in this case is to build the matrix once, and save it to a file where it can be reloaded at a later stage if needed.</p>
 <p><code class="docutils literal notranslate"><span class="pre">PySAL</span></code> has a common way to write any kind of <code class="docutils literal notranslate"><span class="pre">W</span></code> object into a file using the command <code class="docutils literal notranslate"><span class="pre">open</span></code>. The only element we need to decide for ourselves beforehand is the format of the file. Although there are several formats in which spatial weight matrices can be stored, we will focused on the two most commonly used ones:</p>
 <ul class="simple">
@@ -1258,7 +1259,7 @@ w_{ij} = \dfrac{1}{d_{ij}}
 </div>
 </section>
 <section id="spatial-lag">
-<h2>Spatial Lag<a class="headerlink" href="#spatial-lag" title="Permalink to this headline">#</a></h2>
+<h2>Spatial Lag<a class="headerlink" href="#spatial-lag" title="Permalink to this heading">#</a></h2>
 <p>One of the most direct applications of spatial weight matrices is the so-called <em>spatial lag</em>. The spatial lag of a given variable is the product of a spatial weight matrix and the variable itself:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1306,7 +1307,7 @@ y_{sl-i} = \displaystyle \sum_j w_{ij} y_j
 </div>
 </section>
 <section id="moran-plot">
-<h2>Moran Plot<a class="headerlink" href="#moran-plot" title="Permalink to this headline">#</a></h2>
+<h2>Moran Plot<a class="headerlink" href="#moran-plot" title="Permalink to this heading">#</a></h2>
 <p>The Moran Plot is a graphical way to start exploring the concept of spatial autocorrelation, and it is a good application of spatial weight matrices and the spatial lag. In essence, it is a standard scatter plot in which a given variable (<code class="docutils literal notranslate"><span class="pre">area</span></code>, for example) is plotted against <em>its own</em> spatial lag. Usually, a fitted line is added to include more information:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

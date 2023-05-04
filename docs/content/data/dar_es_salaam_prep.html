@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Dar Es Salaam built environment &#8212; A course on Geographic Data Science</title>
   
@@ -45,6 +45,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -72,7 +73,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -413,7 +414,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="dar-es-salaam-built-environment">
-<h1>Dar Es Salaam built environment<a class="headerlink" href="#dar-es-salaam-built-environment" title="Permalink to this headline">#</a></h1>
+<h1>Dar Es Salaam built environment<a class="headerlink" href="#dar-es-salaam-built-environment" title="Permalink to this heading">#</a></h1>
 <p>This notebook builds a dataset for Dar Es Salaam (Tanzania) describing the built environment. Two main aspects are considered: the street network and buildings. To capture those, the following variables are calculated at for the H3 hexagonal grid system, zoom level 8:</p>
 <ul class="simple">
 <li><p>Building density: number of buildings per hexagon</p></li>
@@ -436,7 +437,7 @@ document.write(`
 </div>
 </div>
 <section id="raw-data-extraction">
-<h2>Raw data extraction<a class="headerlink" href="#raw-data-extraction" title="Permalink to this headline">#</a></h2>
+<h2>Raw data extraction<a class="headerlink" href="#raw-data-extraction" title="Permalink to this heading">#</a></h2>
 <p>The original dataset was extracted on Sep. 17th 2020 through the <a class="reference external" href="https://extract.bbbike.org/">BBBike Extract Service</a>. The query specs included:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> Name: Dar Es Salaam Centre
  Coordinates: 39.199,-6.86 x 39.409,-6.73
@@ -489,7 +490,7 @@ document.write(`
 <p>This is downloaded into a <code class="docutils literal notranslate"><span class="pre">.osm.pbf</span></code> that is placed on the same folder as this notebook for processing.</p>
 </section>
 <section id="extract-features-from-osm">
-<h2>Extract features from OSM<a class="headerlink" href="#extract-features-from-osm" title="Permalink to this headline">#</a></h2>
+<h2>Extract features from OSM<a class="headerlink" href="#extract-features-from-osm" title="Permalink to this heading">#</a></h2>
 <p>Let’s set up the reader:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -499,7 +500,7 @@ document.write(`
 </div>
 </div>
 <section id="streets">
-<h3>Streets<a class="headerlink" href="#streets" title="Permalink to this headline">#</a></h3>
+<h3>Streets<a class="headerlink" href="#streets" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span> streets = osm.get_network()
@@ -529,7 +530,7 @@ Wall time: 23.3 s
 </div>
 </section>
 <section id="buildings">
-<h3>Buildings<a class="headerlink" href="#buildings" title="Permalink to this headline">#</a></h3>
+<h3>Buildings<a class="headerlink" href="#buildings" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span> buildings = osm.get_buildings()
@@ -567,7 +568,7 @@ Wall time: 4min 43s
 </section>
 </section>
 <section id="generate-h3-geography">
-<h2>Generate <code class="docutils literal notranslate"><span class="pre">h3</span></code> geography<a class="headerlink" href="#generate-h3-geography" title="Permalink to this headline">#</a></h2>
+<h2>Generate <code class="docutils literal notranslate"><span class="pre">h3</span></code> geography<a class="headerlink" href="#generate-h3-geography" title="Permalink to this heading">#</a></h2>
 <p>This parallels the H3 extraction on the <a class="reference external" href="https://geographicdata.science/book/data/h3_grid/build_sd_h3_grid.html">GDS book</a>. Let’s start by drawing the limits for which we will obtains hexagons. For ease of computation, we do this with the convex hull of the boundaries provided by OSM:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -645,10 +646,10 @@ Wall time: 217 ms
 </div>
 </section>
 <section id="aggregate-features-to-h3">
-<h2>Aggregate features to <code class="docutils literal notranslate"><span class="pre">h3</span></code><a class="headerlink" href="#aggregate-features-to-h3" title="Permalink to this headline">#</a></h2>
+<h2>Aggregate features to <code class="docutils literal notranslate"><span class="pre">h3</span></code><a class="headerlink" href="#aggregate-features-to-h3" title="Permalink to this heading">#</a></h2>
 <p>With the target geography at hand, we can start creating attributes for each area.</p>
 <section id="building-density">
-<h3>Building density<a class="headerlink" href="#building-density" title="Permalink to this headline">#</a></h3>
+<h3>Building density<a class="headerlink" href="#building-density" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
@@ -698,7 +699,7 @@ Wall time: 4.69 s
 </div>
 </section>
 <section id="building-coverage">
-<h3>Building coverage<a class="headerlink" href="#building-coverage" title="Permalink to this headline">#</a></h3>
+<h3>Building coverage<a class="headerlink" href="#building-coverage" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">buildings</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">area</span><span class="o">=</span><span class="n">buildings</span><span class="o">.</span><span class="n">area</span><span class="p">)</span>\
@@ -791,7 +792,7 @@ Wall time: 1min 21s
 </div>
 </section>
 <section id="street-length-and-linearity">
-<h3>Street length and linearity<a class="headerlink" href="#street-length-and-linearity" title="Permalink to this headline">#</a></h3>
+<h3>Street length and linearity<a class="headerlink" href="#street-length-and-linearity" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
@@ -13152,7 +13153,7 @@ Wall time: 5min 10s
 </section>
 </section>
 <section id="write-out">
-<h2>Write out<a class="headerlink" href="#write-out" title="Permalink to this headline">#</a></h2>
+<h2>Write out<a class="headerlink" href="#write-out" title="Permalink to this heading">#</a></h2>
 <p>Now we bring everything together into a single table:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

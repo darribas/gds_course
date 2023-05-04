@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title> &#8212; A course on Geographic Data Science</title>
   
@@ -45,6 +45,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -74,7 +75,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -388,9 +389,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<h1><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <section id="geographic-data-science">
-<h2>Geographic Data Science<a class="headerlink" href="#geographic-data-science" title="Permalink to this headline">#</a></h2>
+<h2>Geographic Data Science<a class="headerlink" href="#geographic-data-science" title="Permalink to this heading">#</a></h2>
 <CENTER>
 Space, formally
 </CENTER>
@@ -400,19 +401,19 @@ Space, formally
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="id2">
-<h1><a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h1>
+<h1><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h1>
 <section id="space-formally">
-<h2>Space, formally<a class="headerlink" href="#space-formally" title="Permalink to this headline">#</a></h2>
+<h2>Space, formally<a class="headerlink" href="#space-formally" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="id3">
-<h2><a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<h2><a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <p>For a statistical method to be <strong>explicitly spatial</strong>, it needs to contain
 some representation of the geography, or <strong>spatial context</strong></p>
 <span class="fragment">
 One of the most common ways is through **Spatial Weights Matrices**
 </section>
 <section id="id4">
-<h2><a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<h2><a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>(Geo)Visualization</strong>: translating numbers into a (visual) language that the human brain
 <em>“speaks better”</em></p></li>
@@ -421,7 +422,7 @@ a computer <em>“speaks better”</em>.</p></li>
 </ul>
 </section>
 <section id="id5">
-<h2><a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<h2><a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
 <p>Core element in several spatial analysis techniques:</p>
 <ul class="simple">
 <li><p>Spatial autocorrelation</p></li>
@@ -431,12 +432,12 @@ a computer <em>“speaks better”</em>.</p></li>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="id6">
-<h1><a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h1>
+<h1><a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h1>
 <section id="w-as-a-formal-representation-of-space">
-<h2><span class="math notranslate nohighlight">\(W\)</span> as a formal representation of space<a class="headerlink" href="#w-as-a-formal-representation-of-space" title="Permalink to this headline">#</a></h2>
+<h2><span class="math notranslate nohighlight">\(W\)</span> as a formal representation of space<a class="headerlink" href="#w-as-a-formal-representation-of-space" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="w">
-<h2><span class="math notranslate nohighlight">\(W\)</span><a class="headerlink" href="#w" title="Permalink to this headline">#</a></h2>
+<h2><span class="math notranslate nohighlight">\(W\)</span><a class="headerlink" href="#w" title="Permalink to this heading">#</a></h2>
 <center>
 *$N$ x $N$ positive matrix <span class="fragment"> that contains **spatial relations**
 <span class="fragment"> between all the observations in the sample*
@@ -455,7 +456,7 @@ x > 0 &\mbox{ if $i$ and $j$ are neighbors} \\
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="id7">
-<h1><a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h1>
+<h1><a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h1>
 <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
 </section>
 

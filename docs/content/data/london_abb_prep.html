@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>London AirBnb dataset prep &#8212; A course on Geographic Data Science</title>
   
@@ -45,6 +45,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -72,7 +73,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -408,7 +409,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="london-airbnb-dataset-prep">
-<h1>London AirBnb dataset prep<a class="headerlink" href="#london-airbnb-dataset-prep" title="Permalink to this headline">#</a></h1>
+<h1>London AirBnb dataset prep<a class="headerlink" href="#london-airbnb-dataset-prep" title="Permalink to this heading">#</a></h1>
 <p>In this notebook we put together the dataset of London properties on AirBnb.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -418,9 +419,9 @@ document.write(`
 </div>
 </div>
 <section id="source-data">
-<h2>Source data<a class="headerlink" href="#source-data" title="Permalink to this headline">#</a></h2>
+<h2>Source data<a class="headerlink" href="#source-data" title="Permalink to this heading">#</a></h2>
 <section id="airbnb-listings">
-<h3>AirBnb listings<a class="headerlink" href="#airbnb-listings" title="Permalink to this headline">#</a></h3>
+<h3>AirBnb listings<a class="headerlink" href="#airbnb-listings" title="Permalink to this heading">#</a></h3>
 <p>We use the recorded listings in January 2020:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -475,7 +476,7 @@ document.write(`
 </div>
 </section>
 <section id="london-geographies">
-<h3>London geographies<a class="headerlink" href="#london-geographies" title="Permalink to this headline">#</a></h3>
+<h3>London geographies<a class="headerlink" href="#london-geographies" title="Permalink to this heading">#</a></h3>
 <p>From the London Datastore, we can download a <code class="docutils literal notranslate"><span class="pre">.zip</span></code> file with statistical boundaries for London (as of Sep. 16th 2020):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -674,7 +675,7 @@ memory usage: 2.2+ KB
 </section>
 </section>
 <section id="aggregate-variables-to-msoa">
-<h2>Aggregate variables to MSOA<a class="headerlink" href="#aggregate-variables-to-msoa" title="Permalink to this headline">#</a></h2>
+<h2>Aggregate variables to MSOA<a class="headerlink" href="#aggregate-variables-to-msoa" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Attach MSOA code to each point</p></li>
 </ul>
@@ -706,7 +707,7 @@ memory usage: 2.2+ KB
 </div>
 </section>
 <section id="attach-boroughs">
-<h2>Attach boroughs<a class="headerlink" href="#attach-boroughs" title="Permalink to this headline">#</a></h2>
+<h2>Attach boroughs<a class="headerlink" href="#attach-boroughs" title="Permalink to this heading">#</a></h2>
 <p>We attach to a MSOA the borough where its centroid falls within.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -845,7 +846,7 @@ memory usage: 138.1+ KB
 </div>
 </section>
 <section id="keep-inner-london">
-<h2>Keep Inner London<a class="headerlink" href="#keep-inner-london" title="Permalink to this headline">#</a></h2>
+<h2>Keep Inner London<a class="headerlink" href="#keep-inner-london" title="Permalink to this heading">#</a></h2>
 <p>To keep only MSOAs with higher density of properties, we restrict the dataset to <a class="reference external" href="https://en.wikipedia.org/wiki/Inner_London">Inner London</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -906,7 +907,7 @@ memory usage: 138.1+ KB
 </div>
 </section>
 <section id="write-out-and-clean-up">
-<h2>Write out and clean up<a class="headerlink" href="#write-out-and-clean-up" title="Permalink to this headline">#</a></h2>
+<h2>Write out and clean up<a class="headerlink" href="#write-out-and-clean-up" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>london_abb.gpkg

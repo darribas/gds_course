@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Toronto Data &#8212; A course on Geographic Data Science</title>
   
@@ -45,6 +45,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -72,7 +73,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -408,7 +409,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="toronto-data">
-<h1>Toronto Data<a class="headerlink" href="#toronto-data" title="Permalink to this headline">#</a></h1>
+<h1>Toronto Data<a class="headerlink" href="#toronto-data" title="Permalink to this heading">#</a></h1>
 <p>This notebook documents the compilation of the Toronto datasets provided for the <a class="reference internal" href="../assessment.html#computational-essay"><span class="std std-ref">Computational Essay</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -420,9 +421,9 @@ document.write(`
 </div>
 </div>
 <section id="toronto-neighbourhoods">
-<h2>Toronto Neighbourhoods<a class="headerlink" href="#toronto-neighbourhoods" title="Permalink to this headline">#</a></h2>
+<h2>Toronto Neighbourhoods<a class="headerlink" href="#toronto-neighbourhoods" title="Permalink to this heading">#</a></h2>
 <section id="geometries">
-<h3>Geometries<a class="headerlink" href="#geometries" title="Permalink to this headline">#</a></h3>
+<h3>Geometries<a class="headerlink" href="#geometries" title="Permalink to this heading">#</a></h3>
 <p>Neighbourhood geometries are available from the Toronto Open Data portal (<a class="reference external" href="https://open.toronto.ca/dataset/neighbourhoods/">URL</a>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -454,7 +455,7 @@ document.write(`
 </div>
 </section>
 <section id="socio-economic-characteristics">
-<h3>Socio-economic characteristics<a class="headerlink" href="#socio-economic-characteristics" title="Permalink to this headline">#</a></h3>
+<h3>Socio-economic characteristics<a class="headerlink" href="#socio-economic-characteristics" title="Permalink to this heading">#</a></h3>
 <p>Also from the Toronto Open Data Portal, we use the <a class="reference external" href="https://open.toronto.ca/dataset/neighbourhood-profiles/">Neighbourhood Profiles</a> data product.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -524,7 +525,7 @@ document.write(`
 </div>
 </section>
 <section id="consolidation">
-<h3>Consolidation<a class="headerlink" href="#consolidation" title="Permalink to this headline">#</a></h3>
+<h3>Consolidation<a class="headerlink" href="#consolidation" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name_parser</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>\
@@ -577,7 +578,7 @@ memory usage: 26.4+ KB
 </div>
 </section>
 <section id="write-out">
-<h3>Write out<a class="headerlink" href="#write-out" title="Permalink to this headline">#</a></h3>
+<h3>Write out<a class="headerlink" href="#write-out" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>toronto_socio-economic.gpkg<span class="w"> </span>toronto_socio-economic_vars.csv
@@ -590,7 +591,7 @@ memory usage: 26.4+ KB
 </section>
 </section>
 <section id="toronto-yahoo-images">
-<h2>Toronto Yahoo images<a class="headerlink" href="#toronto-yahoo-images" title="Permalink to this headline">#</a></h2>
+<h2>Toronto Yahoo images<a class="headerlink" href="#toronto-yahoo-images" title="Permalink to this heading">#</a></h2>
 <p>This is a subsample of the <a class="reference external" href="http://projects.dfki.uni-kl.de/yfcc100m/">100 million Yahoo dataset</a> for the Toronto bounding box.</p>
 <p><strong>NOTE</strong> - The code below requires the dataset to be chunked in parquet files, and available to the notebook.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dask.dataframe</span> <span class="k">as</span> <span class="nn">dd</span>
@@ -628,7 +629,7 @@ memory usage: 26.4+ KB
 </div>
 </section>
 <section id="download-links">
-<h2>Download links<a class="headerlink" href="#download-links" title="Permalink to this headline">#</a></h2>
+<h2>Download links<a class="headerlink" href="#download-links" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference download internal" download="" href="../../_downloads/a2bdb4c2a088e602c3bd6490ab1d26fa/toronto_socio-economic.gpkg"><code class="xref download docutils literal notranslate"><span class="pre">[Download</span> <span class="pre">the</span> <span class="pre">socio-economic</span> <span class="pre">dataset</span> <span class="pre">for</span> <span class="pre">Toronto</span> <span class="pre">as</span> <span class="pre">a</span> <span class="pre">GeoPackage]</span></code></a></p></li>
 <li><p><a class="reference download internal" download="" href="../../_downloads/8944151f1b7df7b1f38b79b7a73eb2d0/toronto_socio-economic_vars.csv"><code class="xref download docutils literal notranslate"><span class="pre">[Download</span> <span class="pre">variable</span> <span class="pre">information</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">socio-economic</span> <span class="pre">dataset</span> <span class="pre">of</span> <span class="pre">Toronto</span> <span class="pre">as</span> <span class="pre">a</span> <span class="pre">csv]</span></code></a></p></li>

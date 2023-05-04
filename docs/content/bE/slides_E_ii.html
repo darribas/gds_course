@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title> &#8212; A course on Geographic Data Science</title>
   
@@ -45,6 +45,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -74,7 +75,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -390,9 +391,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<h1><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <section id="geographic-data-science">
-<h2>Geographic Data Science<a class="headerlink" href="#geographic-data-science" title="Permalink to this headline">#</a></h2>
+<h2>Geographic Data Science<a class="headerlink" href="#geographic-data-science" title="Permalink to this heading">#</a></h2>
 <CENTER>
 Types of $W$
 </CENTER>
@@ -402,9 +403,9 @@ Types of $W$
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="id2">
-<h1><a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h1>
+<h1><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h1>
 <section id="what-is-a-neighbor">
-<h2><em>What is a neighbor?</em><a class="headerlink" href="#what-is-a-neighbor" title="Permalink to this headline">#</a></h2>
+<h2><em>What is a neighbor?</em><a class="headerlink" href="#what-is-a-neighbor" title="Permalink to this heading">#</a></h2>
 <p>A neighbor is “somebody” who is:</p>
 <ul class="simple">
 <li><p>Next door <span class="fragment"> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <strong>Contiguity</strong>-based <span class="math notranslate nohighlight">\(W\)</span>s</p></li>
@@ -418,7 +419,7 @@ See [Anselin & Rey (2014)](http://www.amazon.com/Modern-Spatial-Econometrics-Pra
 </span>
 </section>
 <section id="contiguity-based-weights">
-<h2>Contiguity-based weights<a class="headerlink" href="#contiguity-based-weights" title="Permalink to this headline">#</a></h2>
+<h2>Contiguity-based weights<a class="headerlink" href="#contiguity-based-weights" title="Permalink to this heading">#</a></h2>
 <p><strong>Sharing boundaries</strong> to any extent</p>
 <ul class="simple">
 <li><p>Rook</p></li>
@@ -427,10 +428,10 @@ See [Anselin & Rey (2014)](http://www.amazon.com/Modern-Spatial-Econometrics-Pra
 </ul>
 </section>
 <section id="data-background-figs-l05-queen-png">
-<h2>{data-background=../figs/l05_queen.png}<a class="headerlink" href="#data-background-figs-l05-queen-png" title="Permalink to this headline">#</a></h2>
+<h2>{data-background=../figs/l05_queen.png}<a class="headerlink" href="#data-background-figs-l05-queen-png" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="distance-based-weights">
-<h2>Distance-based weights<a class="headerlink" href="#distance-based-weights" title="Permalink to this headline">#</a></h2>
+<h2>Distance-based weights<a class="headerlink" href="#distance-based-weights" title="Permalink to this heading">#</a></h2>
 <p>Weight is (inversely) proportional to distance between observations</p>
 <ul class="simple">
 <li><p>Inverse distance (threshold)</p></li>
@@ -439,10 +440,10 @@ See [Anselin & Rey (2014)](http://www.amazon.com/Modern-Spatial-Econometrics-Pra
 </ul>
 </section>
 <section id="data-background-figs-l05-dist-png">
-<h2>{data-background=..//figs/l05_dist.png}<a class="headerlink" href="#data-background-figs-l05-dist-png" title="Permalink to this headline">#</a></h2>
+<h2>{data-background=..//figs/l05_dist.png}<a class="headerlink" href="#data-background-figs-l05-dist-png" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="id3">
-<h2><a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<h2><a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <center>
 <img src="../figs/l05_queen.png" alt=""
 style="width:400px;height:400px;"/>
@@ -451,7 +452,7 @@ style="width:400px;height:400px;"/>
 </center>
 </section>
 <section id="block-weights">
-<h2>Block weights<a class="headerlink" href="#block-weights" title="Permalink to this headline">#</a></h2>
+<h2>Block weights<a class="headerlink" href="#block-weights" title="Permalink to this heading">#</a></h2>
 <p>Weights are assigned based on discretionary rules loosely related to geography</p>
 <p>For example:</p>
 <ul class="simple">
@@ -462,10 +463,10 @@ style="width:400px;height:400px;"/>
 </ul>
 </section>
 <section id="data-background-figs-l05-block-png">
-<h2>{data-background=../figs/l05_block.png}<a class="headerlink" href="#data-background-figs-l05-block-png" title="Permalink to this headline">#</a></h2>
+<h2>{data-background=../figs/l05_block.png}<a class="headerlink" href="#data-background-figs-l05-block-png" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="how-much-of-a-neighbor">
-<h2><em>How much of a neighbor?</em><a class="headerlink" href="#how-much-of-a-neighbor" title="Permalink to this headline">#</a></h2>
+<h2><em>How much of a neighbor?</em><a class="headerlink" href="#how-much-of-a-neighbor" title="Permalink to this heading">#</a></h2>
 <p>No neighbors receive zero weight: <span class="math notranslate nohighlight">\(w_{ij} = 0\)</span></p>
 <p>Neighbors, it depends, <span class="math notranslate nohighlight">\(w_{ij}\)</span> can be:</p>
 <ul class="simple">
@@ -480,7 +481,7 @@ style="width:400px;height:400px;"/>
 </ul>
 </section>
 <section id="choice-of-w">
-<h2>Choice of <span class="math notranslate nohighlight">\(W\)</span><a class="headerlink" href="#choice-of-w" title="Permalink to this headline">#</a></h2>
+<h2>Choice of <span class="math notranslate nohighlight">\(W\)</span><a class="headerlink" href="#choice-of-w" title="Permalink to this heading">#</a></h2>
 <p>Should be based on and reflect the <strong>underlying channels of interaction</strong> for
 the question at hand.</p>
 <p>Examples:</p>
@@ -492,7 +493,7 @@ Contiguity weights</p></li>
 </ul>
 </section>
 <section id="standardization">
-<h2>Standardization<a class="headerlink" href="#standardization" title="Permalink to this headline">#</a></h2>
+<h2>Standardization<a class="headerlink" href="#standardization" title="Permalink to this heading">#</a></h2>
 <p>In some applications (e.g. spatial autocorrelation) it is common to
 <em>standardize</em> <span class="math notranslate nohighlight">\(W\)</span></p>
 <p>The most widely used standardization is <strong>row-based</strong>: divide every element by the sum of
@@ -506,7 +507,7 @@ the row:</p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="id4">
-<h1><a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h1>
+<h1><a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h1>
 <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
 </section>
 

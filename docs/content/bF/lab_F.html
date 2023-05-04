@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Hands-on &#8212; A course on Geographic Data Science</title>
   
@@ -45,6 +45,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -76,7 +77,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Do-It-Yourself" href="diy_F.html" />
     <link rel="prev" title="Concepts" href="concepts_F.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -416,9 +417,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="hands-on">
-<h1>Hands-on<a class="headerlink" href="#hands-on" title="Permalink to this headline">#</a></h1>
+<h1>Hands-on<a class="headerlink" href="#hands-on" title="Permalink to this heading">#</a></h1>
 <section id="spatial-autocorrelation-and-exploratory-spatial-data-analysis">
-<h2>Spatial autocorrelation and Exploratory Spatial Data Analysis<a class="headerlink" href="#spatial-autocorrelation-and-exploratory-spatial-data-analysis" title="Permalink to this headline">#</a></h2>
+<h2>Spatial autocorrelation and Exploratory Spatial Data Analysis<a class="headerlink" href="#spatial-autocorrelation-and-exploratory-spatial-data-analysis" title="Permalink to this heading">#</a></h2>
 <p>Spatial autocorrelation has to do with the degree to which the similarity in values between observations in a dataset is related to the similarity in locations of such observations. Not completely unlike the traditional correlation between two variables -which informs us about how the values in one variable change as a function of those in the other- and analogous to its time-series counterpart -which relates the value of a variable at a given point in time with those in previous periods-, spatial autocorrelation relates the value of the variable of interest in a given location, with values of the same variable in surrounding locations.</p>
 <p>A key idea in this context is that of spatial randomness: a situation in which the location of an observation gives no information whatsoever about its value. In other words, a variable is spatially random if it is distributed following no discernible pattern over space. Spatial autocorrelation can thus be formally defined as the “absence of spatial randomness”, which gives room for two main classes of autocorrelation, similar to the traditional case: <em>positive</em> spatial autocorrelation, when similar values tend to group together in similar locations; and <em>negative</em> spatial autocorrelation, in cases where similar values tend to be dispersed and further apart from each other.</p>
 <p>In this session we will learn how to explore spatial autocorrelation in a given dataset, interrogating the data about its presence, nature, and strength. To do this, we will use a set of tools collectively known as Exploratory Spatial Data Analysis (ESDA), specifically designed for this purpose. The range of ESDA methods is very wide and spans from less sophisticated approaches like choropleths and general table querying, to more advanced and robust methodologies that include statistical inference and an explicit recognition of the geographical dimension of the data. The purpose of this session is to dip our toes into the latter group.</p>
@@ -443,7 +444,7 @@ document.write(`
 </div>
 </section>
 <section id="data">
-<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h2>
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h2>
 <p>For this session, we will use the results of the 2016 referendum vote to leave the EU, at the local authority level. In particular, we will focus on the spatial distribution of the vote to Leave, which ended up winning. From a technical point of view, you will be working with polygons which have a value (the percentage of the electorate that voted to Leave the EU) attached to them.</p>
 <p>All the necessary data have been assembled for convenience in a single file that contains geographic information about each local authority in England, Wales and Scotland, as well as the vote attributes. The file is in the geospatial format <a class="reference external" href="http://www.geopackage.org/">GeoPackage</a>, which presents several advantages over the more traditional shapefile (chief among them, the need of a single file instead of several). The file is available as a download from the course website.</p>
 <aside class="margin sidebar">
@@ -510,7 +511,7 @@ memory usage: 17.8+ KB
 </div>
 </section>
 <section id="preparing-the-data">
-<h2>Preparing the data<a class="headerlink" href="#preparing-the-data" title="Permalink to this headline">#</a></h2>
+<h2>Preparing the data<a class="headerlink" href="#preparing-the-data" title="Permalink to this heading">#</a></h2>
 <p>Let’s get a first view of the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -527,7 +528,7 @@ memory usage: 17.8+ KB
 </div>
 </div>
 <section id="spatial-weights-matrix">
-<h3>Spatial weights matrix<a class="headerlink" href="#spatial-weights-matrix" title="Permalink to this headline">#</a></h3>
+<h3>Spatial weights matrix<a class="headerlink" href="#spatial-weights-matrix" title="Permalink to this heading">#</a></h3>
 <p>As discused before, a spatial weights matrix is the way geographical space is formally encoded into a numerical form so it is easy for a computer (or a statistical method) to understand. We have seen already many of the conceptual ways in which we can define a spatial weights matrix, such as contiguity, distance-based, or block.</p>
 <p>For this example, we will show how to build a queen contiguity matrix, which considers two observations as neighbors if they share at least one point of their boundary. In other words, for a pair of local authorities in the dataset to be considered neighbours under this <span class="math notranslate nohighlight">\(W\)</span>, they will need to be sharing border or, in other words, “touching” each other to some degree.</p>
 <p>Technically speaking, we will approach building the contiguity matrix in the same way we did in Lab 5. We will begin with a <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> and pass it on to the queen contiguity weights builder in <code class="docutils literal notranslate"><span class="pre">PySAL</span></code> (<code class="docutils literal notranslate"><span class="pre">ps.weights.Queen.from_dataframe</span></code>). We will also make sure our table of data is previously indexed on the local authority code, so the <span class="math notranslate nohighlight">\(W\)</span> is also indexed on that form.</p>
@@ -628,7 +629,7 @@ Wall time: 2.15 s
 </div>
 </section>
 <section id="spatial-lag">
-<h3>Spatial lag<a class="headerlink" href="#spatial-lag" title="Permalink to this headline">#</a></h3>
+<h3>Spatial lag<a class="headerlink" href="#spatial-lag" title="Permalink to this heading">#</a></h3>
 <p>Once we have the data and the spatial weights matrix ready, we can start by computing the spatial lag of the percentage of votes that went to leave the EU. Remember the spatial lag is the product of the spatial weights matrix and a given variable and that, if <span class="math notranslate nohighlight">\(W\)</span> is row-standardized, the result amounts to the average value of the variable in the neighborhood of each observation.</p>
 <p>We can calculate the spatial lag for the variable <code class="docutils literal notranslate"><span class="pre">Pct_Leave</span></code> and store it directly in the main table with the following line of code:</p>
 <div class="cell docutils container">
@@ -774,10 +775,10 @@ Name: Pct_Leave, dtype: float64
 </section>
 </section>
 <section id="global-spatial-autocorrelation">
-<h2>Global Spatial autocorrelation<a class="headerlink" href="#global-spatial-autocorrelation" title="Permalink to this headline">#</a></h2>
+<h2>Global Spatial autocorrelation<a class="headerlink" href="#global-spatial-autocorrelation" title="Permalink to this heading">#</a></h2>
 <p>Global spatial autocorrelation relates to the overall geographical pattern present in the data. Statistics designed to measure this trend thus characterize a map in terms of its degree of clustering and summarize it. This summary can be visual or numerical. In this section, we will walk through an example of each of them: the Moran Plot, and Moran’s I statistic of spatial autocorrelation.</p>
 <section id="moran-plot">
-<h3>Moran Plot<a class="headerlink" href="#moran-plot" title="Permalink to this headline">#</a></h3>
+<h3>Moran Plot<a class="headerlink" href="#moran-plot" title="Permalink to this heading">#</a></h3>
 <p>The moran plot is a way of visualizing a spatial dataset to explore the nature and strength of spatial autocorrelation. It is essentially a traditional scatter plot in which the variable of interest is displayed against its spatial lag. In order to be able to interpret values as above or below the mean, and their quantities in terms of standard deviations, the variable of interest is usually standardized by substracting its mean and dividing it by its standard deviation.</p>
 <p>Technically speaking, creating a Moran Plot is very similar to creating any other scatter plot in Python, provided we have standardized the variable and calculated its spatial lag beforehand:</p>
 <div class="cell docutils container">
@@ -803,7 +804,7 @@ Name: Pct_Leave, dtype: float64
 <p>In the context of the example, this can be interpreted along the lines of: local authorities display positive spatial autocorrelation in the way they voted in the EU referendum. This means that local authorities with high percentage of Leave voters tend to be located nearby other local authorities where a significant share of the electorate also voted to Leave, and viceversa.</p>
 </section>
 <section id="moran-s-i">
-<h3>Moran’s I<a class="headerlink" href="#moran-s-i" title="Permalink to this headline">#</a></h3>
+<h3>Moran’s I<a class="headerlink" href="#moran-s-i" title="Permalink to this heading">#</a></h3>
 <p>The Moran Plot is an excellent tool to explore the data and get a good sense of how much values are clustered over space. However, because it is a graphical device, it is sometimes hard to condense its insights into a more concise way. For these cases, a good approach is to come up with a statistical measure that summarizes the figure. This is exactly what Moran’s I is meant to do.</p>
 <p>Very much in the same way the mean summarizes a crucial element of the distribution of values in a non-spatial setting, so does Moran’s I for a spatial dataset. Continuing the comparison, we can think of the mean as a single numerical value summarizing a histogram or a kernel density plot. Similarly, Moran’s I captures much of the essence of the Moran Plot. In fact, there is an even close connection between the two: the value of Moran’s I corresponds with the slope of the linear fit overlayed on top of the Moran Plot.</p>
 <p>In order to calculate Moran’s I in our dataset, we can call a specific function in <code class="docutils literal notranslate"><span class="pre">PySAL</span></code> directly:</p>
@@ -859,7 +860,7 @@ Name: Pct_Leave, dtype: float64
 </section>
 </section>
 <section id="local-spatial-autocorrelation">
-<h2>Local Spatial autocorrelation<a class="headerlink" href="#local-spatial-autocorrelation" title="Permalink to this headline">#</a></h2>
+<h2>Local Spatial autocorrelation<a class="headerlink" href="#local-spatial-autocorrelation" title="Permalink to this heading">#</a></h2>
 <p>Moran’s I is good tool to summarize a dataset into a single value that informs about its degree of <em>clustering</em>. However, it is not an appropriate measure to identify areas within the map where specific values are located. In other words, Moran’s I can tell us values are clustered overall, but it will not inform us about <em>where</em> the clusters are. For that purpose, we need to use a <em>local</em> measure of spatial autocorrelation. Local measures consider each single observation in a dataset and operate on them, as oposed to on the overall data, as <em>global</em> measures do. Because of that, they are not good a summarizing a map, but they allow to obtain further insight.</p>
 <p>In this session, we will consider <a class="reference external" href="http://onlinelibrary.wiley.com/doi/10.1111/j.1538-4632.1995.tb00338.x/abstract">Local Indicators of Spatial Association</a> (LISAs), a local counter-part of global measures like Moran’s I. At the core of these method is a classification of the observations in a dataset into four groups derived from the Moran Plot: high values surrounded by high values (HH), low values nearby other low values (LL), high values among low values (HL), and viceversa (LH). Each of these groups are typically called “quadrants”. An illustration of where each of these groups fall into the Moran Plot can be seen below:</p>
 <div class="cell docutils container">

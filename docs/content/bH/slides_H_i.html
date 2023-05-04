@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title> &#8212; A course on Geographic Data Science</title>
   
@@ -45,6 +45,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -72,7 +73,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -392,9 +393,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<h1><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <section id="geographic-data-science">
-<h2>Geographic Data Science<a class="headerlink" href="#geographic-data-science" title="Permalink to this headline">#</a></h2>
+<h2>Geographic Data Science<a class="headerlink" href="#geographic-data-science" title="Permalink to this heading">#</a></h2>
 <CENTER>
 Point Patterns
 </CENTER>
@@ -404,12 +405,12 @@ Point Patterns
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="id2">
-<h1><a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h1>
+<h1><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h1>
 <section id="the-point-of-points">
-<h2>The <em>point</em> of points<a class="headerlink" href="#the-point-of-points" title="Permalink to this headline">#</a></h2>
+<h2>The <em>point</em> of points<a class="headerlink" href="#the-point-of-points" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="points-like-polygons">
-<h2>Points like polygons<a class="headerlink" href="#points-like-polygons" title="Permalink to this headline">#</a></h2>
+<h2>Points like polygons<a class="headerlink" href="#points-like-polygons" title="Permalink to this heading">#</a></h2>
 <p>Points <em>can</em> represent <strong>“fixed” entities</strong></p>
 <span class='fragment'>
 In this case, points are **qualitatively** similar to **polygons/lines**
@@ -418,7 +419,7 @@ The **goal** here is, taking location fixed, to model other aspects of the
 data
 </section>
 <section id="id3">
-<h2>Points like polygons<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<h2>Points like polygons<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <p>Examples:</p>
 <ul>
 <li> Cities (in most cases) </li>
@@ -428,13 +429,13 @@ data
 </ul>
 </section>
 <section id="when-points-are-not-polygons">
-<h2>When points are not polygons<a class="headerlink" href="#when-points-are-not-polygons" title="Permalink to this headline">#</a></h2>
+<h2>When points are not polygons<a class="headerlink" href="#when-points-are-not-polygons" title="Permalink to this heading">#</a></h2>
 <p>Point data are not only a different geometry than polygons or lines…</p>
 <span class="fragment">
 ... Points can also represent a fundamentally different way to approach spatial analysis
 </section>
 <section id="points-unlike-polygons">
-<h2>Points unlike polygons<a class="headerlink" href="#points-unlike-polygons" title="Permalink to this headline">#</a></h2>
+<h2>Points unlike polygons<a class="headerlink" href="#points-unlike-polygons" title="Permalink to this heading">#</a></h2>
 <ul>
 <li class="fragment current-visible">  Rather than exhausting the entire space, points can be **events** subject to
   **occur anywhere** </li>
@@ -444,27 +445,27 @@ that the points follow **over space**
 </ul>
 </section>
 <section id="a-few-examples">
-<h2>A few examples…<a class="headerlink" href="#a-few-examples" title="Permalink to this headline">#</a></h2>
+<h2>A few examples…<a class="headerlink" href="#a-few-examples" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="data-background-figs-l09-crime-png">
-<h2>{data-background=../figs/l09_crime.png}<a class="headerlink" href="#data-background-figs-l09-crime-png" title="Permalink to this headline">#</a></h2>
+<h2>{data-background=../figs/l09_crime.png}<a class="headerlink" href="#data-background-figs-l09-crime-png" title="Permalink to this heading">#</a></h2>
 <p>[<a class="reference external" href="http://www.crimemapping.com/map.aspx?aid=3db8cf99-a73b-46d2-b218-bd24cf491577">Source</a>]</p>
 </section>
 <section id="data-background-figs-l09-trees-png">
-<h2>{data-background=../figs/l09_trees.png}<a class="headerlink" href="#data-background-figs-l09-trees-png" title="Permalink to this headline">#</a></h2>
+<h2>{data-background=../figs/l09_trees.png}<a class="headerlink" href="#data-background-figs-l09-trees-png" title="Permalink to this heading">#</a></h2>
 <p>[<a class="reference external" href="http://jillhubley.com/project/nyctrees/">Source</a>]</p>
 </section>
 <section id="data-background-figs-locals-png-data-background-size-contain">
-<h2>{data-background=../figs/locals.png data-background-size=contain}<a class="headerlink" href="#data-background-figs-locals-png-data-background-size-contain" title="Permalink to this headline">#</a></h2>
+<h2>{data-background=../figs/locals.png data-background-size=contain}<a class="headerlink" href="#data-background-figs-locals-png-data-background-size-contain" title="Permalink to this heading">#</a></h2>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="id4">
-<h1><a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h1>
+<h1><a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h1>
 <section id="point-patterns">
-<h2>Point patterns<a class="headerlink" href="#point-patterns" title="Permalink to this headline">#</a></h2>
+<h2>Point patterns<a class="headerlink" href="#point-patterns" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="id5">
-<h2>Point patterns<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<h2>Point patterns<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
 <p>Distribution of <strong>points over</strong> a portion of <strong>space</strong></p>
 <p>Assumption is a point can happen anywhere on that space, but only happens in
 specific locations</p>
@@ -474,7 +475,7 @@ specific locations</p>
 </div>
 </section>
 <section id="id6">
-<h2><a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<h2><a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
 <p><strong><code class="docutils literal notranslate"><span class="pre">Point</span> <span class="pre">Pattern</span> <span class="pre">Analysis</span></code></strong></p>
 <p>Describe, characterize, and explain point patterns, focusing on their <strong>generating process</strong></p>
 <ul class="simple">
@@ -485,7 +486,7 @@ specific locations</p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="id7">
-<h1><a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h1>
+<h1><a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h1>
 <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">A course on Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
 </section>
 
