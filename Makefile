@@ -1,4 +1,6 @@
 .PHONY: all website
+leftparen:=(
+rightparen:=)
 
 # Run for example as: `make slide block=A no=i`
 slide:
@@ -35,6 +37,9 @@ pdf:
 	# list folders with notebooks here. Notebooks must be present in _toc.yml.
 	cp -r content website/
 	# Build
+    ## Trick from: https://github.com/executablebooks/jupyter-book/issues/593#issuecomment-737770758
+	sed -i "s/self._defaultNavigationTimeout = 30000/self._defaultNavigationTimeout = 30000000000/" \
+        /opt/conda/lib/python3.10/site-packages/pyppeteer/page.py
 	jupyter-book build website/ --builder pdfhtml
 	# Move over to docs
 	mv website/_build/pdf/book.pdf content/gds_course.pdf
